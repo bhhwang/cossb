@@ -1,8 +1,9 @@
-/*
- * version.hpp
- *
- * Author : Byunghun Hwang<bhhwang@nsynapse.com>
- * Date : 2015. 6. 9
+/**
+ * @file		version.hpp
+ * @brief		Software Version Header
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 6. 9
+ * @details
  */
 
 #ifndef _COSSB_VERSION_HPP_
