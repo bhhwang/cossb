@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cossb_2ehpp',['cossb.hpp',['../cossb_8hpp.html',1,'']]],
   ['cossb_5fversion',['COSSB_VERSION',['../version_8hpp.html#a19e84d161aab6f58beb44ff4b3b7082a',1,'version.hpp']]],
   ['cossb_5fversion_5fmajor',['COSSB_VERSION_MAJOR',['../version_8hpp.html#ad4471b132ffbd3c3ef43967b452eefce',1,'version.hpp']]],
   ['cossb_5fversion_5fminor',['COSSB_VERSION_MINOR',['../version_8hpp.html#aae1d764abec9bab80a51a3c68fa13843',1,'version.hpp']]],
