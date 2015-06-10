@@ -14,11 +14,25 @@
 
 #include <iostream>
 #include <csignal>
+#include <unistd.h>
 #include "cossb.hpp"
 
 using namespace std;
 
-void sigc_interrupt(int s) { exit(0); }
+/**
+ * @brief	destroy main instance
+ * @details	It will be called by SIGINT signal
+ */
+void destroy()
+{
+
+}
+
+/**
+ * @brief	SIGINT signal callback function
+ * @details	Stop all services and destroy all instances
+ */
+void sigc_interrupt(int param) { destroy();	exit(0); }
 
 /**
  * @brief	Main routine
@@ -28,5 +42,8 @@ void sigc_interrupt(int s) { exit(0); }
 int main(int argc, char* argv[])
 {
 	signal(SIGINT, sigc_interrupt);
+
+	pause();
+
 	return 0;
 }
