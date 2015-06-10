@@ -15,22 +15,24 @@ LDFLAGS = -Wl,--export-dynamic
 LDLIBS = 
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
+TARGET = engine
 
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
+all: $(TARGET)
+
 # Make COSBB Engine
 engine: $(OUTDIR)engine.o 
-	$(CXX) $(LDFLAGS) -o $(OUTDIR)engine $(OUTDIR)engine.o
+	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^
 
 
-# Make COSSB Engine object
+# compile cossb engine
 $(OUTDIR)engine.o: ./cbengine/engine.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c ./cbengine/engine.cpp -o $(OUTDIR)engine.o
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-
 
 # Clean
 clean: 
-	$(RM) $(O_FILES) $(OUTDIR)engine
+	$(RM) $(OUTDIR)*.o $(OUTDIR)engine
