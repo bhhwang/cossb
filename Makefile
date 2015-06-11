@@ -12,7 +12,7 @@ CXX = g++
 CXXFLAGS = -O3 -g3 -fPIC -Wall -std=c++11 -D__cplusplus=201103L
 CCFLAGS = $(CXXFLAGS)
 LDFLAGS = -Wl,--export-dynamic
-LDLIBS = 
+LDLIBS = -lpopt
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
 
@@ -22,7 +22,7 @@ O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
 engine: $(OUTDIR)engine.o 
-	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^
+	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 
 # compile cossb engine
