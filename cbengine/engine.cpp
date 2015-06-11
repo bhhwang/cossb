@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <csignal>
+#include <cstdlib>
 #include <unistd.h>
 #include "cossb.hpp"
 
