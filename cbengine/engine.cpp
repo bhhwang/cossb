@@ -16,6 +16,8 @@
 #include <csignal>
 #include <cstdlib>
 #include <unistd.h>
+#include <popt.h>
+
 #include "cossb.hpp"
 
 using namespace std;
@@ -44,7 +46,55 @@ int main(int argc, char* argv[])
 {
 	signal(SIGINT, sigc_interrupt);
 
-	pause();
+	char* config_file = nullptr;
+	struct poptOption optionTable[] = {
+			{"version", 'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
+			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open config file", "XML Config file"},
+			POPT_AUTOHELP
+			POPT_TABLEEND
+	};
+	poptContext optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
+	poptSetOtherOptionHelp(optionCon, "<option>");
+
+	if(argc<2)
+	{
+		destroy();
+		exit(0);
+	}
+
+	int opt = 0;
+	while((opt = poptGetNextOpt(optionCon))>=0)
+	{
+		switch(opt)
+		{
+		// install components
+		case 'v':
+		{
+			//print out version
+
+		} break;
+
+		case 'c':
+		{
+			string config_file = (const char*)poptGetOptArg(optionCon);
+		}
+			break;
+
+		}
+	}
+
+	if (opt<-1)
+	{
+		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
+		destroy();
+		exit(0);
+	}
+
+	//notice, this function affects the checking memory leak, especially when you are using valgrind.
+	poptFreeContext(optionCon);
+
+	destroy();
+	exit(0);
 
 	return 0;
 }
