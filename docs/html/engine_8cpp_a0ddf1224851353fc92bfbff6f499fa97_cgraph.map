@@ -1,3 +1,4 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$engine_8cpp.html#af69ebd2c33d4eab3c1e3d5a2b7f6170e" title="sigc_interrupt" alt="" coords="105,5,205,32"/>
+<area shape="rect" id="node2" href="$engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="105,5,205,32"/>
+<area shape="rect" id="node3" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy main instance " alt="" coords="254,31,319,57"/>
 </map>

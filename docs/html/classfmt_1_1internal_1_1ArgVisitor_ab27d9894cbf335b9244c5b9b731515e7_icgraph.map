@@ -1,0 +1,4 @@
+<map id="fmt::internal::ArgVisitor::visit_any_double" name="fmt::internal::ArgVisitor::visit_any_double">
+<area shape="rect" id="node2" href="$classfmt_1_1internal_1_1ArgVisitor.html#afff24f17c6de0321f7159273e2f32d52" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_double" alt="" coords="227,5,421,61"/>
+<area shape="rect" id="node3" href="$classfmt_1_1internal_1_1ArgVisitor.html#a2256d2882cf58aa73bcfa6b03b5f709d" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_long_double" alt="" coords="211,85,437,141"/>
+</map>

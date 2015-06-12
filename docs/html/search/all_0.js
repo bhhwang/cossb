@@ -1,11 +1,25 @@
 var searchData=
 [
-  ['cossb_2ehpp',['cossb.hpp',['../cossb_8hpp.html',1,'']]],
-  ['cossb_5fversion',['COSSB_VERSION',['../version_8hpp.html#a19e84d161aab6f58beb44ff4b3b7082a',1,'version.hpp']]],
-  ['cossb_5fversion_5fmajor',['COSSB_VERSION_MAJOR',['../version_8hpp.html#ad4471b132ffbd3c3ef43967b452eefce',1,'version.hpp']]],
-  ['cossb_5fversion_5fminor',['COSSB_VERSION_MINOR',['../version_8hpp.html#aae1d764abec9bab80a51a3c68fa13843',1,'version.hpp']]],
-  ['cossb_5fversion_5frev',['COSSB_VERSION_REV',['../version_8hpp.html#a612899b5ecb63fedff55b5d5a0c08c18',1,'version.hpp']]],
-  ['cossb_5fversion_5fset',['COSSB_VERSION_SET',['../version_8hpp.html#a87a9e35ad5f563ae6010a151daa034a6',1,'version.hpp']]],
-  ['cossb_28component_2dbased_20open_20_26_20simple_20service_20broker_29',['COSSB(Component-based Open &amp; Simple Service Broker)',['../index.html',1,'']]],
-  ['cossb',['cossb',['../md_README.html',1,'']]]
+  ['align',['align',['../structfmt_1_1TypeSpec.html#a0914257da0a346d13c256f345a6563ad',1,'fmt::TypeSpec::align()'],['../structfmt_1_1AlignSpec.html#abd14faffccf107e6e01bbd014e69262c',1,'fmt::AlignSpec::align()']]],
+  ['align_5f',['align_',['../structfmt_1_1AlignSpec.html#aac93fb3829d550af86479f1ecaa73f95',1,'fmt::AlignSpec']]],
+  ['align_5fcenter',['ALIGN_CENTER',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2ab9fa8e7eb41061a7670d4d8b43007f23',1,'fmt']]],
+  ['align_5fdefault',['ALIGN_DEFAULT',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a63e66a16a075b0b22e5fae027892057f',1,'fmt']]],
+  ['align_5fleft',['ALIGN_LEFT',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a37d3391e09dceceb0e75094f691b02eb',1,'fmt']]],
+  ['align_5fnumeric',['ALIGN_NUMERIC',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a93f62fb67b1cbabf62cab3185bb5f4e3',1,'fmt']]],
+  ['align_5fright',['ALIGN_RIGHT',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2ab4ab67c39e6d8562a116f3da83de391a',1,'fmt']]],
+  ['alignment',['Alignment',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2',1,'fmt']]],
+  ['alignspec',['AlignSpec',['../structfmt_1_1AlignSpec.html',1,'fmt']]],
+  ['alignspec',['AlignSpec',['../structfmt_1_1AlignSpec.html#a7912b22ed62be96be0b9088b629f728c',1,'fmt::AlignSpec']]],
+  ['aligntypespec',['AlignTypeSpec',['../structfmt_1_1AlignTypeSpec.html',1,'fmt']]],
+  ['aligntypespec',['AlignTypeSpec',['../structfmt_1_1AlignTypeSpec.html#a8140ef8fb8153a445ab7975fa2c30525',1,'fmt::AlignTypeSpec']]],
+  ['append',['append',['../classfmt_1_1internal_1_1Buffer.html#aee7f72201304a9f52c68913eea98b373',1,'fmt::internal::Buffer']]],
+  ['arg',['Arg',['../structfmt_1_1internal_1_1Arg.html',1,'fmt::internal']]],
+  ['argformatter',['ArgFormatter',['../classfmt_1_1internal_1_1ArgFormatter.html',1,'fmt::internal']]],
+  ['argformatter',['ArgFormatter',['../classfmt_1_1internal_1_1ArgFormatter.html#a6f480685dcab6ccd81faaf32b070f3a0',1,'fmt::internal::ArgFormatter']]],
+  ['arglist',['ArgList',['../classfmt_1_1ArgList.html#a101b2481cabed1199eeb4c98c9c18c4a',1,'fmt::ArgList::ArgList()'],['../classfmt_1_1ArgList.html#a02125120a594f45fdad426ef003aa342',1,'fmt::ArgList::ArgList(ULongLong types, const internal::Value *values)']]],
+  ['arglist',['ArgList',['../classfmt_1_1ArgList.html',1,'fmt']]],
+  ['argtype',['ArgType',['../structfmt_1_1internal_1_1ArgType.html#af18fdbe0560a1b7ada9a698cc8b0cb70',1,'fmt::internal::ArgType::ArgType()'],['../structfmt_1_1internal_1_1ArgType.html#a011f9d3d3e6da48d17967466c3d94fc8',1,'fmt::internal::ArgType::ArgType(const T &amp;arg)']]],
+  ['argtype',['ArgType',['../structfmt_1_1internal_1_1ArgType.html',1,'fmt::internal']]],
+  ['argvisitor',['ArgVisitor',['../classfmt_1_1internal_1_1ArgVisitor.html',1,'fmt::internal']]],
+  ['argvisitor_3c_20fmt_3a_3ainternal_3a_3aargformatter_3c_20char_20_3e_2c_20void_20_3e',['ArgVisitor&lt; fmt::internal::ArgFormatter&lt; Char &gt;, void &gt;',['../classfmt_1_1internal_1_1ArgVisitor.html',1,'fmt::internal']]]
 ];

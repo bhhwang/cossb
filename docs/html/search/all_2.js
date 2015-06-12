@@ -1,4 +1,28 @@
 var searchData=
 [
-  ['main',['main',['../engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'engine.cpp']]]
+  ['c_5fstr',['c_str',['../classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad',1,'fmt::BasicStringRef::c_str()'],['../classfmt_1_1BasicWriter.html#a8b68001f5c1c0ea851ddaef27dcbc691',1,'fmt::BasicWriter::c_str()'],['../classfmt_1_1FormatInt.html#a58a17394f4f8e63debb91b90aa0dea0c',1,'fmt::FormatInt::c_str()']]],
+  ['capacity',['capacity',['../classfmt_1_1internal_1_1Buffer.html#a1997ec7f69c560341c56ce517febdda5',1,'fmt::internal::Buffer']]],
+  ['capacity_5f',['capacity_',['../classfmt_1_1internal_1_1Buffer.html#a95bab9a67358ae9a0bbb15f3273ca0b5',1,'fmt::internal::Buffer']]],
+  ['char',['Char',['../classfmt_1_1SystemError.html#a5b10a8e6d426d0d8768944622a52ae51',1,'fmt::SystemError::Char()'],['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cdddad7db4cf86536656e04efc02d16e018b6',1,'fmt::internal::Arg::CHAR()']]],
+  ['char_5fflag',['CHAR_FLAG',['../namespacefmt.html#ac14c51c5c796819e98c600fd04a2fdbea59699c6d9db5a05403ebc3528e5f0694',1,'fmt']]],
+  ['charptr',['CharPtr',['../classfmt_1_1internal_1_1BasicCharTraits.html#a32f5cad709328e0450b8690960d6b8b5',1,'fmt::internal::BasicCharTraits']]],
+  ['chartraits',['CharTraits',['../classfmt_1_1internal_1_1CharTraits.html',1,'fmt::internal']]],
+  ['chartraits_3c_20char_20_3e',['CharTraits&lt; char &gt;',['../classfmt_1_1internal_1_1CharTraits_3_01char_01_4.html',1,'fmt::internal']]],
+  ['chartraits_3c_20wchar_5ft_20_3e',['CharTraits&lt; wchar_t &gt;',['../classfmt_1_1internal_1_1CharTraits_3_01wchar__t_01_4.html',1,'fmt::internal']]],
+  ['clear',['clear',['../classfmt_1_1internal_1_1Buffer.html#a89236f53d7b5ecf5745da13abd9d14cd',1,'fmt::internal::Buffer::clear()'],['../classfmt_1_1BasicWriter.html#aa5b6f4dd01854cbc3ebf06a7f2fce713',1,'fmt::BasicWriter::clear()']]],
+  ['color',['Color',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8a',1,'fmt']]],
+  ['convert',['convert',['../classfmt_1_1internal_1_1CharTraits_3_01char_01_4.html#a4503977c29c6347f94b829728c42997c',1,'fmt::internal::CharTraits&lt; char &gt;::convert()'],['../classfmt_1_1internal_1_1CharTraits_3_01wchar__t_01_4.html#aca94c09c993fa75d2a518d519f6fc177',1,'fmt::internal::CharTraits&lt; wchar_t &gt;::convert(char value)'],['../classfmt_1_1internal_1_1CharTraits_3_01wchar__t_01_4.html#adbfb38618bd648c3fb4220071d433093',1,'fmt::internal::CharTraits&lt; wchar_t &gt;::convert(wchar_t value)']]],
+  ['cossb_2ehpp',['cossb.hpp',['../cossb_8hpp.html',1,'']]],
+  ['cossb_5fversion',['COSSB_VERSION',['../version_8hpp.html#a19e84d161aab6f58beb44ff4b3b7082a',1,'version.hpp']]],
+  ['cossb_5fversion_5fmajor',['COSSB_VERSION_MAJOR',['../version_8hpp.html#ad4471b132ffbd3c3ef43967b452eefce',1,'version.hpp']]],
+  ['cossb_5fversion_5fminor',['COSSB_VERSION_MINOR',['../version_8hpp.html#aae1d764abec9bab80a51a3c68fa13843',1,'version.hpp']]],
+  ['cossb_5fversion_5frev',['COSSB_VERSION_REV',['../version_8hpp.html#a612899b5ecb63fedff55b5d5a0c08c18',1,'version.hpp']]],
+  ['cossb_5fversion_5fset',['COSSB_VERSION_SET',['../version_8hpp.html#a87a9e35ad5f563ae6010a151daa034a6',1,'version.hpp']]],
+  ['count_5fdigits',['count_digits',['../namespacefmt_1_1internal.html#abfe52e52001fd2590fb2015cefe95e18',1,'fmt::internal']]],
+  ['cstring',['CSTRING',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cddda09ba4bf68b221d096bf9d2ed25a6517e',1,'fmt::internal::Arg']]],
+  ['custom',['custom',['../structfmt_1_1internal_1_1Value.html#a2dcff1e0ac8f7fb7fc6dd448d66978cf',1,'fmt::internal::Value::custom()'],['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cdddacd57ea318f44052691cd04ab985fe276',1,'fmt::internal::Arg::CUSTOM()']]],
+  ['customvalue',['CustomValue',['../structfmt_1_1internal_1_1Value_1_1CustomValue.html',1,'fmt::internal::Value']]],
+  ['cyan',['CYAN',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8aafba5572a5e7dded26e35568f3fc36599',1,'fmt']]],
+  ['cossb_28component_2dbased_20open_20_26_20simple_20service_20broker_29',['COSSB(Component-based Open &amp; Simple Service Broker)',['../index.html',1,'']]],
+  ['cossb',['cossb',['../md_README.html',1,'']]]
 ];

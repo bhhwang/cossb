@@ -1,0 +1,7 @@
+<map id="fmt::internal::ArgVisitor::visit_any_int" name="fmt::internal::ArgVisitor::visit_any_int">
+<area shape="rect" id="node2" href="$classfmt_1_1internal_1_1ArgVisitor.html#a8b75e66b96ae41d6f8efd7a8b786f3ed" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_int" alt="" coords="227,5,413,61"/>
+<area shape="rect" id="node3" href="$classfmt_1_1internal_1_1ArgVisitor.html#afb632e978ffad833e10d92df5543ee50" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_long_long" alt="" coords="214,85,426,141"/>
+<area shape="rect" id="node4" href="$classfmt_1_1internal_1_1ArgVisitor.html#acb23b417f635c2039dcd5bd7ef8c5c5e" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_uint" alt="" coords="227,165,413,221"/>
+<area shape="rect" id="node5" href="$classfmt_1_1internal_1_1ArgVisitor.html#a473849beb62070e1267985131fd2a9fa" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_ulong_long" alt="" coords="211,245,429,301"/>
+<area shape="rect" id="node6" href="$classfmt_1_1internal_1_1ArgVisitor.html#a1afe155c5183d469cef53d3a5352b77c" title="fmt::internal::ArgVisitor\l\&lt; fmt::internal::ArgFormatter\l\&lt; Char \&gt;, void \&gt;::visit_char" alt="" coords="227,325,413,381"/>
+</map>

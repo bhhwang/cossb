@@ -1,0 +1,5 @@
+<map id="fmt::BasicWriter::write_str" name="fmt::BasicWriter::write_str">
+<area shape="rect" id="node2" href="$structfmt_1_1WidthSpec.html#ad6624ee681712f695f133ba2e9d9ce36" title="fmt::WidthSpec::width" alt="" coords="229,5,381,32"/>
+<area shape="rect" id="node3" href="$structfmt_1_1WidthSpec.html#a28a9b78a0ebfd5830025eaf1c917bb16" title="fmt::WidthSpec::fill" alt="" coords="238,56,373,83"/>
+<area shape="rect" id="node4" href="$structfmt_1_1AlignSpec.html#abd14faffccf107e6e01bbd014e69262c" title="fmt::AlignSpec::align" alt="" coords="234,107,377,133"/>
+</map>

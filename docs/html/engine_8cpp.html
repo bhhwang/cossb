@@ -38,6 +38,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,26 +93,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;csignal&gt;</code><br/>
+<code>#include &lt;cstdlib&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
+<code>#include &lt;popt.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="cossb_8hpp_source.html">cossb.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for engine.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="engine_8cpp__incl.png" border="0" usemap="#engine_8cpp" alt=""/></div>
 <map name="engine_8cpp" id="engine_8cpp">
-<area shape="rect" id="node4" href="cossb_8hpp.html" title="COSSB Header. " alt="" coords="189,80,271,107"/></map>
+<area shape="rect" id="node7" href="cossb_8hpp.html" title="COSSB Header. " alt="" coords="448,80,529,107"/></map>
 </div>
 </div>
 <p><a href="engine_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af69ebd2c33d4eab3c1e3d5a2b7f6170e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#af69ebd2c33d4eab3c1e3d5a2b7f6170e">sigc_interrupt</a> (int s)</td></tr>
-<tr class="separator:af69ebd2c33d4eab3c1e3d5a2b7f6170e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a80b6032f86a56bec74609034b3246f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a> ()</td></tr>
+<tr class="memdesc:a3a80b6032f86a56bec74609034b3246f"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy main instance  <a href="#a3a80b6032f86a56bec74609034b3246f">More...</a><br/></td></tr>
+<tr class="separator:a3a80b6032f86a56bec74609034b3246f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2748077e5eef67276e8171e525009a6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a2748077e5eef67276e8171e525009a6f">sigc_interrupt</a> (int param)</td></tr>
+<tr class="memdesc:a2748077e5eef67276e8171e525009a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">SIGINT signal callback function.  <a href="#a2748077e5eef67276e8171e525009a6f">More...</a><br/></td></tr>
+<tr class="separator:a2748077e5eef67276e8171e525009a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main routine.  <a href="#a0ddf1224851353fc92bfbff6f499fa97">More...</a><br/></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3a80b6032f86a56bec74609034b3246f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>destroy main instance </p>
+<p>It will be called by SIGINT signal </p>
+
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00029">29</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="engine_8cpp_a3a80b6032f86a56bec74609034b3246f_icgraph.png" border="0" usemap="#engine_8cpp_a3a80b6032f86a56bec74609034b3246f_icgraph" alt=""/></div>
+<map name="engine_8cpp_a3a80b6032f86a56bec74609034b3246f_icgraph" id="engine_8cpp_a3a80b6032f86a56bec74609034b3246f_icgraph">
+<area shape="rect" id="node2" href="engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="121,5,221,32"/><area shape="rect" id="node3" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="269,31,320,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
@@ -144,20 +182,20 @@ Functions</h2></td></tr>
 </dl>
 <p>Start with default components </p>
 
-<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00028">28</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00045">45</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="engine_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#engine_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="engine_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="engine_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" id="node2" href="engine_8cpp.html#af69ebd2c33d4eab3c1e3d5a2b7f6170e" title="sigc_interrupt" alt="" coords="105,5,205,32"/></map>
+<area shape="rect" id="node2" href="engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="105,5,205,32"/><area shape="rect" id="node3" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy main instance " alt="" coords="254,31,319,57"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="af69ebd2c33d4eab3c1e3d5a2b7f6170e"></a>
+<a class="anchor" id="a2748077e5eef67276e8171e525009a6f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -165,19 +203,31 @@ Here is the call graph for this function:</div>
           <td class="memname">void sigc_interrupt </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00021">21</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+<p>SIGINT signal callback function. </p>
+<p>Stop all services and destroy all instances </p>
+
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00038">38</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="engine_8cpp_a2748077e5eef67276e8171e525009a6f_cgraph.png" border="0" usemap="#engine_8cpp_a2748077e5eef67276e8171e525009a6f_cgraph" alt=""/></div>
+<map name="engine_8cpp_a2748077e5eef67276e8171e525009a6f_cgraph" id="engine_8cpp_a2748077e5eef67276e8171e525009a6f_cgraph">
+<area shape="rect" id="node2" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy main instance " alt="" coords="155,5,221,32"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="engine_8cpp_af69ebd2c33d4eab3c1e3d5a2b7f6170e_icgraph.png" border="0" usemap="#engine_8cpp_af69ebd2c33d4eab3c1e3d5a2b7f6170e_icgraph" alt=""/></div>
-<map name="engine_8cpp_af69ebd2c33d4eab3c1e3d5a2b7f6170e_icgraph" id="engine_8cpp_af69ebd2c33d4eab3c1e3d5a2b7f6170e_icgraph">
+<div class="center"><img src="engine_8cpp_a2748077e5eef67276e8171e525009a6f_icgraph.png" border="0" usemap="#engine_8cpp_a2748077e5eef67276e8171e525009a6f_icgraph" alt=""/></div>
+<map name="engine_8cpp_a2748077e5eef67276e8171e525009a6f_icgraph" id="engine_8cpp_a2748077e5eef67276e8171e525009a6f_icgraph">
 <area shape="rect" id="node2" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="155,5,205,32"/></map>
 </div>
 </p>
@@ -187,7 +237,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 10 2015 10:32:46 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 12 2015 09:11:16 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

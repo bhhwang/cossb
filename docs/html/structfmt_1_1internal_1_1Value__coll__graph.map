@@ -1,0 +1,7 @@
+<map id="fmt::internal::Value" name="fmt::internal::Value">
+<area shape="rect" id="node2" href="$structfmt_1_1internal_1_1Value_1_1StringValue.html" title="fmt::internal::Value\l::StringValue\&lt; signed\l char \&gt;" alt="" coords="16,5,163,61"/>
+<area shape="rect" id="node3" href="$structfmt_1_1internal_1_1Value_1_1CustomValue.html" title="fmt::internal::Value\l::CustomValue" alt="" coords="23,85,155,126"/>
+<area shape="rect" id="node4" href="$structfmt_1_1internal_1_1Value_1_1StringValue.html" title="fmt::internal::Value\l::StringValue\&lt; wchar_t \&gt;" alt="" coords="6,150,173,191"/>
+<area shape="rect" id="node5" href="$structfmt_1_1internal_1_1Value_1_1StringValue.html" title="fmt::internal::Value\l::StringValue\&lt; unsigned\l char \&gt;" alt="" coords="9,215,170,271"/>
+<area shape="rect" id="node6" href="$structfmt_1_1internal_1_1Value_1_1StringValue.html" title="fmt::internal::Value\l::StringValue\&lt; char \&gt;" alt="" coords="16,294,163,335"/>
+</map>
