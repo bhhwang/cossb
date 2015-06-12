@@ -17,10 +17,13 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <popt.h>
+#include <memory>
 
 #include "cossb.hpp"
 
 using namespace std;
+
+
 
 /**
  * @brief	destroy main instance
