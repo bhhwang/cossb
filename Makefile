@@ -12,7 +12,7 @@ CXX = g++
 CXXFLAGS = -O3 -g3 -fPIC -Wall -std=c++11 -D__cplusplus=201103L
 CCFLAGS = $(CXXFLAGS)
 LDFLAGS = -Wl,--export-dynamic
-LDLIBS = -lpopt
+LDLIBS = -lpopt -lboost_system
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
 
