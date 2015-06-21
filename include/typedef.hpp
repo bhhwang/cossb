@@ -15,7 +15,8 @@
 
 using namespace boost;
 
-namespace coosb {
+namespace cossb {
+
 
 namespace process {
 	typedef boost::shared_ptr<boost::thread> task;
