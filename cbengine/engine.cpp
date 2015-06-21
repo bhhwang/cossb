@@ -24,6 +24,8 @@
 using namespace std;
 
 
+poptContext optionCon;
+
 
 /**
  * @brief	destroy main instance
@@ -31,7 +33,7 @@ using namespace std;
  */
 void destroy()
 {
-
+	poptFreeContext(optionCon);
 }
 
 /**
@@ -53,10 +55,11 @@ int main(int argc, char* argv[])
 	struct poptOption optionTable[] = {
 			{"version", 'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
 			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open config file", "XML Config file"},
+			{"debug", 'd', POPT_ARG_NONE, 0, 'd', "DEBUG mode", "Run in DEBUG mode"},
 			POPT_AUTOHELP
 			POPT_TABLEEND
 	};
-	poptContext optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
+	optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
 	poptSetOtherOptionHelp(optionCon, "<option>");
 
 	if(argc<2)
@@ -73,13 +76,22 @@ int main(int argc, char* argv[])
 		// install components
 		case 'v':
 		{
-			//print out version
+			std::cout << COSSB_VERSION << " (Released " << __DATE__ << " " <<__TIME__ << ")" << std::endl;
+			destroy();
+			exit(0);
 
 		} break;
 
 		case 'c':
 		{
 			string config_file = (const char*)poptGetOptArg(optionCon);
+			cout << "Config file : " << config_file << endl;
+		}
+			break;
+
+		case 'd':
+		{
+			cout << "run in debug mode" << endl;
 		}
 			break;
 
@@ -92,6 +104,8 @@ int main(int argc, char* argv[])
 		destroy();
 		exit(0);
 	}
+
+	pause();
 
 	//notice, this function affects the checking memory leak, especially when you are using valgrind.
 	poptFreeContext(optionCon);
