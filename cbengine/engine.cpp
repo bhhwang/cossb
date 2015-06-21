@@ -53,9 +53,10 @@ int main(int argc, char* argv[])
 
 	char* config_file = nullptr;
 	struct poptOption optionTable[] = {
+			{"run", 'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
 			{"version", 'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
 			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open config file", "XML Config file"},
-			{"debug", 'd', POPT_ARG_NONE, 0, 'd', "DEBUG mode", "Run in DEBUG mode"},
+			{"debug", 'd', POPT_ARG_NONE, 0, 'd', "DEBUG mode", ""},
 			POPT_AUTOHELP
 			POPT_TABLEEND
 	};
@@ -82,6 +83,7 @@ int main(int argc, char* argv[])
 
 		} break;
 
+		//load config file
 		case 'c':
 		{
 			string config_file = (const char*)poptGetOptArg(optionCon);
@@ -89,11 +91,17 @@ int main(int argc, char* argv[])
 		}
 			break;
 
+		//run in debug mode
 		case 'd':
 		{
 			cout << "run in debug mode" << endl;
 		}
 			break;
+
+		case 'r':
+		{
+			cout << "run" << endl;
+		}
 
 		}
 	}
