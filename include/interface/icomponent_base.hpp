@@ -9,6 +9,15 @@
 #ifndef _COSSB_ICOMPONENT_BASE_HPP_
 #define _COSSB_ICOMPONENT_BASE_HPP_
 
+namespace cossb {
+namespace interface {
+
+class icomponent {
+
+};
+
+} /* namespace interface */
+} /* namespace cossb */
 
 
 #endif /* _COSSB_ICOMPONENT_BASE_HPP_ */
