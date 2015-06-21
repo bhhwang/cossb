@@ -10,6 +10,4 @@
 #define _COSSB_LOG_HPP_
 
 
-#include "./spdlog/spdlog.h"
-
 #endif
