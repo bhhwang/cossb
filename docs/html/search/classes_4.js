@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['formaterror',['FormatError',['../classfmt_1_1FormatError.html',1,'fmt']]],
-  ['formatint',['FormatInt',['../classfmt_1_1FormatInt.html',1,'fmt']]],
-  ['formatspec',['FormatSpec',['../structfmt_1_1FormatSpec.html',1,'fmt']]],
-  ['formatterbase',['FormatterBase',['../classfmt_1_1internal_1_1FormatterBase.html',1,'fmt::internal']]]
+  ['e_5fformatter',['e_formatter',['../classspdlog_1_1details_1_1e__formatter.html',1,'spdlog::details']]],
+  ['emptyspec',['EmptySpec',['../structfmt_1_1EmptySpec.html',1,'fmt']]],
+  ['enableif',['EnableIf',['../structfmt_1_1internal_1_1EnableIf.html',1,'fmt::internal']]],
+  ['enableif_3c_20true_2c_20t_20_3e',['EnableIf&lt; true, T &gt;',['../structfmt_1_1internal_1_1EnableIf_3_01true_00_01T_01_4.html',1,'fmt::internal']]]
 ];

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['plus_5fflag',['PLUS_FLAG',['../namespacefmt.html#ac14c51c5c796819e98c600fd04a2fdbea2b053d8fd806a73492750893f902a694',1,'fmt']]],
-  ['pointer',['POINTER',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cdddadc8ef1035b4dab4e8940326431e60e41',1,'fmt::internal::Arg']]]
+  ['magenta',['MAGENTA',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8aa5c11f6bc06df3b652d829be76892a63a',1,'fmt']]],
+  ['max_5fargs',['MAX_ARGS',['../classfmt_1_1ArgList.html#ae48e0aa914c6ef57563711f5c58977ffadfb5bafe619fd86fde2a528685fa6e9d',1,'fmt::ArgList']]],
+  ['max_5fpacked_5fargs',['MAX_PACKED_ARGS',['../classfmt_1_1ArgList.html#adafdf4d6cfb593b0790ea9376fa65cf1a0623031f26b6d8df9dc978c1e5a2bb16',1,'fmt::ArgList']]],
+  ['minus_5fflag',['MINUS_FLAG',['../namespacefmt.html#aefe774f8e58d81c8e72e9d596a22b125a5da54dcf8810624be3136905816ca007',1,'fmt']]]
 ];

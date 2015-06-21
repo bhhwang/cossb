@@ -1,0 +1,10 @@
+<map id="spdlog::sinks::base_sink&lt; Mutex &gt;" name="spdlog::sinks::base_sink&lt; Mutex &gt;">
+<area shape="rect" id="node3" href="$classspdlog_1_1sinks_1_1daily__file__sink.html" title="spdlog::sinks::daily\l_file_sink\&lt; Mutex \&gt;" alt="" coords="377,5,514,46"/>
+<area shape="rect" id="node4" href="$classspdlog_1_1sinks_1_1null__sink.html" title="spdlog::sinks::null\l_sink\&lt; Mutex \&gt;" alt="" coords="382,70,509,111"/>
+<area shape="rect" id="node5" href="$classspdlog_1_1sinks_1_1ostream__sink.html" title="spdlog::sinks::ostream\l_sink\&lt; Mutex \&gt;" alt="" coords="368,135,523,177"/>
+<area shape="rect" id="node8" href="$classspdlog_1_1sinks_1_1rotating__file__sink.html" title="spdlog::sinks::rotating\l_file_sink\&lt; Mutex \&gt;" alt="" coords="370,201,521,242"/>
+<area shape="rect" id="node9" href="$classspdlog_1_1sinks_1_1simple__file__sink.html" title="spdlog::sinks::simple\l_file_sink\&lt; Mutex \&gt;" alt="" coords="373,266,518,307"/>
+<area shape="rect" id="node2" href="$classspdlog_1_1sinks_1_1sink.html" title="spdlog::sinks::sink" alt="" coords="5,143,136,169"/>
+<area shape="rect" id="node6" href="$classspdlog_1_1sinks_1_1stderr__sink.html" title="spdlog::sinks::stderr\l_sink\&lt; Mutex \&gt;" alt="" coords="573,103,713,145"/>
+<area shape="rect" id="node7" href="$classspdlog_1_1sinks_1_1stdout__sink.html" title="spdlog::sinks::stdout\l_sink\&lt; Mutex \&gt;" alt="" coords="571,169,714,210"/>
+</map>

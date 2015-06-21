@@ -1,0 +1,13 @@
+<map id="file_sinks.h" name="file_sinks.h">
+<area shape="rect" id="node3" href="$base__sink_8h.html" title="base_sink.h" alt="" coords="750,80,841,107"/>
+<area shape="rect" id="node13" href="$spdlog_2details_2format_8h.html" title="./format.h" alt="" coords="490,395,568,421"/>
+<area shape="rect" id="node34" href="$null__mutex_8h.html" title="../details/null_mutex.h" alt="" coords="1307,80,1457,107"/>
+<area shape="rect" id="node35" href="$file__helper_8h.html" title="../details/file_helper.h" alt="" coords="1116,237,1263,264"/>
+<area shape="rect" id="node6" href="$sink_8h.html" title="./sink.h" alt="" coords="789,237,853,264"/>
+<area shape="rect" id="node7" href="$log__msg_8h.html" title="../details/log_msg.h" alt="" coords="697,320,832,347"/>
+<area shape="rect" id="node9" href="$common_8h.html" title="../common.h" alt="" coords="1274,395,1368,421"/>
+<area shape="rect" id="node29" href="$formatter_8h.html" title="../formatter.h" alt="" coords="930,155,1027,181"/>
+<area shape="rect" id="node23" href="$spdlog_2details_2format_8cc.html" title="format.cc" alt="" coords="167,469,243,496"/>
+<area shape="rect" id="node30" href="$pattern__formatter__impl_8h.html" title="details/pattern_formatter\l_impl.h" alt="" coords="929,230,1092,271"/>
+<area shape="rect" id="node32" href="$os_8h.html" title="./os.h" alt="" coords="1143,320,1197,347"/>
+</map>

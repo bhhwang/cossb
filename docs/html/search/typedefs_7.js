@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['wmemorywriter',['WMemoryWriter',['../namespacefmt.html#a77a0f04bb7dcce3271fe50984c5c9cf3',1,'fmt']]],
-  ['writer',['Writer',['../namespacefmt.html#a4d870bb235d29dfe8f82e22c4c5574e7',1,'fmt']]],
-  ['wstringref',['WStringRef',['../namespacefmt.html#a88f11ca64ac292c1e2df229ced839312',1,'fmt']]],
-  ['wwriter',['WWriter',['../namespacefmt.html#afeac86b4bae798ed9eaedef61113d0db',1,'fmt']]]
+  ['null_5fsink_5fmt',['null_sink_mt',['../namespacespdlog_1_1sinks.html#ada1d685b6a07616c6f3198d98dd63b1a',1,'spdlog::sinks']]],
+  ['null_5fsink_5fst',['null_sink_st',['../namespacespdlog_1_1sinks.html#a3383d6e26948fd107bdf2442f50d4547',1,'spdlog::sinks']]]
 ];

@@ -115,11 +115,54 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memTemplParams" colspan="2">template&lt;typename Char &gt; </td></tr>
 <tr class="memitem:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfmt_1_1internal_1_1FormatterBase.html#ab29b5470b0f02edfde9b81ba24a51bf6">write</a> (<a class="el" href="classfmt_1_1BasicWriter.html">BasicWriter</a>&lt; Char &gt; &amp;w, const Char *start, const Char *end)</td></tr>
 <tr class="separator:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399e25a8610945e68e85dc3af6dc7fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfmt_1_1internal_1_1FormatterBase.html#a399e25a8610945e68e85dc3af6dc7fbb">set_args</a> (const <a class="el" href="classfmt_1_1ArgList.html">ArgList</a> &amp;args)</td></tr>
+<tr class="separator:a399e25a8610945e68e85dc3af6dc7fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d5811aa9b695596fe0dc67f870e3d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfmt_1_1internal_1_1Arg.html">Arg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfmt_1_1internal_1_1FormatterBase.html#ac3d5811aa9b695596fe0dc67f870e3d4">next_arg</a> (const char *&amp;error)</td></tr>
+<tr class="separator:ac3d5811aa9b695596fe0dc67f870e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5baca90f220f3f54c0c4a620ec80b7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfmt_1_1internal_1_1Arg.html">Arg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfmt_1_1internal_1_1FormatterBase.html#ad5baca90f220f3f54c0c4a620ec80b7b">get_arg</a> (unsigned arg_index, const char *&amp;error)</td></tr>
+<tr class="separator:ad5baca90f220f3f54c0c4a620ec80b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memTemplParams" colspan="2">template&lt;typename Char &gt; </td></tr>
+<tr class="memitem:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfmt_1_1internal_1_1FormatterBase.html#ab29b5470b0f02edfde9b81ba24a51bf6">write</a> (<a class="el" href="classfmt_1_1BasicWriter.html">BasicWriter</a>&lt; Char &gt; &amp;w, const Char *start, const Char *end)</td></tr>
+<tr class="separator:ab29b5470b0f02edfde9b81ba24a51bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="format_8h_source.html#l01237">1237</a> of file <a class="el" href="format_8h_source.html">format.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad5baca90f220f3f54c0c4a620ec80b7b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfmt_1_1internal_1_1Arg.html">Arg</a> fmt::internal::FormatterBase::get_arg </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>arg_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&amp;&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad5baca90f220f3f54c0c4a620ec80b7b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -173,12 +216,62 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac3d5811aa9b695596fe0dc67f870e3d4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structfmt_1_1internal_1_1Arg.html">Arg</a> fmt::internal::FormatterBase::next_arg </td>
+          <td>(</td>
+          <td class="paramtype">const char *&amp;&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="format_8cc_source.html#l00679">679</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a399e25a8610945e68e85dc3af6dc7fbb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fmt::internal::FormatterBase::set_args </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classfmt_1_1ArgList.html">ArgList</a> &amp;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="spdlog_2details_2format_8h_source.html#l01158">1158</a> of file <a class="el" href="spdlog_2details_2format_8h_source.html">spdlog/details/format.h</a>.</p>
 
 </div>
 </div>
@@ -248,6 +341,50 @@ template&lt;typename Char &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="spdlog_2details_2format_8h_source.html#l01171">1171</a> of file <a class="el" href="spdlog_2details_2format_8h_source.html">spdlog/details/format.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab29b5470b0f02edfde9b81ba24a51bf6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Char &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fmt::internal::FormatterBase::write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classfmt_1_1BasicWriter.html">BasicWriter</a>&lt; Char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Char *&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Char *&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p>Definition at line <a class="el" href="format_8h_source.html#l01261">1261</a> of file <a class="el" href="format_8h_source.html">format.h</a>.</p>
 
 </div>
@@ -259,7 +396,7 @@ template&lt;typename Char &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 12 2015 09:11:16 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 21 2015 20:37:13 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

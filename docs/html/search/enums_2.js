@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['Type',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cddd',1,'fmt::internal::Arg']]]
+  ['errorcode',['errorcode',['../namespacecossb_1_1error.html#ab5881534b7ca7e8cf059fe9d5c46da81',1,'cossb::error']]]
 ];

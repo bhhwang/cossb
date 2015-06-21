@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['magenta',['MAGENTA',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8aaff47477fdc6f3b1e6dacda9fa1efb5c1',1,'fmt']]],
-  ['max_5fargs',['MAX_ARGS',['../classfmt_1_1ArgList.html#ae48e0aa914c6ef57563711f5c58977ffadfb5bafe619fd86fde2a528685fa6e9d',1,'fmt::ArgList']]],
-  ['minus_5fflag',['MINUS_FLAG',['../namespacefmt.html#ac14c51c5c796819e98c600fd04a2fdbeafc86655957d3b777b4c87eeb32250bc4',1,'fmt']]]
+  ['inline_5fbuffer_5fsize',['INLINE_BUFFER_SIZE',['../namespacefmt_1_1internal.html#a60cc83880e377708a5c2d4be5349d95ba2a528c89b5d865e44080ae8e27c22160',1,'fmt::internal']]],
+  ['int',['INT',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cddda1ef9eb6953cdf23fb7845316adb9cb1a',1,'fmt::internal::Arg::INT()'],['../structfmt_1_1internal_1_1Value.html#a0305339d0a9571e14e26f385367fedaaa6ab1b5ad31036f4c90bae16e873b3396',1,'fmt::internal::Value::INT()']]]
 ];

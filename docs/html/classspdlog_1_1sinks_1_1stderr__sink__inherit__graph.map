@@ -1,0 +1,5 @@
+<map id="spdlog::sinks::stderr_sink&lt; Mutex &gt;" name="spdlog::sinks::stderr_sink&lt; Mutex &gt;">
+<area shape="rect" id="node2" href="$classspdlog_1_1sinks_1_1ostream__sink.html" title="spdlog::sinks::ostream\l_sink\&lt; Mutex \&gt;" alt="" coords="4,171,157,213"/>
+<area shape="rect" id="node3" href="$classspdlog_1_1sinks_1_1base__sink.html" title="spdlog::sinks::base\l_sink\&lt; Mutex \&gt;" alt="" coords="14,81,148,122"/>
+<area shape="rect" id="node4" href="$classspdlog_1_1sinks_1_1sink.html" title="spdlog::sinks::sink" alt="" coords="16,5,145,32"/>
+</map>

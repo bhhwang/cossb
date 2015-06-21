@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['set_5fargs',['set_args',['../classfmt_1_1internal_1_1FormatterBase.html#a399e25a8610945e68e85dc3af6dc7fbb',1,'fmt::internal::FormatterBase']]],
-  ['sigc_5finterrupt',['sigc_interrupt',['../engine_8cpp.html#a2748077e5eef67276e8171e525009a6f',1,'engine.cpp']]],
-  ['sign_5fflag',['SIGN_FLAG',['../namespacefmt.html#ac14c51c5c796819e98c600fd04a2fdbea41bce447447361e7a4b3e9d8a84877db',1,'fmt']]],
-  ['signchecker',['SignChecker',['../structfmt_1_1internal_1_1SignChecker.html',1,'fmt::internal']]],
-  ['signchecker_3c_20false_20_3e',['SignChecker&lt; false &gt;',['../structfmt_1_1internal_1_1SignChecker_3_01false_01_4.html',1,'fmt::internal']]],
-  ['size',['size',['../structfmt_1_1internal_1_1Value_1_1StringValue.html#abd1880f3fb3618e37fb3df74ff623146',1,'fmt::internal::Value::StringValue::size()'],['../classfmt_1_1BasicStringRef.html#ae38d9106dd5bec69488e5464aedc266a',1,'fmt::BasicStringRef::size()'],['../classfmt_1_1internal_1_1Buffer.html#a1c194271c1981b08a41035bb292e7944',1,'fmt::internal::Buffer::size()'],['../classfmt_1_1BasicWriter.html#a1b6721b4ba4d3fa18ac781a36616cc2a',1,'fmt::BasicWriter::size()'],['../classfmt_1_1FormatInt.html#ad09445e55ae7c8944b5275a54a03da14',1,'fmt::FormatInt::size()']]],
-  ['size_5f',['size_',['../classfmt_1_1internal_1_1Buffer.html#ae7abf831014bd4e955ffa99cac94c9aa',1,'fmt::internal::Buffer']]],
-  ['sprintf',['sprintf',['../namespacefmt.html#ad40ad1d5576f0dded9236526572909b1',1,'fmt']]],
-  ['sstring',['sstring',['../structfmt_1_1internal_1_1Value.html#a4bedea17bc9ddfe00bcd7bf0ee086c66',1,'fmt::internal::Value']]],
-  ['str',['str',['../classfmt_1_1StrFormatSpec.html#a20eb66d3a3ce56ff8f0ca42c7f5ffbf5',1,'fmt::StrFormatSpec::str()'],['../classfmt_1_1BasicWriter.html#a91f06ced6e063ee77a99740e0e79faf6',1,'fmt::BasicWriter::str()'],['../classfmt_1_1FormatInt.html#adfd4854a5efceb8df461a521c3eda5ef',1,'fmt::FormatInt::str()']]],
-  ['strformatspec',['StrFormatSpec',['../classfmt_1_1StrFormatSpec.html',1,'fmt']]],
-  ['strformatspec',['StrFormatSpec',['../classfmt_1_1StrFormatSpec.html#a05458808357044ab29b5099b98c2b746',1,'fmt::StrFormatSpec']]],
-  ['string',['STRING',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cddda6b3f293b6cd07f476b2248415133e5f1',1,'fmt::internal::Arg::STRING()'],['../structfmt_1_1internal_1_1Value.html#a98e3f2f8c44a6d6d4606646e5ef62e0a',1,'fmt::internal::Value::string()']]],
-  ['stringref',['StringRef',['../namespacefmt.html#ae5ed3b29f911650a12b4de3d14126c31',1,'fmt']]],
-  ['stringvalue',['StringValue',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20char_20_3e',['StringValue&lt; char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20signed_20char_20_3e',['StringValue&lt; signed char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20unsigned_20char_20_3e',['StringValue&lt; unsigned char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20wchar_5ft_20_3e',['StringValue&lt; wchar_t &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['supported',['Supported',['../structfmt_1_1internal_1_1WCharHelper.html#aded16527e868cfbc5d0a66b44688a62e',1,'fmt::internal::WCharHelper::Supported()'],['../structfmt_1_1internal_1_1WCharHelper_3_01T_00_01wchar__t_01_4.html#a5e068234d7ece2fd0e80ebd3b3b79f02',1,'fmt::internal::WCharHelper&lt; T, wchar_t &gt;::Supported()']]],
-  ['systemerror',['SystemError',['../classfmt_1_1SystemError.html#ad5ca71a52b8c3ed0cf06d7b1042e6b94',1,'fmt::SystemError::SystemError()'],['../classfmt_1_1SystemError.html#a14fb9aa480a54d40b94ec75e954fc361',1,'fmt::SystemError::SystemError(int error_code, StringRef message)']]],
-  ['systemerror',['SystemError',['../classfmt_1_1SystemError.html',1,'fmt']]]
+  ['q_5ftype',['q_type',['../classspdlog_1_1details_1_1async__log__helper.html#adc1eff190d4b041a9f90232c7097581a',1,'spdlog::details::async_log_helper']]],
+  ['queue_5fsize',['queue_size',['../async__logger__impl_8h.html#aab484c0c562229d26346b88d1534f796',1,'async_logger_impl.h']]]
 ];

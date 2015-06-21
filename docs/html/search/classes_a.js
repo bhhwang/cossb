@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['signchecker',['SignChecker',['../structfmt_1_1internal_1_1SignChecker.html',1,'fmt::internal']]],
-  ['signchecker_3c_20false_20_3e',['SignChecker&lt; false &gt;',['../structfmt_1_1internal_1_1SignChecker_3_01false_01_4.html',1,'fmt::internal']]],
-  ['strformatspec',['StrFormatSpec',['../classfmt_1_1StrFormatSpec.html',1,'fmt']]],
-  ['stringvalue',['StringValue',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20char_20_3e',['StringValue&lt; char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20signed_20char_20_3e',['StringValue&lt; signed char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20unsigned_20char_20_3e',['StringValue&lt; unsigned char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['stringvalue_3c_20wchar_5ft_20_3e',['StringValue&lt; wchar_t &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
-  ['systemerror',['SystemError',['../classfmt_1_1SystemError.html',1,'fmt']]]
+  ['none',['None',['../structfmt_1_1internal_1_1None.html',1,'fmt::internal']]],
+  ['nonzero',['NonZero',['../structfmt_1_1internal_1_1NonZero.html',1,'fmt::internal']]],
+  ['nonzero_3c_200_20_3e',['NonZero&lt; 0 &gt;',['../structfmt_1_1internal_1_1NonZero_3_010_01_4.html',1,'fmt::internal']]],
+  ['null_5fmutex',['null_mutex',['../structspdlog_1_1details_1_1null__mutex.html',1,'spdlog::details']]],
+  ['null_5fsink',['null_sink',['../classspdlog_1_1sinks_1_1null__sink.html',1,'spdlog::sinks']]]
 ];

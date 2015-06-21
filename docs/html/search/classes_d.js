@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['wcharhelper',['WCharHelper',['../structfmt_1_1internal_1_1WCharHelper.html',1,'fmt::internal']]],
-  ['wcharhelper_3c_20t_2c_20wchar_5ft_20_3e',['WCharHelper&lt; T, wchar_t &gt;',['../structfmt_1_1internal_1_1WCharHelper_3_01T_00_01wchar__t_01_4.html',1,'fmt::internal']]],
-  ['widthspec',['WidthSpec',['../structfmt_1_1WidthSpec.html',1,'fmt']]]
+  ['r_5fformatter',['r_formatter',['../classspdlog_1_1details_1_1r__formatter.html',1,'spdlog::details::r_formatter'],['../classspdlog_1_1details_1_1R__formatter.html',1,'spdlog::details::R_formatter']]],
+  ['registry',['registry',['../classspdlog_1_1details_1_1registry.html',1,'spdlog::details']]],
+  ['rotating_5ffile_5fsink',['rotating_file_sink',['../classspdlog_1_1sinks_1_1rotating__file__sink.html',1,'spdlog::sinks']]],
+  ['runtimeerror',['RuntimeError',['../classfmt_1_1internal_1_1RuntimeError.html',1,'fmt::internal']]]
 ];

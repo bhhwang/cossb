@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hash_5fflag',['HASH_FLAG',['../namespacefmt.html#ac14c51c5c796819e98c600fd04a2fdbea02280924fe002ad252cfbcc0cf6492aa',1,'fmt']]]
+  ['fail',['FAIL',['../namespacecoosb_1_1types.html#abcadc90d2212c35bb00de77ae13d4cdcac2759effffc94bb9acc71d69fe3e8a1f',1,'coosb::types']]]
 ];

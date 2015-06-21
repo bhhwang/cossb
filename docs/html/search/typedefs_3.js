@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['memorywriter',['MemoryWriter',['../namespacefmt.html#a89c1f31e0358aa86f99b9f24d2149ae6',1,'fmt']]]
+  ['formatfunc',['FormatFunc',['../structfmt_1_1internal_1_1Value.html#a98775b7621bf95e1e786e6475a81d669',1,'fmt::internal::Value::FormatFunc()'],['../structfmt_1_1internal_1_1Value.html#a98775b7621bf95e1e786e6475a81d669',1,'fmt::internal::Value::FormatFunc()']]],
+  ['formatter_5fptr',['formatter_ptr',['../namespacespdlog.html#ac37ffdf8bf14091d0c2374a6c4a8d409',1,'spdlog']]]
 ];

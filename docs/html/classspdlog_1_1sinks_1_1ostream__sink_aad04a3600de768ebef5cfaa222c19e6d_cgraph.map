@@ -1,0 +1,5 @@
+<map id="spdlog::sinks::ostream_sink::_sink_it" name="spdlog::sinks::ostream_sink::_sink_it">
+<area shape="rect" id="node2" href="$classfmt_1_1BasicWriter.html#a62d1c7b5be9c3580326320d5d178d096" title="fmt::BasicWriter::data" alt="" coords="209,5,359,32"/>
+<area shape="rect" id="node3" href="$classfmt_1_1BasicWriter.html#a1b6721b4ba4d3fa18ac781a36616cc2a" title="fmt::BasicWriter::size" alt="" coords="209,56,359,83"/>
+<area shape="rect" id="node4" href="$classfmt_1_1internal_1_1Buffer.html#a1c194271c1981b08a41035bb292e7944" title="fmt::internal::Buffer\l::size" alt="" coords="409,49,543,90"/>
+</map>

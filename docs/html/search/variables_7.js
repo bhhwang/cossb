@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['pointer',['pointer',['../structfmt_1_1internal_1_1Value.html#a3627bcfa0a5bcb7e48f6fc632243b17d',1,'fmt::internal::Value']]],
-  ['powers_5fof_5f10_5f32',['POWERS_OF_10_32',['../structfmt_1_1internal_1_1BasicData.html#abbc4c0076211263be3f19cce9655caf7',1,'fmt::internal::BasicData']]],
-  ['powers_5fof_5f10_5f64',['POWERS_OF_10_64',['../structfmt_1_1internal_1_1BasicData.html#a5f4f238cffad6816fbdc621e96b0e1d2',1,'fmt::internal::BasicData']]],
-  ['precision_5f',['precision_',['../structfmt_1_1FormatSpec.html#a8444724bdd0a55bf3226a17e321c12c5',1,'fmt::FormatSpec']]],
-  ['ptr_5f',['ptr_',['../classfmt_1_1internal_1_1Buffer.html#a07b9c0f0a2c05efd9ee500e72894d64f',1,'fmt::internal::Buffer']]]
+  ['level',['level',['../structspdlog_1_1details_1_1log__msg.html#a4142f4d66140a1ea24053311ebea5706',1,'spdlog::details::log_msg']]],
+  ['logger_5fname',['logger_name',['../structspdlog_1_1details_1_1log__msg.html#a8e4e969bdb20304c4af100e6a2589193',1,'spdlog::details::log_msg']]],
+  ['long_5fdouble_5fvalue',['long_double_value',['../structfmt_1_1internal_1_1Value.html#a7adfb34f6e0b12676681de8a6597ed17',1,'fmt::internal::Value']]],
+  ['long_5flong_5fvalue',['long_long_value',['../structfmt_1_1internal_1_1Value.html#a1dab8b1df1f88c35b6893d63b1b72af8',1,'fmt::internal::Value']]],
+  ['longlong',['LongLong',['../namespacefmt.html#aef84b50b68fdc25388fed2952c2db563',1,'fmt']]]
 ];

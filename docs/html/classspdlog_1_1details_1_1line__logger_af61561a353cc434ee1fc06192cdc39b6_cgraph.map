@@ -1,0 +1,6 @@
+<map id="spdlog::details::line_logger::~line_logger" name="spdlog::details::line_logger::~line_logger">
+<area shape="rect" id="node2" href="$classspdlog_1_1logger.html#a965147f4736d658065f8ba6e923c1c47" title="spdlog::logger::name" alt="" coords="210,5,353,32"/>
+<area shape="rect" id="node3" href="$namespacespdlog_1_1details_1_1os.html#aba9d0a73e3b771cd2ca61481e354e99d" title="spdlog::details::os::now" alt="" coords="201,56,361,83"/>
+<area shape="rect" id="node4" href="$namespacespdlog_1_1details_1_1os.html#a0ca598c935de36584b2fcce414ab7041" title="spdlog::details::os\l::thread_id" alt="" coords="217,107,345,149"/>
+<area shape="rect" id="node5" href="$classspdlog_1_1logger.html#af459e303dfa930c5d8508860a0860e42" title="spdlog::logger::_log_msg" alt="" coords="198,173,365,200"/>
+</map>

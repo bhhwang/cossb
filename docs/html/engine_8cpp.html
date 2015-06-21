@@ -86,7 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">engine.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -96,13 +97,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;cstdlib&gt;</code><br/>
 <code>#include &lt;unistd.h&gt;</code><br/>
 <code>#include &lt;popt.h&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 <code>#include &quot;<a class="el" href="cossb_8hpp_source.html">cossb.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for engine.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="engine_8cpp__incl.png" border="0" usemap="#engine_8cpp" alt=""/></div>
 <map name="engine_8cpp" id="engine_8cpp">
-<area shape="rect" id="node7" href="cossb_8hpp.html" title="COSSB Header. " alt="" coords="448,80,529,107"/></map>
+<area shape="rect" id="node8" href="cossb_8hpp.html" title="COSSB Header. " alt="" coords="541,80,623,107"/></map>
 </div>
 </div>
 <p><a href="engine_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -118,6 +120,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main routine.  <a href="#a0ddf1224851353fc92bfbff6f499fa97">More...</a><br/></td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a36b1a0fee2e59d8f2adcb42edefa815a"><td class="memItemLeft" align="right" valign="top">poptContext&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a36b1a0fee2e59d8f2adcb42edefa815a">optionCon</a></td></tr>
+<tr class="separator:a36b1a0fee2e59d8f2adcb42edefa815a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a3a80b6032f86a56bec74609034b3246f"></a>
@@ -136,7 +143,7 @@ Functions</h2></td></tr>
 <p>destroy main instance </p>
 <p>It will be called by SIGINT signal </p>
 
-<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00029">29</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00034">34</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -182,7 +189,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Start with default components </p>
 
-<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00045">45</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00050">50</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -212,7 +219,7 @@ Here is the call graph for this function:</div>
 <p>SIGINT signal callback function. </p>
 <p>Stop all services and destroy all instances </p>
 
-<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00038">38</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00043">43</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -234,10 +241,25 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a36b1a0fee2e59d8f2adcb42edefa815a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">poptContext optionCon</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="engine_8cpp_source.html#l00027">27</a> of file <a class="el" href="engine_8cpp_source.html">engine.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 12 2015 09:11:16 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 21 2015 20:37:12 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
