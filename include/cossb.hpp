@@ -13,6 +13,10 @@
 
 
 #include "version.hpp"
+#include "errorcode.hpp"
+#include "log.hpp"
+#include "typedef.hpp"
+#include "macro.hpp"
 
 
 #endif
