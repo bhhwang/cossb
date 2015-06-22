@@ -24,6 +24,7 @@ namespace interface {
 * @date		2015. 6. 22
 */
 class icomponent {
+
 public:
 	virtual ~icomponent() = 0;
 
