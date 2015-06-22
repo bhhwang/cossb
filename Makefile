@@ -18,10 +18,11 @@ RM	= rm -rf
 
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
+INCLUDE_FILES = ./include/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-engine: $(OUTDIR)engine.o 
+engine: $(OUTDIR)engine.o $(OUTDIR)manager.o  
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 
@@ -29,6 +30,12 @@ engine: $(OUTDIR)engine.o
 $(OUTDIR)engine.o: ./cbengine/engine.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)manager.o: $(INCLUDE_FILES)manager.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+
+# make all
+all: engine
 
 # Clean
 clean: 
