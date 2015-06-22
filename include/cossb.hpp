@@ -17,6 +17,8 @@
 #include "log.hpp"
 #include "typedef.hpp"
 #include "macro.hpp"
+#include "manager.hpp"
+#include "broker.hpp"
 
 
 #endif
