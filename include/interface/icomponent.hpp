@@ -11,6 +11,7 @@
 
 #include <string>
 #include "../typedef.hpp"
+#include "iprofile.hpp"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ namespace interface {
 class icomponent {
 
 public:
-	virtual ~icomponent() = 0;
+	virtual ~icomponent();
 
 	/**
 	 * @brief		initialization
@@ -42,16 +43,32 @@ public:
 	/**
 	 * @brief
 	 */
-	const char* get_name() { return _name.c_str(); }
+	const char* get_name() const;
+
+	/**
+	 * @brief
+	 */
+	iprofile* get_profile() const;
+
+	/**
+	 * @brief	set component profile
+	 */
+	bool set_profile(iprofile* profile, const char* path)
+	{
+		_profile = profile;
+		return _profile->load(path);
+	}
 
 
 protected:
-	explicit icomponent(const char* name):_name(name) {
+	explicit icomponent(const char* name, types::comptype type):_name(name), _type(type) {
 
 	}
 
 private:
 	string _name;
+	types::comptype _type;
+	iprofile* _profile = nullptr;
 
 };
 
