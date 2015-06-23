@@ -22,8 +22,44 @@ component_manager* component_manager::get()
 
 void component_manager::destroy()
 {
+	if(_conf)
+		delete _conf;
+
 	if(_instance)
 		delete _instance;
+}
+
+types::returntype component_manager::load_config(config* manifest)
+{
+	if(_conf)
+		return types::returntype::EXIST;
+
+	return types::returntype::SUCCESS;
+}
+
+types::returntype component_manager::install(const char* component_name)
+{
+
+}
+
+types::returntype component_manager::uninstall(const char* component_name)
+{
+
+}
+
+types::returntype component_manager::run(const char* component_name)
+{
+
+}
+
+types::returntype component_manager::stop(const char* component_name)
+{
+
+}
+
+int component_manager::count()
+{
+
 }
 
 } /* namespace manager */
