@@ -14,11 +14,11 @@
 
 #include "version.hpp"
 #include "errorcode.hpp"
-#include "log.hpp"
 #include "typedef.hpp"
 #include "macro.hpp"
 #include "manager.hpp"
 #include "broker.hpp"
+#include "config.hpp"
 
 
 #endif

@@ -33,7 +33,7 @@ namespace types {
 
 	enum class comptype : unsigned int { SERVICE=0, APP };
 	enum class comp_status : unsigned int { READY = 0, RUNNING, STOPPED };
-	enum class return_type : int { EXIST=-1, FAIL=0, SUCCESS=1 };
+	enum class returntype : int { EXIST=-1, FAIL=0, SUCCESS=1 };
 
 
 } /* namespace types */

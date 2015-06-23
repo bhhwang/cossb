@@ -22,9 +22,7 @@
 #include "cossb.hpp"
 
 using namespace std;
-
-
-poptContext optionCon;
+using namespace cossb;
 
 
 /**
@@ -33,7 +31,8 @@ poptContext optionCon;
  */
 void destroy()
 {
-	poptFreeContext(optionCon);
+	manager::component_manager::get()->destroy();
+	broker::component_broker::get()->destroy();
 }
 
 /**
@@ -60,7 +59,7 @@ int main(int argc, char* argv[])
 			POPT_AUTOHELP
 			POPT_TABLEEND
 	};
-	optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
+	poptContext optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
 	poptSetOtherOptionHelp(optionCon, "<option>");
 
 	if(argc<2)
@@ -87,20 +86,20 @@ int main(int argc, char* argv[])
 		case 'c':
 		{
 			string config_file = (const char*)poptGetOptArg(optionCon);
-			cout << "Config file : " << config_file << endl;
+			manager::component_manager::get()->load_config(new config(config_file.c_str()));
 		}
 			break;
 
 		//run in debug mode
 		case 'd':
 		{
-			cout << "run in debug mode" << endl;
 		}
 			break;
 
 		case 'r':
 		{
-			cout << "run" << endl;
+			manager::component_manager::get()->load_config(new config("manifest.xml"));
+			//manager::component_manager::get()
 		}
 
 		}
