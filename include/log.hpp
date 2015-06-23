@@ -10,12 +10,14 @@
 #define _COSSB_LOG_HPP_
 
 #include <string>
+#include "interface/ilog.hpp"
 
 using namespace std;
 
 namespace cossb {
+namespace log {
 
-class log : public ilog {
+class log : public interface::ilog {
 
 public:
 	static log* get();
@@ -26,6 +28,7 @@ private:
 
 };
 
+} /* namespace log */
 } /* namespace cossb */
 
 #endif /* _COSSB_LOG_HPP_ */

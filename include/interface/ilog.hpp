@@ -10,6 +10,10 @@
 #ifndef _COSSB_ILOG_HPP_
 #define _COSSB_ILOG_HPP_
 
+/**
+ * @brief	interface for log process
+ */
+
 class ilog {
 
 public:
