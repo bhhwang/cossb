@@ -10,13 +10,17 @@
 
 namespace cossb {
 
-config::config() {
-	// TODO Auto-generated constructor stub
+config::config(const char* manifest):_manifest_file(manifest) {
 
 }
 
 config::~config() {
 	// TODO Auto-generated destructor stub
+}
+
+bool config::load(const char* file)
+{
+	return false;
 }
 
 } /* namespace cossb */

@@ -9,12 +9,27 @@
 #ifndef _COSSB_CONFIG_HPP_
 #define _COSSB_CONFIG_HPP_
 
+#include <string>
+
+using namespace std;
+
 namespace cossb {
 
+/**
+* @brief	read configuration file (manifest.xml)
+* @details
+* @author
+*/
 class config {
 public:
-	config();
+	config(const char* manifest);
 	virtual ~config();
+
+private:
+	bool load(const char* file);
+
+private:
+	string _manifest_file;
 };
 
 } /* namespace cossb */
