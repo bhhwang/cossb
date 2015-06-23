@@ -22,7 +22,7 @@ INCLUDE_FILES = ./include/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-engine: $(OUTDIR)engine.o $(OUTDIR)manager.o  
+cossb: $(OUTDIR)engine.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o  
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 
@@ -33,9 +33,18 @@ $(OUTDIR)engine.o: ./cbengine/engine.cpp
 $(OUTDIR)manager.o: $(INCLUDE_FILES)manager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+
+$(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
 
 # make all
-all: engine
+all: cossb
 
 # Clean
 clean: 
