@@ -9,15 +9,15 @@
 #ifndef _COSSB_MACRO_HPP_
 #define _COSSB_MACRO_HPP_
 
-#include "interface/icomponent_base.hpp"
+#include "interface/icomponent.hpp"
 
 namespace cossb {
 
-#define COMPONENT_EXPORT				extern "C" { interface::icomponent_base* create(); void destroy(void); }
+#define COMPONENT_EXPORT				extern "C" { interface::icomponent* create(); void destroy(void); }
 
 #define COMPONENT_INSTANCE(classname)	static classname* _instance = nullptr;
 
-#define COMPONENT_CREATE(classname) 	interface::icomponent_base* create(){ \
+#define COMPONENT_CREATE(classname) 	interface::icomponent* create(){ \
 											if(_instance==nullptr) _instance = new classname(); \
 											return _instance; }
 
