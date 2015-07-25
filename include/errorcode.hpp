@@ -22,6 +22,7 @@ enum class errorcode : unsigned long {
 	SETUP_FAIL,
 	REGIST_FAIL,
 
+	NOARG,
 };
 
 #ifndef _cplusplus

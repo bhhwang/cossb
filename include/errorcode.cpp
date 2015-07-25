@@ -15,11 +15,14 @@ const char* get_error_str(errorcode& e)
 {
 	switch(e)
 	{
-	case errorcode::NO_ERROR: return	"No error"; break;
-	case errorcdoe::NULL_PTR: return	"Cannot access the memory";	break;
-	case errorcdoe::UNPACK_FAIL: return 	"Unpacking failed";	break;
-	case errorcdoe::SETUP_FAIL: return 	"Setup failed";	break;
-	case errorcdoe::REGIST_FAIL: return	"Registration failed";	break;
+	case errorcode::NO_ERROR: 		return		"No Error"; break;
+	case errorcode::NULL_PTR: 		return		"Cannot access the memory address"; break;
+	case errorcode::UNPACK_FAIL: 	return		"Failed message unpacking"; break;
+	case errorcode::SETUP_FAIL:		return		"Failed setup"; break;
+	case errorcode::REGIST_FAIL:	return		"Failed registration"; break;
+	case errorcode::NOARG:			return		"No Argument";	break;
+	default:
+		return "Invalid ErrorCode"; break;
 	}
 }
 
