@@ -54,8 +54,9 @@ int main(int argc, char* argv[])
 	struct poptOption optionTable[] = {
 			{"run", 'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
 			{"version", 'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
-			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open config file", "XML Config file"},
+			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
 			{"debug", 'd', POPT_ARG_NONE, 0, 'd', "DEBUG mode", ""},
+			{"reset", 'e', POPT_ARG_NONE, 0, 'e', "Reset All system", "Clear and initialize the configurations"},
 			POPT_AUTOHELP
 			POPT_TABLEEND
 	};
@@ -64,6 +65,7 @@ int main(int argc, char* argv[])
 
 	if(argc<2)
 	{
+		std::cout << poptStrerror(POPT_ERROR_NOARG) << endl;
 		destroy();
 		exit(0);
 	}
@@ -82,7 +84,7 @@ int main(int argc, char* argv[])
 
 		} break;
 
-		//load config file
+		//load configuration file
 		case 'c':
 		{
 			string config_file = (const char*)poptGetOptArg(optionCon);
@@ -99,8 +101,8 @@ int main(int argc, char* argv[])
 		case 'r':
 		{
 			manager::component_manager::get()->load_config(new config("manifest.xml"));
-			//manager::component_manager::get()
 		}
+		break;
 
 		}
 	}
