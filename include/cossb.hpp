@@ -19,7 +19,8 @@
 #include "manager.hpp"
 #include "broker.hpp"
 #include "config.hpp"
-
+#include "log.hpp"
+#include "cbinstance.hpp"
 
 #endif
 
