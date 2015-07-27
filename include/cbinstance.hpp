@@ -15,7 +15,16 @@ namespace cossb {
 extern "C" {
 #endif
 
-//void print_error(errorcode& e);
+/**
+ * @brief create COSSB core instances
+ */
+void cossb_init();
+
+/**
+ * @brief destroy COSSB core instances
+ */
+void cossb_destroy();
+
 
 #ifndef _cplusplus
 }

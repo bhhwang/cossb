@@ -4,13 +4,15 @@
 
 namespace cossb {
 
-cbinstance::cbinstance() {
-	// TODO Auto-generated constructor stub
+
+void cossb_init()
+{
 
 }
 
-cbinstance::~cbinstance() {
-	// TODO Auto-generated destructor stub
+void cossb_destroy()
+{
+
 }
 
 } /* namespace cossb */
