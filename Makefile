@@ -19,11 +19,17 @@ RM	= rm -rf
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 INCLUDE_FILES = ./include/
+BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
 cossb: $(OUTDIR)engine.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o  
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
+
+#Make libcbcore.so	
+libcbcore.so: $(OUTDIR)cbcore.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+
 
 
 # compile cossb engine
@@ -42,9 +48,12 @@ $(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
 $(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)cbcore.o: $(BASE_FILES)cbcore.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
 
 # make all
-all: cossb
+all: cossb libcbcore.so
 
 # Clean
 clean: 
