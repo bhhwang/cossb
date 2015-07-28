@@ -9,7 +9,7 @@
 #ifndef _COSSB_VERSION_HPP_
 #define _COSSB_VERSION_HPP_
 
-#define COSSB_NAME	"COSSB(Component-based Simple Service Broker)"
+#define COSSB_NAME	"COSSB "
 
 #define COSSB_VERSION_MAJOR	0
 #define COSSB_VERSION_MINOR	0
