@@ -3,7 +3,7 @@
  * @brief		COSSB Engine Daemon
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 7. 28
- * @details	COSSB Engine for Daemon, Daemon is meant to run in the background with no user interaction.
+ * @details	COSSB Engine Daemon
  */
 
 #include <iostream>
