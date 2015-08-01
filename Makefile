@@ -23,26 +23,21 @@ BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o  
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)sysconfig.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o  
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
-cossbd: $(OUTDIR)engined.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o  
+cossbd: $(OUTDIR)engined.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 #Make libcbcore.so	
 libcbcore.so: $(OUTDIR)cbcore.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-
-
-
-# compile cossb engine
-$(OUTDIR)engine.o: ./cbengine/engine.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-$(OUTDIR)engined.o: ./cbengine/engined.cpp
+	
+$(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-$(OUTDIR)manager.o: $(INCLUDE_FILES)manager.cpp
+$(OUTDIR)sysmanager.o: $(INCLUDE_FILES)sysmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
@@ -50,17 +45,31 @@ $(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
 	
 $(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)sysconfig.o: $(INCLUDE_FILES)sysconfig.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 
 $(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-$(OUTDIR)cbcore.o: $(BASE_FILES)cbcore.cpp
+$(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)pid.o: $(INCLUDE_FILES)util/pid.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+
+# compile cossb engine
+$(OUTDIR)engine.o: ./cbengine/engine.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)engined.o: ./cbengine/engined.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 
 # make all
-all: cossb cossbd libcbcore.so
+all: cossb cossbd cbinstall libcbcore.so
 
 # Clean
 clean: 
-	$(RM) $(OUTDIR)*.o $(OUTDIR)engine
+	$(RM) $(OUTDIR)*.o $(OUTDIR)cossb $(OUTDIR)cossbd $(OUTDIR)cbinstall $(OUTDIR)*.so
