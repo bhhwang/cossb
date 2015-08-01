@@ -14,6 +14,9 @@
  * @brief	interface for log process
  */
 
+namespace cossb {
+namespace interface {
+
 class ilog {
 
 public:
@@ -33,5 +36,8 @@ public:
 	template<typename T> void error(const T&);
 
 };
+
+} /* namespace interface */
+} /* namespace cossb */
 
 #endif
