@@ -9,18 +9,28 @@
 #include "config.hpp"
 
 namespace cossb {
+namespace base {
 
-config::config(const char* manifest):_manifest_file(manifest) {
-
-}
-
-config::~config() {
-	// TODO Auto-generated destructor stub
-}
-
-bool config::load(const char* file)
+config* config::_instance = nullptr;
+config* config::get()
 {
-	return false;
+	if(!_instance)
+		_instance = new config;
+	return _instance;
 }
 
+void config::destroy()
+{
+	if(_instance)
+		delete _instance;
+}
+
+bool config::load(const char* manifest_conf)
+{
+	return true;
+}
+
+
+
+} /* namespace base */
 } /* namespace cossb */

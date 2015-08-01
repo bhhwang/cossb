@@ -1,9 +1,9 @@
 /**
  * @file		config.hpp
- * @brief		Config file loader
+ * @brief		COSSB configuration Management
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 21
- * @details	Load config file to run the engine
+ * @details	Load configuration file
  */
 
 #ifndef _COSSB_CONFIG_HPP_
@@ -14,24 +14,23 @@
 using namespace std;
 
 namespace cossb {
+namespace base {
 
 /**
-* @brief	read configuration file (manifest.xml)
-* @details
-* @author
-*/
+ * @brief	system configuration class
+ */
 class config {
 public:
-	config(const char* manifest);
-	virtual ~config();
+	static config* get();
+	void destroy();
+
+	bool load(const char* manifest_conf);
 
 private:
-	bool load(const char* file);
-
-private:
-	string _manifest_file;
+	static config* _instance;
 };
 
+} /* namespace base */
 } /* namespace cossb */
 
 #endif /* _COSSB_CONFIG_HPP_ */
