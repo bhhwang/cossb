@@ -96,7 +96,6 @@ int main(int argc, char* argv[])
 		case 'c':
 		{
 			string config_file = (const char*)poptGetOptArg(optionCon);
-			manager::component_manager::get()->load_config(new config(config_file.c_str()));
 		}
 			break;
 
@@ -108,7 +107,7 @@ int main(int argc, char* argv[])
 
 		case 'r':
 		{
-			manager::component_manager::get()->load_config(new config("manifest.xml"));
+			//manager::component_manager::get()->load_config(new config("manifest.xml"));
 		}
 		break;
 
