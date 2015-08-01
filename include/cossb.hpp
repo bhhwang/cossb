@@ -20,8 +20,9 @@
 #include "broker.hpp"
 #include "config.hpp"
 #include "log.hpp"
-#include "cbinstance.hpp"
+#include "instance.hpp"
 
+#include "util/pid.h"
 #endif
 
 #endif
