@@ -1,21 +1,20 @@
 /**
  * @mainpage	COSSB(Component-based Open & Simple Service Broker)
- * @details	COSSB is a software framework to support IoT service interoperability among the networked devices or gadgets scattered in WLAN environment.
+ * @details	COSSB는 사물인터넷(IoT) 유무선 네트워크 환경에서 말단 장치간 서비스 상호운용성(Inter-operability)과 확장성을 지원 하기위한 소프트웨어 프레임워크입니다.
  */
 
 
 /**
- * @file		engine.hpp
+ * @file		engine.cpp
  * @brief		COSSB Engine
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 9
- * @details	COSSB Engine main routine
+ * @details	COSSB Engine main starter
  */
 
 #include <iostream>
 #include <csignal>
 #include <cstdlib>
-#include <unistd.h>
 #include <popt.h>
 #include <memory>
 
@@ -24,22 +23,15 @@
 using namespace std;
 using namespace cossb;
 
-
-/**
- * @brief	destroy main instance
- * @details	It will be called by SIGINT signal
- */
-void destroy()
-{
-	manager::component_manager::get()->destroy();
-	broker::component_broker::get()->destroy();
-}
-
 /**
  * @brief	SIGINT signal callback function
  * @details	Stop all services and destroy all instances
  */
-void sigc_interrupt(int param) { destroy();	exit(0); }
+void sigc_interrupt(int param) {
+	core::cossb_destroy();
+	cout << "Successfully terminated." << endl;
+	_exit(EXIT_FAILURE);
+}
 
 /**
  * @brief	Main routine
@@ -51,14 +43,13 @@ int main(int argc, char* argv[])
 	signal(SIGINT, sigc_interrupt);
 
 	char* config_file = nullptr;
-	struct poptOption optionTable[] = {
-			{"run", 'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
-			{"version", 'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
-			{"config", 'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
-			{"debug", 'd', POPT_ARG_NONE, 0, 'd', "DEBUG mode", ""},
-			{"reset", 'e', POPT_ARG_NONE, 0, 'e', "Reset All system", "Clear and initialize the configurations"},
-			POPT_AUTOHELP
-			POPT_TABLEEND
+	struct poptOption optionTable[] =
+	{
+		{"run",		'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
+		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
+		{"config", 	'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
+		POPT_AUTOHELP
+		POPT_TABLEEND
 	};
 	poptContext optionCon = poptGetContext(NULL, argc, (const char**)argv, optionTable, 0);
 	poptSetOtherOptionHelp(optionCon, "<option>");
@@ -66,9 +57,9 @@ int main(int argc, char* argv[])
 	if(argc<2)
 	{
 		std::cout << poptStrerror(POPT_ERROR_NOARG) << endl;
-		destroy();
-		exit(0);
+		_exit(EXIT_SUCCESS);
 	}
+
 
 	int opt = 0;
 	while((opt = poptGetNextOpt(optionCon))>=0)
@@ -78,29 +69,28 @@ int main(int argc, char* argv[])
 		// install components
 		case 'v':
 		{
-			std::cout << COSSB_VERSION << " (Released " << __DATE__ << " " <<__TIME__ << ")" << std::endl;
-			destroy();
-			exit(0);
+			std::cout << COSSB_NAME << COSSB_VERSION << " (Released " << __DATE__ << " " <<__TIME__ << ")" << std::endl;
+			_exit(EXIT_SUCCESS);
 
 		} break;
 
 		//load configuration file
 		case 'c':
 		{
-			string config_file = (const char*)poptGetOptArg(optionCon);
-			manager::component_manager::get()->load_config(new config(config_file.c_str()));
+			string cfile = (const char*)poptGetOptArg(optionCon);
+			if(!cfile.empty())
+			{
+				if(base::config::get()->load(cfile.c_str()))
+					core::cossb_init(base::config::get());
+			}
 		}
 			break;
 
-		//run in debug mode
-		case 'd':
-		{
-		}
-			break;
-
+		//run with default configuration file(manifest.xml)
 		case 'r':
 		{
-			manager::component_manager::get()->load_config(new config("manifest.xml"));
+			if(base::config::get()->load("manifest.xml"))
+				core::cossb_init(base::config::get());
 		}
 		break;
 
@@ -110,17 +100,15 @@ int main(int argc, char* argv[])
 	if (opt<-1)
 	{
 		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
-		destroy();
-		exit(0);
+		core::cossb_destroy();
+		_exit(EXIT_SUCCESS);
 	}
 
 	pause();
-
-	//notice, this function affects the checking memory leak, especially when you are using valgrind.
 	poptFreeContext(optionCon);
 
-	destroy();
-	exit(0);
+	core::cossb_destroy();
+	_exit(EXIT_SUCCESS);
 
 	return 0;
 }
