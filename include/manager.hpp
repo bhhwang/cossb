@@ -11,16 +11,22 @@
 
 #include "config.hpp"
 #include "typedef.hpp"
+#include <map>
+#include <vector>
+
+using namespace std;
 
 namespace cossb {
 namespace manager {
+
+/**
+ * @brief	component management
+ */
 
 class component_manager {
 public:
 	static component_manager* get();
 	void destroy();
-
-	types::returntype load_config(config* manifest);
 
 	types::returntype install(const char* component_name);
 	types::returntype uninstall(const char* component_name);
@@ -31,8 +37,29 @@ public:
 
 private:
 	static component_manager* _instance;
-	config* _conf = nullptr;
 
+};
+
+/**
+ * @brief	system management (global configuration)
+ */
+class system_manager {
+public:
+	static system_manager* get();
+	void destroy();
+
+	/**
+	 * @brief	setup system configuration
+	 */
+	void setup(base::config* config);
+
+	/**
+	 * @brief	check configured or not
+	 */
+	bool is_setup() const;
+
+private:
+	static system_manager* _instance;
 };
 
 

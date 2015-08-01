@@ -85,6 +85,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">broker.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -92,8 +96,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Component Broker.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;<a class="el" href="icomponent_8hpp_source.html">interface/icomponent.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for broker.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="broker_8hpp__incl.png" border="0" usemap="#broker_8hpp" alt=""/></div>
+<map name="broker_8hpp" id="broker_8hpp">
+<area shape="rect" id="node4" href="icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="132,80,300,107"/><area shape="rect" id="node5" href="typedef_8hpp.html" title="COSSB Type definitions. " alt="" coords="329,155,431,181"/><area shape="rect" id="node8" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="177,155,263,181"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="broker_8hpp__dep__incl.png" border="0" usemap="#broker_8hppdep" alt=""/></div>
+<map name="broker_8hppdep" id="broker_8hppdep">
+<area shape="rect" id="node2" href="broker_8cpp.html" title="Component Broker. " alt="" coords="5,80,87,107"/><area shape="rect" id="node3" href="instance_8cpp.html" title="instance.cpp" alt="" coords="112,80,208,107"/></map>
+</div>
+</div>
 <p><a href="broker_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1broker_1_1component__broker.html">cossb::broker::component_broker</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecossb_1_1broker"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1broker.html">cossb::broker</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a28ae9b09beb0ceaa1692e67af27cfc84"><td class="memItemLeft" align="right" valign="top">typedef string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1broker.html#a28ae9b09beb0ceaa1692e67af27cfc84">cossb::broker::topic</a></td></tr>
+<tr class="separator:a28ae9b09beb0ceaa1692e67af27cfc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b2967fd94b109ae1097c3f23b4f277a"><td class="memItemLeft" align="right" valign="top">typedef string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1broker.html#a5b2967fd94b109ae1097c3f23b4f277a">cossb::broker::comp_name</a></td></tr>
+<tr class="separator:a5b2967fd94b109ae1097c3f23b4f277a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab077c615b78b468dfa2bf4918e5d4917"><td class="memItemLeft" align="right" valign="top">typedef multimap&lt; topic, <br class="typebreak"/>
+comp_name &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1broker.html#ab077c615b78b468dfa2bf4918e5d4917">cossb::broker::topic_map</a></td></tr>
+<tr class="separator:ab077c615b78b468dfa2bf4918e5d4917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Component Broker. </p>
 <dl class="section author"><dt>Author</dt><dd>Byunghun Hwang<a href="#" onclick="location.href='mai'+'lto:'+'bhh'+'wa'+'ng@'+'ns'+'yna'+'ps'+'e.c'+'om'; return false;">bhhwa<span style="display: none;">.nosp@m.</span>ng@n<span style="display: none;">.nosp@m.</span>synap<span style="display: none;">.nosp@m.</span>se.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
@@ -103,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 21 2015 20:37:12 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

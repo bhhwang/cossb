@@ -6,6 +6,7 @@ var searchData=
   ['component_5fexport',['COMPONENT_EXPORT',['../macro_8hpp.html#a6eb447f374e02a2b379af0522abee5c1',1,'macro.hpp']]],
   ['component_5fext',['COMPONENT_EXT',['../typedef_8hpp.html#aee81d8d47982f6eff734b27c7bb54fb6',1,'typedef.hpp']]],
   ['component_5finstance',['COMPONENT_INSTANCE',['../macro_8hpp.html#af5e6205f695567c83441d8514d834370',1,'macro.hpp']]],
+  ['cossb_5fname',['COSSB_NAME',['../version_8hpp.html#a6e98fedb30f53c586de5ba65346ade5d',1,'version.hpp']]],
   ['cossb_5fversion',['COSSB_VERSION',['../version_8hpp.html#a19e84d161aab6f58beb44ff4b3b7082a',1,'version.hpp']]],
   ['cossb_5fversion_5fmajor',['COSSB_VERSION_MAJOR',['../version_8hpp.html#ad4471b132ffbd3c3ef43967b452eefce',1,'version.hpp']]],
   ['cossb_5fversion_5fminor',['COSSB_VERSION_MINOR',['../version_8hpp.html#aae1d764abec9bab80a51a3c68fa13843',1,'version.hpp']]],

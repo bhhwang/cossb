@@ -16,5 +16,6 @@ var searchData=
   ['stringvalue_3c_20signed_20char_20_3e',['StringValue&lt; signed char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
   ['stringvalue_3c_20unsigned_20char_20_3e',['StringValue&lt; unsigned char &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
   ['stringvalue_3c_20wchar_5ft_20_3e',['StringValue&lt; wchar_t &gt;',['../structfmt_1_1internal_1_1Value_1_1StringValue.html',1,'fmt::internal::Value']]],
+  ['system_5fmanager',['system_manager',['../classcossb_1_1manager_1_1system__manager.html',1,'cossb::manager']]],
   ['systemerror',['SystemError',['../classfmt_1_1SystemError.html',1,'fmt']]]
 ];

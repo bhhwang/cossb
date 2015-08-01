@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['return_5ftype',['return_type',['../namespacecoosb_1_1types.html#abcadc90d2212c35bb00de77ae13d4cdc',1,'coosb::types']]]
+  ['returntype',['returntype',['../namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7',1,'cossb::types']]]
 ];

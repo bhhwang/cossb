@@ -1,7 +1,7 @@
 var searchData=
 [
   ['f_5fformatter',['f_formatter',['../classspdlog_1_1details_1_1f__formatter.html',1,'spdlog::details']]],
-  ['fail',['FAIL',['../namespacecoosb_1_1types.html#abcadc90d2212c35bb00de77ae13d4cdcac2759effffc94bb9acc71d69fe3e8a1f',1,'coosb::types']]],
+  ['fail',['FAIL',['../namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7ac2759effffc94bb9acc71d69fe3e8a1f',1,'cossb::types']]],
   ['file_5fexists',['file_exists',['../classspdlog_1_1details_1_1file__helper.html#ac2b79c8a3fb0cfb625b859006455f7d6',1,'spdlog::details::file_helper']]],
   ['file_5fhelper',['file_helper',['../classspdlog_1_1details_1_1file__helper.html',1,'spdlog::details']]],
   ['file_5fhelper',['file_helper',['../classspdlog_1_1details_1_1file__helper.html#a3f07f85b0780e00c6d26f4f7865641f0',1,'spdlog::details::file_helper::file_helper(bool force_flush)'],['../classspdlog_1_1details_1_1file__helper.html#ab68b7720555f7656a8f387f8e0dcb37d',1,'spdlog::details::file_helper::file_helper(const file_helper &amp;)=delete']]],

@@ -1,3 +1,7 @@
 <map id="sigc_interrupt" name="sigc_interrupt">
-<area shape="rect" id="node2" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy main instance " alt="" coords="155,5,221,32"/>
+<area shape="rect" id="node2" href="$namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d" title="destroy COSSB core instances " alt="" coords="155,103,288,145"/>
+<area shape="rect" id="node3" href="$classcossb_1_1manager_1_1component__manager.html#a966e1fdcff5a32c6f3442e248bde69bb" title="cossb::manager::component\l_manager::get" alt="" coords="336,5,523,46"/>
+<area shape="rect" id="node4" href="$classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6" title="cossb::manager::component\l_manager::destroy" alt="" coords="336,70,523,111"/>
+<area shape="rect" id="node5" href="$classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da" title="cossb::broker::component\l_broker::get" alt="" coords="343,135,516,177"/>
+<area shape="rect" id="node6" href="$classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d" title="cossb::broker::component\l_broker::destroy" alt="" coords="343,201,516,242"/>
 </map>

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structfmt_1_1internal_1_1Conditional_3_01false_00_01T_00_01F_01_4.html" title="fmt::internal::Conditional\l\&lt; false, T, F \&gt;" alt="" coords="6,5,170,46"/>
+<area shape="rect" id="node1" href="$classfmt_1_1Buffer.html" title="fmt::Buffer\&lt; Char \&gt;" alt="" coords="5,12,141,39"/>
+<area shape="rect" id="node2" href="$classfmt_1_1internal_1_1FixedBuffer.html" title="fmt::internal::FixedBuffer\l\&lt; Char \&gt;" alt="" coords="190,5,357,46"/>
 </map>

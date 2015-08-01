@@ -1,0 +1,10 @@
+<map id="iprofile.hpp" name="iprofile.hpp">
+<area shape="rect" id="node2" href="$icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="195,80,309,107"/>
+<area shape="rect" id="node8" href="$xmlprofile_8hpp.html" title="XML component profile. " alt="" coords="387,80,489,107"/>
+<area shape="rect" id="node3" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="61,155,143,181"/>
+<area shape="rect" id="node6" href="$icomponent_8cpp.html" title="Component(Shared Library) interface. " alt="" coords="168,155,283,181"/>
+<area shape="rect" id="node7" href="$macro_8hpp.html" title="COSSB Macro. " alt="" coords="307,155,388,181"/>
+<area shape="rect" id="node4" href="$broker_8cpp.html" title="Component Broker. " alt="" coords="5,229,87,256"/>
+<area shape="rect" id="node5" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="112,229,208,256"/>
+<area shape="rect" id="node9" href="$xmlprofile_8cpp.html" title="xmlprofile.cpp" alt="" coords="414,155,516,181"/>
+</map>

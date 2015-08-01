@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['regist',['regist',['../classcossb_1_1broker_1_1component__broker.html#a2b74ae3f642b88d8feecd2d0a7cb2d0f',1,'cossb::broker::component_broker']]],
   ['register_5flogger',['register_logger',['../classspdlog_1_1details_1_1registry.html#a96d12346fdd957a7a716cbbfe54a3312',1,'spdlog::details::registry::register_logger()'],['../namespacespdlog.html#a306f1c2ef42ba046620bd84266ee5b24',1,'spdlog::register_logger()']]],
   ['reopen',['reopen',['../classspdlog_1_1details_1_1file__helper.html#a21c688da7f241c53871b462c3a5c2c94',1,'spdlog::details::file_helper']]],
   ['report_5fsystem_5ferror',['report_system_error',['../namespacefmt.html#a55e9e321e42c3a30ee2da56cac3dc750',1,'fmt']]],
@@ -10,5 +11,6 @@ var searchData=
   ['rotating_5ffile_5fsink',['rotating_file_sink',['../classspdlog_1_1sinks_1_1rotating__file__sink.html#a2bf3367b12f03f2c440451eedb3faec6',1,'spdlog::sinks::rotating_file_sink']]],
   ['rotating_5flogger_5fmt',['rotating_logger_mt',['../namespacespdlog.html#a9f8a16b289e8e9030845d53eefdd3ad8',1,'spdlog']]],
   ['rotating_5flogger_5fst',['rotating_logger_st',['../namespacespdlog.html#ae1c68b6270930e5d8c6380cdfedb2e1b',1,'spdlog']]],
+  ['run',['run',['../classcossb_1_1interface_1_1icomponent.html#aaa0e895e902f8d59744b48507b474c2b',1,'cossb::interface::icomponent::run()'],['../classcossb_1_1manager_1_1component__manager.html#a3f0672368ddcf7c41ecd25df6d6ea7bb',1,'cossb::manager::component_manager::run()']]],
   ['runtimeerror',['RuntimeError',['../classfmt_1_1internal_1_1RuntimeError.html#a993d2072c0263a749e09693cf6b645bd',1,'fmt::internal::RuntimeError::RuntimeError()'],['../classfmt_1_1internal_1_1RuntimeError.html#a993d2072c0263a749e09693cf6b645bd',1,'fmt::internal::RuntimeError::RuntimeError()']]]
 ];

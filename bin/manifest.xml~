@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+	
+	<!-- product information (IMPORTANT section) -->
+	<product>
+		<target>any</target>
+		<manufacturer>Nsynapse Inc.</manufacturer>
+		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
+	</product>
+	
+	<dependency>
+		<load type="library">log</load>
+	</dependency>
+	
+	<property>
+		<path name="include">./include/</path>
+		<path name="component">./omponent/</path>
+		<path name="library">./library/</path>
+	</property>
+	
+</manifest>
