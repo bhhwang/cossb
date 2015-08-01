@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest>
 	
+	<!-- product information (IMPORTANT section) -->
 	<product>
-		<key>cf231758-c678-4dbe-963b-f59b90d74223</key>
+		<target>any</target>
+		<manufacturer>Nsynapse Inc.</manufacturer>
+		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
 	</product>
 	
-	<log name="syslog" path="./log/"/>
-	<db name="cossb.db"/>
+	<dependency>
+		<load type="library">log</load>
+	</dependency>
 	
-	<component>
-		<!-- serial component,  -->
-		<service name="serial" permit="system"/>
-	</component>
+	<property>
+		<path name="include">./include/</path>
+		<path name="component">./component/</path>
+		<path name="library">./library/</path>
+	</property>
+	
 </manifest>
