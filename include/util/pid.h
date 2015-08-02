@@ -1,5 +1,10 @@
+
 /**
- * @file	Find process by name
+ * @file		pid.hpp
+ * @brief		Processing ID control class
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 8. 1
+ * @details	Some services may requires process IDs of applications
  */
 
 #ifndef _COSSB_BASE_PID_H_
