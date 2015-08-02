@@ -55,12 +55,15 @@ $(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
 $(OUTDIR)pid.o: $(INCLUDE_FILES)util/pid.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-
-# compile cossb engine
-$(OUTDIR)engine.o: ./cbengine/engine.cpp
+$(OUTDIR)sha1.o: $(INCLUDE_FILES)util/sha1.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-$(OUTDIR)engined.o: ./cbengine/engined.cpp
+
+# compile cossb engine
+$(OUTDIR)engine.o: ./src/engine.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)engined.o: ./src/engined.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 
