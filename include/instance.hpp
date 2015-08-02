@@ -28,6 +28,11 @@ extern bool cossb_init(base::config* config);
  */
 extern void cossb_destroy();
 
+/**
+ * @brief	service components synchronization
+ */
+extern bool cossb_sync();
+
 
 #ifndef _cplusplus
 }

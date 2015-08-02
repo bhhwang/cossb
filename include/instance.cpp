@@ -38,6 +38,17 @@ void cossb_destroy()
 	broker::component_broker::get()->destroy();
 }
 
+bool cossb_sync()
+{
+	//1. check accessibility repository
+
+	//2. transfer information to use services
+
+	//3. clean and update all service components
+
+	return true;
+}
+
 
 
 } /* namespace core */
