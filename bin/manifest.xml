@@ -8,9 +8,16 @@
 		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
 	</product>
 	
+	<!-- accessible repository server address -->
 	<repository>
 		<uri></uri>
 	</repository>
+	
+	<!--  pre-install components -->
+	<required>
+		<component>
+		</component>
+	</required>
 	
 	<dependency>
 		<load type="library">log</load>
