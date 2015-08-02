@@ -8,6 +8,10 @@
 		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
 	</product>
 	
+	<repository>
+		<uri></uri>
+	</repository>
+	
 	<dependency>
 		<load type="library">log</load>
 	</dependency>
