@@ -16,7 +16,13 @@ bool cossb_init(base::config* config)
 	//1. create instances for system base
 	manager::system_manager::get()->setup(config);
 
-	//2. system authentication
+	//2. system authentication from server
+
+	//3. repository check
+
+	//4. access to local database
+
+	//5. start cossb engine
 
 
 
@@ -25,6 +31,9 @@ bool cossb_init(base::config* config)
 
 void cossb_destroy()
 {
+	//1. disconnect to servers and databases
+
+	//2. destroy all instances
 	manager::component_manager::get()->destroy();
 	broker::component_broker::get()->destroy();
 }
