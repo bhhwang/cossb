@@ -6,8 +6,8 @@
  * @details	Authentication for service component download, service license..
  */
 
-#ifndef INCLUDE_AUTH_HPP_
-#define INCLUDE_AUTH_HPP_
+#ifndef _COSSB_AUTH_HPP_
+#define _COSSB_AUTH_HPP_
 
 namespace cossb {
 namespace auth {
@@ -21,4 +21,4 @@ public:
 } /* namesoace auth */
 } /* namespace cossb */
 
-#endif /* INCLUDE_AUTH_HPP_ */
+#endif /* _COSSB_AUTH_HPP_ */
