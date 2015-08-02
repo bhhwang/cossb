@@ -23,16 +23,16 @@ BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)sysconfig.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o  
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o  
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
-cossbd: $(OUTDIR)engined.o $(OUTDIR)manager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o
+cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 #Make libcbcore.so	
-libcbcore.so: $(OUTDIR)cbcore.o 
-	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+#libcbcore.so: $(OUTDIR)cbcore.o 
+#	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -44,9 +44,6 @@ $(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-	
-$(OUTDIR)sysconfig.o: $(INCLUDE_FILES)sysconfig.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 
 $(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
@@ -68,8 +65,8 @@ $(OUTDIR)engined.o: ./cbengine/engined.cpp
 	
 
 # make all
-all: cossb cossbd cbinstall libcbcore.so
+all: cossb cossbd
 
 # Clean
 clean: 
-	$(RM) $(OUTDIR)*.o $(OUTDIR)cossb $(OUTDIR)cossbd $(OUTDIR)cbinstall $(OUTDIR)*.so
+	$(RM) $(OUTDIR)*.o $(OUTDIR)cossb $(OUTDIR)cossbd $(OUTDIR)*.so
