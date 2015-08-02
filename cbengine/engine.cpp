@@ -1,6 +1,6 @@
 /**
  * @mainpage	COSSB(Component-based Open & Simple Service Broker)
- * @details	COSSB는 사물인터넷(IoT) 유무선 네트워크 환경에서 말단 장치간 서비스 상호운용성(Inter-operability)과 확장성을 지원 하기위한 소프트웨어 프레임워크입니다.
+ * @details	COSSB�뒗 �궗臾쇱씤�꽣�꽬(IoT) �쑀臾댁꽑 �꽕�듃�썙�겕 �솚寃쎌뿉�꽌 留먮떒 �옣移섍컙 �꽌鍮꾩뒪 �긽�샇�슫�슜�꽦(Inter-operability)怨� �솗�옣�꽦�쓣 吏��썝 �븯湲곗쐞�븳 �냼�봽�듃�썾�뼱 �봽�젅�엫�썙�겕�엯�땲�떎.
  */
 
 
@@ -28,7 +28,7 @@ using namespace cossb;
  * @details	Stop all services and destroy all instances
  */
 void sigc_interrupt(int param) {
-	core::cossb_destroy();
+	cossb::core::cossb_destroy();
 	cout << "Successfully terminated." << endl;
 	_exit(EXIT_FAILURE);
 }
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 			if(!cfile.empty())
 			{
 				if(base::config::get()->load(cfile.c_str()))
-					core::cossb_init(base::config::get());
+					cossb::core::cossb_init(base::config::get());
 			}
 		}
 			break;
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 		case 'r':
 		{
 			if(base::config::get()->load("manifest.xml"))
-				core::cossb_init(base::config::get());
+				cossb::core::cossb_init(base::config::get());
 		}
 		break;
 
@@ -100,14 +100,14 @@ int main(int argc, char* argv[])
 	if (opt<-1)
 	{
 		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
-		core::cossb_destroy();
+		cossb::core::cossb_destroy();
 		_exit(EXIT_SUCCESS);
 	}
 
 	pause();
 	poptFreeContext(optionCon);
 
-	core::cossb_destroy();
+	cossb::core::cossb_destroy();
 	_exit(EXIT_SUCCESS);
 
 	return 0;
