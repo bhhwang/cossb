@@ -10,18 +10,21 @@
 #define _COSSB_CONFIGLOADER_HPP_
 
 namespace cossb {
+namespace base {
 
+class config;
 class configloader {
 public:
 	configloader();
 	virtual ~configloader();
 
-	bool load(const char* filename);
+	bool load(config* conf);
+	config* load(const char* configpath);
 
-protected:
 };
 
 
+} /* namespace base */
 } /* namespace cossb */
 
 #endif /* _COSSB_CONFIGLOADER_HPP_ */

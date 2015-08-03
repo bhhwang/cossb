@@ -6,9 +6,9 @@
  */
 
 #include "configloader.hpp"
-#include "interface/iconfigdoc.hpp"
 
 namespace cossb {
+namespace base {
 
 configloader::configloader() {
 	// TODO Auto-generated constructor stub
@@ -19,9 +19,15 @@ configloader::~configloader() {
 	// TODO Auto-generated destructor stub
 }
 
-bool configloader::load(const char* filename)
+bool configloader::load(config* conf)
 {
-	interface::iconfigdoc* pdoc =
+	return false;
 }
 
+config* configloader::load(const char* configpath)
+{
+	return nullptr;
+}
+
+} /* namespace base */
 } /* namespace cossb */
