@@ -8,6 +8,7 @@
 #include "sock.hpp"
 
 namespace cossb {
+namespace net {
 
 sock::sock() {
 	// TODO Auto-generated constructor stub
@@ -17,5 +18,5 @@ sock::sock() {
 sock::~sock() {
 	// TODO Auto-generated destructor stub
 }
-
+} /* namespace net */
 } /* namespace cossb */
