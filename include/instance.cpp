@@ -7,6 +7,8 @@
 #include "config.hpp"
 #include "configloader.hpp"
 
+#include "arch/singleton.hpp"
+
 namespace cossb {
 namespace core {
 
@@ -14,7 +16,10 @@ namespace core {
 bool cossb_init(base::config* config)
 {
 	//1. create instances for system base
-	manager::system_manager::get()->setup(config);
+	//arch::singleton<manager::system_manager>::get().setup()
+
+	//manager::system_manager::get()->setup(config);
+
 
 	//2. system authentication from server
 
