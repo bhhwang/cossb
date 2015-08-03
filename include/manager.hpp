@@ -51,7 +51,7 @@ public:
 	/**
 	 * @brief	setup system configuration
 	 */
-	void setup(base::config* config);
+	bool setup(base::config* config);
 
 	/**
 	 * @brief	check configured or not
@@ -60,6 +60,7 @@ public:
 
 private:
 	static system_manager* _instance;
+	bool initialized = false;
 };
 
 
