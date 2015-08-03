@@ -30,6 +30,11 @@ bool config::load(const char* manifest_conf)
 	return true;
 }
 
+bool config::update(config* conf)
+{
+	return false;
+}
+
 
 
 } /* namespace base */

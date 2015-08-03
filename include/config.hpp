@@ -26,6 +26,11 @@ public:
 
 	bool load(const char* manifest_conf);
 
+	/**
+	 * @brief	update configuration
+	 */
+	bool update(config* conf);
+
 private:
 	static config* _instance;
 };
