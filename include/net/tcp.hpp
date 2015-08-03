@@ -8,15 +8,19 @@
 #ifndef _COSSB_NET_TCP_HPP_
 #define _COSSB_NET_TCP_HPP_
 
+#include "sock.hpp"
+#include "../interface/icomm.hpp"
+
 namespace cossb {
 namespace net {
 
 typedef enum nettype { SERVER = 1, CLIENT };
 
-class tcp {
+class tcp : public sock, public interface::icomm {
 public:
 	tcp();
 	virtual ~tcp();
+
 };
 
 } /* namespace net */
