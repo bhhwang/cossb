@@ -7,6 +7,7 @@
  */
 
 #include "manager.hpp"
+#include "configloader.hpp"
 
 namespace cossb {
 namespace manager {
@@ -26,14 +27,20 @@ void system_manager::destroy()
 		delete _instance;
 }
 
-void system_manager::setup(base::config* config)
+bool system_manager::setup(base::config* config)
 {
+	//1. read config file
 
+	//2. setup the configuration to the database
+
+	//3.run the default servers
+
+	return true;
 }
 
 bool system_manager::is_setup() const
 {
-	return false;
+	return initialized;
 }
 
 
