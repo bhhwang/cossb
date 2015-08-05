@@ -3,23 +3,23 @@
 #include "instance.hpp"
 #include "manager.hpp"
 #include "broker.hpp"
-#include "log.hpp"
 #include "config.hpp"
 #include "configloader.hpp"
 
-#include "arch/singleton.hpp"
+#include <string>
+
+using namespace std;
 
 namespace cossb {
 namespace core {
 
-
 bool cossb_init(base::config* config)
 {
 	//1. create instances for system base
-	//arch::singleton<manager::system_manager>::get().setup()
-
-	//manager::system_manager::get()->setup(config);
-
+	if(manager::system_manager::get()->setup(config))
+	{
+		cout << "cossb init success" << endl;
+	}
 
 	//2. system authentication from server
 
@@ -29,18 +29,20 @@ bool cossb_init(base::config* config)
 
 	//5. start cossb engine
 
-
-
 	return true;
 }
 
 void cossb_destroy()
 {
+	//1. destroy instances
+	manager::system_manager::destroy();
+
 	//1. disconnect to servers and databases
 
 	//2. destroy all instances
-	manager::component_manager::get()->destroy();
-	broker::component_broker::get()->destroy();
+	//arch::singleton<manager::system_manager>::get()->destroy();
+	//manager::component_manager::get()->destroy();
+	//broker::component_broker::get()->destroy();
 }
 
 bool cossb_sync()
