@@ -67,10 +67,13 @@ void config::parse_dependency()
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("dependency");child!=nullptr; child = child->NextSiblingElement("dependency"))
 	{
+
 		if(child->Attribute("type","library"))
-			_dependency.push_back(pair<string,string>("library", child->GetText()));
+			_dependency.push_back(sDependency(deptype::LIBRARY, child->GetText()));
+			//_dependency.push_back(pair<string,string>("library", child->GetText()));
 		else if(child->Attribute("type","component"))
-			_dependency.push_back(pair<string,string>("component", child->GetText()));
+			_dependency.push_back(sDependency(deptype::COMPONENT, child->GetText()));
+			//_dependency.push_back(pair<string,string>("component", child->GetText()));
 	}
 }
 

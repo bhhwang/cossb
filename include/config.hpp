@@ -11,7 +11,7 @@
 
 #include "arch/singleton.hpp"
 #include <tinyxml2.h>
-#include <list>
+#include <vector>
 #include <string>
 #include <map>
 
@@ -22,6 +22,12 @@ namespace cossb {
 namespace base {
 
 enum class deptype : unsigned int { LIBRARY=1, COMPONENT=2 };
+typedef struct _sDependency{
+	deptype type;
+	string content;
+public:
+	_sDependency(deptype _type, string _content):type(_type),content(_content) { }
+} sDependency;
 
 /**
  * @brief	system configuration class
@@ -45,8 +51,8 @@ public:
 	/**
 	 * @brief	getting manifest information
 	 */
-	list<pair<string, string>> get_dependency() { return _dependency; };
-	list<string> get_repository() { return _repository; }
+	vector<sDependency> get_dependency() { return _dependency; };
+	vector<string> get_repository() { return _repository; }
 	map<string, string> get_path() { return _path; }
 	map<string, string> get_product() { return _product; }
 
@@ -59,8 +65,8 @@ private:
 
 private:
 	tinyxml2::XMLDocument* _doc;
-	list<pair<string, string>> _dependency;
-	list<string> _repository;
+	vector<sDependency> _dependency;
+	vector<string> _repository;
 	map<string, string> _path;
 	map<string, string> _product;
 
