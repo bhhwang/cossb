@@ -13,6 +13,7 @@
 #include "typedef.hpp"
 #include <map>
 #include <vector>
+#include "arch/singleton.hpp"
 
 using namespace std;
 
@@ -20,13 +21,13 @@ namespace cossb {
 namespace manager {
 
 /**
- * @brief	component management
+ * @brief	component manager derived from singleton pattern
  */
 
-class component_manager {
+class component_manager : public arch::singleton<component_manager> {
 public:
-	static component_manager* get();
-	void destroy();
+	component_manager() { }
+	virtual ~component_manager() { }
 
 	types::returntype install(const char* component_name);
 	types::returntype uninstall(const char* component_name);
@@ -35,19 +36,15 @@ public:
 
 	int count();
 
-private:
-	static component_manager* _instance;
-
 };
 
 /**
- * @brief	system management (global configuration)
+ * @brief	system manager derived from singleton pattern
  */
-class system_manager {
+class system_manager : public arch::singleton<system_manager> {
 public:
-	static system_manager* get();
-	void destroy();
-
+	system_manager() { }
+	virtual ~system_manager() { }
 	/**
 	 * @brief	setup system configuration
 	 */
@@ -58,8 +55,8 @@ public:
 	 */
 	bool is_setup() const;
 
+
 private:
-	static system_manager* _instance;
 	bool initialized = false;
 };
 
