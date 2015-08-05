@@ -25,8 +25,9 @@ class singleton {
 public:
 	template<typename... Args>
 	static T* get(Args... args) {
-		if(!_instance)
+		if(!_instance) {
 			_instance = new T(std::forward<Args>(args)...);
+		}
 		return _instance;
 	}
 	static void destroy() {
@@ -42,6 +43,7 @@ protected:
 	singleton() {}
 	singleton(singleton const&) {}
 	singleton& operator=(singleton const&) { return *this; }
+
 
 private:
 	static T* _instance;
