@@ -51,10 +51,10 @@ public:
 	/**
 	 * @brief	getting manifest information
 	 */
-	vector<sDependency> get_dependency() { return _dependency; };
-	vector<string> get_repository() { return _repository; }
-	map<string, string> get_path() { return _path; }
-	map<string, string> get_product() { return _product; }
+	vector<sDependency>* get_dependency() { return &_dependency; };
+	vector<string>* get_repository() { return &_repository; }
+	map<string, string>* get_path() { return &_path; }
+	map<string, string>* get_product() { return &_product; }
 
 private:
 	void parse_dependency();

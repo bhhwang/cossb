@@ -70,11 +70,10 @@ void config::parse_dependency()
 
 		if(child->Attribute("type","library"))
 			_dependency.push_back(sDependency(deptype::LIBRARY, child->GetText()));
-			//_dependency.push_back(pair<string,string>("library", child->GetText()));
 		else if(child->Attribute("type","component"))
 			_dependency.push_back(sDependency(deptype::COMPONENT, child->GetText()));
-			//_dependency.push_back(pair<string,string>("component", child->GetText()));
 	}
+
 }
 
 void config::parse_path()
