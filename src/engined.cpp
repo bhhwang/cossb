@@ -21,21 +21,14 @@ using namespace std;
 using namespace cossb;
 
 
-/**
- * @brief	destroy main instance
- * @details	It will be called by SIGINT signal
- */
-void destroy()
-{
-	manager::component_manager::get()->destroy();
-	broker::component_broker::get()->destroy();
-}
 
 /**
  * @brief	SIGTERM signal callback function
  * @details	Stop all services and destroy all instances
  */
-void sigc_terminate(int param) { destroy();	exit(0); }
+void sigc_terminate(int param) {
+	exit(0);
+}
 
 /**
  * @brief	Main routine
@@ -74,7 +67,6 @@ int main(int argc, char* argv[])
 	if(argc<2)
 	{
 		std::cout << poptStrerror(POPT_ERROR_NOARG) << endl;
-		destroy();
 		_exit(0);
 	}
 
@@ -87,7 +79,6 @@ int main(int argc, char* argv[])
 		case 'v':
 		{
 			std::cout << COSSB_NAME << COSSB_VERSION << " (Released " << __DATE__ << " " <<__TIME__ << ")" << std::endl;
-			destroy();
 			_exit(0);
 
 		} break;
@@ -117,7 +108,6 @@ int main(int argc, char* argv[])
 	if (opt<-1)
 	{
 		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
-		destroy();
 		_exit(0);
 	}
 
@@ -126,7 +116,6 @@ int main(int argc, char* argv[])
 	//notice, this function affects the checking memory leak, especially when you are using valgrind.
 	poptFreeContext(optionCon);
 
-	destroy();
 	_exit(0);
 
 	return 0;
