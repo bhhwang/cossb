@@ -1,60 +1,54 @@
 /**
  * @file		singleton.hpp
- * @brief		Singleton pattern design template class
+ * @brief		dynamic Singleton pattern design template class
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 8. 2
- * @details	Singleton pattern design for single global instance
+ * @details	Dynamic Singleton pattern design for single global instance
  */
 
 #ifndef _COSSB_ARCH_SINGLETON_HPP_
 #define _COSSB_ARCH_SINGLETON_HPP_
 
+#include <iostream>
+#include <utility>
+
+using namespace std;
 
 namespace cossb {
 namespace arch {
 
 /**
- * @brief	singleton pattern on stack memory
- * @detail	if the template class allocate in the stack memory, might be taken care of memory limitation of the target machine.
+ * @brief	dynamic singleton design pattern
  */
 template <class T>
-class singleton_s {
-
+class singleton {
 public:
-	static T& get() {
-		static T instance;
-		return instance;
-	}
-	}
-
-	singleton_s(singleton_s const& instance) = delete;			//for non-copyable idiom
-	singleton_s& operator=(singleton_s const& instance) = delete;
-
-};
-
-/**
- * @brief	singleton pattern on heap memory
- * @detail	not apply the double check locking
- */
-template <class T>
-class singleton_h {
-public:
-	static T& get() {
-		if(_instance==nullptr)
-			_instance = new T;
+	template<typename... Args>
+	static T* get(Args... args) {
+		if(!_instance)
+			_instance = new T(std::forward<Args>(args)...);
 		return _instance;
 	}
-	virtual ~singleton_h() {
+	static void destroy() {
 		if(_instance) {
 			delete _instance;
 			_instance = nullptr;
 		}
 	}
 
+	virtual ~singleton() { }
+
+protected:
+	singleton() {}
+	singleton(singleton const&) {}
+	singleton& operator=(singleton const&) { return *this; }
+
 private:
-	static T* _instance = nullptr;
-	singleton_h(singleton_h const& instance) = delete;
+	static T* _instance;
+
 };
+
+template <class T> T* singleton<T>::_instance = nullptr;
 
 } /* namespace arch */
 } /* namespace cossb */
