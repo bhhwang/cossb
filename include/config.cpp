@@ -7,27 +7,34 @@
  */
 
 #include "config.hpp"
+#include "configloader.hpp"
 
 namespace cossb {
 namespace base {
 
-config* config::_instance = nullptr;
-config* config::get()
+config::config():_doc(nullptr)
 {
-	if(!_instance)
-		_instance = new config;
-	return _instance;
-}
 
-void config::destroy()
+}
+config::~config()
 {
-	if(_instance)
-		delete _instance;
+	if(_doc)
+		delete _doc;
 }
 
 bool config::load(const char* manifest_conf)
 {
-	return true;
+	if(_doc!=nullptr)
+	{
+		delete _doc;
+		_doc = nullptr;
+	}
+
+	_doc = new tinyxml2::XMLDocument;
+	if(_doc->LoadFile(manifest_conf)==XML_SUCCESS)
+		return true;
+
+	return false;
 }
 
 bool config::update(config* conf)
@@ -35,7 +42,51 @@ bool config::update(config* conf)
 	return false;
 }
 
+/*map<string, string> config::get_dependency()
+{
+	switch(type)
+	{
+	case deptype::LIBRARY:	return parse_dependency("library");	break;
+	case deptype::COMPONENT:	return parse_dependency("component");	break;
+	default:
+		cout << "unknown dependency type" << endl;
+	}
 
+	return list<string>();
+}*/
+
+void config::parse_dependency()
+{
+	XMLElement* elem_com = _doc->FirstChildElement("manifest");
+	for(XMLElement* child = elem_com->FirstChildElement("dependency");child!=nullptr; child = child->NextSiblingElement("dependency"))
+	{
+		if(child->Attribute("type","library"))
+			_dependency["library"] = child->GetText();
+		else if(child->Attribute("type","component"))
+			_dependency["component"] = child->GetText();
+	}
+}
+
+void config::parse_path()
+{
+	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("property");
+	for(XMLElement* child = elem_com->FirstChildElement("path");child!=nullptr; child = child->NextSiblingElement("path"))
+		_path[child->Attribute("name")] = child->GetText();
+}
+
+void config::parse_repository()
+{
+	XMLElement* elem_uri = _doc->FirstChildElement("manifest")->FirstChildElement("repository");
+	for(XMLElement* child = elem_uri->FirstChildElement("uri");child!=nullptr; child = child->NextSiblingElement("uri"))
+		_repository.push_back(child->GetText());
+}
+
+void config::parse_product()
+{
+	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("product");
+	for(XMLElement* child = elem_com->FirstChildElement();child!=nullptr; child = child->NextSiblingElement())
+		_product[child->Value()] = child->GetText();
+}
 
 } /* namespace base */
 } /* namespace cossb */
