@@ -32,7 +32,14 @@ bool config::load(const char* manifest_conf)
 
 	_doc = new tinyxml2::XMLDocument;
 	if(_doc->LoadFile(manifest_conf)==XML_SUCCESS)
+	{
+		parse_dependency();
+		parse_product();
+		parse_path();
+		parse_repository();
+
 		return true;
+	}
 
 	return false;
 }
@@ -78,7 +85,8 @@ void config::parse_repository()
 {
 	XMLElement* elem_uri = _doc->FirstChildElement("manifest")->FirstChildElement("repository");
 	for(XMLElement* child = elem_uri->FirstChildElement("uri");child!=nullptr; child = child->NextSiblingElement("uri"))
-		_repository.push_back(child->GetText());
+		if(child->GetText())
+			_repository.push_back(child->GetText());
 }
 
 void config::parse_product()
