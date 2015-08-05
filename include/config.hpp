@@ -45,7 +45,7 @@ public:
 	/**
 	 * @brief	getting manifest information
 	 */
-	map<string, string> get_dependency() { return _dependency; };
+	list<pair<string, string>> get_dependency() { return _dependency; };
 	list<string> get_repository() { return _repository; }
 	map<string, string> get_path() { return _path; }
 	map<string, string> get_product() { return _product; }
@@ -59,7 +59,7 @@ private:
 
 private:
 	tinyxml2::XMLDocument* _doc;
-	map<string, string> _dependency;
+	list<pair<string, string>> _dependency;
 	list<string> _repository;
 	map<string, string> _path;
 	map<string, string> _product;
