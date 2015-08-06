@@ -19,7 +19,6 @@
 #include "manager.hpp"
 #include "broker.hpp"
 #include "config.hpp"
-#include "log.hpp"
 #include "instance.hpp"
 
 #include "util/pid.h"
