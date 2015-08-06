@@ -32,7 +32,13 @@ namespace interface {
 class icomponent {
 
 public:
-	virtual ~icomponent();
+	/**
+	 * @brief
+	 */
+	virtual ~icomponent() {
+		if(_profile)
+			delete _profile;
+	}
 
 	/**
 	 * @brief		initialization
@@ -60,12 +66,16 @@ public:
 	/**
 	 * @brief
 	 */
-	const char* get_name() const;
+	const char* get_name() const {
+		return _name.c_str();
+	}
 
 	/**
 	 * @brief
 	 */
-	iprofile* get_profile() const;
+	iprofile* get_profile() const {
+		return _profile;
+	}
 
 	/**
 	 * @brief	getting status
@@ -84,7 +94,7 @@ public:
 
 protected:
 	explicit icomponent(const char* name)
-	:_name(name), _profile(nullptr), _status(component::status::READY) {
+	:_name(name), _profile(nullptr), _status(component::status::IDLE) {
 
 	}
 
