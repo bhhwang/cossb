@@ -21,13 +21,18 @@ using namespace std;
 namespace cossb {
 namespace base {
 
-enum class deptype : unsigned int { LIBRARY=1, COMPONENT=2 };
-typedef struct _sDependency{
-	deptype type;
-	string content;
+enum class dependencyType : unsigned int { LIBRARY=1, COMPONENT, PACKAGE };
+
+typedef struct _sDependency {
+	dependencyType type;
+	std::string name;
+
 public:
-	_sDependency(deptype _type, string _content):type(_type),content(_content) { }
+	_sDependency(dependencyType _type, string _name):type(_type),name(_name) { }
+	_sDependency& operator=(const _sDependency& other) { return *this; }
 } sDependency;
+
+
 
 /**
  * @brief	system configuration class
@@ -51,7 +56,7 @@ public:
 	/**
 	 * @brief	getting manifest information
 	 */
-	vector<sDependency>* get_dependency() { return &_dependency; };
+	vector<sDependency*>* get_dependency() { return &_dependency; };
 	vector<string>* get_repository() { return &_repository; }
 	map<string, string>* get_path() { return &_path; }
 	map<string, string>* get_product() { return &_product; }
@@ -65,14 +70,14 @@ private:
 
 private:
 	tinyxml2::XMLDocument* _doc;
-	vector<sDependency> _dependency;
+	vector<sDependency*> _dependency;
 	vector<string> _repository;
 	map<string, string> _path;
 	map<string, string> _product;
 
-
-
 };
+
+#define cossb_config	cossb::base::config::instance()
 
 } /* namespace base */
 } /* namespace cossb */

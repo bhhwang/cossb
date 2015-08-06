@@ -18,6 +18,12 @@ config::config():_doc(nullptr)
 }
 config::~config()
 {
+	if(!_dependency.empty())
+	{
+		for(auto& itr:_dependency)
+			delete itr;
+	}
+
 	if(_doc)
 		delete _doc;
 }
@@ -69,9 +75,9 @@ void config::parse_dependency()
 	{
 
 		if(child->Attribute("type","library"))
-			_dependency.push_back(sDependency(deptype::LIBRARY, child->GetText()));
+			_dependency.push_back(new sDependency(dependencyType::LIBRARY, child->GetText()));
 		else if(child->Attribute("type","component"))
-			_dependency.push_back(sDependency(deptype::COMPONENT, child->GetText()));
+			_dependency.push_back(new sDependency(dependencyType::COMPONENT, child->GetText()));
 	}
 
 }
