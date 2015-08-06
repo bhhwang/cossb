@@ -28,11 +28,7 @@ namespace process {
 
 namespace types {
 
-	#define COMPONENT_EXT	".comp"
-	#define PROFILE_EXT		".xml"
-
-	enum class comptype : unsigned int { SERVICE=0, APP };
-	enum class comp_status : unsigned int { READY = 0, RUNNING, STOPPED };
+	enum class status : unsigned int { READY = 0, RUNNING, STOPPED };
 	enum class returntype : int { EXIST=-1, FAIL=0, SUCCESS=1 };
 
 
