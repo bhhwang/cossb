@@ -23,6 +23,12 @@
 using namespace std;
 using namespace cossb;
 
+void destroy() {
+	cossb::core::cossb_destroy();
+	cout << "Terminated." << endl;
+	_exit(EXIT_SUCCESS);
+}
+
 /**
  * @brief	SIGINT signal callback function
  * @details	Stop all services and destroy all instances
@@ -77,11 +83,11 @@ int main(int argc, char* argv[])
 		//load configuration file
 		case 'c':
 		{
-			string cfile = (const char*)poptGetOptArg(optionCon);
-			if(!cfile.empty())
+			string manifest = (const char*)poptGetOptArg(optionCon);
+			if(!manifest.empty())
 			{
-				if(base::config::get()->load(cfile.c_str()))
-					cossb::core::cossb_init(base::config::get());
+				if(!cossb::core::cossb_init(manifest.c_str()))
+					destroy();
 			}
 		}
 			break;
@@ -89,8 +95,8 @@ int main(int argc, char* argv[])
 		//run with default configuration file(manifest.xml)
 		case 'r':
 		{
-			if(base::config::get()->load("manifest.xml"))
-				cossb::core::cossb_init(base::config::get());
+			if(!cossb::core::cossb_init("manifest.xml"))
+				destroy();
 		}
 		break;
 
@@ -100,15 +106,13 @@ int main(int argc, char* argv[])
 	if (opt<-1)
 	{
 		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
-		cossb::core::cossb_destroy();
-		_exit(EXIT_SUCCESS);
+		destroy();
 	}
 
 	pause();
 	poptFreeContext(optionCon);
 
-	cossb::core::cossb_destroy();
-	_exit(EXIT_SUCCESS);
+	destroy();
 
 	return 0;
 }
