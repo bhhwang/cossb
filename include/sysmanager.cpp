@@ -7,33 +7,27 @@
  */
 
 #include "manager.hpp"
-#include "configloader.hpp"
 
 namespace cossb {
 namespace manager {
 
-system_manager* system_manager::_instance = nullptr;
-
-system_manager* system_manager::get()
+system_manager::system_manager()
 {
-	if(!_instance)
-		_instance = new system_manager;
-	return _instance;
+
 }
 
-void system_manager::destroy()
+system_manager::~system_manager()
 {
-	if(_instance)
-		delete _instance;
+
 }
 
 bool system_manager::setup(base::config* config)
 {
-	//1. read config file
-
-	//2. setup the configuration to the database
-
-	//3.run the default servers
+	//1. load dependent components
+	for(auto dep:*config->get_dependency()) {
+		if(dep->type==base::dependencyType::COMPONENT)
+			cossb_component_manager->install(dep->name.c_str());
+	}
 
 	return true;
 }
