@@ -10,15 +10,11 @@
 #define _COSSB_INTERFACE_IAUTH_HPP_
 
 namespace cossb {
-namespace interface {
+namespace auth {
 
 typedef struct {
-	char code[16];
-} authcode16;
-
-typedef struct {
-	char code[32];
-} authcode32;
+	char code[32] = {0x00, };
+} authcode;
 
 enum class authResponse : int {
 	NOT_ACCESSIBLE = -1,	// Cannot access Auth system
@@ -26,11 +22,14 @@ enum class authResponse : int {
 	SUCCESS = 10, 		// Auth Success
 };
 
+}
+namespace interface {
+
 class iauth {
+public:
 	virtual ~iauth() { }
 
-	virtual bool authenticate16(authcode16* acode) = 0;
-	virtual bool authenticate32(authcode32* acode) = 0;
+	virtual bool authenticate(auth::authcode code, unsigned int len) = 0;
 };
 
 } /* namespace interface */
