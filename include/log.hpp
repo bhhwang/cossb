@@ -1,34 +1,25 @@
-/**
- * @file		log.hpp
- * @brief		log handler
- * @author		Byunghun Hwang<bhhwang@nsynapse.com>
- * @date 		2015. 6. 21
- * @details	log handler
+/*
+ * log.hpp
+ *
+ *  Created on: 2015. 8. 5.
+ *      Author: hwang-linux
  */
 
-#ifndef _COSSB_LOG_HPP_
-#define _COSSB_LOG_HPP_
-
-#include <string>
-#include "interface/ilog.hpp"
-
-using namespace std;
+#ifndef INCLUDE_LOG_HPP_
+#define INCLUDE_LOG_HPP_
 
 namespace cossb {
-namespace log {
+namespace base {
 
 class log : public interface::ilog {
-
 public:
-	static log* get();
-	void destroy();
+	log();
+	virtual ~log();
 
-private:
-	static log* _instance;
-
+	void log(const char* logstr);
 };
 
-} /* namespace log */
+} /* namespace base */
 } /* namespace cossb */
 
-#endif /* _COSSB_LOG_HPP_ */
+#endif /* INCLUDE_LOG_HPP_ */

@@ -1,7 +1,7 @@
 /*
  * log.cpp
  *
- *  Created on: 2015. 6. 23.
+ *  Created on: 2015. 8. 5.
  *      Author: hwang-linux
  */
 
@@ -16,6 +16,11 @@ log::log() {
 
 log::~log() {
 	// TODO Auto-generated destructor stub
+}
+
+void log::log(const char* logstr)
+{
+
 }
 
 } /* namespace cossb */
