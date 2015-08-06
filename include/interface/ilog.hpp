@@ -11,29 +11,17 @@
 #define _COSSB_ILOG_HPP_
 
 /**
- * @brief	interface for log process
+ * @brief	interface for simple log process
  */
 
 namespace cossb {
 namespace interface {
 
 class ilog {
-
 public:
-	ilog() { }
 	virtual ~ilog() { }
 
-	template<typename... Args> void trace(const char* fmt, const Args&... args);
-	template<typename... Args> void debug(const char* fmt, const Args&... args);
-	template<typename... Args> void info(const char* fmt, const Args&... args);
-	template<typename... Args> void warn(const char* fmt, const Args&... args);
-	template<typename... Args> void error(const char* fmt, const Args&... args);
-
-	template<typename T> void trace(const T&);
-	template<typename T> void debug(const T&);
-	template<typename T> void info(const T&);
-	template<typename T> void warn(const T&);
-	template<typename T> void error(const T&);
+	virtual void log(const char* logstr) = 0;
 
 };
 
