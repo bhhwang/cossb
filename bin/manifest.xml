@@ -3,7 +3,7 @@
 	
 	<!-- product information (IMPORTANT section) -->
 	<product>
-		<target>any</target>
+		<serial>NSGW00000000FFFFFFFFFFFF</serial>
 		<manufacturer>Nsynapse Inc.</manufacturer>
 		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
 	</product>
@@ -13,16 +13,13 @@
 		<uri></uri>
 	</repository>
 	
-	<!--  pre-install components -->
-	<required>
-		<component>
-		</component>
-	</required>
+	<!-- dependent libraries and components(required) -->
+	<dependency type="library">libcblog.so</dependency>
+	<dependency type="library">libcbcore.so</dependency>
+	<dependency type="component">serial.comp</dependency>
+	<dependency type="package">sample.ipkg</dependency>
 	
-	<dependency>
-		<load type="library">log</load>
-	</dependency>
-	
+	<!-- do not edit this path -->
 	<property>
 		<path name="include">./include/</path>
 		<path name="component">./component/</path>
