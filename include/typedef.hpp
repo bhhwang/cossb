@@ -27,8 +27,6 @@ namespace process {
 }
 
 namespace types {
-
-	enum class status : unsigned int { READY = 0, RUNNING, STOPPED };
 	enum class returntype : int { EXIST=-1, FAIL=0, SUCCESS=1 };
 
 
