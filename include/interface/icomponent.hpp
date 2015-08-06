@@ -10,13 +10,17 @@
 #define _COSSB_ICOMPONENT_HPP_
 
 #include <string>
-#include "../typedef.hpp"
 #include "iprofile.hpp"
 #include "imessage.hpp"
 
 using namespace std;
 
 namespace cossb {
+
+namespace component {
+	enum class status : unsigned int { IDLE=0, RUNNING, STOPPED };
+}
+
 namespace interface {
 
 /**
@@ -32,12 +36,14 @@ public:
 
 	/**
 	 * @brief		initialization
+	 * @details		this function will be called at first
 	 * @return		true if it is success
 	 */
 	virtual bool setup() = 0;
 
 	/**
-	 * @brief		work process logic (loop)
+	 * @brief		process logic in here
+	 * @details		if request message comes in, this function will be called
 	 */
 	virtual bool run() = 0;
 
@@ -64,7 +70,7 @@ public:
 	/**
 	 * @brief	getting status
 	 */
-	types::comp_status get_status() { return _status; }
+	component::status get_status() { return _status; }
 
 	/**
 	 * @brief	set component profile
@@ -77,18 +83,17 @@ public:
 
 
 protected:
-	explicit icomponent(const char* name, types::comptype type)
-	:_name(name), _type(type),_status(types::comp_status::READY) {
+	explicit icomponent(const char* name)
+	:_name(name), _profile(nullptr), _status(component::status::READY) {
 
 	}
 
 private:
 	string _name;
-	types::comptype _type;
 	iprofile* _profile = nullptr;
 
 protected:
-	types::comp_status _status;
+	component::status _status;
 
 };
 
