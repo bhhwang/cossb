@@ -21,7 +21,7 @@ extern "C" {
 /**
  * @brief create COSSB core instances
  */
-extern bool cossb_init(base::config* config);
+extern bool cossb_init(const char* manifest);
 
 /**
  * @brief destroy COSSB core instances
@@ -32,6 +32,16 @@ extern void cossb_destroy();
  * @brief	service components synchronization
  */
 extern bool cossb_sync();
+
+/**
+ * @brief	start COSSB engine
+ */
+extern bool cossb_start();
+
+/**
+ * @brief	stop COSSB Engine
+ */
+extern bool cossb_stop();
 
 
 #ifndef _cplusplus
