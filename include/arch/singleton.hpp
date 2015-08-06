@@ -24,7 +24,7 @@ template <class T>
 class singleton {
 public:
 	template<typename... Args>
-	static T* get(Args... args) {
+	static T* instance(Args... args) {
 		if(!_instance) {
 			_instance = new T(std::forward<Args>(args)...);
 		}
@@ -36,8 +36,6 @@ public:
 			_instance = nullptr;
 		}
 	}
-
-	virtual ~singleton() { }
 
 protected:
 	singleton() {}
