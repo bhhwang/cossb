@@ -33,7 +33,6 @@ public:
 	bool regist(interface::icomponent* component, string topic_name);
 
 private:
-	static component_broker* _instance;
 	topic_map	_topic_map;
 };
 
