@@ -29,10 +29,12 @@ public:
 	component_manager() { }
 	virtual ~component_manager() { }
 
-	types::returntype install(const char* component_name);
+	bool install(const char* component_name);
 	types::returntype uninstall(const char* component_name);
 	types::returntype run(const char* component_name);
+	types::returntype run();
 	types::returntype stop(const char* component_name);
+	types::returntype stop();
 
 	int count();
 
