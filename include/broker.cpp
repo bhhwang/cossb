@@ -21,15 +21,10 @@ component_broker::~component_broker()
 
 }
 
-bool component_broker::regist(interface::icomponent* component, topic topic_name)
+bool component_broker::regist(interface::icomponent* component, string topic_name)
 {
-	bool success = false;
-	if(_instance) {
-		_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
-		success = true;
-	}
-
-	return success;
+	_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
+	return true;
 }
 
 } /* namespace broker */
