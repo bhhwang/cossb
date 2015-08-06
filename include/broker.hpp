@@ -19,9 +19,8 @@ using namespace std;
 namespace cossb {
 namespace broker {
 
-typedef string topic;
-typedef string comp_name;
-typedef multimap<topic, comp_name> topic_map;
+//(topic, component name) pair
+typedef multimap<string, string> topic_map;
 
 class component_broker : public arch::singleton<component_broker> {
 public:
@@ -31,7 +30,7 @@ public:
 	/**
 	 *@brief	regist component with topic
 	 */
-	bool regist(interface::icomponent* component, topic topic_name);
+	bool regist(interface::icomponent* component, string topic_name);
 
 private:
 	static component_broker* _instance;
