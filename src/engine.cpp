@@ -35,7 +35,7 @@ void destroy() {
  */
 void sigc_interrupt(int param) {
 	cossb::core::cossb_destroy();
-	cout << "Successfully terminated." << endl;
+	cout << "Terminated." << endl;
 	_exit(EXIT_FAILURE);
 }
 
@@ -108,6 +108,9 @@ int main(int argc, char* argv[])
 		cout << poptBadOption(optionCon, POPT_BADOPTION_NOALIAS) << ":" << poptStrerror(opt) << endl;
 		destroy();
 	}
+
+	//start the cossb service
+	cossb::core::cossb_start();
 
 	pause();
 	poptFreeContext(optionCon);
