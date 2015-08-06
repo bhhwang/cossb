@@ -38,6 +38,8 @@ private:
 	topic_map	_topic_map;
 };
 
+#define cossb_component_broker	cossb::broker::component_broker::instance()
+
 } /* namespace broker */
 } /* namespace cossb */
 
