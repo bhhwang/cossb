@@ -8,7 +8,6 @@
 
 #include "driver.hpp"
 #include <dlfcn.h>
-#include "util/spdlog/spdlog.h"
 
 namespace cossb {
 namespace driver {
@@ -18,15 +17,15 @@ component_driver::component_driver(const char* component_name)
 {
 	if(load(component_name))
 	{
-
+		string profile_path = "./"+string(component_name)+".xml";
+		if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
+			unload();
 	}
-	else
-		spdlog::get(_component_name)->error("Cannot load {}", component_name);
 }
 
 component_driver::~component_driver()
 {
-
+	unload();
 }
 
 bool component_driver::load(const char* component_name)
@@ -36,16 +35,12 @@ bool component_driver::load(const char* component_name)
 	_handle = dlopen(comp_path.c_str(), RTLD_LAZY|RTLD_GLOBAL);
 
 	if(!_handle)
-	{
-		spdlog::get("main_thread")->error("{}", dlerror());
 		return false;
-	}
 	else
 	{
 		create_component pfcreate = (create_component)dlsym(_handle, "create");
 		if(!pfcreate)
 		{
-			spdlog::get("main_thread")->error("{}",dlerror());
 
 			dlclose(_handle);
 			_handle = nullptr;
@@ -62,7 +57,23 @@ bool component_driver::load(const char* component_name)
 
 void component_driver::unload()
 {
+	if(_ptr_component)
+	{
+		string comp_name = _ptr_component->get_name();
 
+		destroy_component pfdestroy = (destroy_component)dlsym(_handle, "destroy");
+
+		if(pfdestroy)
+			pfdestroy();
+
+		_ptr_component = nullptr;
+	}
+
+	if(_handle)
+	{
+		dlclose(_handle);
+		_handle = nullptr;
+	}
 }
 
 } /* namespace dirver */

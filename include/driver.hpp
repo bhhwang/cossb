@@ -10,22 +10,32 @@
 #define _COSSB_DRIVER_HPP_
 
 #include <string>
+#include "interface/icomponent.hpp"
 
 using namespace std;
 
 namespace cossb {
 namespace driver {
 
-class component_driver {
+class component_driver : private interface::icomponent {
+
+	friend class manager::component_manager;
+
 public:
 	component_driver(const char* component_name);
 	virtual ~component_driver();
 
-	interface::icomponent* get_component() const;
+	bool valid() { return _handle!=nullptr; }
+	interface::icomponent* get_component() const { return _ptr_component; };
 
 private:
 	bool load(const char* component_name);
 	void unload();
+
+	//component interface
+	void run();
+	void stop();
+
 
 private:
 	interface::icomponent* _ptr_component = nullptr;
