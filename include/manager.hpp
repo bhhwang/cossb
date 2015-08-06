@@ -38,13 +38,16 @@ public:
 
 };
 
+#define cossb_component_manager	cossb::manager::component_manager::instance()
+
 /**
  * @brief	system manager derived from singleton pattern
  */
 class system_manager : public arch::singleton<system_manager> {
+
 public:
-	system_manager() { }
-	virtual ~system_manager() { }
+	system_manager();
+	virtual ~system_manager();
 	/**
 	 * @brief	setup system configuration
 	 */
@@ -59,6 +62,8 @@ public:
 private:
 	bool initialized = false;
 };
+
+#define cossb_system_manager	cossb::manager::system_manager::instance()
 
 
 } /* namespace manager */
