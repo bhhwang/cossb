@@ -12,18 +12,19 @@ CXX = g++
 CXXFLAGS = -O3 -g3 -fPIC -Wall -std=c++11 -D__cplusplus=201103L
 CCFLAGS = $(CXXFLAGS)
 LDFLAGS = -Wl,--export-dynamic
-LDLIBS = -lpopt -lboost_system
+LDLIBS = -lpopt -lboost_system -ltinyxml2
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
 
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 INCLUDE_FILES = ./include/
+LIB_FILES = ./lib/
 BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o  
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o   
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
@@ -31,8 +32,8 @@ cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)con
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 #Make libcbcore.so	
-#libcbcore.so: $(OUTDIR)cbcore.o 
-#	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+libcblog.so: $(OUTDIR)cblog.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 $(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -46,7 +47,13 @@ $(OUTDIR)sysmanager.o: $(INCLUDE_FILES)sysmanager.cpp
 $(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)driver.o: $(INCLUDE_FILES)driver.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
 $(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)auth.o: $(INCLUDE_FILES)auth.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
@@ -65,6 +72,10 @@ $(OUTDIR)engine.o: ./src/engine.cpp
 	
 $(OUTDIR)engined.o: ./src/engined.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+
+#libraries	
+#$(OUTDIR)cblog.o: $(LIB_FILES)log/log.cpp
+#	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 
 # make all
