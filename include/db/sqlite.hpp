@@ -11,11 +11,12 @@
 #define _COSSB_DB_SQLITE_HPP_
 
 #include <sqlite3.h>
+#include "../interface/isql.hpp"
 
 namespace cossb {
 namespace db {
 
-class sqlite {
+class sqlite : public interface::iSQL {
 public:
 	sqlite();
 	virtual ~sqlite();
