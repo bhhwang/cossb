@@ -12,6 +12,7 @@
 #include <map>
 #include <string>
 #include "interface/icomponent.hpp"
+#include "arch/singleton.hpp"
 
 using namespace std;
 
@@ -22,10 +23,10 @@ typedef string topic;
 typedef string comp_name;
 typedef multimap<topic, comp_name> topic_map;
 
-class component_broker {
+class component_broker : public arch::singleton<component_broker> {
 public:
-	static component_broker* get();
-	void destroy();
+	component_broker();
+	virtual ~component_broker();
 
 	/**
 	 *@brief	regist component with topic

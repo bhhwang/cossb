@@ -11,18 +11,14 @@
 namespace cossb {
 namespace broker {
 
-component_broker* component_broker::_instance = nullptr;
-component_broker* component_broker::get()
+component_broker::component_broker()
 {
-	if(!_instance)
-		_instance = new component_broker;
-	return _instance;
+
 }
 
-void component_broker::destroy()
+component_broker::~component_broker()
 {
-	if(_instance)
-		delete _instance;
+
 }
 
 bool component_broker::regist(interface::icomponent* component, topic topic_name)
