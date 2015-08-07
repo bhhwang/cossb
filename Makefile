@@ -24,11 +24,11 @@ BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o   
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o   
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
-cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o
+cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 
 #Make libcbcore.so	
