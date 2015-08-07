@@ -24,7 +24,7 @@ BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o   
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)icomponent.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o   
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
@@ -50,6 +50,9 @@ $(OUTDIR)driver.o: $(INCLUDE_FILES)driver.cpp
 $(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)xmlprofile.o: $(INCLUDE_FILES)xmlprofile.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+		
 $(OUTDIR)auth.o: $(INCLUDE_FILES)auth.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
