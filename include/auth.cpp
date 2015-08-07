@@ -1,9 +1,4 @@
-/*
- * auth.cpp
- *
- *  Created on: 2015. 7. 29.
- *      Author: hwang-linux
- */
+
 
 #include "auth.hpp"
 
@@ -18,6 +13,7 @@ auth::auth() {
 auth::~auth() {
 	// TODO Auto-generated destructor stub
 }
+
 
 bool auth::authenticate(authcode code, unsigned int len)
 {
