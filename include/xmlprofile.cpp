@@ -54,6 +54,8 @@ const char* xmlprofile::get_error_str(int error) const
 	case	XML_ERROR_MISMATCHED_ELEMENT: 			return "Mismatched element";	break;
 	case	XML_ERROR_PARSING: 						return "Parsing Error";	break;
 	}
+
+	return "";
 }
 
 profile::type xmlprofile::get(profile::section section, const char* element)
