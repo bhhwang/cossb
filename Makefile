@@ -79,7 +79,7 @@ $(OUTDIR)engined.o: ./src/engined.cpp
 	
 
 # make all
-all: cossb cossbd
+all: cossb
 
 # Clean
 clean: 
