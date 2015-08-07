@@ -42,24 +42,26 @@ public:
 
 	/**
 	 * @brief		initialization
-	 * @details		this function will be called at first
+	 * @details	this function will be called once when load component
 	 * @return		true if it is success
 	 */
 	virtual bool setup() = 0;
 
 	/**
-	 * @brief		process logic in here
-	 * @details		if request message comes in, this function will be called
+	 * @brief		start signal comes in, this function will be called
+	 * @details
 	 */
 	virtual bool run() = 0;
 
 	/**
 	 * @brief	stop interface
+	 * @brief	stop signal comes in, this function will be called
 	 */
 	virtual bool stop() = 0;
 
 	/**
 	 * @brief	message request
+	 * @details	if request message comes in, this function will be called
 	 */
 	virtual void request(imessage* msg) = 0;
 
