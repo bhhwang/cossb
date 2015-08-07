@@ -11,13 +11,14 @@
 
 #include <string>
 #include "interface/icomponent.hpp"
+#include "manager.hpp"
 
 using namespace std;
 
 namespace cossb {
 namespace driver {
 
-class component_driver : private interface::icomponent {
+class component_driver {
 
 	friend class manager::component_manager;
 
@@ -25,16 +26,36 @@ public:
 	component_driver(const char* component_name);
 	virtual ~component_driver();
 
+	/**
+	 * @brief	component validation for driving
+	 */
 	bool valid() { return _handle!=nullptr; }
+
+	/**
+	 * @brief	getting component pointer to access
+	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
 
 private:
-	bool load(const char* component_name);
-	void unload();
-
-	//component interface
+	/**
+	 * @brief	run component
+	 */
 	void run();
+
+	/**
+	 * @brief	stop component
+	 */
 	void stop();
+
+	/**
+	 * @brief	load component by name
+	 */
+	bool load(const char* component_name);
+
+	/**
+	 * @brief	unload component
+	 */
+	void unload();
 
 
 private:
