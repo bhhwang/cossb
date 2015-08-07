@@ -34,9 +34,6 @@ cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)con
 #Make libcbcore.so	
 libcblog.so: $(OUTDIR)cblog.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-
-$(OUTDIR)icomponent.o: $(INCLUDE_FILES)interface/icomponent.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
