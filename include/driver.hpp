@@ -11,6 +11,7 @@
 
 #include <string>
 #include "interface/icomponent.hpp"
+#include "interface/iprofile.hpp"
 #include "manager.hpp"
 
 using namespace std;
@@ -21,7 +22,6 @@ namespace driver {
 class component_driver {
 
 	friend class manager::component_manager;
-	friend class broker::component_broker;
 
 public:
 	component_driver(const char* component_name);
@@ -32,12 +32,13 @@ public:
 	 */
 	bool valid() { return _handle!=nullptr; }
 
+private:
+
 	/**
 	 * @brief	getting component pointer to access
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
 
-private:
 	/**
 	 * @brief	setup component
 	 */
@@ -62,6 +63,11 @@ private:
 	 * @brief	unload component
 	 */
 	void unload();
+
+	/**
+	 * @brief
+	 */
+	bool set_profile(interface::iprofile* profile, const char* path);
 
 
 private:

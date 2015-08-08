@@ -22,8 +22,8 @@ component_driver::component_driver(const char* component_name)
 	if(load(component_name))
 	{
 		string profile_path = "./"+string(component_name)+".xml";
-		if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
-			unload();
+		//if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
+			//unload();
 	}
 }
 
@@ -99,6 +99,11 @@ void component_driver::stop()
 	{
 		_ptr_component->stop();
 	}
+}
+
+bool component_driver::set_profile(interface::iprofile* profile, const char* path)
+{
+	return false;
 }
 
 } /* namespace dirver */
