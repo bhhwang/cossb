@@ -107,6 +107,7 @@ private:
 protected:
 	component::status _status;
 
+
 };
 
 } /* namespace interface */
