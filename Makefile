@@ -19,6 +19,7 @@ RM	= rm -rf
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 INCLUDE_FILES = ./include/
+EXAMPLE_FILES = ./examples/
 LIB_FILES = ./lib/
 BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
@@ -34,6 +35,16 @@ cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)con
 #Make libcbcore.so	
 libcblog.so: $(OUTDIR)cblog.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+	
+#example components
+basic_service.comp: $(OUTDIR)basic_service.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+	
+$(OUTDIR)basic_service.o: $(EXAMPLE_FILES)basic_service/basic_service.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+	
+	
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -79,7 +90,7 @@ $(OUTDIR)engined.o: ./src/engined.cpp
 	
 
 # make all
-all: cossb
+all: cossb basic_service.comp
 
 # Clean
 clean: 
