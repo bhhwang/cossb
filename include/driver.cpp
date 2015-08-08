@@ -59,6 +59,11 @@ bool component_driver::load(const char* component_name)
 	return false;
 }
 
+void component_driver::setup()
+{
+
+}
+
 void component_driver::unload()
 {
 	if(_ptr_component)
