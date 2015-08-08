@@ -16,7 +16,7 @@
 	<!-- dependent libraries and components(required) -->
 	<dependency type="library">libcblog.so</dependency>
 	<dependency type="library">libcbcore.so</dependency>
-	<dependency type="component">serial.comp</dependency>
+	<dependency type="component">basic_service</dependency>
 	<dependency type="package">sample.ipkg</dependency>
 	
 	<!-- do not edit this path -->
