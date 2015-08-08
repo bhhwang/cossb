@@ -19,10 +19,12 @@ bool component_manager::install(const char* component_name)
 	if(cossb_component_container->add(component_name, new driver::component_driver(component_name)))
 	{
 		interface::icomponent* pComponent = cossb_component_container->get_component(component_name);
+		pComponent->setup();
 		/*if(pComponent->setup())
 		{
-			string publish = pComponent->get_profile()->get(profile::section::info, "publish").asString("undefined");
-			cossb_component_broker->regist(pComponent,publish.c_str());
+
+			//string publish = pComponent->get_profile()->get(profile::section::info, "publish").asString("undefined");
+			//cossb_component_broker->regist(pComponent,publish.c_str());
 		}*/
 	}
 	return true;
@@ -30,6 +32,12 @@ bool component_manager::install(const char* component_name)
 
 types::returntype component_manager::uninstall(const char* component_name)
 {
+	interface::icomponent* pComponent = cossb_component_container->get_component(component_name);
+	if(pComponent)
+	{
+		pComponent->stop();
+		cossb_component_container->remove(component_name);
+	}
 	return types::returntype::SUCCESS;
 }
 
