@@ -78,6 +78,19 @@ private:
 	}
 
 	/**
+	 * @brief	remove specific component
+	 */
+	bool remove(const char* component_name) {
+		comp_container::iterator itr = _container.find(component_name);
+		if(itr!=_container.end()) {
+			delete itr->second;
+			_container.erase(itr);
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * @brief	check for component existence
 	 */
 	bool exist(const char* component_name) {
