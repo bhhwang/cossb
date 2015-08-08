@@ -6,6 +6,9 @@
  */
 
 #include "xmlprofile.hpp"
+#include <iostream>
+
+using namespace std;
 
 namespace cossb {
 namespace profile {
@@ -27,7 +30,7 @@ bool xmlprofile::load(const char* filepath)
 		_loaded = true;
 	else
 	{
-		//this->error(result);
+		cout << filepath << "profile error : " << this->get_error_str(result) << endl;
 		_loaded = false;
 	}
 	return _loaded;
