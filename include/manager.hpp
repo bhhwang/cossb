@@ -27,15 +27,41 @@ namespace manager {
 class component_manager : public arch::singleton<component_manager> {
 public:
 	component_manager() { }
-	virtual ~component_manager() { }
+	virtual ~component_manager();
 
+	/**
+	 * @brief	install specific component
+	 */
 	bool install(const char* component_name);
+
+	/**
+	 * @brief	uninstall specific component
+	 */
 	types::returntype uninstall(const char* component_name);
+
+	/**
+	 * @brief run specific component
+	 */
 	types::returntype run(const char* component_name);
+
+	/**
+	 * @brief run all components
+	 */
 	types::returntype run();
+
+	/**
+	 * @brief	stop specific component
+	 */
 	types::returntype stop(const char* component_name);
+
+	/**
+	 * @brief	stop all components
+	 */
 	types::returntype stop();
 
+	/**
+	 * @brief	get count of the installed components
+	 */
 	int count();
 
 };
