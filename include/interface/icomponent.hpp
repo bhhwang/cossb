@@ -115,6 +115,18 @@ protected:
 typedef interface::icomponent*(*create_component)(void);
 typedef void(*destroy_component)(void);
 
+
+#define COMPONENT_EXPORT				extern "C" { cossb::interface::icomponent* create(); void destroy(void); }
+#define COMPONENT_INSTANCE(classname)	static classname* _instance = nullptr;
+#define COMPONENT_CREATE(classname) 	cossb::interface::icomponent* create(){ \
+											if(_instance==nullptr) _instance = new classname(); \
+											return _instance; }
+#define COMPONENT_DESTROY 				void destroy(){ \
+											if(_instance!=nullptr){ \
+												delete _instance; _instance=nullptr; }	\
+											}
+#define COMPONENT(classname) #classname
+
 } /* namespace cossb */
 
 
