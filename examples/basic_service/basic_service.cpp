@@ -1,19 +1,32 @@
-/**
- * @file	basic_service.hpp
- * @brief	simple service component
- * @author	Byunghun Hwang<bhhwang@nsynapse.com>
- * @date 	2015. 8. 7
- * @details	console print component
- */
+#include "basic_service.hpp"
 
+COMPONENT_INSTANCE(basic_service)
+COMPONENT_CREATE(basic_service)
+COMPONENT_DESTROY
 
-#include "../../include/interface.hpp"
-
-using namespace cossb;
-
-class basic_service : public interface::icomponent
+basic_service::basic_service()
+:icomponent(COMPONENT(basic_service))
 {
-public:
-	basic_service() {};
-	virtual ~basic_service() {};
-};
+
+}
+basic_service::~basic_service()
+{
+
+}
+
+bool basic_service::setup()
+{
+	return false;
+}
+bool basic_service::run()
+{
+	return false;
+}
+bool basic_service::stop()
+{
+	return false;
+}
+void basic_service::request(imessage* msg)
+{
+
+}

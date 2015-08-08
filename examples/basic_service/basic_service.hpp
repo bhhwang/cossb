@@ -27,7 +27,7 @@ public:
 
 };
 
-
+COMPONENT_EXPORT
 
 
 #endif /* _COSSB_EXAMPLE_BASIC_SERVICE_HPP_ */
