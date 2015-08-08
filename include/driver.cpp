@@ -9,6 +9,9 @@
 #include "driver.hpp"
 #include <dlfcn.h>
 #include "xmlprofile.hpp"
+#include <iostream>
+
+using namespace std;
 
 namespace cossb {
 namespace driver {
@@ -31,7 +34,7 @@ component_driver::~component_driver()
 
 bool component_driver::load(const char* component_name)
 {
-	string component_path = "./"+string(component_name);
+	string component_path = "./"+string(component_name) + ".comp";
 
 	_handle = dlopen(component_path.c_str(), RTLD_LAZY|RTLD_GLOBAL);
 
@@ -47,6 +50,7 @@ bool component_driver::load(const char* component_name)
 		}
 		else
 		{
+			cout << "load component" << endl;
 			_ptr_component = pfcreate();
 			return true;
 		}
@@ -61,8 +65,10 @@ void component_driver::unload()
 	{
 		destroy_component pfdestroy = (destroy_component)dlsym(_handle, "destroy");
 
-		if(pfdestroy)
+		if(pfdestroy) {
+			cout << "unload component" << endl;
 			pfdestroy();
+		}
 
 		_ptr_component = nullptr;
 	}
