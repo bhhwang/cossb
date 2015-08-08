@@ -21,6 +21,7 @@ namespace driver {
 class component_driver {
 
 	friend class manager::component_manager;
+	friend class broker::component_broker;
 
 public:
 	component_driver(const char* component_name);
@@ -37,6 +38,11 @@ public:
 	interface::icomponent* get_component() const { return _ptr_component; };
 
 private:
+	/**
+	 * @brief	setup component
+	 */
+	void setup();
+
 	/**
 	 * @brief	run component
 	 */
