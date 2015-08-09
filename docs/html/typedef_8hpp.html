@@ -109,7 +109,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="typedef_8hpp__dep__incl.png" border="0" usemap="#typedef_8hppdep" alt=""/></div>
 <map name="typedef_8hppdep" id="typedef_8hppdep">
-<area shape="rect" id="node2" href="icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="173,80,288,107"/><area shape="rect" id="node8" href="manager_8hpp.html" title="COSSB component manager. " alt="" coords="425,80,521,107"/><area shape="rect" id="node3" href="broker_8hpp.html" title="Component Broker. " alt="" coords="5,155,87,181"/><area shape="rect" id="node6" href="icomponent_8cpp.html" title="Component(Shared Library) interface. " alt="" coords="112,155,227,181"/><area shape="rect" id="node7" href="macro_8hpp.html" title="COSSB Macro. " alt="" coords="251,155,332,181"/><area shape="rect" id="node4" href="broker_8cpp.html" title="Component Broker. " alt="" coords="5,229,87,256"/><area shape="rect" id="node5" href="instance_8cpp.html" title="instance.cpp" alt="" coords="217,229,313,256"/><area shape="rect" id="node9" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="409,155,537,181"/><area shape="rect" id="node10" href="manager_8cpp.html" title="COSSB component manager. " alt="" coords="562,155,659,181"/><area shape="rect" id="node11" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="683,155,801,181"/></map>
+<area shape="rect" id="node2" href="manager_8hpp.html" title="COSSB component manager. " alt="" coords="134,80,231,107"/><area shape="rect" id="node3" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="5,304,133,331"/><area shape="rect" id="node4" href="driver_8hpp.html" title="Component driver. " alt="" coords="87,155,165,181"/><area shape="rect" id="node7" href="instance_8cpp.html" title="instance.cpp" alt="" coords="191,155,287,181"/><area shape="rect" id="node8" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="311,155,429,181"/><area shape="rect" id="node5" href="container_8hpp.html" title="component container class " alt="" coords="107,229,207,256"/><area shape="rect" id="node6" href="driver_8cpp.html" title="Component driver. " alt="" coords="231,229,309,256"/></map>
 </div>
 </div>
 <p><a href="typedef_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -117,7 +117,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
-<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1process"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1process.html">cossb::process</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,10 +132,6 @@ Macros</h2></td></tr>
 <tr class="separator:a1937b3da3442d945033197d09fc3da68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe2cce75e11a5d8b39943e6e4c360ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedef_8hpp.html#a1fe2cce75e11a5d8b39943e6e4c360ab">destroy_task</a>(instance)&#160;&#160;&#160;if(instance){ instance-&gt;interrupt(); instance-&gt;join(); }</td></tr>
 <tr class="separator:a1fe2cce75e11a5d8b39943e6e4c360ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee81d8d47982f6eff734b27c7bb54fb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedef_8hpp.html#aee81d8d47982f6eff734b27c7bb54fb6">COMPONENT_EXT</a>&#160;&#160;&#160;&quot;.comp&quot;</td></tr>
-<tr class="separator:aee81d8d47982f6eff734b27c7bb54fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb850ed51dfcb0498df52b05bc6bd8b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="typedef_8hpp.html#abb850ed51dfcb0498df52b05bc6bd8b3">PROFILE_EXT</a>&#160;&#160;&#160;&quot;.xml&quot;</td></tr>
-<tr class="separator:abb850ed51dfcb0498df52b05bc6bd8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -145,15 +141,6 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ada4f28c02e0614b25d7453e9d81449fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1types.html#ada4f28c02e0614b25d7453e9d81449fa">cossb::types::comptype</a> : unsigned int { <a class="el" href="namespacecossb_1_1types.html#ada4f28c02e0614b25d7453e9d81449faaf9e81a746a286bbac225d69520d1e67a">cossb::types::comptype::SERVICE</a> =0, 
-<a class="el" href="namespacecossb_1_1types.html#ada4f28c02e0614b25d7453e9d81449faa0bdbb2c325525e986d55ef50ca66d056">cossb::types::comptype::APP</a>
- }</td></tr>
-<tr class="separator:ada4f28c02e0614b25d7453e9d81449fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1af9af82b066f5cf523c8aa4d21381f6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1types.html#a1af9af82b066f5cf523c8aa4d21381f6">cossb::types::comp_status</a> : unsigned int { <a class="el" href="namespacecossb_1_1types.html#a1af9af82b066f5cf523c8aa4d21381f6a2baa69eafc7204f3bd8648eba580c489">cossb::types::comp_status::READY</a> = 0, 
-<a class="el" href="namespacecossb_1_1types.html#a1af9af82b066f5cf523c8aa4d21381f6a43491564ebcfd38568918efbd6e840fd">cossb::types::comp_status::RUNNING</a>, 
-<a class="el" href="namespacecossb_1_1types.html#a1af9af82b066f5cf523c8aa4d21381f6a09d4d696b4e935115b9313e3c412509a">cossb::types::comp_status::STOPPED</a>
- }</td></tr>
-<tr class="separator:a1af9af82b066f5cf523c8aa4d21381f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec2a8f1ebb840653b5420ea258b0b7a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">cossb::types::returntype</a> : int { <a class="el" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7a1274d697fd046a9fbc83cf151ef286a3">cossb::types::returntype::EXIST</a> =-1, 
 <a class="el" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7ac2759effffc94bb9acc71d69fe3e8a1f">cossb::types::returntype::FAIL</a> =0, 
 <a class="el" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7ad0749aaba8b833466dfcbb0428e4f89c">cossb::types::returntype::SUCCESS</a> =1
@@ -167,20 +154,6 @@ Enumerations</h2></td></tr>
 
 <p>Definition in file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="aee81d8d47982f6eff734b27c7bb54fb6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMPONENT_EXT&#160;&#160;&#160;&quot;.comp&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00031">31</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a1937b3da3442d945033197d09fc3da68"></a>
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +168,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00025">25</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00024">24</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
 
 </div>
 </div>
@@ -213,21 +186,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00026">26</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abb850ed51dfcb0498df52b05bc6bd8b3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PROFILE_EXT&#160;&#160;&#160;&quot;.xml&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00032">32</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00025">25</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
 
 </div>
 </div>
@@ -245,14 +204,14 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00024">24</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="typedef_8hpp_source.html#l00023">23</a> of file <a class="el" href="typedef_8hpp_source.html">typedef.hpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

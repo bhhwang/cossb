@@ -97,53 +97,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="typedef_8hpp.html">typedef.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>manager {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1component__manager.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>* <span class="keyword">get</span>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="engined_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> install(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> uninstall(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> run(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> stop(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> count();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>* _instance;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a> {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>* <span class="keyword">get</span>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="engined_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>* _instance;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">/* namespace manager */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="engined_8cpp_html_a3a80b6032f86a56bec74609034b3246f"><div class="ttname"><a href="engined_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">destroy main instance </div><div class="ttdef"><b>Definition:</b> <a href="engined_8cpp_source.html#l00028">engined.cpp:28</a></div></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="singleton_8hpp.html">arch/singleton.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>manager {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1component__manager.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a> : <span class="keyword">public</span> <a class="code" href="classcossb_1_1arch_1_1singleton.html">arch::singleton</a>&lt;component_manager&gt; {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>(<span class="keyword">const</span> <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>&amp; operator = (<span class="keyword">const</span> <a class="code" href="classcossb_1_1manager_1_1component__manager.html">component_manager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> install(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> uninstall(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> uninstall();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> run(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> run();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> stop(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">types::returntype</a> stop();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">int</span> count();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">   75</a></span>&#160;<span class="preprocessor">#define cossb_component_manager cossb::manager::component_manager::instance()</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html">   80</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a> : <span class="keyword">public</span> <a class="code" href="classcossb_1_1arch_1_1singleton.html">arch::singleton</a>&lt;system_manager&gt; {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>(<span class="keyword">const</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>&amp; operator = (<span class="keyword">const</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span> setup(<a class="code" href="classcossb_1_1base_1_1config.html">base::config</a>* config);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">bool</span> is_setup() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="manager_8hpp.html#a0ba79116460413aba08a28f43979c2b4">  104</a></span>&#160;<span class="preprocessor">#define cossb_system_manager    cossb::manager::system_manager::instance()</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} <span class="comment">/* namespace manager */</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00040">config.hpp:40</a></div></div>
 <div class="ttc" id="config_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">COSSB configuration Management. </div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1component__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html">cossb::manager::component_manager</a></div><div class="ttdoc">component management </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00026">manager.hpp:26</a></div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1component__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html">cossb::manager::component_manager</a></div><div class="ttdoc">component manager derived from singleton pattern </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00027">manager.hpp:27</a></div></div>
 <div class="ttc" id="typedef_8hpp_html"><div class="ttname"><a href="typedef_8hpp.html">typedef.hpp</a></div><div class="ttdoc">COSSB Type definitions. </div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html">cossb::manager::system_manager</a></div><div class="ttdoc">system management (global configuration) </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00046">manager.hpp:46</a></div></div>
-<div class="ttc" id="namespacecossb_1_1types_html_aec2a8f1ebb840653b5420ea258b0b7a7"><div class="ttname"><a href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">cossb::types::returntype</a></div><div class="ttdeci">returntype</div><div class="ttdef"><b>Definition:</b> <a href="typedef_8hpp_source.html#l00036">typedef.hpp:36</a></div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html">cossb::manager::system_manager</a></div><div class="ttdoc">system manager derived from singleton pattern </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00080">manager.hpp:80</a></div></div>
+<div class="ttc" id="namespacecossb_1_1types_html_aec2a8f1ebb840653b5420ea258b0b7a7"><div class="ttname"><a href="namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7">cossb::types::returntype</a></div><div class="ttdeci">returntype</div><div class="ttdef"><b>Definition:</b> <a href="typedef_8hpp_source.html#l00029">typedef.hpp:29</a></div></div>
+<div class="ttc" id="classcossb_1_1arch_1_1singleton_html"><div class="ttname"><a href="classcossb_1_1arch_1_1singleton.html">cossb::arch::singleton</a></div><div class="ttdoc">dynamic singleton design pattern </div><div class="ttdef"><b>Definition:</b> <a href="singleton_8hpp_source.html#l00024">singleton.hpp:24</a></div></div>
+<div class="ttc" id="singleton_8hpp_html"><div class="ttname"><a href="singleton_8hpp.html">singleton.hpp</a></div><div class="ttdoc">dynamic Singleton pattern design template class </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

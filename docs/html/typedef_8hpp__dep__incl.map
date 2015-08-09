@@ -1,12 +1,9 @@
 <map id="typedef.hpp" name="typedef.hpp">
-<area shape="rect" id="node2" href="$icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="173,80,288,107"/>
-<area shape="rect" id="node8" href="$manager_8hpp.html" title="COSSB component manager. " alt="" coords="425,80,521,107"/>
-<area shape="rect" id="node3" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="5,155,87,181"/>
-<area shape="rect" id="node6" href="$icomponent_8cpp.html" title="Component(Shared Library) interface. " alt="" coords="112,155,227,181"/>
-<area shape="rect" id="node7" href="$macro_8hpp.html" title="COSSB Macro. " alt="" coords="251,155,332,181"/>
-<area shape="rect" id="node4" href="$broker_8cpp.html" title="Component Broker. " alt="" coords="5,229,87,256"/>
-<area shape="rect" id="node5" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="217,229,313,256"/>
-<area shape="rect" id="node9" href="$compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="409,155,537,181"/>
-<area shape="rect" id="node10" href="$manager_8cpp.html" title="COSSB component manager. " alt="" coords="562,155,659,181"/>
-<area shape="rect" id="node11" href="$sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="683,155,801,181"/>
+<area shape="rect" id="node2" href="$manager_8hpp.html" title="COSSB component manager. " alt="" coords="134,80,231,107"/>
+<area shape="rect" id="node3" href="$compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="5,304,133,331"/>
+<area shape="rect" id="node4" href="$driver_8hpp.html" title="Component driver. " alt="" coords="87,155,165,181"/>
+<area shape="rect" id="node7" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="191,155,287,181"/>
+<area shape="rect" id="node8" href="$sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="311,155,429,181"/>
+<area shape="rect" id="node5" href="$container_8hpp.html" title="component container class " alt="" coords="107,229,207,256"/>
+<area shape="rect" id="node6" href="$driver_8cpp.html" title="Component driver. " alt="" coords="231,229,309,256"/>
 </map>

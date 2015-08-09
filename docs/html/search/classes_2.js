@@ -1,16 +1,18 @@
 var searchData=
 [
-  ['c_5fformatter',['c_formatter',['../classspdlog_1_1details_1_1c__formatter.html',1,'spdlog::details::c_formatter'],['../classspdlog_1_1details_1_1C__formatter.html',1,'spdlog::details::C_formatter']]],
-  ['ch_5fformatter',['ch_formatter',['../classspdlog_1_1details_1_1ch__formatter.html',1,'spdlog::details']]],
-  ['chartraits',['CharTraits',['../classfmt_1_1internal_1_1CharTraits.html',1,'fmt::internal']]],
-  ['chartraits_3c_20char_20_3e',['CharTraits&lt; char &gt;',['../classfmt_1_1internal_1_1CharTraits_3_01char_01_4.html',1,'fmt::internal']]],
-  ['chartraits_3c_20wchar_5ft_20_3e',['CharTraits&lt; wchar_t &gt;',['../classfmt_1_1internal_1_1CharTraits_3_01wchar__t_01_4.html',1,'fmt::internal']]],
-  ['component_5fbroker',['component_broker',['../classcossb_1_1broker_1_1component__broker.html',1,'cossb::broker']]],
-  ['component_5fdriver',['component_driver',['../classcossb_1_1driver_1_1component__driver.html',1,'cossb::driver']]],
-  ['component_5fmanager',['component_manager',['../classcossb_1_1manager_1_1component__manager.html',1,'cossb::manager']]],
-  ['conditional',['Conditional',['../structfmt_1_1internal_1_1Conditional.html',1,'fmt::internal']]],
-  ['conditional_3c_20false_2c_20t_2c_20f_20_3e',['Conditional&lt; false, T, F &gt;',['../structfmt_1_1internal_1_1Conditional_3_01false_00_01T_00_01F_01_4.html',1,'fmt::internal']]],
-  ['config',['config',['../classcossb_1_1base_1_1config.html',1,'cossb::base']]],
-  ['configloader',['configloader',['../classcossb_1_1configloader.html',1,'cossb']]],
-  ['customvalue',['CustomValue',['../structfmt_1_1internal_1_1Value_1_1CustomValue.html',1,'fmt::internal::Value']]]
+  ['b_5fformatter',['b_formatter',['../classspdlog_1_1details_1_1b__formatter.html',1,'spdlog::details::b_formatter'],['../classspdlog_1_1details_1_1B__formatter.html',1,'spdlog::details::B_formatter']]],
+  ['base_5fsink',['base_sink',['../classspdlog_1_1sinks_1_1base__sink.html',1,'spdlog::sinks']]],
+  ['basic_5fservice',['basic_service',['../classbasic__service.html',1,'']]],
+  ['basicarraywriter',['BasicArrayWriter',['../classfmt_1_1BasicArrayWriter.html',1,'fmt']]],
+  ['basicchartraits',['BasicCharTraits',['../classfmt_1_1internal_1_1BasicCharTraits.html',1,'fmt::internal']]],
+  ['basicchartraits_3c_20char_20_3e',['BasicCharTraits&lt; char &gt;',['../classfmt_1_1internal_1_1BasicCharTraits.html',1,'fmt::internal']]],
+  ['basicchartraits_3c_20wchar_5ft_20_3e',['BasicCharTraits&lt; wchar_t &gt;',['../classfmt_1_1internal_1_1BasicCharTraits.html',1,'fmt::internal']]],
+  ['basicdata',['BasicData',['../structfmt_1_1internal_1_1BasicData.html',1,'fmt::internal']]],
+  ['basicformatter',['BasicFormatter',['../classfmt_1_1BasicFormatter.html',1,'fmt']]],
+  ['basicmemorywriter',['BasicMemoryWriter',['../classfmt_1_1BasicMemoryWriter.html',1,'fmt']]],
+  ['basicstringref',['BasicStringRef',['../classfmt_1_1BasicStringRef.html',1,'fmt']]],
+  ['basicwriter',['BasicWriter',['../classfmt_1_1BasicWriter.html',1,'fmt']]],
+  ['buffer',['Buffer',['../classfmt_1_1Buffer.html',1,'fmt']]],
+  ['buffer',['Buffer',['../classfmt_1_1internal_1_1Buffer.html',1,'fmt::internal']]],
+  ['buffer_3c_20char_20_3e',['Buffer&lt; Char &gt;',['../classfmt_1_1Buffer.html',1,'fmt::Buffer&lt; Char &gt;'],['../classfmt_1_1internal_1_1Buffer.html',1,'fmt::internal::Buffer&lt; Char &gt;']]]
 ];

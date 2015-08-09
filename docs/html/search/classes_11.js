@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['wcharhelper',['WCharHelper',['../structfmt_1_1internal_1_1WCharHelper.html',1,'fmt::internal']]],
-  ['wcharhelper_3c_20t_2c_20wchar_5ft_20_3e',['WCharHelper&lt; T, wchar_t &gt;',['../structfmt_1_1internal_1_1WCharHelper_3_01T_00_01wchar__t_01_4.html',1,'fmt::internal']]],
-  ['widthspec',['WidthSpec',['../structfmt_1_1WidthSpec.html',1,'fmt']]]
+  ['v_5fformatter',['v_formatter',['../classspdlog_1_1details_1_1v__formatter.html',1,'spdlog::details']]],
+  ['value',['Value',['../structfmt_1_1internal_1_1Value.html',1,'fmt::internal']]]
 ];

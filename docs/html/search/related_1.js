@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_21_3d',['operator!=',['../classfmt_1_1BasicStringRef.html#a836256d721e8228d72db00235a57bc9e',1,'fmt::BasicStringRef::operator!=()'],['../classfmt_1_1BasicStringRef.html#a836256d721e8228d72db00235a57bc9e',1,'fmt::BasicStringRef::operator!=()']]],
-  ['operator_3d_3d',['operator==',['../classfmt_1_1BasicStringRef.html#af0c85958cdfb63d912d312c19ae81d7c',1,'fmt::BasicStringRef::operator==()'],['../classfmt_1_1BasicStringRef.html#af0c85958cdfb63d912d312c19ae81d7c',1,'fmt::BasicStringRef::operator==()']]]
+  ['component_5fmanager',['component_manager',['../classcossb_1_1container_1_1component__container.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::container::component_container::component_manager()'],['../classcossb_1_1driver_1_1component__driver.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::driver::component_driver::component_manager()']]]
 ];

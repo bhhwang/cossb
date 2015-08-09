@@ -91,36 +91,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="sysmanager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8hpp.html">manager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>manager {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;system_manager* system_manager::_instance = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html#ace9ed368a73dbda05bb6399dd43ef9f5">   16</a></span>&#160;<a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>* <a class="code" href="classcossb_1_1manager_1_1system__manager.html#ace9ed368a73dbda05bb6399dd43ef9f5">system_manager::get</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">if</span>(!_instance)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        _instance = <span class="keyword">new</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html">system_manager</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> _instance;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6">component_manager::destroy</a>()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(_instance)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">delete</span> _instance;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">/* namespace manager */</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html_ace9ed368a73dbda05bb6399dd43ef9f5"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html#ace9ed368a73dbda05bb6399dd43ef9f5">cossb::manager::system_manager::get</a></div><div class="ttdeci">static system_manager * get()</div><div class="ttdef"><b>Definition:</b> <a href="sysmanager_8cpp_source.html#l00016">sysmanager.cpp:16</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">logger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>manager {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html#ab1dbc09b0fc5aa5e8fce619238147478">   15</a></span>&#160;<a class="code" href="classcossb_1_1manager_1_1system__manager.html#ab1dbc09b0fc5aa5e8fce619238147478">system_manager::system_manager</a>()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="logger_8hpp.html#a7b2635bbab5f2affa3ed099cfef6c422">cossb_log</a>-&gt;info(<span class="stringliteral">&quot;test&quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html#a5d7a54f44d5c16e5e8ed3d359240537a">   20</a></span>&#160;<a class="code" href="classcossb_1_1manager_1_1system__manager.html#a5d7a54f44d5c16e5e8ed3d359240537a">system_manager::~system_manager</a>()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a>-&gt;destroy();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="logger_8hpp.html#a7b2635bbab5f2affa3ed099cfef6c422">cossb_log</a>-&gt;destroy();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html#a11bfaff64f803ea7b822767aee04725b">   26</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html#a11bfaff64f803ea7b822767aee04725b">system_manager::setup</a>(<a class="code" href="classcossb_1_1base_1_1config.html">base::config</a>* config)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">//1. load dependent components</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> dep:*config-&gt;<a class="code" href="classcossb_1_1base_1_1config.html#a85d8516c46c2866d06782a314e2477cf">get_dependency</a>()) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(dep-&gt;type==<a class="code" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">base::dependencyType::COMPONENT</a>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a>-&gt;install(dep-&gt;name.c_str());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classcossb_1_1manager_1_1system__manager.html#a1e06b8c72e97e4f4c9b4438e970c6208">   37</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1manager_1_1system__manager.html#a1e06b8c72e97e4f4c9b4438e970c6208">system_manager::is_setup</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> initialized;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">/* namespace manager */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00040">config.hpp:40</a></div></div>
+<div class="ttc" id="manager_8hpp_html_a96b22cc7b6d885249b52e87259ef4c28"><div class="ttname"><a href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a></div><div class="ttdeci">#define cossb_component_manager</div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00075">manager.hpp:75</a></div></div>
+<div class="ttc" id="namespacecossb_1_1base_html_ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b"><div class="ttname"><a href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">cossb::base::dependencyType::COMPONENT</a></div></div>
+<div class="ttc" id="logger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div><div class="ttdoc">ossb default console logger </div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html_a5d7a54f44d5c16e5e8ed3d359240537a"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html#a5d7a54f44d5c16e5e8ed3d359240537a">cossb::manager::system_manager::~system_manager</a></div><div class="ttdeci">virtual ~system_manager()</div><div class="ttdef"><b>Definition:</b> <a href="sysmanager_8cpp_source.html#l00020">sysmanager.cpp:20</a></div></div>
 <div class="ttc" id="manager_8hpp_html"><div class="ttname"><a href="manager_8hpp.html">manager.hpp</a></div><div class="ttdoc">COSSB component manager. </div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1component__manager_html_a63542f2cfd83e6cecd4d2ee3a363d2c6"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6">cossb::manager::component_manager::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="compmanager_8cpp_source.html#l00023">compmanager.cpp:23</a></div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html">cossb::manager::system_manager</a></div><div class="ttdoc">system management (global configuration) </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00046">manager.hpp:46</a></div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html_ab1dbc09b0fc5aa5e8fce619238147478"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html#ab1dbc09b0fc5aa5e8fce619238147478">cossb::manager::system_manager::system_manager</a></div><div class="ttdeci">system_manager()</div><div class="ttdef"><b>Definition:</b> <a href="sysmanager_8cpp_source.html#l00015">sysmanager.cpp:15</a></div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html_a1e06b8c72e97e4f4c9b4438e970c6208"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html#a1e06b8c72e97e4f4c9b4438e970c6208">cossb::manager::system_manager::is_setup</a></div><div class="ttdeci">bool is_setup() const </div><div class="ttdoc">check configured or not </div><div class="ttdef"><b>Definition:</b> <a href="sysmanager_8cpp_source.html#l00037">sysmanager.cpp:37</a></div></div>
+<div class="ttc" id="logger_8hpp_html_a7b2635bbab5f2affa3ed099cfef6c422"><div class="ttname"><a href="logger_8hpp.html#a7b2635bbab5f2affa3ed099cfef6c422">cossb_log</a></div><div class="ttdeci">#define cossb_log</div><div class="ttdef"><b>Definition:</b> <a href="logger_8hpp_source.html#l00039">logger.hpp:39</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html_a85d8516c46c2866d06782a314e2477cf"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a85d8516c46c2866d06782a314e2477cf">cossb::base::config::get_dependency</a></div><div class="ttdeci">vector&lt; sDependency * &gt; * get_dependency()</div><div class="ttdoc">getting manifest information </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00059">config.hpp:59</a></div></div>
+<div class="ttc" id="classcossb_1_1manager_1_1system__manager_html_a11bfaff64f803ea7b822767aee04725b"><div class="ttname"><a href="classcossb_1_1manager_1_1system__manager.html#a11bfaff64f803ea7b822767aee04725b">cossb::manager::system_manager::setup</a></div><div class="ttdeci">bool setup(base::config *config)</div><div class="ttdoc">setup system configuration </div><div class="ttdef"><b>Definition:</b> <a href="sysmanager_8cpp_source.html#l00026">sysmanager.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -94,48 +94,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="instance_8hpp.html">instance.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8hpp.html">manager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="broker_8hpp.html">broker.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_8hpp.html">log.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="configloader_8hpp.html">configloader.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html">   11</a></span>&#160;<span class="keyword">namespace </span>core {</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">   14</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb_init</a>(<a class="code" href="classcossb_1_1base_1_1config.html">base::config</a>* config)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> return_value = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html">   14</a></span>&#160;<span class="keyword">namespace </span>core {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">   16</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb_init</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* manifest)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> return_value;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">//1. load manifest file</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="config_8hpp.html#a181f21dda8b179903ef777cd5385db3b">cossb_config</a>-&gt;load(manifest))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb_destroy</a>()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classcossb_1_1manager_1_1component__manager.html#a966e1fdcff5a32c6f3442e248bde69bb">manager::component_manager::get</a>()-&gt;<a class="code" href="classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6">destroy</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da">broker::component_broker::get</a>()-&gt;<a class="code" href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d">destroy</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">/* namespace core */</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aefd050e90b83ffaf4df7d71de1af34da"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da">cossb::broker::component_broker::get</a></div><div class="ttdeci">static component_broker * get()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00015">broker.cpp:15</a></div></div>
-<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00022">config.hpp:22</a></div></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aa3eb94c326a94290b383111f2d8cf09d"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d">cossb::broker::component_broker::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00022">broker.cpp:22</a></div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//2. create(setup) instances according to the manifest</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="manager_8hpp.html#a0ba79116460413aba08a28f43979c2b4">cossb_system_manager</a>-&gt;setup(base::config::instance()))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb_destroy</a>()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="manager_8hpp.html#a0ba79116460413aba08a28f43979c2b4">cossb_system_manager</a>-&gt;destroy();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="config_8hpp.html#a181f21dda8b179903ef777cd5385db3b">cossb_config</a>-&gt;destroy();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">   37</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb_sync</a>()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">   43</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb_start</a>()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a>-&gt;run()==types::returntype::SUCCESS)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">   51</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb_stop</a>()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a>-&gt;stop()==types::returntype::SUCCESS)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">/* namespace core */</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="ttc" id="manager_8hpp_html_a96b22cc7b6d885249b52e87259ef4c28"><div class="ttname"><a href="manager_8hpp.html#a96b22cc7b6d885249b52e87259ef4c28">cossb_component_manager</a></div><div class="ttdeci">#define cossb_component_manager</div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00075">manager.hpp:75</a></div></div>
+<div class="ttc" id="config_8hpp_html_a181f21dda8b179903ef777cd5385db3b"><div class="ttname"><a href="config_8hpp.html#a181f21dda8b179903ef777cd5385db3b">cossb_config</a></div><div class="ttdeci">#define cossb_config</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00080">config.hpp:80</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_ab8360b2b1997ef3520a59637321be379"><div class="ttname"><a href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb::core::cossb_stop</a></div><div class="ttdeci">bool cossb_stop()</div><div class="ttdoc">stop COSSB Engine </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00051">instance.cpp:51</a></div></div>
 <div class="ttc" id="config_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">COSSB configuration Management. </div></div>
 <div class="ttc" id="manager_8hpp_html"><div class="ttname"><a href="manager_8hpp.html">manager.hpp</a></div><div class="ttdoc">COSSB component manager. </div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1component__manager_html_a63542f2cfd83e6cecd4d2ee3a363d2c6"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6">cossb::manager::component_manager::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="compmanager_8cpp_source.html#l00023">compmanager.cpp:23</a></div></div>
-<div class="ttc" id="namespacecossb_1_1core_html_abae82d72278a2dafa4d83669a278975d"><div class="ttname"><a href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb::core::cossb_destroy</a></div><div class="ttdeci">void cossb_destroy()</div><div class="ttdoc">destroy COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00023">instance.cpp:23</a></div></div>
+<div class="ttc" id="manager_8hpp_html_a0ba79116460413aba08a28f43979c2b4"><div class="ttname"><a href="manager_8hpp.html#a0ba79116460413aba08a28f43979c2b4">cossb_system_manager</a></div><div class="ttdeci">#define cossb_system_manager</div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00104">manager.hpp:104</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a335e01a706b6c4e22881a8061cffd03b"><div class="ttname"><a href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb::core::cossb_start</a></div><div class="ttdeci">bool cossb_start()</div><div class="ttdoc">start COSSB engine </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00043">instance.cpp:43</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_abae82d72278a2dafa4d83669a278975d"><div class="ttname"><a href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb::core::cossb_destroy</a></div><div class="ttdeci">void cossb_destroy()</div><div class="ttdoc">destroy COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00031">instance.cpp:31</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a7d7ab0c7d6b7daffb831c0fb53726087"><div class="ttname"><a href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb::core::cossb_sync</a></div><div class="ttdeci">bool cossb_sync()</div><div class="ttdoc">service components synchronization </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00037">instance.cpp:37</a></div></div>
 <div class="ttc" id="instance_8hpp_html"><div class="ttname"><a href="instance_8hpp.html">instance.hpp</a></div><div class="ttdoc">COSSB Instance. </div></div>
-<div class="ttc" id="namespacecossb_1_1core_html_aa6ef5c0ad50a98cafb24abac8cf97173"><div class="ttname"><a href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb::core::cossb_init</a></div><div class="ttdeci">bool cossb_init(base::config *config)</div><div class="ttdoc">create COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00014">instance.cpp:14</a></div></div>
-<div class="ttc" id="log_8hpp_html"><div class="ttname"><a href="log_8hpp.html">log.hpp</a></div><div class="ttdoc">log handler </div></div>
-<div class="ttc" id="configloader_8hpp_html"><div class="ttname"><a href="configloader_8hpp.html">configloader.hpp</a></div><div class="ttdoc">Config file loader. </div></div>
-<div class="ttc" id="classcossb_1_1manager_1_1component__manager_html_a966e1fdcff5a32c6f3442e248bde69bb"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html#a966e1fdcff5a32c6f3442e248bde69bb">cossb::manager::component_manager::get</a></div><div class="ttdeci">static component_manager * get()</div><div class="ttdef"><b>Definition:</b> <a href="compmanager_8cpp_source.html#l00016">compmanager.cpp:16</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a8124bb87142e5271fdbecaa9fe1dd984"><div class="ttname"><a href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb::core::cossb_init</a></div><div class="ttdeci">bool cossb_init(const char *manifest)</div><div class="ttdoc">create COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00016">instance.cpp:16</a></div></div>
 <div class="ttc" id="broker_8hpp_html"><div class="ttname"><a href="broker_8hpp.html">broker.hpp</a></div><div class="ttdoc">Component Broker. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -87,7 +87,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">config.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -95,24 +98,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>COSSB configuration Management.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="singleton_8hpp_source.html">arch/singleton.hpp</a>&quot;</code><br/>
+<code>#include &lt;tinyxml2.h&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for config.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="config_8hpp__incl.png" border="0" usemap="#config_8hpp" alt=""/></div>
+<map name="config_8hpp" id="config_8hpp">
+<area shape="rect" id="node2" href="singleton_8hpp.html" title="dynamic Singleton pattern design template class " alt="" coords="20,80,148,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="config_8hpp__dep__incl.png" border="0" usemap="#config_8hppdep" alt=""/></div>
 <map name="config_8hppdep" id="config_8hppdep">
-<area shape="rect" id="node2" href="manager_8hpp.html" title="COSSB component manager. " alt="" coords="257,80,353,107"/><area shape="rect" id="node4" href="instance_8cpp.html" title="instance.cpp" alt="" coords="5,155,101,181"/><area shape="rect" id="node7" href="config_8cpp.html" title="config.cpp" alt="" coords="149,80,231,107"/><area shape="rect" id="node8" href="instance_8hpp.html" title="COSSB Instance. " alt="" coords="29,80,125,107"/><area shape="rect" id="node9" href="sysconfig_8cpp.html" title="sysconfig.cpp" alt="" coords="378,80,480,107"/><area shape="rect" id="node3" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="126,155,255,181"/><area shape="rect" id="node5" href="manager_8cpp.html" title="COSSB component manager. " alt="" coords="279,155,376,181"/><area shape="rect" id="node6" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="401,155,519,181"/></map>
+<area shape="rect" id="node2" href="manager_8hpp.html" title="COSSB component manager. " alt="" coords="139,80,236,107"/><area shape="rect" id="node7" href="instance_8cpp.html" title="instance.cpp" alt="" coords="333,155,429,181"/><area shape="rect" id="node9" href="config_8cpp.html" title="config.cpp" alt="" coords="312,80,393,107"/><area shape="rect" id="node10" href="instance_8hpp.html" title="COSSB Instance. " alt="" coords="419,80,515,107"/><area shape="rect" id="node3" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="5,304,133,331"/><area shape="rect" id="node4" href="driver_8hpp.html" title="Component driver. " alt="" coords="87,155,165,181"/><area shape="rect" id="node8" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="190,155,308,181"/><area shape="rect" id="node5" href="container_8hpp.html" title="component container class " alt="" coords="107,229,207,256"/><area shape="rect" id="node6" href="driver_8cpp.html" title="Component driver. " alt="" coords="231,229,309,256"/></map>
 </div>
 </div>
 <p><a href="config_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcossb_1_1base_1_1__sDependency.html">cossb::base::_sDependency</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html">cossb::base::config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">system configuration class  <a href="classcossb_1_1base_1_1config.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,10 +131,29 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
-<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html">cossb::base</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a181f21dda8b179903ef777cd5385db3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="config_8hpp.html#a181f21dda8b179903ef777cd5385db3b">cossb_config</a>&#160;&#160;&#160;<a class="el" href="classcossb_1_1arch_1_1singleton.html#a6b15646ae2728d8a775de1b841af3f45">cossb::base::config::instance</a>()</td></tr>
+<tr class="separator:a181f21dda8b179903ef777cd5385db3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ad6435f230759a1fa28a6bbfd3fbccb36"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structcossb_1_1base_1_1__sDependency.html">cossb::base::_sDependency</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#ad6435f230759a1fa28a6bbfd3fbccb36">cossb::base::sDependency</a></td></tr>
+<tr class="separator:ad6435f230759a1fa28a6bbfd3fbccb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ac645957259e5a09ccb053e1c8e55e5e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9">cossb::base::dependencyType</a> : unsigned int { <a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341">cossb::base::dependencyType::LIBRARY</a> =1, 
+<a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">cossb::base::dependencyType::COMPONENT</a>, 
+<a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9ae83af69d4844921d55507863e9099eb2">cossb::base::dependencyType::PACKAGE</a>
+ }</td></tr>
+<tr class="separator:ac645957259e5a09ccb053e1c8e55e5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>COSSB configuration Management. </p>
@@ -132,10 +162,25 @@ Namespaces</h2></td></tr>
 <p>Load configuration file </p>
 
 <p>Definition in file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a181f21dda8b179903ef777cd5385db3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define cossb_config&#160;&#160;&#160;<a class="el" href="classcossb_1_1arch_1_1singleton.html#a6b15646ae2728d8a775de1b841af3f45">cossb::base::config::instance</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00080">80</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

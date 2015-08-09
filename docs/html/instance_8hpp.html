@@ -101,7 +101,7 @@ Include dependency graph for instance.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="instance_8hpp__incl.png" border="0" usemap="#instance_8hpp" alt=""/></div>
 <map name="instance_8hpp" id="instance_8hpp">
-<area shape="rect" id="node2" href="config_8hpp.html" title="COSSB configuration Management. " alt="" coords="12,80,93,107"/></map>
+<area shape="rect" id="node2" href="config_8hpp.html" title="COSSB configuration Management. " alt="" coords="267,80,348,107"/><area shape="rect" id="node3" href="singleton_8hpp.html" title="dynamic Singleton pattern design template class " alt="" coords="20,155,148,181"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -116,19 +116,28 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
-<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1core"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html">cossb::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb::core::cossb_init</a> (base::config *config)</td></tr>
-<tr class="memdesc:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="mdescLeft">&#160;</td><td class="mdescRight">create COSSB core instances  <a href="#aa6ef5c0ad50a98cafb24abac8cf97173">More...</a><br/></td></tr>
-<tr class="separator:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8124bb87142e5271fdbecaa9fe1dd984"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb::core::cossb_init</a> (const char *manifest)</td></tr>
+<tr class="memdesc:a8124bb87142e5271fdbecaa9fe1dd984"><td class="mdescLeft">&#160;</td><td class="mdescRight">create COSSB core instances  <a href="#a8124bb87142e5271fdbecaa9fe1dd984">More...</a><br/></td></tr>
+<tr class="separator:a8124bb87142e5271fdbecaa9fe1dd984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae82d72278a2dafa4d83669a278975d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb::core::cossb_destroy</a> ()</td></tr>
 <tr class="memdesc:abae82d72278a2dafa4d83669a278975d"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy COSSB core instances  <a href="#abae82d72278a2dafa4d83669a278975d">More...</a><br/></td></tr>
 <tr class="separator:abae82d72278a2dafa4d83669a278975d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb::core::cossb_sync</a> ()</td></tr>
+<tr class="memdesc:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="mdescLeft">&#160;</td><td class="mdescRight">service components synchronization  <a href="#a7d7ab0c7d6b7daffb831c0fb53726087">More...</a><br/></td></tr>
+<tr class="separator:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335e01a706b6c4e22881a8061cffd03b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb::core::cossb_start</a> ()</td></tr>
+<tr class="memdesc:a335e01a706b6c4e22881a8061cffd03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">start COSSB engine  <a href="#a335e01a706b6c4e22881a8061cffd03b">More...</a><br/></td></tr>
+<tr class="separator:a335e01a706b6c4e22881a8061cffd03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8360b2b1997ef3520a59637321be379"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb::core::cossb_stop</a> ()</td></tr>
+<tr class="memdesc:ab8360b2b1997ef3520a59637321be379"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop COSSB Engine  <a href="#ab8360b2b1997ef3520a59637321be379">More...</a><br/></td></tr>
+<tr class="separator:ab8360b2b1997ef3520a59637321be379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>COSSB Instance. </p>
@@ -140,7 +149,7 @@ Functions</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

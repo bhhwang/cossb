@@ -88,7 +88,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">icomponent.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -97,21 +99,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Component(Shared Library) interface.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;<a class="el" href="typedef_8hpp_source.html">../typedef.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="iprofile_8hpp_source.html">iprofile.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="imessage_8hpp_source.html">imessage.hpp</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for icomponent.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="icomponent_8hpp__incl.png" border="0" usemap="#icomponent_8hpp" alt=""/></div>
 <map name="icomponent_8hpp" id="icomponent_8hpp">
-<area shape="rect" id="node3" href="typedef_8hpp.html" title="COSSB Type definitions. " alt="" coords="169,80,271,107"/><area shape="rect" id="node6" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="364,80,449,107"/></map>
+<area shape="rect" id="node3" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="69,80,155,107"/><area shape="rect" id="node5" href="imessage_8hpp.html" title="Message Interface class. " alt="" coords="179,80,281,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="icomponent_8hpp__dep__incl.png" border="0" usemap="#icomponent_8hppdep" alt=""/></div>
 <map name="icomponent_8hppdep" id="icomponent_8hppdep">
-<area shape="rect" id="node2" href="broker_8hpp.html" title="Component Broker. " alt="" coords="61,80,143,107"/><area shape="rect" id="node5" href="icomponent_8cpp.html" title="Component(Shared Library) interface. " alt="" coords="168,80,283,107"/><area shape="rect" id="node6" href="macro_8hpp.html" title="COSSB Macro. " alt="" coords="307,80,388,107"/><area shape="rect" id="node3" href="broker_8cpp.html" title="Component Broker. " alt="" coords="5,155,87,181"/><area shape="rect" id="node4" href="instance_8cpp.html" title="instance.cpp" alt="" coords="112,155,208,181"/></map>
+<area shape="rect" id="node2" href="broker_8hpp.html" title="Component Broker. " alt="" coords="127,80,208,107"/><area shape="rect" id="node6" href="container_8hpp.html" title="component container class " alt="" coords="283,155,383,181"/><area shape="rect" id="node7" href="driver_8hpp.html" title="Component driver. " alt="" coords="377,80,455,107"/><area shape="rect" id="node3" href="broker_8cpp.html" title="Component Broker. " alt="" coords="5,155,87,181"/><area shape="rect" id="node4" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="269,229,397,256"/><area shape="rect" id="node5" href="instance_8cpp.html" title="instance.cpp" alt="" coords="163,155,259,181"/><area shape="rect" id="node8" href="driver_8cpp.html" title="Component driver. " alt="" coords="459,155,537,181"/></map>
 </div>
 </div>
 <p><a href="icomponent_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -125,10 +127,25 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
-<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecossb_1_1component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1component.html">cossb::component</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1interface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1interface.html">cossb::interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6eb447f374e02a2b379af0522abee5c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icomponent_8hpp.html#a6eb447f374e02a2b379af0522abee5c1">COMPONENT_EXPORT</a>&#160;&#160;&#160;extern &quot;C&quot; { cossb::interface::icomponent* create(); void <a class="el" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a>(void); }</td></tr>
+<tr class="separator:a6eb447f374e02a2b379af0522abee5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e6205f695567c83441d8514d834370"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icomponent_8hpp.html#af5e6205f695567c83441d8514d834370">COMPONENT_INSTANCE</a>(classname)&#160;&#160;&#160;static classname* _instance = nullptr;</td></tr>
+<tr class="separator:af5e6205f695567c83441d8514d834370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0de57bd6229173627b3d8604a3bcb36e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icomponent_8hpp.html#a0de57bd6229173627b3d8604a3bcb36e">COMPONENT_CREATE</a>(classname)</td></tr>
+<tr class="separator:a0de57bd6229173627b3d8604a3bcb36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158f332cea51040e38d759a02638ce07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icomponent_8hpp.html#a158f332cea51040e38d759a02638ce07">COMPONENT_DESTROY</a></td></tr>
+<tr class="separator:a158f332cea51040e38d759a02638ce07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5b407a4eb206b99b24179c331fa3c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icomponent_8hpp.html#afb5b407a4eb206b99b24179c331fa3c7">COMPONENT</a>(classname)&#160;&#160;&#160;#classname</td></tr>
+<tr class="separator:afb5b407a4eb206b99b24179c331fa3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -136,6 +153,14 @@ Typedefs</h2></td></tr>
 <tr class="separator:a9ca4bc9c49540d2c5aeaa19007f692db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac02c507b4f9d580110bab8bb2861b221"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html#ac02c507b4f9d580110bab8bb2861b221">cossb::destroy_component</a> )(void)</td></tr>
 <tr class="separator:ac02c507b4f9d580110bab8bb2861b221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab1e26aa0965e0ad0abe447bfdc4de7af"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1component.html#ab1e26aa0965e0ad0abe447bfdc4de7af">cossb::component::status</a> : unsigned int { <a class="el" href="namespacecossb_1_1component.html#ab1e26aa0965e0ad0abe447bfdc4de7afaa5daf7f2ebbba4975d61dab1c40188c7">cossb::component::status::IDLE</a> =0, 
+<a class="el" href="namespacecossb_1_1component.html#ab1e26aa0965e0ad0abe447bfdc4de7afa43491564ebcfd38568918efbd6e840fd">cossb::component::status::RUNNING</a>, 
+<a class="el" href="namespacecossb_1_1component.html#ab1e26aa0965e0ad0abe447bfdc4de7afa09d4d696b4e935115b9313e3c412509a">cossb::component::status::STOPPED</a>
+ }</td></tr>
+<tr class="separator:ab1e26aa0965e0ad0abe447bfdc4de7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Component(Shared Library) interface. </p>
@@ -144,10 +169,103 @@ Typedefs</h2></td></tr>
 <p>Component interface class </p>
 
 <p>Definition in file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="afb5b407a4eb206b99b24179c331fa3c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMPONENT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">classname</td><td>)</td>
+          <td>&#160;&#160;&#160;#classname</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00129">129</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0de57bd6229173627b3d8604a3bcb36e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMPONENT_CREATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">classname</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a>* <a class="code" href="namespacespdlog.html#a49691d0eaaf51ef9f1b1c99565a95661">create</a>(){ \</div>
+<div class="line">                                            if(_instance==<span class="keyword">nullptr</span>) _instance = new classname(); \</div>
+<div class="line">                                            return _instance; }</div>
+<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00032">icomponent.hpp:32</a></div></div>
+<div class="ttc" id="namespacespdlog_html_a49691d0eaaf51ef9f1b1c99565a95661"><div class="ttname"><a href="namespacespdlog.html#a49691d0eaaf51ef9f1b1c99565a95661">spdlog::create</a></div><div class="ttdeci">std::shared_ptr&lt; logger &gt; create(const std::string &amp;logger_name, sinks_init_list sinks)</div><div class="ttdef"><b>Definition:</b> <a href="spdlog__impl_8h_source.html#l00104">spdlog_impl.h:104</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00122">122</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a158f332cea51040e38d759a02638ce07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMPONENT_DESTROY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a>(){ \</div>
+<div class="line">                                            if(_instance!=<span class="keyword">nullptr</span>){ \</div>
+<div class="line">                                                delete _instance; _instance=<span class="keyword">nullptr</span>; }  \</div>
+<div class="line">                                            }</div>
+<div class="ttc" id="engine_8cpp_html_a3a80b6032f86a56bec74609034b3246f"><div class="ttname"><a href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="engine_8cpp_source.html#l00026">engine.cpp:26</a></div></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00125">125</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6eb447f374e02a2b379af0522abee5c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMPONENT_EXPORT&#160;&#160;&#160;extern &quot;C&quot; { cossb::interface::icomponent* create(); void <a class="el" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a>(void); }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00120">120</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5e6205f695567c83441d8514d834370"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMPONENT_INSTANCE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">classname</td><td>)</td>
+          <td>&#160;&#160;&#160;static classname* _instance = nullptr;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00121">121</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

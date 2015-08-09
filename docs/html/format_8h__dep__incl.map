@@ -1,3 +1,8 @@
 <map id="format.h" name="format.h">
-<area shape="rect" id="node2" href="$format_8cc.html" title="format.cc" alt="" coords="4,80,80,107"/>
+<area shape="rect" id="node2" href="$localtime_8hpp.html" title="localtime.hpp" alt="" coords="116,80,215,107"/>
+<area shape="rect" id="node7" href="$format_8cc.html" title="format.cc" alt="" coords="239,80,315,107"/>
+<area shape="rect" id="node3" href="$logger_8hpp.html" title="ossb default console logger " alt="" coords="67,155,148,181"/>
+<area shape="rect" id="node6" href="$localtime_8cpp.html" title="localtime.cpp" alt="" coords="173,155,272,181"/>
+<area shape="rect" id="node4" href="$logger_8cpp.html" title="logger.cpp" alt="" coords="5,229,87,256"/>
+<area shape="rect" id="node5" href="$sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="111,229,229,256"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['level_5fenum',['level_enum',['../namespacespdlog_1_1level.html#a35f5227e5daf228d28a207b7b2aefc8b',1,'spdlog::level']]]
+  ['errorcode',['errorcode',['../namespacecossb_1_1error.html#ab5881534b7ca7e8cf059fe9d5c46da81',1,'cossb::error']]]
 ];

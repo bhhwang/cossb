@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['raw',['raw',['../structspdlog_1_1details_1_1log__msg.html#a4408eab696be1086d11e351184ecc68c',1,'spdlog::details::log_msg']]]
+  ['queue_5fsize',['queue_size',['../async__logger__impl_8h.html#aab484c0c562229d26346b88d1534f796',1,'async_logger_impl.h']]]
 ];

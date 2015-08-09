@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['section',['section',['../namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791',1,'cossb::profile']]]
+  ['nettype',['nettype',['../namespacecossb_1_1net.html#a769ec22d609a41f4f726d6f9cc7292f6',1,'cossb::net']]]
 ];

@@ -102,26 +102,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb_init</a>(base::config* config);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb_init</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* manifest);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb_destroy</a>();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifndef _cplusplus</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">/* namespace core */</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _COSSB_INSTANCE_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb_sync</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb_start</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb_stop</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifndef _cplusplus</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">/* namespace core */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _COSSB_INSTANCE_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="namespacecossb_1_1core_html_ab8360b2b1997ef3520a59637321be379"><div class="ttname"><a href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb::core::cossb_stop</a></div><div class="ttdeci">bool cossb_stop()</div><div class="ttdoc">stop COSSB Engine </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00051">instance.cpp:51</a></div></div>
 <div class="ttc" id="config_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">COSSB configuration Management. </div></div>
-<div class="ttc" id="namespacecossb_1_1core_html_abae82d72278a2dafa4d83669a278975d"><div class="ttname"><a href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb::core::cossb_destroy</a></div><div class="ttdeci">void cossb_destroy()</div><div class="ttdoc">destroy COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00023">instance.cpp:23</a></div></div>
-<div class="ttc" id="namespacecossb_1_1core_html_aa6ef5c0ad50a98cafb24abac8cf97173"><div class="ttname"><a href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb::core::cossb_init</a></div><div class="ttdeci">bool cossb_init(base::config *config)</div><div class="ttdoc">create COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00014">instance.cpp:14</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a335e01a706b6c4e22881a8061cffd03b"><div class="ttname"><a href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb::core::cossb_start</a></div><div class="ttdeci">bool cossb_start()</div><div class="ttdoc">start COSSB engine </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00043">instance.cpp:43</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_abae82d72278a2dafa4d83669a278975d"><div class="ttname"><a href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb::core::cossb_destroy</a></div><div class="ttdeci">void cossb_destroy()</div><div class="ttdoc">destroy COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00031">instance.cpp:31</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a7d7ab0c7d6b7daffb831c0fb53726087"><div class="ttname"><a href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb::core::cossb_sync</a></div><div class="ttdeci">bool cossb_sync()</div><div class="ttdoc">service components synchronization </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00037">instance.cpp:37</a></div></div>
+<div class="ttc" id="namespacecossb_1_1core_html_a8124bb87142e5271fdbecaa9fe1dd984"><div class="ttname"><a href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb::core::cossb_init</a></div><div class="ttdeci">bool cossb_init(const char *manifest)</div><div class="ttdoc">create COSSB core instances </div><div class="ttdef"><b>Definition:</b> <a href="instance_8cpp_source.html#l00016">instance.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

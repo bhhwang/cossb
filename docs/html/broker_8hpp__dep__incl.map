@@ -1,4 +1,5 @@
 <map id="broker.hpp" name="broker.hpp">
 <area shape="rect" id="node2" href="$broker_8cpp.html" title="Component Broker. " alt="" coords="5,80,87,107"/>
-<area shape="rect" id="node3" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="112,80,208,107"/>
+<area shape="rect" id="node3" href="$compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="111,80,240,107"/>
+<area shape="rect" id="node4" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="265,80,361,107"/>
 </map>

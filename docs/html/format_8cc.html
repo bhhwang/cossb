@@ -111,7 +111,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="format_8cc__dep__incl.png" border="0" usemap="#format_8ccdep" alt=""/></div>
 <map name="format_8ccdep" id="format_8ccdep">
-<area shape="rect" id="node2" href="format_8h.html" title="format.h" alt="" coords="7,80,77,107"/></map>
+<area shape="rect" id="node2" href="format_8h.html" title="format.h" alt="" coords="130,80,200,107"/><area shape="rect" id="node3" href="localtime_8hpp.html" title="localtime.hpp" alt="" coords="116,155,215,181"/><area shape="rect" id="node4" href="logger_8hpp.html" title="ossb default console logger " alt="" coords="67,229,148,256"/><area shape="rect" id="node7" href="localtime_8cpp.html" title="localtime.cpp" alt="" coords="173,229,272,256"/><area shape="rect" id="node5" href="logger_8cpp.html" title="logger.cpp" alt="" coords="5,304,87,331"/><area shape="rect" id="node6" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="111,304,229,331"/></map>
 </div>
 </div>
 <p><a href="format_8cc_source.html">Go to the source code of this file.</a></p>
@@ -125,16 +125,10 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a96d85b78f218af0d8cee6ac0eac18d70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#a96d85b78f218af0d8cee6ac0eac18d70">FORMAT_H_</a></td></tr>
 <tr class="separator:a96d85b78f218af0d8cee6ac0eac18d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d3b416a99857b69e3b7de8e88c71ff3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#a5d3b416a99857b69e3b7de8e88c71ff3">FMT_EXCEPTIONS</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a5d3b416a99857b69e3b7de8e88c71ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aa79926398ee27fe7d6db8b0dd54edf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#a4aa79926398ee27fe7d6db8b0dd54edf">FMT_TRY</a>&#160;&#160;&#160;try</td></tr>
 <tr class="separator:a4aa79926398ee27fe7d6db8b0dd54edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8efe0100a6d7cc74729f5bf7537799c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#ab8efe0100a6d7cc74729f5bf7537799c">FMT_CATCH</a>(x)&#160;&#160;&#160;catch (x)</td></tr>
 <tr class="separator:ab8efe0100a6d7cc74729f5bf7537799c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e2ed6d3b432a04c9622c34a2495304"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(x)&#160;&#160;&#160;throw x</td></tr>
-<tr class="separator:ad9e2ed6d3b432a04c9622c34a2495304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa69904ca05c71366ab7775a842311e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#aaa69904ca05c71366ab7775a842311e6">FMT_RETURN_AFTER_THROW</a>(x)</td></tr>
-<tr class="separator:aaa69904ca05c71366ab7775a842311e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02c8898388e0ae59aab58be14fcd4e05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#a02c8898388e0ae59aab58be14fcd4e05">FMT_FUNC</a>&#160;&#160;&#160;inline</td></tr>
 <tr class="separator:a02c8898388e0ae59aab58be14fcd4e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a9bb3caa94066b3adc175bb24cb1783"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format_8cc.html#a9a9bb3caa94066b3adc175bb24cb1783">FMT_SNPRINTF</a>&#160;&#160;&#160;snprintf</td></tr>
@@ -158,20 +152,6 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="format_8cc_source.html#l00063">63</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5d3b416a99857b69e3b7de8e88c71ff3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FMT_EXCEPTIONS&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="format_8cc_source.html#l00058">58</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
 
 </div>
 </div>
@@ -216,24 +196,6 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaa69904ca05c71366ab7775a842311e6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FMT_RETURN_AFTER_THROW</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="format_8cc_source.html#l00072">72</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a9a9bb3caa94066b3adc175bb24cb1783"></a>
 <div class="memitem">
 <div class="memproto">
@@ -245,24 +207,6 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="format_8cc_source.html#l00094">94</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad9e2ed6d3b432a04c9622c34a2495304"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FMT_THROW</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;throw x</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="format_8cc_source.html#l00071">71</a> of file <a class="el" href="format_8cc_source.html">format.cc</a>.</p>
 
 </div>
 </div>
@@ -297,7 +241,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

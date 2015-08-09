@@ -97,33 +97,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="configloader_8hpp.html">configloader.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;interface/iconfigdoc.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>base {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classcossb_1_1configloader.html#af2f2767ac8ebf0e127eaf7cc70101dce">   13</a></span>&#160;<a class="code" href="classcossb_1_1configloader.html#af2f2767ac8ebf0e127eaf7cc70101dce">configloader::configloader</a>() {</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1configloader.html#a9992996565cbf2c5e49c6b60431951e5">   13</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1configloader.html#a9992996565cbf2c5e49c6b60431951e5">configloader::configloader</a>() {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// TODO Auto-generated constructor stub</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcossb_1_1configloader.html#a575e39de37eff857d6f6267e3eff4839">   18</a></span>&#160;<a class="code" href="classcossb_1_1configloader.html#a575e39de37eff857d6f6267e3eff4839">configloader::~configloader</a>() {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1configloader.html#a54920bc936c550105138aeae43b41a7e">   18</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1configloader.html#a54920bc936c550105138aeae43b41a7e">configloader::~configloader</a>() {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// TODO Auto-generated destructor stub</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcossb_1_1configloader.html#a42b68a4bb956b1652efe32844c72fa6a">   22</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1configloader.html#a42b68a4bb956b1652efe32844c72fa6a">configloader::load</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* filename)</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1configloader.html#af0f24a670ecf59be7d072ae3975cdc7f">   22</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1base_1_1configloader.html#af0f24a670ecf59be7d072ae3975cdc7f">configloader::load</a>(<a class="code" href="classcossb_1_1base_1_1config.html">config</a>* conf)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    interface::iconfigdoc* pdoc =</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="ttc" id="classcossb_1_1configloader_html_a42b68a4bb956b1652efe32844c72fa6a"><div class="ttname"><a href="classcossb_1_1configloader.html#a42b68a4bb956b1652efe32844c72fa6a">cossb::configloader::load</a></div><div class="ttdeci">bool load(const char *filename)</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00022">configloader.cpp:22</a></div></div>
-<div class="ttc" id="classcossb_1_1configloader_html_af2f2767ac8ebf0e127eaf7cc70101dce"><div class="ttname"><a href="classcossb_1_1configloader.html#af2f2767ac8ebf0e127eaf7cc70101dce">cossb::configloader::configloader</a></div><div class="ttdeci">configloader()</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00013">configloader.cpp:13</a></div></div>
-<div class="ttc" id="classcossb_1_1configloader_html_a575e39de37eff857d6f6267e3eff4839"><div class="ttname"><a href="classcossb_1_1configloader.html#a575e39de37eff857d6f6267e3eff4839">cossb::configloader::~configloader</a></div><div class="ttdeci">virtual ~configloader()</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00018">configloader.cpp:18</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1configloader.html#a975fba4f6272ed80afdf7a30b2cfe9fe">   27</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1config.html">config</a>* <a class="code" href="classcossb_1_1base_1_1configloader.html#af0f24a670ecf59be7d072ae3975cdc7f">configloader::load</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* configpath)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">/* namespace base */</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="ttc" id="classcossb_1_1base_1_1configloader_html_a9992996565cbf2c5e49c6b60431951e5"><div class="ttname"><a href="classcossb_1_1base_1_1configloader.html#a9992996565cbf2c5e49c6b60431951e5">cossb::base::configloader::configloader</a></div><div class="ttdeci">configloader()</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00013">configloader.cpp:13</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00040">config.hpp:40</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1configloader_html_af0f24a670ecf59be7d072ae3975cdc7f"><div class="ttname"><a href="classcossb_1_1base_1_1configloader.html#af0f24a670ecf59be7d072ae3975cdc7f">cossb::base::configloader::load</a></div><div class="ttdeci">bool load(config *conf)</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00022">configloader.cpp:22</a></div></div>
 <div class="ttc" id="configloader_8hpp_html"><div class="ttname"><a href="configloader_8hpp.html">configloader.hpp</a></div><div class="ttdoc">Config file loader. </div></div>
+<div class="ttc" id="classcossb_1_1base_1_1configloader_html_a54920bc936c550105138aeae43b41a7e"><div class="ttname"><a href="classcossb_1_1base_1_1configloader.html#a54920bc936c550105138aeae43b41a7e">cossb::base::configloader::~configloader</a></div><div class="ttdeci">virtual ~configloader()</div><div class="ttdef"><b>Definition:</b> <a href="configloader_8cpp_source.html#l00018">configloader.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:39 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

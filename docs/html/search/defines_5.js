@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['task_5fregister',['task_register',['../typedef_8hpp.html#ac9f4e8d7b4bb63fe2af31b6080674a70',1,'typedef.hpp']]]
+  ['version_5fstr',['VERSION_STR',['../version_8hpp.html#a69c5ca0c2d0c12361254d6620a359ea8',1,'version.hpp']]]
 ];

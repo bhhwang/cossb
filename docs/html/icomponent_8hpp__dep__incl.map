@@ -1,7 +1,9 @@
 <map id="icomponent.hpp" name="icomponent.hpp">
-<area shape="rect" id="node2" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="61,80,143,107"/>
-<area shape="rect" id="node5" href="$icomponent_8cpp.html" title="Component(Shared Library) interface. " alt="" coords="168,80,283,107"/>
-<area shape="rect" id="node6" href="$macro_8hpp.html" title="COSSB Macro. " alt="" coords="307,80,388,107"/>
+<area shape="rect" id="node2" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="127,80,208,107"/>
+<area shape="rect" id="node6" href="$container_8hpp.html" title="component container class " alt="" coords="283,155,383,181"/>
+<area shape="rect" id="node7" href="$driver_8hpp.html" title="Component driver. " alt="" coords="377,80,455,107"/>
 <area shape="rect" id="node3" href="$broker_8cpp.html" title="Component Broker. " alt="" coords="5,155,87,181"/>
-<area shape="rect" id="node4" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="112,155,208,181"/>
+<area shape="rect" id="node4" href="$compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="269,229,397,256"/>
+<area shape="rect" id="node5" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="163,155,259,181"/>
+<area shape="rect" id="node8" href="$driver_8cpp.html" title="Component driver. " alt="" coords="459,155,537,181"/>
 </map>

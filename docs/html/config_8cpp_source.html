@@ -93,40 +93,102 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hpp.html">config.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>base {</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacecossb_1_1base.html">   12</a></span>&#160;<span class="keyword">namespace </span>base {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;config* config::_instance = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#a3b3de4f6062399a6e300e0237e545033">   15</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1config.html">config</a>* <a class="code" href="classcossb_1_1base_1_1config.html#a3b3de4f6062399a6e300e0237e545033">config::get</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(!_instance)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _instance = <span class="keyword">new</span> <a class="code" href="classcossb_1_1base_1_1config.html">config</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> _instance;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#af8e11f06dab0f1c7229c319df3800db0">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcossb_1_1base_1_1config.html#af8e11f06dab0f1c7229c319df3800db0">config::destroy</a>()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(_instance)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">delete</span> _instance;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">   28</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">config::load</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* manifest_conf)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">/* namespace base */</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00022">config.hpp:22</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#a606e68f6f365dfcf6ae3c18f81b49e3c">   14</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1config.html#a606e68f6f365dfcf6ae3c18f81b49e3c">config::config</a>():_doc(nullptr)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#a0c5656b7720daf2352eb421cdd002c59">   18</a></span>&#160;<a class="code" href="classcossb_1_1base_1_1config.html#a0c5656b7720daf2352eb421cdd002c59">config::~config</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(!_dependency.empty())</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; itr:_dependency)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">delete</span> itr;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(_doc)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">delete</span> _doc;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">config::load</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* manifest_conf)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span>(_doc!=<span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">delete</span> _doc;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        _doc = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    _doc = <span class="keyword">new</span> tinyxml2::XMLDocument;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(_doc-&gt;LoadFile(manifest_conf)==XML_SUCCESS)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        parse_dependency();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        parse_product();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        parse_path();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        parse_repository();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classcossb_1_1base_1_1config.html#aa95ea25effd48d5809999d447cc7d949">   52</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1base_1_1config.html#aa95ea25effd48d5809999d447cc7d949">config::update</a>(<a class="code" href="classcossb_1_1base_1_1config.html">config</a>* conf)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> config::parse_dependency()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    XMLElement* elem_com = _doc-&gt;FirstChildElement(<span class="stringliteral">&quot;manifest&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span>(XMLElement* child = elem_com-&gt;FirstChildElement(<span class="stringliteral">&quot;dependency&quot;</span>);child!=<span class="keyword">nullptr</span>; child = child-&gt;NextSiblingElement(<span class="stringliteral">&quot;dependency&quot;</span>))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(child-&gt;Attribute(<span class="stringliteral">&quot;type&quot;</span>,<span class="stringliteral">&quot;library&quot;</span>))</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            _dependency.push_back(<span class="keyword">new</span> <a class="code" href="structcossb_1_1base_1_1__sDependency.html">sDependency</a>(<a class="code" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341">dependencyType::LIBRARY</a>, child-&gt;GetText()));</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(child-&gt;Attribute(<span class="stringliteral">&quot;type&quot;</span>,<span class="stringliteral">&quot;component&quot;</span>))</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            _dependency.push_back(<span class="keyword">new</span> <a class="code" href="structcossb_1_1base_1_1__sDependency.html">sDependency</a>(<a class="code" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">dependencyType::COMPONENT</a>, child-&gt;GetText()));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> config::parse_path()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    XMLElement* elem_com = _doc-&gt;FirstChildElement(<span class="stringliteral">&quot;manifest&quot;</span>)-&gt;FirstChildElement(<span class="stringliteral">&quot;property&quot;</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">for</span>(XMLElement* child = elem_com-&gt;FirstChildElement(<span class="stringliteral">&quot;path&quot;</span>);child!=<span class="keyword">nullptr</span>; child = child-&gt;NextSiblingElement(<span class="stringliteral">&quot;path&quot;</span>))</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        _path[child-&gt;Attribute(<span class="stringliteral">&quot;name&quot;</span>)] = child-&gt;GetText();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> config::parse_repository()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    XMLElement* elem_uri = _doc-&gt;FirstChildElement(<span class="stringliteral">&quot;manifest&quot;</span>)-&gt;FirstChildElement(<span class="stringliteral">&quot;repository&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">for</span>(XMLElement* child = elem_uri-&gt;FirstChildElement(<span class="stringliteral">&quot;uri&quot;</span>);child!=<span class="keyword">nullptr</span>; child = child-&gt;NextSiblingElement(<span class="stringliteral">&quot;uri&quot;</span>))</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(child-&gt;GetText())</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            _repository.push_back(child-&gt;GetText());</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> config::parse_product()</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    XMLElement* elem_com = _doc-&gt;FirstChildElement(<span class="stringliteral">&quot;manifest&quot;</span>)-&gt;FirstChildElement(<span class="stringliteral">&quot;product&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">for</span>(XMLElement* child = elem_com-&gt;FirstChildElement();child!=<span class="keyword">nullptr</span>; child = child-&gt;NextSiblingElement())</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        _product[child-&gt;Value()] = child-&gt;GetText();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;} <span class="comment">/* namespace base */</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="ttc" id="namespacecossb_1_1base_html_ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341"><div class="ttname"><a href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341">cossb::base::dependencyType::LIBRARY</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html"><div class="ttname"><a href="classcossb_1_1base_1_1config.html">cossb::base::config</a></div><div class="ttdoc">system configuration class </div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00040">config.hpp:40</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html_aa95ea25effd48d5809999d447cc7d949"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#aa95ea25effd48d5809999d447cc7d949">cossb::base::config::update</a></div><div class="ttdeci">bool update(config *conf)</div><div class="ttdoc">update configuration </div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00052">config.cpp:52</a></div></div>
+<div class="ttc" id="namespacecossb_1_1base_html_ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b"><div class="ttname"><a href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">cossb::base::dependencyType::COMPONENT</a></div></div>
 <div class="ttc" id="config_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div><div class="ttdoc">COSSB configuration Management. </div></div>
-<div class="ttc" id="classcossb_1_1base_1_1config_html_a70a8c545bc8c8d313bbef73c6d314d1c"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">cossb::base::config::load</a></div><div class="ttdeci">bool load(const char *manifest_conf)</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00028">config.cpp:28</a></div></div>
-<div class="ttc" id="classcossb_1_1base_1_1config_html_a3b3de4f6062399a6e300e0237e545033"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a3b3de4f6062399a6e300e0237e545033">cossb::base::config::get</a></div><div class="ttdeci">static config * get()</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00015">config.cpp:15</a></div></div>
-<div class="ttc" id="classcossb_1_1base_1_1config_html_af8e11f06dab0f1c7229c319df3800db0"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#af8e11f06dab0f1c7229c319df3800db0">cossb::base::config::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00022">config.cpp:22</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html_a70a8c545bc8c8d313bbef73c6d314d1c"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">cossb::base::config::load</a></div><div class="ttdeci">bool load(const char *manifest_conf)</div><div class="ttdoc">load configuration file(manifest file) </div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00030">config.cpp:30</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html_a606e68f6f365dfcf6ae3c18f81b49e3c"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a606e68f6f365dfcf6ae3c18f81b49e3c">cossb::base::config::config</a></div><div class="ttdeci">config()</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00014">config.cpp:14</a></div></div>
+<div class="ttc" id="classcossb_1_1base_1_1config_html_a0c5656b7720daf2352eb421cdd002c59"><div class="ttname"><a href="classcossb_1_1base_1_1config.html#a0c5656b7720daf2352eb421cdd002c59">cossb::base::config::~config</a></div><div class="ttdeci">virtual ~config()</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00018">config.cpp:18</a></div></div>
+<div class="ttc" id="structcossb_1_1base_1_1__sDependency_html"><div class="ttname"><a href="structcossb_1_1base_1_1__sDependency.html">cossb::base::_sDependency</a></div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00026">config.hpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:39 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

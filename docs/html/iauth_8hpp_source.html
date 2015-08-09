@@ -94,46 +94,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _COSSB_INTERFACE_IAUTH_HPP_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacecossb_1_1interface.html">   13</a></span>&#160;<span class="keyword">namespace </span>interface {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>auth {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structcossb_1_1interface_1_1authcode16.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structcossb_1_1interface_1_1authcode16.html#a6f898d64fc7bd108695598735e6585e7">   16</a></span>&#160;    <span class="keywordtype">char</span> code[16];</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} <a class="code" href="structcossb_1_1interface_1_1authcode16.html">authcode16</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structcossb_1_1auth_1_1authcode.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structcossb_1_1auth_1_1authcode.html#a0c9dba279f05ea38f34234bea2c4b9ca">   16</a></span>&#160;    <span class="keywordtype">char</span> code[32] = {0x00, };</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} authcode;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structcossb_1_1interface_1_1authcode32.html">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structcossb_1_1interface_1_1authcode32.html#a58f2bb22040cc7a5148613b0ae1eebb9">   20</a></span>&#160;    <span class="keywordtype">char</span> code[32];</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <a class="code" href="structcossb_1_1interface_1_1authcode32.html">authcode32</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfd">   23</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfd">authResponse</a> : int {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdaec8c1d520523046a3ad621a8049ef087">NOT_ACCESSIBLE</a> = -1,    <span class="comment">// Cannot access Auth system</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdad55fbc1b7966343f2e881381b9b7d329">NOT_PERMIT</a> = 1,     <span class="comment">// Auth Fail</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 10,       <span class="comment">// Auth Success</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcossb_1_1interface_1_1iauth.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1interface_1_1iauth.html">iauth</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classcossb_1_1interface_1_1iauth.html">iauth</a>() { }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98b">   19</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98b">authResponse</a> : int {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98baec8c1d520523046a3ad621a8049ef087">NOT_ACCESSIBLE</a> = -1,    <span class="comment">// Cannot access Auth system</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98bad55fbc1b7966343f2e881381b9b7d329">NOT_PERMIT</a> = 1,     <span class="comment">// Auth Fail</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98bad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 10,       <span class="comment">// Auth Success</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacecossb_1_1interface.html">   26</a></span>&#160;<span class="keyword">namespace </span>interface {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcossb_1_1interface_1_1iauth.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1interface_1_1iauth.html">iauth</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classcossb_1_1interface_1_1iauth.html#a616c4cb6dd13c41283382ed54ba83310">   30</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcossb_1_1interface_1_1iauth.html#a616c4cb6dd13c41283382ed54ba83310">~iauth</a>() { }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> authenticate16(<a class="code" href="structcossb_1_1interface_1_1authcode16.html">authcode16</a>* acode) = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> authenticate32(<a class="code" href="structcossb_1_1interface_1_1authcode32.html">authcode32</a>* acode) = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">/* namespace interface */</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1interface_1_1iauth.html#a285bae1f0fbd1aafa15d05ad32319d4b">authenticate</a>(<a class="code" href="structcossb_1_1auth_1_1authcode.html">auth::authcode</a> code, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> len) = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">/* namespace interface */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _COSSB_INTERFACE_IAUTH_HPP_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="namespacecossb_1_1interface_html_a880a8394aa56d76a70989c8f3e6ebdfdad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdad0749aaba8b833466dfcbb0428e4f89c">cossb::interface::authResponse::SUCCESS</a></div></div>
-<div class="ttc" id="namespacecossb_1_1interface_html_a880a8394aa56d76a70989c8f3e6ebdfdad55fbc1b7966343f2e881381b9b7d329"><div class="ttname"><a href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdad55fbc1b7966343f2e881381b9b7d329">cossb::interface::authResponse::NOT_PERMIT</a></div></div>
-<div class="ttc" id="structcossb_1_1interface_1_1authcode16_html"><div class="ttname"><a href="structcossb_1_1interface_1_1authcode16.html">cossb::interface::authcode16</a></div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00015">iauth.hpp:15</a></div></div>
-<div class="ttc" id="structcossb_1_1interface_1_1authcode32_html"><div class="ttname"><a href="structcossb_1_1interface_1_1authcode32.html">cossb::interface::authcode32</a></div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00019">iauth.hpp:19</a></div></div>
-<div class="ttc" id="namespacecossb_1_1interface_html_a880a8394aa56d76a70989c8f3e6ebdfd"><div class="ttname"><a href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfd">cossb::interface::authResponse</a></div><div class="ttdeci">authResponse</div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00023">iauth.hpp:23</a></div></div>
-<div class="ttc" id="namespacecossb_1_1interface_html_a880a8394aa56d76a70989c8f3e6ebdfdaec8c1d520523046a3ad621a8049ef087"><div class="ttname"><a href="namespacecossb_1_1interface.html#a880a8394aa56d76a70989c8f3e6ebdfdaec8c1d520523046a3ad621a8049ef087">cossb::interface::authResponse::NOT_ACCESSIBLE</a></div></div>
-<div class="ttc" id="classcossb_1_1interface_1_1iauth_html"><div class="ttname"><a href="classcossb_1_1interface_1_1iauth.html">cossb::interface::iauth</a></div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00029">iauth.hpp:29</a></div></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _COSSB_INTERFACE_IAUTH_HPP_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="namespacecossb_1_1auth_html_ade42a1d8ae6fc13872fa3082b73fa98bad55fbc1b7966343f2e881381b9b7d329"><div class="ttname"><a href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98bad55fbc1b7966343f2e881381b9b7d329">cossb::auth::authResponse::NOT_PERMIT</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1iauth_html_a616c4cb6dd13c41283382ed54ba83310"><div class="ttname"><a href="classcossb_1_1interface_1_1iauth.html#a616c4cb6dd13c41283382ed54ba83310">cossb::interface::iauth::~iauth</a></div><div class="ttdeci">virtual ~iauth()</div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00030">iauth.hpp:30</a></div></div>
+<div class="ttc" id="namespacecossb_1_1auth_html_ade42a1d8ae6fc13872fa3082b73fa98b"><div class="ttname"><a href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98b">cossb::auth::authResponse</a></div><div class="ttdeci">authResponse</div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00019">iauth.hpp:19</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1iauth_html_a285bae1f0fbd1aafa15d05ad32319d4b"><div class="ttname"><a href="classcossb_1_1interface_1_1iauth.html#a285bae1f0fbd1aafa15d05ad32319d4b">cossb::interface::iauth::authenticate</a></div><div class="ttdeci">virtual bool authenticate(auth::authcode code, unsigned int len)=0</div></div>
+<div class="ttc" id="namespacecossb_1_1auth_html_ade42a1d8ae6fc13872fa3082b73fa98bad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98bad0749aaba8b833466dfcbb0428e4f89c">cossb::auth::authResponse::SUCCESS</a></div></div>
+<div class="ttc" id="structcossb_1_1auth_1_1authcode_html"><div class="ttname"><a href="structcossb_1_1auth_1_1authcode.html">cossb::auth::authcode</a></div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00015">iauth.hpp:15</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1iauth_html"><div class="ttname"><a href="classcossb_1_1interface_1_1iauth.html">cossb::interface::iauth</a></div><div class="ttdef"><b>Definition:</b> <a href="iauth_8hpp_source.html#l00028">iauth.hpp:28</a></div></div>
+<div class="ttc" id="namespacecossb_1_1auth_html_ade42a1d8ae6fc13872fa3082b73fa98baec8c1d520523046a3ad621a8049ef087"><div class="ttname"><a href="namespacecossb_1_1auth.html#ade42a1d8ae6fc13872fa3082b73fa98baec8c1d520523046a3ad621a8049ef087">cossb::auth::authResponse::NOT_ACCESSIBLE</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

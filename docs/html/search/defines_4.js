@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['spdlog_5fdebug',['SPDLOG_DEBUG',['../spdlog_8h.html#a2cf2ad90dfd40695945e29d917c0c5cb',1,'spdlog.h']]],
-  ['spdlog_5fnoexcept',['SPDLOG_NOEXCEPT',['../common_8h.html#a15d2dc432e6bb83beb5130be9a4ca8d6',1,'common.h']]],
-  ['spdlog_5ftrace',['SPDLOG_TRACE',['../spdlog_8h.html#a4bc43a99f59a358116ebf090a6a65eca',1,'spdlog.h']]]
+  ['task_5fregister',['task_register',['../typedef_8hpp.html#ac9f4e8d7b4bb63fe2af31b6080674a70',1,'typedef.hpp']]]
 ];

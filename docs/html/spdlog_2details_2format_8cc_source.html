@@ -350,7 +350,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    value = new_value;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  } <span class="keywordflow">while</span> (<span class="charliteral">&#39;0&#39;</span> &lt;= *s &amp;&amp; *s &lt;= <span class="charliteral">&#39;9&#39;</span>);</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keywordflow">if</span> (value &gt; INT_MAX)</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keywordflow">return</span> value;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
@@ -358,7 +358,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keywordflow">if</span> (arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> &gt; Arg::LAST_NUMERIC_TYPE) {</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    std::string message =</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(<span class="stringliteral">&quot;format specifier &#39;{}&#39; requires numeric argument&quot;</span>, spec);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(message));</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(message));</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
@@ -367,7 +367,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keywordtype">char</span> sign = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(*s);</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  require_numeric_argument(arg, sign);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordflow">if</span> (arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> == Arg::UINT || arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> == Arg::ULONG_LONG) {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="stringliteral">&quot;format specifier &#39;{}&#39; requires signed argument&quot;</span>, sign)));</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  }</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  ++s;</div>
@@ -385,7 +385,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keyword">explicit</span> WidthHandler(<a class="code" href="structfmt_1_1FormatSpec.html">fmt::FormatSpec</a> &amp;spec) : spec_(spec) {}</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classfmt_1_1internal_1_1ArgVisitor.html#aae698c3553e5153cae4a4c6f686552e9">report_unhandled_arg</a>() {</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;width is not integer&quot;</span>));</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;width is not integer&quot;</span>));</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  }</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -397,7 +397,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      width = 0 - width;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">if</span> (width &gt; INT_MAX)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(width);</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  }</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;};</div>
@@ -406,13 +406,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">public</span> <a class="code" href="classfmt_1_1internal_1_1ArgVisitor.html">fmt::internal::ArgVisitor</a>&lt;PrecisionHandler, int&gt; {</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classfmt_1_1internal_1_1ArgVisitor.html#aae698c3553e5153cae4a4c6f686552e9">report_unhandled_arg</a>() {</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;precision is not integer&quot;</span>));</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;precision is not integer&quot;</span>));</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  }</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classfmt_1_1internal_1_1ArgVisitor.html#a3b065ebdf3b8ee9e2f96e8ac74fc9569">visit_any_int</a>(T value) {</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">if</span> (!IntChecker&lt;std::numeric_limits&lt;T&gt;::is_signed&gt;::fits_in_int(value))</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value);</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  }</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;};</div>
@@ -564,10 +564,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<a class="code" href="spdlog_2details_2format_8cc.html#a02c8898388e0ae59aab58be14fcd4e05">FMT_FUNC</a> <span class="keywordtype">void</span> <a class="code" href="namespacefmt_1_1internal.html#a1c77e19c210ba2c96316bea2bfed0f39">fmt::internal::report_unknown_type</a>(<span class="keywordtype">char</span> code, <span class="keyword">const</span> <span class="keywordtype">char</span> *type) {</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  (void)type;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  <span class="keywordflow">if</span> (std::isprint(static_cast&lt;unsigned char&gt;(code))) {</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(<span class="stringliteral">&quot;unknown format code &#39;{}&#39; for {}&quot;</span>, code, type)));</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  }</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">fmt::FormatError</a>(</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;      <a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(<span class="stringliteral">&quot;unknown format code &#39;\\x{:02x}&#39; for {}&quot;</span>,</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        static_cast&lt;unsigned&gt;(code), type)));</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;}</div>
@@ -579,17 +579,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      CP_UTF8, MB_ERR_INVALID_CHARS, s.<a class="code" href="classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad">c_str</a>(), -1, 0, 0);</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> ERROR_MSG[] = <span class="stringliteral">&quot;cannot convert string from UTF-8 to UTF-16&quot;</span>;</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="keywordflow">if</span> (length == 0)</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(WindowsError(GetLastError(), ERROR_MSG));</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    FMT_THROW(WindowsError(GetLastError(), ERROR_MSG));</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  buffer_.resize(length);</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  length = MultiByteToWideChar(</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    CP_UTF8, MB_ERR_INVALID_CHARS, s.<a class="code" href="classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad">c_str</a>(), -1, &amp;buffer_[0], length);</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  <span class="keywordflow">if</span> (length == 0)</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(WindowsError(GetLastError(), ERROR_MSG));</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    FMT_THROW(WindowsError(GetLastError(), ERROR_MSG));</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;}</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<a class="code" href="spdlog_2details_2format_8cc.html#a02c8898388e0ae59aab58be14fcd4e05">FMT_FUNC</a> fmt::internal::UTF16ToUTF8::UTF16ToUTF8(<a class="code" href="classfmt_1_1BasicStringRef.html">fmt::WStringRef</a> s) {</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="keywordflow">if</span> (<span class="keywordtype">int</span> error_code = convert(s)) {</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(WindowsError(error_code,</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    FMT_THROW(WindowsError(error_code,</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="stringliteral">&quot;cannot convert string from UTF-16 to UTF-8&quot;</span>));</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  }</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;}</div>
@@ -699,7 +699,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    }</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    <span class="keywordflow">if</span> (spec_.<a class="code" href="structfmt_1_1AlignSpec.html#aac93fb3829d550af86479f1ecaa73f95">align_</a> == <a class="code" href="namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a746e1cda3fc3a979b6d105dbd2f8ef7d">ALIGN_NUMERIC</a> || spec_.<a class="code" href="structfmt_1_1FormatSpec.html#a9fbd00ed2b8e3b96eaa2beb54aff641e">flags_</a> != 0)</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">FormatError</a>(<span class="stringliteral">&quot;invalid format specifier for char&quot;</span>));</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;      FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">FormatError</a>(<span class="stringliteral">&quot;invalid format specifier for char&quot;</span>));</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> fmt::BasicWriter&lt;Char&gt;::CharPtr CharPtr;</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    Char fill = <span class="keyword">static_cast&lt;</span>Char<span class="keyword">&gt;</span>(spec_.<a class="code" href="structfmt_1_1WidthSpec.html#a28a9b78a0ebfd5830025eaf1c917bb16">fill</a>());</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">if</span> (spec_.<a class="code" href="structfmt_1_1FormatSpec.html#a8444724bdd0a55bf3226a17e321c12c5">precision_</a> == 0) {</div>
@@ -745,7 +745,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Char&gt;</div>
 <div class="line"><a name="l00656"></a><span class="lineno"><a class="line" href="classfmt_1_1internal_1_1FixedBuffer.html#a5572fdba3a6a9044b2bd881f931d9368">  656</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classfmt_1_1internal_1_1FixedBuffer.html#a5572fdba3a6a9044b2bd881f931d9368">fmt::internal::FixedBuffer&lt;Char&gt;::grow</a>(std::size_t) {</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(std::runtime_error(<span class="stringliteral">&quot;buffer overflow&quot;</span>));</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  FMT_THROW(std::runtime_error(<span class="stringliteral">&quot;buffer overflow&quot;</span>));</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;}</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Char&gt;</div>
@@ -760,7 +760,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  std::size_t str_size = s.<a class="code" href="structfmt_1_1internal_1_1Value_1_1StringValue.html#abd1880f3fb3618e37fb3df74ff623146">size</a>;</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  <span class="keywordflow">if</span> (str_size == 0) {</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">if</span> (!str_value)</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(<a class="code" href="classfmt_1_1FormatError.html">FormatError</a>(<span class="stringliteral">&quot;string pointer is null&quot;</span>));</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      FMT_THROW(<a class="code" href="classfmt_1_1FormatError.html">FormatError</a>(<span class="stringliteral">&quot;string pointer is null&quot;</span>));</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="keywordflow">if</span> (*str_value)</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      str_size = std::char_traits&lt;StrChar&gt;::length(str_value);</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  }</div>
@@ -776,7 +776,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;  <a class="code" href="structfmt_1_1internal_1_1Arg.html">Arg</a> arg = *s &lt; &#39;0&#39; || *s &gt; <span class="charliteral">&#39;9&#39;</span> ?</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        next_arg(error) : get_arg(parse_nonnegative_int(s), error);</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  <span class="keywordflow">if</span> (error) {</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    FMT_THROW(FormatError(</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                *s != <span class="charliteral">&#39;}&#39;</span> &amp;&amp; *s != <span class="charliteral">&#39;:&#39;</span> ? <span class="stringliteral">&quot;invalid format string&quot;</span> : error));</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  }</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  <span class="keywordflow">return</span> arg;</div>
@@ -842,7 +842,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;  <a class="code" href="structfmt_1_1internal_1_1Arg.html">Arg</a> arg = arg_index == UINT_MAX ?</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    next_arg(error) : FormatterBase::get_arg(arg_index - 1, error);</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;  <span class="keywordflow">if</span> (error)</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(!*s ? <span class="stringliteral">&quot;invalid format string&quot;</span> : error));</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    FMT_THROW(FormatError(!*s ? <span class="stringliteral">&quot;invalid format string&quot;</span> : error));</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;  <span class="keywordflow">return</span> arg;</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;}</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;</div>
@@ -958,7 +958,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;</div>
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    <span class="comment">// Parse type.</span></div>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;    <span class="keywordflow">if</span> (!*s)</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;invalid format string&quot;</span>));</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;      FMT_THROW(FormatError(<span class="stringliteral">&quot;invalid format string&quot;</span>));</div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    spec.type_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(*s++);</div>
 <div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="keywordflow">if</span> (arg.type &lt;= Arg::LAST_INTEGER_TYPE) {</div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;      <span class="comment">// Normalize type.</span></div>
@@ -1081,7 +1081,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;          <span class="keywordflow">if</span> (p != s) {</div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;            <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;}&#39;</span>) <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;            <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;{&#39;</span>)</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;              <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;invalid fill character &#39;{&#39;&quot;</span>));</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;              FMT_THROW(FormatError(<span class="stringliteral">&quot;invalid fill character &#39;{&#39;&quot;</span>));</div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;            s += 2;</div>
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;            spec.fill_ = c;</div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;          } <span class="keywordflow">else</span> ++s;</div>
@@ -1136,12 +1136,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;        ++s;</div>
 <div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;        <span class="keyword">const</span> <a class="code" href="structfmt_1_1internal_1_1Arg.html">Arg</a> &amp;precision_arg = parse_arg_index(s);</div>
 <div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;        <span class="keywordflow">if</span> (*s++ != <span class="charliteral">&#39;}&#39;</span>)</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;          <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;invalid format string&quot;</span>));</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;          FMT_THROW(FormatError(<span class="stringliteral">&quot;invalid format string&quot;</span>));</div>
 <div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;        <a class="code" href="namespacefmt.html#af495ed85910212d4ba243ae2a8ce8f1f">ULongLong</a> value = 0;</div>
 <div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;        <span class="keywordflow">switch</span> (precision_arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a>) {</div>
 <div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;          <span class="keywordflow">case</span> Arg::INT:</div>
 <div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;            <span class="keywordflow">if</span> (precision_arg.<a class="code" href="structfmt_1_1internal_1_1Value.html#ac295b81747c26b97893be505a03381c8">int_value</a> &lt; 0)</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;              <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;negative precision&quot;</span>));</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;              FMT_THROW(FormatError(<span class="stringliteral">&quot;negative precision&quot;</span>));</div>
 <div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;            value = precision_arg.<a class="code" href="structfmt_1_1internal_1_1Value.html#ac295b81747c26b97893be505a03381c8">int_value</a>;</div>
 <div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;          <span class="keywordflow">case</span> Arg::UINT:</div>
@@ -1149,23 +1149,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;          <span class="keywordflow">case</span> Arg::LONG_LONG:</div>
 <div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;            <span class="keywordflow">if</span> (precision_arg.<a class="code" href="structfmt_1_1internal_1_1Value.html#a1dab8b1df1f88c35b6893d63b1b72af8">long_long_value</a> &lt; 0)</div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;              <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;negative precision&quot;</span>));</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;              FMT_THROW(FormatError(<span class="stringliteral">&quot;negative precision&quot;</span>));</div>
 <div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;            value = precision_arg.<a class="code" href="structfmt_1_1internal_1_1Value.html#a1dab8b1df1f88c35b6893d63b1b72af8">long_long_value</a>;</div>
 <div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;          <span class="keywordflow">case</span> Arg::ULONG_LONG:</div>
 <div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;            value = precision_arg.<a class="code" href="structfmt_1_1internal_1_1Value.html#a78424f46c0150190010e5c27ec3c69a0">ulong_long_value</a>;</div>
 <div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;          <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;            <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;precision is not integer&quot;</span>));</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;            FMT_THROW(FormatError(<span class="stringliteral">&quot;precision is not integer&quot;</span>));</div>
 <div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;        }</div>
 <div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;        <span class="keywordflow">if</span> (value &gt; INT_MAX)</div>
-<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;          <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;          FMT_THROW(FormatError(<span class="stringliteral">&quot;number is too big&quot;</span>));</div>
 <div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;        spec.precision_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(value);</div>
 <div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;        <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;missing precision specifier&quot;</span>));</div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;        FMT_THROW(FormatError(<span class="stringliteral">&quot;missing precision specifier&quot;</span>));</div>
 <div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;      }</div>
 <div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;      <span class="keywordflow">if</span> (arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> &lt; Arg::LAST_INTEGER_TYPE || arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> == Arg::POINTER) {</div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;        FMT_THROW(FormatError(</div>
 <div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;            <a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">fmt::format</a>(<span class="stringliteral">&quot;precision not allowed in {} format specifier&quot;</span>,</div>
 <div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;            arg.<a class="code" href="structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e">type</a> == Arg::POINTER ? <span class="stringliteral">&quot;pointer&quot;</span> : <span class="stringliteral">&quot;integer&quot;</span>)));</div>
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;      }</div>
@@ -1177,7 +1177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;  }</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;</div>
 <div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;  <span class="keywordflow">if</span> (*s++ != <span class="charliteral">&#39;}&#39;</span>)</div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;missing &#39;}&#39; in format string&quot;</span>));</div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;    FMT_THROW(FormatError(<span class="stringliteral">&quot;missing &#39;}&#39; in format string&quot;</span>));</div>
 <div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;  start_ = s;</div>
 <div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;</div>
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;  <span class="comment">// Format argument.</span></div>
@@ -1199,7 +1199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;      <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;    }</div>
 <div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;    <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;}&#39;</span>)</div>
-<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;      <a class="code" href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a>(FormatError(<span class="stringliteral">&quot;unmatched &#39;}&#39; in format string&quot;</span>));</div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;      FMT_THROW(FormatError(<span class="stringliteral">&quot;unmatched &#39;}&#39; in format string&quot;</span>));</div>
 <div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;    write(writer_, start_, s - 1);</div>
 <div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;    <a class="code" href="structfmt_1_1internal_1_1Arg.html">Arg</a> arg = parse_arg_index(s);</div>
 <div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;    s = <a class="code" href="namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce">format</a>(s, arg);</div>
@@ -1312,7 +1312,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="structfmt_1_1internal_1_1Value_1_1StringValue_html"><div class="ttname"><a href="structfmt_1_1internal_1_1Value_1_1StringValue.html">fmt::internal::Value::StringValue&lt; char &gt;</a></div></div>
 <div class="ttc" id="format_8h_html_aef128913e8400683b1cbd1a3a2e11df3"><div class="ttname"><a href="format_8h.html#aef128913e8400683b1cbd1a3a2e11df3">FMT_NOEXCEPT</a></div><div class="ttdeci">#define FMT_NOEXCEPT</div><div class="ttdef"><b>Definition:</b> <a href="format_8h_source.html#l00165">format.h:165</a></div></div>
 <div class="ttc" id="namespacefmt_1_1internal_html_a310d44c09812f7990e50800808c04673"><div class="ttname"><a href="namespacefmt_1_1internal.html#a310d44c09812f7990e50800808c04673">fmt::internal::is_negative</a></div><div class="ttdeci">bool is_negative(T value)</div><div class="ttdef"><b>Definition:</b> <a href="format_8h_source.html#l00623">format.h:623</a></div></div>
-<div class="ttc" id="format_8cc_html_ad9e2ed6d3b432a04c9622c34a2495304"><div class="ttname"><a href="format_8cc.html#ad9e2ed6d3b432a04c9622c34a2495304">FMT_THROW</a></div><div class="ttdeci">#define FMT_THROW(x)</div><div class="ttdef"><b>Definition:</b> <a href="format_8cc_source.html#l00071">format.cc:71</a></div></div>
 <div class="ttc" id="structfmt_1_1AlignSpec_html_aac93fb3829d550af86479f1ecaa73f95"><div class="ttname"><a href="structfmt_1_1AlignSpec.html#aac93fb3829d550af86479f1ecaa73f95">fmt::AlignSpec::align_</a></div><div class="ttdeci">Alignment align_</div><div class="ttdef"><b>Definition:</b> <a href="format_8h_source.html#l01383">format.h:1383</a></div></div>
 <div class="ttc" id="classfmt_1_1internal_1_1ArgFormatter_html_a882645498db66f259f34beb42f4beed6"><div class="ttname"><a href="classfmt_1_1internal_1_1ArgFormatter.html#a882645498db66f259f34beb42f4beed6">fmt::internal::ArgFormatter::visit_any_double</a></div><div class="ttdeci">void visit_any_double(T value)</div><div class="ttdef"><b>Definition:</b> <a href="spdlog_2details_2format_8cc_source.html#l00602">spdlog/details/format.cc:602</a></div></div>
 <div class="ttc" id="structfmt_1_1internal_1_1MakeUnsigned_html_a57cbf18702f14a837ba104412394bfba"><div class="ttname"><a href="structfmt_1_1internal_1_1MakeUnsigned.html#a57cbf18702f14a837ba104412394bfba">fmt::internal::MakeUnsigned::Type</a></div><div class="ttdeci">T Type</div><div class="ttdef"><b>Definition:</b> <a href="format_8h_source.html#l00654">format.h:654</a></div></div>
@@ -1398,7 +1397,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:39 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

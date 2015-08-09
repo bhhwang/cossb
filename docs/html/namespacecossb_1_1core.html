@@ -94,12 +94,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#aa6ef5c0ad50a98cafb24abac8cf97173">cossb_init</a> (<a class="el" href="classcossb_1_1base_1_1config.html">base::config</a> *config)</td></tr>
-<tr class="memdesc:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="mdescLeft">&#160;</td><td class="mdescRight">create COSSB core instances  <a href="#aa6ef5c0ad50a98cafb24abac8cf97173">More...</a><br/></td></tr>
-<tr class="separator:aa6ef5c0ad50a98cafb24abac8cf97173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8124bb87142e5271fdbecaa9fe1dd984"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984">cossb_init</a> (const char *manifest)</td></tr>
+<tr class="memdesc:a8124bb87142e5271fdbecaa9fe1dd984"><td class="mdescLeft">&#160;</td><td class="mdescRight">create COSSB core instances  <a href="#a8124bb87142e5271fdbecaa9fe1dd984">More...</a><br/></td></tr>
+<tr class="separator:a8124bb87142e5271fdbecaa9fe1dd984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae82d72278a2dafa4d83669a278975d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d">cossb_destroy</a> ()</td></tr>
 <tr class="memdesc:abae82d72278a2dafa4d83669a278975d"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy COSSB core instances  <a href="#abae82d72278a2dafa4d83669a278975d">More...</a><br/></td></tr>
 <tr class="separator:abae82d72278a2dafa4d83669a278975d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a7d7ab0c7d6b7daffb831c0fb53726087">cossb_sync</a> ()</td></tr>
+<tr class="memdesc:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="mdescLeft">&#160;</td><td class="mdescRight">service components synchronization  <a href="#a7d7ab0c7d6b7daffb831c0fb53726087">More...</a><br/></td></tr>
+<tr class="separator:a7d7ab0c7d6b7daffb831c0fb53726087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335e01a706b6c4e22881a8061cffd03b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b">cossb_start</a> ()</td></tr>
+<tr class="memdesc:a335e01a706b6c4e22881a8061cffd03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">start COSSB engine  <a href="#a335e01a706b6c4e22881a8061cffd03b">More...</a><br/></td></tr>
+<tr class="separator:a335e01a706b6c4e22881a8061cffd03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8360b2b1997ef3520a59637321be379"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1core.html#ab8360b2b1997ef3520a59637321be379">cossb_stop</a> ()</td></tr>
+<tr class="memdesc:ab8360b2b1997ef3520a59637321be379"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop COSSB Engine  <a href="#ab8360b2b1997ef3520a59637321be379">More...</a><br/></td></tr>
+<tr class="separator:ab8360b2b1997ef3520a59637321be379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="abae82d72278a2dafa4d83669a278975d"></a>
@@ -117,37 +126,28 @@ Functions</h2></td></tr>
 
 <p>destroy COSSB core instances </p>
 
-<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00023">23</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_cgraph.png" border="0" usemap="#namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_cgraph" alt=""/></div>
-<map name="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_cgraph" id="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_cgraph">
-<area shape="rect" id="node2" href="classcossb_1_1manager_1_1component__manager.html#a966e1fdcff5a32c6f3442e248bde69bb" title="cossb::manager::component\l_manager::get" alt="" coords="187,5,373,46"/><area shape="rect" id="node3" href="classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6" title="cossb::manager::component\l_manager::destroy" alt="" coords="187,70,373,111"/><area shape="rect" id="node4" href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da" title="cossb::broker::component\l_broker::get" alt="" coords="193,135,367,177"/><area shape="rect" id="node5" href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d" title="cossb::broker::component\l_broker::destroy" alt="" coords="193,201,367,242"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00031">31</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_icgraph.png" border="0" usemap="#namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_icgraph" alt=""/></div>
 <map name="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_icgraph" id="namespacecossb_1_1core_abae82d72278a2dafa4d83669a278975d_icgraph">
-<area shape="rect" id="node2" href="engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="187,5,287,32"/><area shape="rect" id="node3" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="336,31,387,57"/></map>
+<area shape="rect" id="node2" href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy" alt="" coords="205,5,270,32"/><area shape="rect" id="node4" href="engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="187,56,287,83"/><area shape="rect" id="node3" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="336,31,387,57"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="aa6ef5c0ad50a98cafb24abac8cf97173"></a>
+<a class="anchor" id="a8124bb87142e5271fdbecaa9fe1dd984"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool cossb::core::cossb_init </td>
           <td>(</td>
-          <td class="paramtype">base::config *&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>manifest</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -155,23 +155,89 @@ Here is the caller graph for this function:</div>
 
 <p>create COSSB core instances </p>
 
-<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00014">14</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
+<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00016">16</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacecossb_1_1core_aa6ef5c0ad50a98cafb24abac8cf97173_icgraph.png" border="0" usemap="#namespacecossb_1_1core_aa6ef5c0ad50a98cafb24abac8cf97173_icgraph" alt=""/></div>
-<map name="namespacecossb_1_1core_aa6ef5c0ad50a98cafb24abac8cf97173_icgraph" id="namespacecossb_1_1core_aa6ef5c0ad50a98cafb24abac8cf97173_icgraph">
+<div class="center"><img src="namespacecossb_1_1core_a8124bb87142e5271fdbecaa9fe1dd984_icgraph.png" border="0" usemap="#namespacecossb_1_1core_a8124bb87142e5271fdbecaa9fe1dd984_icgraph" alt=""/></div>
+<map name="namespacecossb_1_1core_a8124bb87142e5271fdbecaa9fe1dd984_icgraph" id="namespacecossb_1_1core_a8124bb87142e5271fdbecaa9fe1dd984_icgraph">
 <area shape="rect" id="node2" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="211,5,261,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
+<a class="anchor" id="a335e01a706b6c4e22881a8061cffd03b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cossb::core::cossb_start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start COSSB engine </p>
+
+<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00043">43</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacecossb_1_1core_a335e01a706b6c4e22881a8061cffd03b_icgraph.png" border="0" usemap="#namespacecossb_1_1core_a335e01a706b6c4e22881a8061cffd03b_icgraph" alt=""/></div>
+<map name="namespacecossb_1_1core_a335e01a706b6c4e22881a8061cffd03b_icgraph" id="namespacecossb_1_1core_a335e01a706b6c4e22881a8061cffd03b_icgraph">
+<area shape="rect" id="node2" href="engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="187,12,237,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8360b2b1997ef3520a59637321be379"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cossb::core::cossb_stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>stop COSSB Engine </p>
+
+<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00051">51</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d7ab0c7d6b7daffb831c0fb53726087"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cossb::core::cossb_sync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>service components synchronization </p>
+
+<p>Definition at line <a class="el" href="instance_8cpp_source.html#l00037">37</a> of file <a class="el" href="instance_8cpp_source.html">instance.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

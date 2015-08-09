@@ -1,8 +1,7 @@
 <map id="file_helper.h" name="file_helper.h">
-<area shape="rect" id="node2" href="$file__sinks_8h.html" title="file_sinks.h" alt="" coords="165,80,253,107"/>
-<area shape="rect" id="node3" href="$spdlog__impl_8h.html" title="spdlog_impl.h" alt="" coords="158,155,260,181"/>
-<area shape="rect" id="node4" href="$spdlog_8h.html" title="spdlog.h" alt="" coords="127,229,197,256"/>
-<area shape="rect" id="node5" href="$driver_8cpp.html" title="Component driver. " alt="" coords="5,304,83,331"/>
-<area shape="rect" id="node6" href="$async__logger_8h.html" title="async_logger.h" alt="" coords="107,304,217,331"/>
-<area shape="rect" id="node7" href="$registry_8h.html" title="registry.h" alt="" coords="171,379,247,405"/>
+<area shape="rect" id="node2" href="$file__sinks_8h.html" title="file_sinks.h" alt="" coords="72,80,160,107"/>
+<area shape="rect" id="node3" href="$spdlog__impl_8h.html" title="spdlog_impl.h" alt="" coords="65,155,167,181"/>
+<area shape="rect" id="node4" href="$spdlog_8h.html" title="spdlog.h" alt="" coords="34,229,104,256"/>
+<area shape="rect" id="node5" href="$async__logger_8h.html" title="async_logger.h" alt="" coords="5,304,115,331"/>
+<area shape="rect" id="node6" href="$registry_8h.html" title="registry.h" alt="" coords="69,379,144,405"/>
 </map>

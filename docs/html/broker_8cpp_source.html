@@ -95,45 +95,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>cossb {</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacecossb_1_1broker.html">   12</a></span>&#160;<span class="keyword">namespace </span>broker {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<a class="code" href="classcossb_1_1broker_1_1component__broker.html">component_broker</a>* component_broker::_instance = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da">   15</a></span>&#160;<a class="code" href="classcossb_1_1broker_1_1component__broker.html">component_broker</a>* <a class="code" href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da">component_broker::get</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(!_instance)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        _instance = <span class="keyword">new</span> <a class="code" href="classcossb_1_1broker_1_1component__broker.html">component_broker</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> _instance;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#aad1f88b33b6a9b8b221c9ab597da6cfd">   14</a></span>&#160;<a class="code" href="classcossb_1_1broker_1_1component__broker.html#aad1f88b33b6a9b8b221c9ab597da6cfd">component_broker::component_broker</a>()</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#afff5cf212337e71f9d0fe71a45e3f7d2">   19</a></span>&#160;<a class="code" href="classcossb_1_1broker_1_1component__broker.html#afff5cf212337e71f9d0fe71a45e3f7d2">component_broker::~component_broker</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d">component_broker::destroy</a>()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(_instance)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">delete</span> _instance;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#a2b74ae3f642b88d8feecd2d0a7cb2d0f">   28</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1broker_1_1component__broker.html#a2b74ae3f642b88d8feecd2d0a7cb2d0f">component_broker::regist</a>(<a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* component, <a class="code" href="namespacecossb_1_1broker.html#a28ae9b09beb0ceaa1692e67af27cfc84">topic</a> topic_name)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> success = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(_instance) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        _topic_map.insert(topic_map::value_type(topic_name, component-&gt;<a class="code" href="classcossb_1_1interface_1_1icomponent.html#a2f10bc4916959975bd9fc0a059e281b2">get_name</a>()));</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        success = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> success;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">/* namespace broker */</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aefd050e90b83ffaf4df7d71de1af34da"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da">cossb::broker::component_broker::get</a></div><div class="ttdeci">static component_broker * get()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00015">broker.cpp:15</a></div></div>
-<div class="ttc" id="namespacecossb_1_1broker_html_a28ae9b09beb0ceaa1692e67af27cfc84"><div class="ttname"><a href="namespacecossb_1_1broker.html#a28ae9b09beb0ceaa1692e67af27cfc84">cossb::broker::topic</a></div><div class="ttdeci">string topic</div><div class="ttdef"><b>Definition:</b> <a href="broker_8hpp_source.html#l00021">broker.hpp:21</a></div></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aa3eb94c326a94290b383111f2d8cf09d"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d">cossb::broker::component_broker::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00022">broker.cpp:22</a></div></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_a2b74ae3f642b88d8feecd2d0a7cb2d0f"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#a2b74ae3f642b88d8feecd2d0a7cb2d0f">cossb::broker::component_broker::regist</a></div><div class="ttdeci">bool regist(interface::icomponent *component, topic topic_name)</div><div class="ttdoc">regist component with topic </div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00028">broker.cpp:28</a></div></div>
-<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00027">icomponent.hpp:27</a></div></div>
-<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html">cossb::broker::component_broker</a></div><div class="ttdef"><b>Definition:</b> <a href="broker_8hpp_source.html#l00025">broker.hpp:25</a></div></div>
-<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html_a2f10bc4916959975bd9fc0a059e281b2"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html#a2f10bc4916959975bd9fc0a059e281b2">cossb::interface::icomponent::get_name</a></div><div class="ttdeci">const char * get_name() const </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8cpp_source.html#l00020">icomponent.cpp:20</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classcossb_1_1broker_1_1component__broker.html#aff1fff88e241f98b9be79b5add745354">   24</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1broker_1_1component__broker.html#aff1fff88e241f98b9be79b5add745354">component_broker::regist</a>(<a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* component, <span class="keywordtype">string</span> topic_name)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    _topic_map.insert(topic_map::value_type(topic_name, component-&gt;<a class="code" href="classcossb_1_1interface_1_1icomponent.html#af66ffe1e185146d99525d7a3ac599519">get_name</a>()));</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">/* namespace broker */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_afff5cf212337e71f9d0fe71a45e3f7d2"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#afff5cf212337e71f9d0fe71a45e3f7d2">cossb::broker::component_broker::~component_broker</a></div><div class="ttdeci">virtual ~component_broker()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00019">broker.cpp:19</a></div></div>
+<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aff1fff88e241f98b9be79b5add745354"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aff1fff88e241f98b9be79b5add745354">cossb::broker::component_broker::regist</a></div><div class="ttdeci">bool regist(interface::icomponent *component, string topic_name)</div><div class="ttdoc">regist component with topic </div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00024">broker.cpp:24</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00032">icomponent.hpp:32</a></div></div>
+<div class="ttc" id="classcossb_1_1broker_1_1component__broker_html_aad1f88b33b6a9b8b221c9ab597da6cfd"><div class="ttname"><a href="classcossb_1_1broker_1_1component__broker.html#aad1f88b33b6a9b8b221c9ab597da6cfd">cossb::broker::component_broker::component_broker</a></div><div class="ttdeci">component_broker()</div><div class="ttdef"><b>Definition:</b> <a href="broker_8cpp_source.html#l00014">broker.cpp:14</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html_af66ffe1e185146d99525d7a3ac599519"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html#af66ffe1e185146d99525d7a3ac599519">cossb::interface::icomponent::get_name</a></div><div class="ttdeci">const char * get_name() const </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00071">icomponent.hpp:71</a></div></div>
 <div class="ttc" id="broker_8hpp_html"><div class="ttname"><a href="broker_8hpp.html">broker.hpp</a></div><div class="ttdoc">Component Broker. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:39 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

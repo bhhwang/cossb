@@ -89,7 +89,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classcossb_1_1base_1_1config-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">cossb::base::config Class Reference</div>  </div>
@@ -100,30 +99,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="classcossb_1_1base_1_1config.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="config_8hpp_source.html">config.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for cossb::base::config:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcossb_1_1base_1_1config__inherit__graph.png" border="0" usemap="#cossb_1_1base_1_1config_inherit__map" alt="Inheritance graph"/></div>
+<map name="cossb_1_1base_1_1config_inherit__map" id="cossb_1_1base_1_1config_inherit__map">
+<area shape="rect" id="node2" href="classcossb_1_1arch_1_1singleton.html" title="cossb::arch::singleton\l\&lt; config \&gt;" alt="" coords="5,6,155,47"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for cossb::base::config:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcossb_1_1base_1_1config__coll__graph.png" border="0" usemap="#cossb_1_1base_1_1config_coll__map" alt="Collaboration graph"/></div>
+<map name="cossb_1_1base_1_1config_coll__map" id="cossb_1_1base_1_1config_coll__map">
+<area shape="rect" id="node2" href="classcossb_1_1arch_1_1singleton.html" title="cossb::arch::singleton\l\&lt; config \&gt;" alt="" coords="5,6,155,47"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af8e11f06dab0f1c7229c319df3800db0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#af8e11f06dab0f1c7229c319df3800db0">destroy</a> ()</td></tr>
-<tr class="separator:af8e11f06dab0f1c7229c319df3800db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606e68f6f365dfcf6ae3c18f81b49e3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a606e68f6f365dfcf6ae3c18f81b49e3c">config</a> ()</td></tr>
+<tr class="separator:a606e68f6f365dfcf6ae3c18f81b49e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5656b7720daf2352eb421cdd002c59"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a0c5656b7720daf2352eb421cdd002c59">~config</a> ()</td></tr>
+<tr class="separator:a0c5656b7720daf2352eb421cdd002c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a8c545bc8c8d313bbef73c6d314d1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a70a8c545bc8c8d313bbef73c6d314d1c">load</a> (const char *manifest_conf)</td></tr>
+<tr class="memdesc:a70a8c545bc8c8d313bbef73c6d314d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">load configuration file(manifest file)  <a href="#a70a8c545bc8c8d313bbef73c6d314d1c">More...</a><br/></td></tr>
 <tr class="separator:a70a8c545bc8c8d313bbef73c6d314d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95ea25effd48d5809999d447cc7d949"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#aa95ea25effd48d5809999d447cc7d949">update</a> (<a class="el" href="classcossb_1_1base_1_1config.html">config</a> *conf)</td></tr>
+<tr class="memdesc:aa95ea25effd48d5809999d447cc7d949"><td class="mdescLeft">&#160;</td><td class="mdescRight">update configuration  <a href="#aa95ea25effd48d5809999d447cc7d949">More...</a><br/></td></tr>
+<tr class="separator:aa95ea25effd48d5809999d447cc7d949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d8516c46c2866d06782a314e2477cf"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="namespacecossb_1_1base.html#ad6435f230759a1fa28a6bbfd3fbccb36">sDependency</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a85d8516c46c2866d06782a314e2477cf">get_dependency</a> ()</td></tr>
+<tr class="memdesc:a85d8516c46c2866d06782a314e2477cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">getting manifest information  <a href="#a85d8516c46c2866d06782a314e2477cf">More...</a><br/></td></tr>
+<tr class="separator:a85d8516c46c2866d06782a314e2477cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa20f6b7644c27c52bbd69720342c88a8"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#aa20f6b7644c27c52bbd69720342c88a8">get_repository</a> ()</td></tr>
+<tr class="separator:aa20f6b7644c27c52bbd69720342c88a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823f717284f894842d8134185cfb3c8c"><td class="memItemLeft" align="right" valign="top">map&lt; string, string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a823f717284f894842d8134185cfb3c8c">get_path</a> ()</td></tr>
+<tr class="separator:a823f717284f894842d8134185cfb3c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596b8dbf568f29e2fdf7659d4d958e4b"><td class="memItemLeft" align="right" valign="top">map&lt; string, string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a596b8dbf568f29e2fdf7659d4d958e4b">get_product</a> ()</td></tr>
+<tr class="separator:a596b8dbf568f29e2fdf7659d4d958e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3b3de4f6062399a6e300e0237e545033"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcossb_1_1base_1_1config.html">config</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html#a3b3de4f6062399a6e300e0237e545033">get</a> ()</td></tr>
-<tr class="separator:a3b3de4f6062399a6e300e0237e545033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_methods_classcossb_1_1arch_1_1singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classcossb_1_1arch_1_1singleton')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classcossb_1_1arch_1_1singleton.html">cossb::arch::singleton&lt; config &gt;</a></td></tr>
+<tr class="memitem:a6b15646ae2728d8a775de1b841af3f45 inherit pub_static_methods_classcossb_1_1arch_1_1singleton"><td class="memItemLeft" align="right" valign="top">static config *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1arch_1_1singleton.html#a6b15646ae2728d8a775de1b841af3f45">instance</a> (Args...args)</td></tr>
+<tr class="separator:a6b15646ae2728d8a775de1b841af3f45 inherit pub_static_methods_classcossb_1_1arch_1_1singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37df023181f23fe706f0115f7bee2089 inherit pub_static_methods_classcossb_1_1arch_1_1singleton"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1arch_1_1singleton.html#a37df023181f23fe706f0115f7bee2089">destroy</a> ()</td></tr>
+<tr class="separator:a37df023181f23fe706f0115f7bee2089 inherit pub_static_methods_classcossb_1_1arch_1_1singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classcossb_1_1arch_1_1singleton"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classcossb_1_1arch_1_1singleton')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classcossb_1_1arch_1_1singleton.html">cossb::arch::singleton&lt; config &gt;</a></td></tr>
+<tr class="memitem:a503bec052fbdb4e48432bc0e05ea0cc5 inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1arch_1_1singleton.html#a503bec052fbdb4e48432bc0e05ea0cc5">singleton</a> ()</td></tr>
+<tr class="separator:a503bec052fbdb4e48432bc0e05ea0cc5 inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da3c4e9ae621e22a4a88a650bd0455a inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1arch_1_1singleton.html#a4da3c4e9ae621e22a4a88a650bd0455a">singleton</a> (<a class="el" href="classcossb_1_1arch_1_1singleton.html">singleton</a> const &amp;)</td></tr>
+<tr class="separator:a4da3c4e9ae621e22a4a88a650bd0455a inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6260f285ba032641b539c077499e7f inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcossb_1_1arch_1_1singleton.html">singleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1arch_1_1singleton.html#aac6260f285ba032641b539c077499e7f">operator=</a> (<a class="el" href="classcossb_1_1arch_1_1singleton.html">singleton</a> const &amp;)</td></tr>
+<tr class="separator:aac6260f285ba032641b539c077499e7f inherit pro_methods_classcossb_1_1arch_1_1singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>system configuration class </p>
 
-<p>Definition at line <a class="el" href="config_8hpp_source.html#l00022">22</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af8e11f06dab0f1c7229c319df3800db0"></a>
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00040">40</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a606e68f6f365dfcf6ae3c18f81b49e3c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void cossb::base::config::destroy </td>
+          <td class="memname">cossb::base::config::config </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -131,11 +169,11 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="config_8cpp_source.html#l00022">22</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p>Definition at line <a class="el" href="config_8cpp_source.html#l00014">14</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b3de4f6062399a6e300e0237e545033"></a>
+<a class="anchor" id="a0c5656b7720daf2352eb421cdd002c59"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -143,7 +181,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classcossb_1_1base_1_1config.html">config</a> * cossb::base::config::get </td>
+          <td class="memname">cossb::base::config::~config </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -151,12 +189,124 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="config_8cpp_source.html#l00015">15</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p>Definition at line <a class="el" href="config_8cpp_source.html#l00018">18</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a85d8516c46c2866d06782a314e2477cf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="namespacecossb_1_1base.html#ad6435f230759a1fa28a6bbfd3fbccb36">sDependency</a>*&gt;* cossb::base::config::get_dependency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getting manifest information </p>
+
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00059">59</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcossb_1_1base_1_1config_a85d8516c46c2866d06782a314e2477cf_icgraph.png" border="0" usemap="#classcossb_1_1base_1_1config_a85d8516c46c2866d06782a314e2477cf_icgraph" alt=""/></div>
+<map name="classcossb_1_1base_1_1config_a85d8516c46c2866d06782a314e2477cf_icgraph" id="classcossb_1_1base_1_1config_a85d8516c46c2866d06782a314e2477cf_icgraph">
+<area shape="rect" id="node2" href="classcossb_1_1manager_1_1system__manager.html#a11bfaff64f803ea7b822767aee04725b" title="setup system configuration " alt="" coords="190,5,357,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a823f717284f894842d8134185cfb3c8c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, string&gt;* cossb::base::config::get_path </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00061">61</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a596b8dbf568f29e2fdf7659d4d958e4b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, string&gt;* cossb::base::config::get_product </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00062">62</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa20f6b7644c27c52bbd69720342c88a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;string&gt;* cossb::base::config::get_repository </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="config_8hpp_source.html#l00060">60</a> of file <a class="el" href="config_8hpp_source.html">config.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,7 +324,29 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="config_8cpp_source.html#l00028">28</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+<p>load configuration file(manifest file) </p>
+
+<p>Definition at line <a class="el" href="config_8cpp_source.html#l00030">30</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa95ea25effd48d5809999d447cc7d949"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool cossb::base::config::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcossb_1_1base_1_1config.html">config</a> *&#160;</td>
+          <td class="paramname"><em>conf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>update configuration </p>
+
+<p>Definition at line <a class="el" href="config_8cpp_source.html#l00052">52</a> of file <a class="el" href="config_8cpp_source.html">config.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +357,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -96,13 +96,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="driver_8hpp_source.html">driver.hpp</a>&quot;</code><br/>
 <code>#include &lt;dlfcn.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="spdlog_8h_source.html">util/spdlog/spdlog.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="xmlprofile_8hpp_source.html">xmlprofile.hpp</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for driver.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="driver_8cpp__incl.png" border="0" usemap="#driver_8cpp" alt=""/></div>
 <map name="driver_8cpp" id="driver_8cpp">
-<area shape="rect" id="node2" href="driver_8hpp.html" title="Component driver. " alt="" coords="1517,155,1595,181"/><area shape="rect" id="node5" href="spdlog_8h.html" title="util/spdlog/spdlog.h" alt="" coords="218,80,352,107"/><area shape="rect" id="node6" href="tweakme_8h.html" title="tweakme.h" alt="" coords="123,155,209,181"/><area shape="rect" id="node7" href="common_8h.html" title="common.h" alt="" coords="592,784,673,811"/><area shape="rect" id="node11" href="logger_8h.html" title="logger.h" alt="" coords="313,387,380,413"/><area shape="rect" id="node36" href="spdlog__impl_8h.html" title="details/spdlog_impl.h" alt="" coords="681,155,825,181"/><area shape="rect" id="node13" href="base__sink_8h.html" title="sinks/base_sink.h" alt="" coords="1111,469,1237,496"/><area shape="rect" id="node33" href="logger__impl_8h.html" title="./details/logger_impl.h" alt="" coords="245,469,393,496"/><area shape="rect" id="node16" href="sink_8h.html" title="./sink.h" alt="" coords="987,627,1052,653"/><area shape="rect" id="node17" href="log__msg_8h.html" title="../details/log_msg.h" alt="" coords="983,709,1117,736"/><area shape="rect" id="node30" href="formatter_8h.html" title="../formatter.h" alt="" coords="1170,544,1267,571"/><area shape="rect" id="node19" href="spdlog_2details_2format_8h.html" title="./format.h" alt="" coords="1431,784,1509,811"/><area shape="rect" id="node29" href="spdlog_2details_2format_8cc.html" title="format.cc" alt="" coords="1459,859,1535,885"/><area shape="rect" id="node31" href="pattern__formatter__impl_8h.html" title="details/pattern_formatter\l_impl.h" alt="" coords="1179,619,1341,661"/><area shape="rect" id="node32" href="os_8h.html" title="./os.h" alt="" coords="1295,709,1349,736"/><area shape="rect" id="node34" href="line__logger_8h.html" title="./line_logger.h" alt="" coords="257,544,359,571"/><area shape="rect" id="node37" href="registry_8h.html" title="registry.h" alt="" coords="715,229,791,256"/><area shape="rect" id="node43" href="file__sinks_8h.html" title="../sinks/file_sinks.h" alt="" coords="1529,387,1663,413"/><area shape="rect" id="node46" href="stdout__sinks_8h.html" title="../sinks/stdout_sinks.h" alt="" coords="2028,304,2181,331"/><area shape="rect" id="node50" href="syslog__sink_8h.html" title="../sinks/syslog_sink.h" alt="" coords="541,229,689,256"/><area shape="rect" id="node40" href="async__logger_8h.html" title="../async_logger.h" alt="" coords="285,304,408,331"/><area shape="rect" id="node41" href="async__logger__impl_8h.html" title="./details/async_logger\l_impl.h" alt="" coords="520,379,668,421"/><area shape="rect" id="node42" href="async__log__helper_8h.html" title="./async_log_helper.h" alt="" coords="742,544,884,571"/><area shape="rect" id="node44" href="null__mutex_8h.html" title="../details/null_mutex.h" alt="" coords="1790,469,1940,496"/><area shape="rect" id="node45" href="file__helper_8h.html" title="../details/file_helper.h" alt="" coords="1365,627,1512,653"/><area shape="rect" id="node48" href="ostream__sink_8h.html" title="./ostream_sink.h" alt="" coords="1809,387,1927,413"/></map>
+<area shape="rect" id="node2" href="driver_8hpp.html" title="Component driver. " alt="" coords="266,80,344,107"/><area shape="rect" id="node20" href="xmlprofile_8hpp.html" title="XML component profile. " alt="" coords="350,155,452,181"/><area shape="rect" id="node4" href="icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="49,155,217,181"/><area shape="rect" id="node5" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="183,229,268,256"/><area shape="rect" id="node8" href="manager_8hpp.html" title="COSSB component manager. " alt="" coords="541,155,637,181"/><area shape="rect" id="node7" href="imessage_8hpp.html" title="Message Interface class. " alt="" coords="5,229,107,256"/><area shape="rect" id="node9" href="config_8hpp.html" title="COSSB configuration Management. " alt="" coords="444,229,525,256"/><area shape="rect" id="node10" href="singleton_8hpp.html" title="dynamic Singleton pattern design template class " alt="" coords="611,304,739,331"/><area shape="rect" id="node16" href="typedef_8hpp.html" title="COSSB Type definitions. " alt="" coords="777,229,868,256"/></map>
 </div>
 </div>
 <p><a href="driver_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -110,7 +111,7 @@ Include dependency graph for driver.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecossb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb.html">cossb</a></td></tr>
-<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for log process <br/></td></tr>
+<tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1driver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1driver.html">cossb::driver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +126,7 @@ Namespaces</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 10:51:40 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

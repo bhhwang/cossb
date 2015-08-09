@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['uint_5fvalue',['uint_value',['../structfmt_1_1internal_1_1Value.html#a9ced917767812c9572065509f22bec18',1,'fmt::internal::Value']]],
-  ['ulong_5flong_5fvalue',['ulong_long_value',['../structfmt_1_1internal_1_1Value.html#a78424f46c0150190010e5c27ec3c69a0',1,'fmt::internal::Value']]],
-  ['ulonglong',['ULongLong',['../namespacefmt.html#af495ed85910212d4ba243ae2a8ce8f1f',1,'fmt']]],
-  ['ustring',['ustring',['../structfmt_1_1internal_1_1Value.html#ae89a416df861650100b0bfc207e19204',1,'fmt::internal::Value']]]
+  ['thread_5fid',['thread_id',['../structspdlog_1_1details_1_1log__msg.html#ab8474cd689276f61021bca37e1993eef',1,'spdlog::details::log_msg']]],
+  ['time',['time',['../structspdlog_1_1details_1_1log__msg.html#a25fadb26e6ce94657af5475d4a581313',1,'spdlog::details::log_msg']]],
+  ['type',['type',['../structcossb_1_1base_1_1__sDependency.html#a4c20c1320d156881c9b8a155cb20986a',1,'cossb::base::_sDependency::type()'],['../structfmt_1_1internal_1_1Arg.html#af1165b4e8647bea5913922de82599e2e',1,'fmt::internal::Arg::type()'],['../structfmt_1_1internal_1_1ArgType.html#acfa7078681b7047cb448d523f5eb2a54',1,'fmt::internal::ArgType::type()']]],
+  ['type_5f',['type_',['../structfmt_1_1FormatSpec.html#aa6f085ef583f708dde9636c03adea6ab',1,'fmt::FormatSpec']]]
 ];

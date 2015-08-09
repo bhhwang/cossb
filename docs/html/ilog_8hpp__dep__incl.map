@@ -1,5 +1,5 @@
 <map id="ilog.hpp" name="ilog.hpp">
-<area shape="rect" id="node2" href="$log_8hpp.html" title="log handler " alt="" coords="73,80,137,107"/>
-<area shape="rect" id="node3" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="5,155,101,181"/>
-<area shape="rect" id="node4" href="$log_8cpp.html" title="log.cpp" alt="" coords="125,155,189,181"/>
+<area shape="rect" id="node2" href="$logger_8hpp.html" title="ossb default console logger " alt="" coords="67,80,148,107"/>
+<area shape="rect" id="node3" href="$logger_8cpp.html" title="logger.cpp" alt="" coords="5,155,87,181"/>
+<area shape="rect" id="node4" href="$sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="111,155,229,181"/>
 </map>

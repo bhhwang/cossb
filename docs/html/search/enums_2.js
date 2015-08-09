@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errorcode',['errorcode',['../namespacecossb_1_1error.html#ab5881534b7ca7e8cf059fe9d5c46da81',1,'cossb::error']]]
+  ['dependencytype',['dependencyType',['../namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9',1,'cossb::base']]]
 ];

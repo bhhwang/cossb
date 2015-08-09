@@ -1,6 +1,7 @@
 var searchData=
 [
   ['base_5fsink',['base_sink',['../classspdlog_1_1sinks_1_1base__sink.html#a6a4316a7710cd4968e4708f6effccb3d',1,'spdlog::sinks::base_sink::base_sink()'],['../classspdlog_1_1sinks_1_1base__sink.html#a9639062f2ce3598203c0d958576491d1',1,'spdlog::sinks::base_sink::base_sink(const base_sink &amp;)=delete']]],
+  ['basic_5fservice',['basic_service',['../classbasic__service.html#a87ad2c91ee21704f46d6959856c70f51',1,'basic_service']]],
   ['basicarraywriter',['BasicArrayWriter',['../classfmt_1_1BasicArrayWriter.html#a7559ecce2ffb3ecbb275dac5d2cc05e9',1,'fmt::BasicArrayWriter::BasicArrayWriter(Char *array, std::size_t size)'],['../classfmt_1_1BasicArrayWriter.html#ab8787cfc9b1500c0f2765074f64e5088',1,'fmt::BasicArrayWriter::BasicArrayWriter(Char(&amp;array)[SIZE])']]],
   ['basicformatter',['BasicFormatter',['../classfmt_1_1BasicFormatter.html#a34d79e2de7123372f8ec8cb75823971b',1,'fmt::BasicFormatter::BasicFormatter(BasicWriter&lt; Char &gt; &amp;w)'],['../classfmt_1_1BasicFormatter.html#a34d79e2de7123372f8ec8cb75823971b',1,'fmt::BasicFormatter::BasicFormatter(BasicWriter&lt; Char &gt; &amp;w)']]],
   ['basicmemorywriter',['BasicMemoryWriter',['../classfmt_1_1BasicMemoryWriter.html#a36ef881adce8fc7a0b3632d2fb66fdfb',1,'fmt::BasicMemoryWriter::BasicMemoryWriter(const Allocator &amp;alloc=Allocator())'],['../classfmt_1_1BasicMemoryWriter.html#a36ef881adce8fc7a0b3632d2fb66fdfb',1,'fmt::BasicMemoryWriter::BasicMemoryWriter(const Allocator &amp;alloc=Allocator())']]],
