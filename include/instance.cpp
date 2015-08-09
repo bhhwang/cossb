@@ -6,6 +6,7 @@
 #include "config.hpp"
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -27,8 +28,8 @@ bool cossb_init(const char* manifest)
 
 void cossb_destroy()
 {
-	base::config::destroy();
-	manager::system_manager::destroy();
+	cossb_system_manager->destroy();
+	cossb_config->destroy();
 }
 
 bool cossb_sync()
