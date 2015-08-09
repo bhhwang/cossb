@@ -26,8 +26,11 @@ namespace manager {
 
 class component_manager : public arch::singleton<component_manager> {
 public:
-	component_manager() { }
+	component_manager() = default;
 	virtual ~component_manager();
+
+	component_manager(const component_manager&) = delete;
+	component_manager& operator = (const component_manager&) = delete;
 
 	/**
 	 * @brief	install specific component
@@ -64,6 +67,7 @@ public:
 	 */
 	int count();
 
+
 };
 
 #define cossb_component_manager	cossb::manager::component_manager::instance()
@@ -74,8 +78,12 @@ public:
 class system_manager : public arch::singleton<system_manager> {
 
 public:
-	system_manager();
+	system_manager() = default;
 	virtual ~system_manager();
+
+	system_manager(const system_manager&) = delete;
+	system_manager& operator = (const system_manager&) = delete;
+
 	/**
 	 * @brief	setup system configuration
 	 */
