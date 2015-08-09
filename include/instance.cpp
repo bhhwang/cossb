@@ -15,6 +15,7 @@ namespace core {
 
 bool cossb_init(const char* manifest)
 {
+
 	//1. load manifest file
 	if(!cossb_config->load(manifest))
 		return false;
@@ -22,6 +23,7 @@ bool cossb_init(const char* manifest)
 	//2. create(setup) instances according to the manifest
 	if(!cossb_system_manager->setup(base::config::instance()))
 		return false;
+
 
 	return true;
 }
