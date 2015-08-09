@@ -7,23 +7,24 @@
  */
 
 #include "manager.hpp"
+#include "logger.hpp"
 
 namespace cossb {
 namespace manager {
 
 system_manager::system_manager()
 {
-
+	cossb_log->info("test");
 }
 
 system_manager::~system_manager()
 {
 	cossb_component_manager->destroy();
+	cossb_log->destroy();
 }
 
 bool system_manager::setup(base::config* config)
 {
-
 	//1. load dependent components
 	for(auto dep:*config->get_dependency()) {
 		if(dep->type==base::dependencyType::COMPONENT)
