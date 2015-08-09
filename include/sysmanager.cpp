@@ -11,10 +11,6 @@
 namespace cossb {
 namespace manager {
 
-system_manager::system_manager()
-{
-
-}
 
 system_manager::~system_manager()
 {
