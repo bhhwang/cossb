@@ -10,7 +10,7 @@
 #define _COSSB_CONTAINER_HPP_
 
 #include <string>
-#include <vector>
+#include <list>
 #include <map>
 #include "interface/icomponent.hpp"
 #include "arch/singleton.hpp"
@@ -24,6 +24,17 @@ namespace container {
 typedef std::map<string, driver::component_driver*> comp_container;
 
 class component_container : private arch::singleton<component_container> {
+
+public:
+	/**
+	 * @brief	construct
+	 */
+	component_container() = default;
+
+	/**
+	 * @brief	destructor
+	 */
+	virtual ~component_container() { clear(); }
 
 private:
 	/**
@@ -49,18 +60,6 @@ private:
 	}
 
 	/**
-	 * @brief	find component it it exist, and getting its pointer
-	 * @return	component pointer
-	 */
-	/*interface::icomponent* get_component(const char* component_name) {
-		comp_container::iterator itr = _container.find(component_name);
-		if(itr!=_container.end())
-			return itr->second->get_component();
-		else
-			return nullptr;
-	}*/
-
-	/**
 	 * @brief	add new component
 	 * @return	true, if success
 	 */
@@ -81,7 +80,10 @@ private:
 	bool remove(const char* component_name) {
 		comp_container::iterator itr = _container.find(component_name);
 		if(itr!=_container.end()) {
-			delete itr->second;
+			if(itr->second) {
+				delete itr->second;
+				itr->second = nullptr;
+			}
 			_container.erase(itr);
 			return true;
 		}
@@ -103,10 +105,14 @@ private:
 	 */
 	void clear() {
 		for(auto itr:_container) {
-			delete itr.second;
-		_container.clear();
+			if(itr.second) {
+				delete itr.second;
+				itr.second = nullptr;
+			}
 		}
+		_container.clear();
 	}
+
 
 private:
 	comp_container _container;
