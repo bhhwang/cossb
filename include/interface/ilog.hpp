@@ -15,22 +15,33 @@
  */
 
 namespace cossb {
+namespace log {
+enum class logstream : unsigned int { CONSOLE=1, FILE };
+}
+
 namespace interface {
 
 class ilog {
 public:
+	ilog():_stream(log::logstream::CONSOLE) { }
 	virtual ~ilog() { }
+
 
 	virtual void trace(const char* logstr) = 0;
 	virtual void debug(const char* logstr) = 0;
 	virtual void info(const char* logstr) = 0;
 	virtual void notice(const char* logstr) = 0;
-	virtual void trace(const char* logstr) = 0;
 	virtual void warn(const char* logstr) = 0;
 	virtual void error(const char* logstr) = 0;
 	virtual void critical(const char* logstr) = 0;
 	virtual void alert(const char* logstr) = 0;
 	virtual void emerg(const char* logstr) = 0;
+
+protected:
+	log::logstream get_stream() const { return _stream; }
+
+protected:
+	log::logstream _stream;
 
 };
 
