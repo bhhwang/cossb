@@ -32,12 +32,12 @@ public:
 	 */
 	bool valid() { return _handle!=nullptr; }
 
-private:
-
 	/**
 	 * @brief	getting component pointer to access
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
+
+private:
 
 	/**
 	 * @brief	setup component
