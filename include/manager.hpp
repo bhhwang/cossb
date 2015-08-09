@@ -26,7 +26,7 @@ namespace manager {
 
 class component_manager : public arch::singleton<component_manager> {
 public:
-	component_manager() = default;
+	component_manager();
 	virtual ~component_manager();
 
 	component_manager(const component_manager&) = delete;
@@ -41,6 +41,8 @@ public:
 	 * @brief	uninstall specific component
 	 */
 	types::returntype uninstall(const char* component_name);
+	types::returntype uninstall();
+
 
 	/**
 	 * @brief run specific component
@@ -78,7 +80,7 @@ public:
 class system_manager : public arch::singleton<system_manager> {
 
 public:
-	system_manager() = default;
+	system_manager();
 	virtual ~system_manager();
 
 	system_manager(const system_manager&) = delete;
