@@ -7,7 +7,6 @@
  */
 
 #include "config.hpp"
-#include "configloader.hpp"
 
 namespace cossb {
 namespace base {
@@ -54,19 +53,6 @@ bool config::update(config* conf)
 {
 	return false;
 }
-
-/*map<string, string> config::get_dependency()
-{
-	switch(type)
-	{
-	case deptype::LIBRARY:	return parse_dependency("library");	break;
-	case deptype::COMPONENT:	return parse_dependency("component");	break;
-	default:
-		cout << "unknown dependency type" << endl;
-	}
-
-	return list<string>();
-}*/
 
 void config::parse_dependency()
 {
