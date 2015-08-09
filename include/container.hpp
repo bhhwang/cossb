@@ -10,7 +10,6 @@
 #define _COSSB_CONTAINER_HPP_
 
 #include <string>
-#include <list>
 #include <map>
 #include "interface/icomponent.hpp"
 #include "arch/singleton.hpp"
