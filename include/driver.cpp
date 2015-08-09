@@ -29,6 +29,7 @@ component_driver::component_driver(const char* component_name)
 
 component_driver::~component_driver()
 {
+	stop();
 	unload();
 }
 
