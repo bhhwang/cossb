@@ -19,6 +19,7 @@
 #include "broker.hpp"
 #include "config.hpp"
 #include "instance.hpp"
+#include "logger.hpp"
 
 #include "util/pid.h"
 #endif
