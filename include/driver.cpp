@@ -29,7 +29,6 @@ component_driver::component_driver(const char* component_name)
 
 component_driver::~component_driver()
 {
-	stop();
 	unload();
 }
 
@@ -51,7 +50,6 @@ bool component_driver::load(const char* component_name)
 		}
 		else
 		{
-			cout << "load component" << endl;
 			_ptr_component = pfcreate();
 			return true;
 		}
@@ -62,7 +60,8 @@ bool component_driver::load(const char* component_name)
 
 void component_driver::setup()
 {
-
+	if(_ptr_component)
+		_ptr_component->setup();
 }
 
 void component_driver::unload()
@@ -71,10 +70,8 @@ void component_driver::unload()
 	{
 		destroy_component pfdestroy = (destroy_component)dlsym(_handle, "destroy");
 
-		if(pfdestroy) {
-			cout << "unload component" << endl;
+		if(pfdestroy)
 			pfdestroy();
-		}
 
 		_ptr_component = nullptr;
 	}
@@ -89,17 +86,13 @@ void component_driver::unload()
 void component_driver::run()
 {
 	if(_ptr_component)
-	{
 		_ptr_component->run();
-	}
 }
 
 void component_driver::stop()
 {
 	if(_ptr_component)
-	{
 		_ptr_component->stop();
-	}
 }
 
 bool component_driver::set_profile(interface::iprofile* profile, const char* path)
