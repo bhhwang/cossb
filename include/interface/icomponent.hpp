@@ -100,11 +100,6 @@ public:
 		return _profile->load(path);
 	}
 
-	/**
-	 * @brief set log instance
-	 */
-	void set_logger(ilog* logger) { _logger = logger; }
-
 
 protected:
 	explicit icomponent(const char* name)
