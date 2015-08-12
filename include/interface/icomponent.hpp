@@ -22,8 +22,9 @@ namespace component {
 	enum class status : unsigned int { IDLE=0, RUNNING, STOPPED };
 }
 
-namespace interface {
+namespace driver { class component_driver; }
 
+namespace interface {
 /**
 * @brief		component interface class
 * @details		base component interface, lifecycle is (setup-run-stop)
@@ -32,6 +33,8 @@ namespace interface {
 */
 class icomponent {
 
+	friend driver::component_driver;
+
 public:
 	/**
 	 * @brief
@@ -39,6 +42,9 @@ public:
 	virtual ~icomponent() {
 		if(_profile)
 			delete _profile;
+
+		if(_logger)
+			delete _logger;
 	}
 
 	/**
@@ -94,10 +100,15 @@ public:
 		return _profile->load(path);
 	}
 
+	/**
+	 * @brief set log instance
+	 */
+	void set_logger(ilog* logger) { _logger = logger; }
+
 
 protected:
 	explicit icomponent(const char* name)
-	:_name(name), _profile(nullptr), _status(component::status::IDLE) {
+	:_name(name), _status(component::status::IDLE) {
 
 	}
 
@@ -117,7 +128,7 @@ private:
 protected:
 	component::status _status;
 
-
+	ilog* logger() { return _logger; }
 
 };
 
