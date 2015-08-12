@@ -12,6 +12,7 @@
 #include <string>
 #include "iprofile.hpp"
 #include "imessage.hpp"
+#include "ilog.hpp"
 
 using namespace std;
 
@@ -102,10 +103,20 @@ protected:
 
 private:
 	string _name;
+
+	/**
+	 * @brief	component profile interface
+	 */
 	iprofile* _profile = nullptr;
+
+	/**
+	 * @brief	component log interface
+	 */
+	ilog* _logger = nullptr;
 
 protected:
 	component::status _status;
+
 
 
 };
