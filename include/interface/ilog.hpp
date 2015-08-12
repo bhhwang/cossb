@@ -10,6 +10,10 @@
 #ifndef _COSSB_ILOG_HPP_
 #define _COSSB_ILOG_HPP_
 
+#include <string>
+
+using namespace std;
+
 /**
  * @brief	interface for simple log process
  */
@@ -19,13 +23,19 @@ namespace log {
 enum class logstream : unsigned int { CONSOLE=1, FILE };
 }
 
+namespace driver { class component_driver; }
+
 namespace interface {
 
 class ilog {
+
+	friend driver::component_driver;
+
 public:
-	ilog():_stream(log::logstream::CONSOLE) { }
+	ilog(log::logstream stream, const char* session):_stream(stream), _session(session) { }
 	virtual ~ilog() { }
 
+protected:
 
 	virtual void trace(const char* logstr) = 0;
 	virtual void debug(const char* logstr) = 0;
@@ -40,8 +50,9 @@ public:
 protected:
 	log::logstream get_stream() const { return _stream; }
 
-protected:
+private:
 	log::logstream _stream;
+	string _session;
 
 };
 
