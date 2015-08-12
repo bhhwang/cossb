@@ -12,9 +12,7 @@
 
 #include "../../include/interface.hpp"
 
-using namespace cossb::interface;
-
-class basic_service : public icomponent
+class basic_service : public cossb::interface::icomponent
 {
 public:
 	basic_service();
@@ -23,7 +21,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(imessage* msg);
+	void request(cossb::interface::imessage* msg);
 
 };
 
