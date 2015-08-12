@@ -25,7 +25,6 @@ using namespace cossb;
 
 void destroy() {
 	cossb::core::cossb_destroy();
-	cout << "Terminated." << endl;
 	_exit(EXIT_SUCCESS);
 }
 
@@ -34,9 +33,7 @@ void destroy() {
  * @details	Stop all services and destroy all instances
  */
 void sigc_interrupt(int param) {
-	cossb::core::cossb_destroy();
-	cout << "Terminated." << endl;
-	_exit(EXIT_FAILURE);
+	destroy();
 }
 
 /**
