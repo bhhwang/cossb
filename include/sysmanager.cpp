@@ -14,13 +14,12 @@ namespace manager {
 
 system_manager::system_manager()
 {
-	cossb_log->info("test");
+
 }
 
 system_manager::~system_manager()
 {
 	cossb_component_manager->destroy();
-	cossb_log->destroy();
 }
 
 bool system_manager::setup(base::config* config)
