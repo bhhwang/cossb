@@ -11,8 +11,8 @@
 namespace cossb {
 namespace log {
 
-logger::logger() {
-	this->_stream = log::logstream::CONSOLE;
+logger::logger():interface::ilog(log::logstream::CONSOLE, "main_thread") {
+
 }
 
 logger::~logger() {

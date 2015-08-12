@@ -16,7 +16,7 @@ namespace cossb {
 namespace log {
 
 
-class logger : public arch::singleton<logger>, interface::ilog {
+class logger : public interface::ilog {
 public:
 	logger();
 	virtual ~logger();
@@ -35,8 +35,6 @@ private:
 	util::systime _time;
 
 };
-
-#define cossb_log		cossb::log::logger::instance()
 
 } /* namespace log */
 } /* namespace cossb */
