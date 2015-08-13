@@ -1,4 +1,5 @@
 #include "basic_service.hpp"
+#include "../../include/component_util.hpp"
 
 using namespace std;
 
@@ -9,29 +10,30 @@ COMPONENT_DESTROY
 basic_service::basic_service()
 :icomponent(COMPONENT(basic_service))
 {
-	cossb_log->info("create basic service instance");
+	//cossb_log->log("sample");
+	//logger()->info("create basic service instance");
 }
 basic_service::~basic_service()
 {
-	cossb_log->info("destroy basic service instance");
+	//logger()->info("destroy basic service instance");
 }
 
 bool basic_service::setup()
 {
-	cossb_log->info("basic service call : setup");
+	//logger()->info("basic service call : setup");
 	return false;
 }
 bool basic_service::run()
 {
-	cossb_log->info("basic service call : run");
+	//logger()->info("basic service call : run");
 	return false;
 }
 bool basic_service::stop()
 {
-	cossb_log->info("basic service call : stop");
+	//logger()->info("basic service call : stop");
 	return false;
 }
 void basic_service::request(cossb::interface::imessage* msg)
 {
-	cossb_log->info("basic service call : request");
+	//logger()->info("basic service call : request");
 }
