@@ -74,13 +74,14 @@ private:
 	void parse_path();
 	void parse_repository();
 	void parse_product();
+	void parse_library();
 
 
 private:
 	tinyxml2::XMLDocument* _doc;
 	vector<sDependency*> _dependency;
 	vector<string> _repository;
-	vector<sLibrary> _library;
+	vector<sLibrary*> _library;
 	map<string, string> _path;
 	map<string, string> _product;
 
