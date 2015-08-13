@@ -65,7 +65,7 @@ public:
 	 */
 	vector<sDependency*>* get_dependency() { return &_dependency; };
 	vector<string>* get_repository() { return &_repository; }
-	vector<sLibrary>* get_library() { return &_library; }
+	vector<sLibrary*>* get_library() { return &_library; }
 	map<string, string>* get_path() { return &_path; }
 	map<string, string>* get_product() { return &_product; }
 
