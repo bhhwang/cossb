@@ -13,6 +13,9 @@
 		<uri></uri>
 	</repository>
 	
+	<!-- library required -->
+	<library use="log">libcblog.so</library>
+	
 	<!-- dependent libraries and components(required) -->
 	<dependency type="component">basic_service</dependency>
 	<dependency type="package">sample.ipkg</dependency>
