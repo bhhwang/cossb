@@ -42,6 +42,7 @@ bool config::load(const char* manifest_conf)
 		parse_product();
 		parse_path();
 		parse_repository();
+		parse_library();
 
 		return true;
 	}
@@ -60,8 +61,8 @@ void config::parse_dependency()
 	for(XMLElement* child = elem_com->FirstChildElement("dependency");child!=nullptr; child = child->NextSiblingElement("dependency"))
 	{
 
-		if(child->Attribute("type","library"))
-			_dependency.push_back(new sDependency(dependencyType::LIBRARY, child->GetText()));
+		if(child->Attribute("type","package"))
+			_dependency.push_back(new sDependency(dependencyType::PACKAGE, child->GetText()));
 		else if(child->Attribute("type","component"))
 			_dependency.push_back(new sDependency(dependencyType::COMPONENT, child->GetText()));
 	}
@@ -88,6 +89,13 @@ void config::parse_product()
 	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("product");
 	for(XMLElement* child = elem_com->FirstChildElement();child!=nullptr; child = child->NextSiblingElement())
 		_product[child->Value()] = child->GetText();
+}
+
+void config::parse_library()
+{
+	XMLElement* elem_com = _doc->FirstChildElement("manifest");
+	for(XMLElement* child = elem_com->FirstChildElement("library");child!=nullptr; child = child->NextSiblingElement("library"))
+		_library.push_back(new sLibrary(child->Attribute("use"), child->GetText()));
 }
 
 } /* namespace base */
