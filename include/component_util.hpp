@@ -12,7 +12,7 @@
 
 #if defined(__unix__) || defined(__gnu_linux__) || defined(linux) || defined(__linux__)
 
-//#include "<headerfile requires>"
+#include "logger.hpp"	//for base logger
 
 #endif
 
