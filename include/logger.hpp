@@ -8,33 +8,40 @@
 #ifndef _COSSB_LOGGER_HPP_
 #define _COSSB_LOGGER_HPP_
 
-#include "interface/ilog.hpp"
 #include "arch/singleton.hpp"
-#include "util/localtime.hpp"
+#include "util/format.h"
 
 namespace cossb {
+
+namespace manager { class system_manager; }
+namespace interface { class ilog; }
+
 namespace log {
 
+class logger : public arch::singleton<logger>
+{
 
-class logger : public interface::ilog {
+	friend class manager::system_manager;
+
 public:
 	logger();
 	virtual ~logger();
 
-	void trace(const char* logstr);
-	void debug(const char* logstr);
-	void info(const char* logstr);
-	void notice(const char* logstr);
-	void warn(const char* logstr);
-	void error(const char* logstr);
-	void critical(const char* logstr);
-	void alert(const char* logstr);
-	void emerg(const char* logstr);
+	void log(const char* str);
+
+	/*template<typename... Args>
+	void log2(loglevel level, const char* str, Args... args) {
+		//unsigned int size = sizeof...(args);
+		cout << "[TRACE] " << str << endl;
+	}*/
+
 
 private:
-	util::systime _time;
+	interface::ilog* _logger = nullptr;
 
 };
+
+#define cossb_log		cossb::log::logger::instance()
 
 } /* namespace log */
 } /* namespace cossb */

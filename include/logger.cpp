@@ -7,18 +7,33 @@
 
 #include "logger.hpp"
 #include <iostream>
+#include "interface/ilog.hpp"
 
 namespace cossb {
 namespace log {
 
-logger::logger():interface::ilog(log::logstream::CONSOLE, "main_thread") {
+logger::logger()
+{
 
 }
 
 logger::~logger() {
+	if(_logger)
+		delete _logger;
 
 }
+void logger::log(const char* str)
+{
+	cout << "call log" << endl;
+	if(_logger)
+		_logger->info(str);
 
+	/*switch(level)
+	{
+	case loglevel::TRACE:{	cout << "[TRACE] " << str << endl; }	break;
+	}*/
+}
+/*
 void logger::trace(const char* logstr)
 {
 	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;
@@ -55,5 +70,6 @@ void logger::emerg(const char* logstr)
 {
 	cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;
 }
+*/
 } /* namespace log */
 } /* namespace cossb */
