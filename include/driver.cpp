@@ -10,6 +10,8 @@
 #include <dlfcn.h>
 #include "xmlprofile.hpp"
 #include <iostream>
+#include "logger.hpp"
+#include "util/format.h"
 
 using namespace std;
 
@@ -21,20 +23,22 @@ component_driver::component_driver(const char* component_name)
 {
 	if(load(component_name))
 	{
-		string profile_path = "./"+string(component_name)+".xml";
-		//if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
-			//unload();
+		//1. profile setting
+		string profile_path = fmt::format("./{}.xml",component_name);
+		if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
+			unload();
 	}
 }
 
 component_driver::~component_driver()
 {
+
 	unload();
 }
 
 bool component_driver::load(const char* component_name)
 {
-	string component_path = "./"+string(component_name) + ".comp";
+	string component_path = fmt::format("./{}.comp",component_name);
 
 	_handle = dlopen(component_path.c_str(), RTLD_LAZY|RTLD_GLOBAL);
 
@@ -99,6 +103,7 @@ bool component_driver::set_profile(interface::iprofile* profile, const char* pat
 {
 	return false;
 }
+
 
 } /* namespace dirver */
 } /* namespace cossb */

@@ -3,7 +3,7 @@
  * @brief		Component driver
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 21
- * @details	Load components with driver
+ * @details	Load components with driver and their own peripheral instances
  */
 
 #ifndef _COSSB_DRIVER_HPP_
@@ -12,6 +12,7 @@
 #include <string>
 #include "interface/icomponent.hpp"
 #include "interface/iprofile.hpp"
+#include "interface/ilog.hpp"
 #include "manager.hpp"
 
 using namespace std;
@@ -36,6 +37,12 @@ public:
 	 * @brief	getting component pointer to access
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
+
+	/**
+	 * @brief	redefine operator
+	 */
+	//virtual interface::icomponent* operator->() { return _ptr_component; }
+	//virtual interface::icomponent& operator*() { return *_ptr_component; }
 
 private:
 
@@ -65,7 +72,7 @@ private:
 	void unload();
 
 	/**
-	 * @brief
+	 * @brief	component profile setup
 	 */
 	bool set_profile(interface::iprofile* profile, const char* path);
 
