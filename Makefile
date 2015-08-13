@@ -91,12 +91,12 @@ $(OUTDIR)engined.o: ./src/engined.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 
 #libraries	
-#$(OUTDIR)cblog.o: $(LIB_FILES)log/log.cpp
-#	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+$(OUTDIR)cblog.o: $(LIB_FILES)libcblog/cblog.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 
 # make all
-all: cossb basic_service.comp
+all: cossb libcblog.so basic_service.comp
 
 # Clean
 clean: 
