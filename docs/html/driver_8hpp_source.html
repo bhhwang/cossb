@@ -96,63 +96,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="icomponent_8hpp.html">interface/icomponent.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="iprofile_8hpp.html">interface/iprofile.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8hpp.html">manager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>cossb {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>driver {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a0f270d11e09e884b99bef0e26020a412">   24</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1component__manager.html">manager::component_manager</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">   33</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">valid</a>() { <span class="keywordflow">return</span> _handle!=<span class="keyword">nullptr</span>; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">   38</a></span>&#160;    <a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* <a class="code" href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">get_component</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ptr_component; };</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setup();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ilog_8hpp.html">interface/ilog.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="manager_8hpp.html">manager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>cossb {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>driver {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a0f270d11e09e884b99bef0e26020a412">   25</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classcossb_1_1manager_1_1component__manager.html">manager::component_manager</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classcossb_1_1driver_1_1component__driver.html">component_driver</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">   34</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">valid</a>() { <span class="keywordflow">return</span> _handle!=<span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">   39</a></span>&#160;    <a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* <a class="code" href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">get_component</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _ptr_component; };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//virtual interface::icomponent* operator-&gt;() { return _ptr_component; }</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//virtual interface::icomponent&amp; operator*() { return *_ptr_component; }</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> run();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> load(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> unload();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> set_profile(<a class="code" href="classcossb_1_1interface_1_1iprofile.html">interface::iprofile</a>* profile, <span class="keyword">const</span> <span class="keywordtype">char</span>* path);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* _ptr_component = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span>* _handle = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">string</span> _component_name;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setup();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> run();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> stop();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> load(<span class="keyword">const</span> <span class="keywordtype">char</span>* component_name);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> unload();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> set_profile(<a class="code" href="classcossb_1_1interface_1_1iprofile.html">interface::iprofile</a>* profile, <span class="keyword">const</span> <span class="keywordtype">char</span>* path);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;} <span class="comment">/* namespace driver */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classcossb_1_1interface_1_1icomponent.html">interface::icomponent</a>* _ptr_component = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span>* _handle = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">string</span> _component_name;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <span class="comment">/* namespace driver */</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">/* namespace cossb */</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="manager_8hpp_html"><div class="ttname"><a href="manager_8hpp.html">manager.hpp</a></div><div class="ttdoc">COSSB component manager. </div></div>
 <div class="ttc" id="icomponent_8hpp_html"><div class="ttname"><a href="icomponent_8hpp.html">icomponent.hpp</a></div><div class="ttdoc">Component(Shared Library) interface. </div></div>
 <div class="ttc" id="classcossb_1_1interface_1_1iprofile_html"><div class="ttname"><a href="classcossb_1_1interface_1_1iprofile.html">cossb::interface::iprofile</a></div><div class="ttdef"><b>Definition:</b> <a href="iprofile_8hpp_source.html#l00065">iprofile.hpp:65</a></div></div>
 <div class="ttc" id="classcossb_1_1manager_1_1component__manager_html"><div class="ttname"><a href="classcossb_1_1manager_1_1component__manager.html">cossb::manager::component_manager</a></div><div class="ttdoc">component manager derived from singleton pattern </div><div class="ttdef"><b>Definition:</b> <a href="manager_8hpp_source.html#l00027">manager.hpp:27</a></div></div>
-<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00032">icomponent.hpp:32</a></div></div>
-<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html_a696578e9ac422e1c13e2d83ce6dc7daf"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">cossb::driver::component_driver::get_component</a></div><div class="ttdeci">interface::icomponent * get_component() const </div><div class="ttdoc">getting component pointer to access </div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00038">driver.hpp:38</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00035">icomponent.hpp:35</a></div></div>
+<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html_a696578e9ac422e1c13e2d83ce6dc7daf"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf">cossb::driver::component_driver::get_component</a></div><div class="ttdeci">interface::icomponent * get_component() const </div><div class="ttdoc">getting component pointer to access </div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00039">driver.hpp:39</a></div></div>
 <div class="ttc" id="iprofile_8hpp_html"><div class="ttname"><a href="iprofile_8hpp.html">iprofile.hpp</a></div><div class="ttdoc">Component Profile interface class. </div></div>
-<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html">cossb::driver::component_driver</a></div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00022">driver.hpp:22</a></div></div>
-<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html_a9fd47d925be926f5be47425c6db2a79b"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">cossb::driver::component_driver::valid</a></div><div class="ttdeci">bool valid()</div><div class="ttdoc">component validation for driving </div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00033">driver.hpp:33</a></div></div>
+<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html">cossb::driver::component_driver</a></div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00023">driver.hpp:23</a></div></div>
+<div class="ttc" id="classcossb_1_1driver_1_1component__driver_html_a9fd47d925be926f5be47425c6db2a79b"><div class="ttname"><a href="classcossb_1_1driver_1_1component__driver.html#a9fd47d925be926f5be47425c6db2a79b">cossb::driver::component_driver::valid</a></div><div class="ttdeci">bool valid()</div><div class="ttdoc">component validation for driving </div><div class="ttdef"><b>Definition:</b> <a href="driver_8hpp_source.html#l00034">driver.hpp:34</a></div></div>
+<div class="ttc" id="ilog_8hpp_html"><div class="ttname"><a href="ilog_8hpp.html">ilog.hpp</a></div><div class="ttdoc">Log interface. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 14 2015 00:26:14 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

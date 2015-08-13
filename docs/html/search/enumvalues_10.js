@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['value',['VALUE',['../structfmt_1_1internal_1_1NonZero.html#a69f583ab4f228240228727d8678fa31eaf01bf943c5d4a5f1d1a7168ecc9dcaab',1,'fmt::internal::NonZero::VALUE()'],['../structfmt_1_1internal_1_1NonZero_3_010_01_4.html#a6e78d23f016389019c9d9b9641f8f1e0acf3e1622cfff2fff57e26a615e537a4a',1,'fmt::internal::NonZero&lt; 0 &gt;::VALUE()'],['../classfmt_1_1internal_1_1IsConvertibleToInt.html#a2bcf6006b6cbad6da664e2ce0798e03eafc43f8380fbd46545faddc10f5849503',1,'fmt::internal::IsConvertibleToInt::value()']]]
+  ['uint',['UINT',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cddda35cdafd47fb5b1f9e1230dc52d399ac1',1,'fmt::internal::Arg::UINT()'],['../structfmt_1_1internal_1_1Value.html#a0305339d0a9571e14e26f385367fedaaac7303224391053ae45d4ff13ad0f017c',1,'fmt::internal::Value::UINT()']]],
+  ['ulong_5flong',['ULONG_LONG',['../structfmt_1_1internal_1_1Arg.html#a6b690c735930168d98ae9e31c183cdddab6da2213fbb0f603b97658bfeb386294',1,'fmt::internal::Arg::ULONG_LONG()'],['../structfmt_1_1internal_1_1Value.html#a0305339d0a9571e14e26f385367fedaaa8c2ffe6909d26d46781aa6fb9b8ae418',1,'fmt::internal::Value::ULONG_LONG()']]],
+  ['unpack_5ffail',['UNPACK_FAIL',['../namespacecossb_1_1error.html#ab5881534b7ca7e8cf059fe9d5c46da81acc2f22bd84bdb407ab72f9e051ffef07',1,'cossb::error']]]
 ];

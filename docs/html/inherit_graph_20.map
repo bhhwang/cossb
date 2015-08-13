@@ -1,7 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcossb_1_1interface_1_1icommread.html" title="communication read interface " alt="" coords="8,5,195,32"/>
-<area shape="rect" id="node2" href="$classcossb_1_1interface_1_1icomm.html" title="cossb::interface::icomm" alt="" coords="245,31,408,57"/>
-<area shape="rect" id="node3" href="$classcossb_1_1net_1_1tcp.html" title="cossb::net::tcp" alt="" coords="456,56,565,83"/>
-<area shape="rect" id="node4" href="$classcossb_1_1interface_1_1icommwrite.html" title="communication write interface " alt="" coords="6,56,197,83"/>
-<area shape="rect" id="node5" href="$classcossb_1_1net_1_1sock.html" title="cossb::net::sock" alt="" coords="267,81,386,108"/>
+<area shape="rect" id="node1" href="$classcossb_1_1interface_1_1iprofile.html" title="cossb::interface::iprofile" alt="" coords="6,5,167,32"/>
+<area shape="rect" id="node2" href="$classcossb_1_1profile_1_1xmlprofile.html" title="cossb::profile::xmlprofile" alt="" coords="217,5,381,32"/>
 </map>

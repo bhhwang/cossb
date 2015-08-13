@@ -1,5 +1,0 @@
-<map id="fmt::internal::make_ptr" name="fmt::internal::make_ptr">
-<area shape="rect" id="node2" href="$classfmt_1_1internal_1_1Buffer.html#aee7f72201304a9f52c68913eea98b373" title="fmt::internal::Buffer\l::append" alt="" coords="231,5,366,46"/>
-<area shape="rect" id="node4" href="$classfmt_1_1internal_1_1MemoryBuffer.html#a7f7ca74572d97e0d0345d112d85d44a4" title="fmt::internal::MemoryBuffer\l::grow" alt="" coords="208,70,389,111"/>
-<area shape="rect" id="node3" href="$classfmt_1_1BasicWriter.html#a5f07d053b9f215b548ba3623e7a09212" title="fmt::BasicWriter::operator\&lt;\&lt;" alt="" coords="438,12,626,39"/>
-</map>

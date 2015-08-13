@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// no support under vs2013 for member initialization for std::atomic</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classspdlog_1_1logger.html#a1a5f7c386a35cc18863114e5495d01ea">_level</a> = level::info;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classspdlog_1_1logger.html#a1a5f7c386a35cc18863114e5495d01ea">_level</a> = <a class="code" href="namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309">level::info</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// ctor with sinks as init list</span></div>
@@ -203,7 +203,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classspdlog_1_1logger.html#abf274d9d6b2fb7246b9ea3ab0ed40024">  113</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classspdlog_1_1details_1_1line__logger.html">spdlog::details::line_logger</a> <a class="code" href="classspdlog_1_1logger.html#a6536100d7df1934fcbba784384574984">spdlog::logger::info</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* fmt, <span class="keyword">const</span> Args&amp;... args)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(level::info, fmt, args...);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(<a class="code" href="namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309">level::info</a>, fmt, args...);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
@@ -261,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classspdlog_1_1logger.html#a939e9612542981afad8177a706276e2a">  171</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classspdlog_1_1details_1_1line__logger.html">spdlog::details::line_logger</a> <a class="code" href="classspdlog_1_1logger.html#a6536100d7df1934fcbba784384574984">spdlog::logger::info</a>(<span class="keyword">const</span> T&amp; msg)</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;{</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(level::info, msg);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(<a class="code" href="namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309">level::info</a>, msg);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
@@ -318,7 +318,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="classspdlog_1_1logger.html#a6536100d7df1934fcbba784384574984">  228</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classspdlog_1_1details_1_1line__logger.html">spdlog::details::line_logger</a> <a class="code" href="classspdlog_1_1logger.html#a6536100d7df1934fcbba784384574984">spdlog::logger::info</a>()</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;{</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(level::info);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> _log_if_enabled(<a class="code" href="namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309">level::info</a>);</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classspdlog_1_1logger.html#a0c06d84c659da2515cb72a0fc686b2f8">  233</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classspdlog_1_1details_1_1line__logger.html">spdlog::details::line_logger</a> <a class="code" href="classspdlog_1_1logger.html#a0c06d84c659da2515cb72a0fc686b2f8">spdlog::logger::notice</a>()</div>
@@ -409,6 +409,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classspdlog_1_1logger_html_a7e99d1f04112ff31502ab608100fe0fc"><div class="ttname"><a href="classspdlog_1_1logger.html#a7e99d1f04112ff31502ab608100fe0fc">spdlog::logger::critical</a></div><div class="ttdeci">details::line_logger critical()</div><div class="ttdef"><b>Definition:</b> <a href="logger__impl_8h_source.html#l00248">logger_impl.h:248</a></div></div>
 <div class="ttc" id="classspdlog_1_1logger_html"><div class="ttname"><a href="classspdlog_1_1logger.html">spdlog::logger</a></div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00047">logger.h:47</a></div></div>
 <div class="ttc" id="classspdlog_1_1logger_html_abf2501b88684e45d5d94933577cadab4"><div class="ttname"><a href="classspdlog_1_1logger.html#abf2501b88684e45d5d94933577cadab4">spdlog::logger::trace</a></div><div class="ttdeci">details::line_logger trace()</div><div class="ttdef"><b>Definition:</b> <a href="logger__impl_8h_source.html#l00218">logger_impl.h:218</a></div></div>
+<div class="ttc" id="namespacecossb_1_1profile_html_aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309"><div class="ttname"><a href="namespacecossb_1_1profile.html#aacf441c84e09c724cbf090f7d2b9c791a516e36eb768e14ff1206c533b9a73309">cossb::profile::info</a></div><div class="ttdef"><b>Definition:</b> <a href="iprofile_8hpp_source.html#l00024">iprofile.hpp:24</a></div></div>
 <div class="ttc" id="classspdlog_1_1logger_html_a0c06d84c659da2515cb72a0fc686b2f8"><div class="ttname"><a href="classspdlog_1_1logger.html#a0c06d84c659da2515cb72a0fc686b2f8">spdlog::logger::notice</a></div><div class="ttdeci">details::line_logger notice()</div><div class="ttdef"><b>Definition:</b> <a href="logger__impl_8h_source.html#l00233">logger_impl.h:233</a></div></div>
 <div class="ttc" id="classspdlog_1_1logger_html_a1283a55f503b57ac0fb0ff63e2cac120"><div class="ttname"><a href="classspdlog_1_1logger.html#a1283a55f503b57ac0fb0ff63e2cac120">spdlog::logger::error</a></div><div class="ttdeci">details::line_logger error()</div><div class="ttdef"><b>Definition:</b> <a href="logger__impl_8h_source.html#l00243">logger_impl.h:243</a></div></div>
 <div class="ttc" id="classspdlog_1_1pattern__formatter_html"><div class="ttname"><a href="classspdlog_1_1pattern__formatter.html">spdlog::pattern_formatter</a></div><div class="ttdef"><b>Definition:</b> <a href="formatter_8h_source.html#l00041">formatter.h:41</a></div></div>
@@ -442,7 +443,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 14 2015 00:26:14 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

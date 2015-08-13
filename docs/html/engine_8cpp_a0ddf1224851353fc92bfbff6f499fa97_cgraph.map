@@ -1,7 +1,7 @@
 <map id="main" name="main">
 <area shape="rect" id="node2" href="$engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="133,5,233,32"/>
-<area shape="rect" id="node4" href="$namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984" title="create COSSB core instances " alt="" coords="104,56,261,83"/>
-<area shape="rect" id="node5" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy" alt="" coords="150,107,215,133"/>
+<area shape="rect" id="node3" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy" alt="" coords="310,31,375,57"/>
+<area shape="rect" id="node5" href="$namespacecossb_1_1core.html#a8124bb87142e5271fdbecaa9fe1dd984" title="create COSSB core instances " alt="" coords="104,107,261,133"/>
 <area shape="rect" id="node6" href="$namespacecossb_1_1core.html#a335e01a706b6c4e22881a8061cffd03b" title="start COSSB engine " alt="" coords="116,158,249,199"/>
-<area shape="rect" id="node3" href="$namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d" title="destroy COSSB core instances " alt="" coords="309,49,443,90"/>
+<area shape="rect" id="node4" href="$namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d" title="destroy COSSB core instances " alt="" coords="424,23,557,65"/>
 </map>

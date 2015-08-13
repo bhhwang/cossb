@@ -101,12 +101,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;string&gt;</code><br/>
 <code>#include &quot;<a class="el" href="iprofile_8hpp_source.html">iprofile.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="imessage_8hpp_source.html">imessage.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="ilog_8hpp_source.html">ilog.hpp</a>&quot;</code><br/>
+<code>#include &lt;cassert&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for icomponent.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="icomponent_8hpp__incl.png" border="0" usemap="#icomponent_8hpp" alt=""/></div>
 <map name="icomponent_8hpp" id="icomponent_8hpp">
-<area shape="rect" id="node3" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="69,80,155,107"/><area shape="rect" id="node5" href="imessage_8hpp.html" title="Message Interface class. " alt="" coords="179,80,281,107"/></map>
+<area shape="rect" id="node3" href="iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="69,80,155,107"/><area shape="rect" id="node5" href="imessage_8hpp.html" title="Message Interface class. " alt="" coords="179,80,281,107"/><area shape="rect" id="node6" href="ilog_8hpp.html" title="Log interface. " alt="" coords="307,80,373,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -130,6 +132,8 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacecossb"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface for simple log process <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1component.html">cossb::component</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecossb_1_1driver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1driver.html">cossb::driver</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1interface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1interface.html">cossb::interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,7 +188,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00129">129</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00151">151</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
 
 </div>
 </div>
@@ -204,10 +208,10 @@ Enumerations</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><a class="code" href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a>* <a class="code" href="namespacespdlog.html#a49691d0eaaf51ef9f1b1c99565a95661">create</a>(){ \</div>
 <div class="line">                                            if(_instance==<span class="keyword">nullptr</span>) _instance = new classname(); \</div>
 <div class="line">                                            return _instance; }</div>
-<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00032">icomponent.hpp:32</a></div></div>
+<div class="ttc" id="classcossb_1_1interface_1_1icomponent_html"><div class="ttname"><a href="classcossb_1_1interface_1_1icomponent.html">cossb::interface::icomponent</a></div><div class="ttdoc">component interface class </div><div class="ttdef"><b>Definition:</b> <a href="icomponent_8hpp_source.html#l00035">icomponent.hpp:35</a></div></div>
 <div class="ttc" id="namespacespdlog_html_a49691d0eaaf51ef9f1b1c99565a95661"><div class="ttname"><a href="namespacespdlog.html#a49691d0eaaf51ef9f1b1c99565a95661">spdlog::create</a></div><div class="ttdeci">std::shared_ptr&lt; logger &gt; create(const std::string &amp;logger_name, sinks_init_list sinks)</div><div class="ttdef"><b>Definition:</b> <a href="spdlog__impl_8h_source.html#l00104">spdlog_impl.h:104</a></div></div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00122">122</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00144">144</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
 
 </div>
 </div>
@@ -226,7 +230,7 @@ Enumerations</h2></td></tr>
 <div class="line">                                            }</div>
 <div class="ttc" id="engine_8cpp_html_a3a80b6032f86a56bec74609034b3246f"><div class="ttname"><a href="engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f">destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition:</b> <a href="engine_8cpp_source.html#l00026">engine.cpp:26</a></div></div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00125">125</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00147">147</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
 
 </div>
 </div>
@@ -240,7 +244,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00120">120</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00142">142</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,14 +262,14 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00121">121</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
+<p>Definition at line <a class="el" href="icomponent_8hpp_source.html#l00143">143</a> of file <a class="el" href="icomponent_8hpp_source.html">icomponent.hpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 14 2015 00:26:14 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -16,6 +16,7 @@ var searchData=
   ['singleton_3c_20system_5fmanager_20_3e',['singleton&lt; system_manager &gt;',['../classcossb_1_1arch_1_1singleton.html',1,'cossb::arch']]],
   ['sink',['sink',['../classspdlog_1_1sinks_1_1sink.html',1,'spdlog::sinks']]],
   ['sock',['sock',['../classcossb_1_1net_1_1sock.html',1,'cossb::net']]],
+  ['soloader',['soloader',['../classcossb_1_1base_1_1soloader.html',1,'cossb::base']]],
   ['spdlog_5fex',['spdlog_ex',['../classspdlog_1_1spdlog__ex.html',1,'spdlog']]],
   ['sqlite',['sqlite',['../classcossb_1_1db_1_1sqlite.html',1,'cossb::db']]],
   ['stderr_5fsink',['stderr_sink',['../classspdlog_1_1sinks_1_1stderr__sink.html',1,'spdlog::sinks']]],

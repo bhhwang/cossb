@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['alert',['ALERT',['../namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a320f86f60f25459ba5550e000b2c3929',1,'cossb::log']]],
   ['align_5fcenter',['ALIGN_CENTER',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a0384bea47554ecdec15b63947480e5e4',1,'fmt']]],
   ['align_5fdefault',['ALIGN_DEFAULT',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a25c1a40ed1a91fcf88a01de10f1e89e4',1,'fmt']]],
   ['align_5fleft',['ALIGN_LEFT',['../namespacefmt.html#ac0671080923edbf0a7c67a567417f0d2a3762cfff9ee48ea75aa7030058ff9fb8',1,'fmt']]],

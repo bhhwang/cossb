@@ -1,6 +1,0 @@
-<map id="cossb::core::cossb_destroy" name="cossb::core::cossb_destroy">
-<area shape="rect" id="node2" href="$classcossb_1_1manager_1_1component__manager.html#a966e1fdcff5a32c6f3442e248bde69bb" title="cossb::manager::component\l_manager::get" alt="" coords="187,5,373,46"/>
-<area shape="rect" id="node3" href="$classcossb_1_1manager_1_1component__manager.html#a63542f2cfd83e6cecd4d2ee3a363d2c6" title="cossb::manager::component\l_manager::destroy" alt="" coords="187,70,373,111"/>
-<area shape="rect" id="node4" href="$classcossb_1_1broker_1_1component__broker.html#aefd050e90b83ffaf4df7d71de1af34da" title="cossb::broker::component\l_broker::get" alt="" coords="193,135,367,177"/>
-<area shape="rect" id="node5" href="$classcossb_1_1broker_1_1component__broker.html#aa3eb94c326a94290b383111f2d8cf09d" title="cossb::broker::component\l_broker::destroy" alt="" coords="193,201,367,242"/>
-</map>

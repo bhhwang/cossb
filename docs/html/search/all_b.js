@@ -1,7 +1,7 @@
 var searchData=
 [
   ['component_5fmanager',['component_manager',['../classcossb_1_1container_1_1component__container.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::container::component_container::component_manager()'],['../classcossb_1_1driver_1_1component__driver.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::driver::component_driver::component_manager()']]],
-  ['m_5fformatter',['M_formatter',['../classspdlog_1_1details_1_1M__formatter.html',1,'spdlog::details::M_formatter'],['../classspdlog_1_1details_1_1m__formatter.html',1,'spdlog::details::m_formatter']]],
+  ['m_5fformatter',['m_formatter',['../classspdlog_1_1details_1_1m__formatter.html',1,'spdlog::details::m_formatter'],['../classspdlog_1_1details_1_1M__formatter.html',1,'spdlog::details::M_formatter']]],
   ['magenta',['MAGENTA',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8aa5c11f6bc06df3b652d829be76892a63a',1,'fmt']]],
   ['main',['main',['../engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;engine.cpp'],['../engined_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;engined.cpp'],['../install_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;install.cpp'],['../sync_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;sync.cpp'],['../servicetest_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;servicetest.cpp']]],
   ['make_5fptr',['make_ptr',['../namespacefmt_1_1internal.html#a2213fc1bdcef81a75a0554b6186ac4e2',1,'fmt::internal']]],
@@ -21,5 +21,6 @@ var searchData=
   ['mpmc_5fbounded_5fq_2eh',['mpmc_bounded_q.h',['../mpmc__bounded__q_8h.html',1,'']]],
   ['mpmc_5fbounded_5fqueue',['mpmc_bounded_queue',['../classspdlog_1_1details_1_1mpmc__bounded__queue.html#ab624df4f131d8b943bf8c451e643ddcb',1,'spdlog::details::mpmc_bounded_queue']]],
   ['mpmc_5fbounded_5fqueue',['mpmc_bounded_queue',['../classspdlog_1_1details_1_1mpmc__bounded__queue.html',1,'spdlog::details']]],
-  ['mpmc_5fbounded_5fqueue_3c_20item_5ftype_20_3e',['mpmc_bounded_queue&lt; item_type &gt;',['../classspdlog_1_1details_1_1mpmc__bounded__queue.html',1,'spdlog::details']]]
+  ['mpmc_5fbounded_5fqueue_3c_20item_5ftype_20_3e',['mpmc_bounded_queue&lt; item_type &gt;',['../classspdlog_1_1details_1_1mpmc__bounded__queue.html',1,'spdlog::details']]],
+  ['system_5fmanager',['system_manager',['../classcossb_1_1log_1_1logger.html#a7f68d767df4918c1b9c636d1fe34f14c',1,'cossb::log::logger']]]
 ];

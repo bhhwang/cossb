@@ -15,7 +15,7 @@ var indexSectionsWithContent =
   5: "_acdefilnopqrstuvw",
   6: "acdfilmnoqrstuw",
   7: "acdelnrst",
-  8: "abcdefghilmnprsuvwy",
+  8: "abcdefghilmnprstuvwy",
   9: "imo",
   10: "cdfstv",
   11: "c"

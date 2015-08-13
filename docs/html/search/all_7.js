@@ -6,6 +6,7 @@ var searchData=
   ['get_5fcomponent',['get_component',['../classcossb_1_1driver_1_1component__driver.html#a696578e9ac422e1c13e2d83ce6dc7daf',1,'cossb::driver::component_driver']]],
   ['get_5fdependency',['get_dependency',['../classcossb_1_1base_1_1config.html#a85d8516c46c2866d06782a314e2477cf',1,'cossb::base::config']]],
   ['get_5ferror_5fstr',['get_error_str',['../namespacecossb_1_1error.html#a928f0798114aca9c0b38154045ee4309',1,'cossb::error']]],
+  ['get_5flibrary',['get_library',['../classcossb_1_1base_1_1config.html#a9ed9ab8a45c520f422a481436e5aed48',1,'cossb::base::config']]],
   ['get_5fname',['get_name',['../classcossb_1_1interface_1_1icomponent.html#af66ffe1e185146d99525d7a3ac599519',1,'cossb::interface::icomponent']]],
   ['get_5fpath',['get_path',['../classcossb_1_1base_1_1config.html#a823f717284f894842d8134185cfb3c8c',1,'cossb::base::config']]],
   ['get_5fpid',['get_pid',['../namespacecossb_1_1util.html#a44d6e668e2b4c030345d8b6256240c31',1,'cossb::util']]],

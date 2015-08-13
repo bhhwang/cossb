@@ -101,7 +101,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ilog_8hpp__dep__incl.png" border="0" usemap="#ilog_8hppdep" alt=""/></div>
 <map name="ilog_8hppdep" id="ilog_8hppdep">
-<area shape="rect" id="node2" href="logger_8hpp.html" title="ossb default console logger " alt="" coords="67,80,148,107"/><area shape="rect" id="node3" href="logger_8cpp.html" title="logger.cpp" alt="" coords="5,155,87,181"/><area shape="rect" id="node4" href="sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="111,155,229,181"/></map>
+<area shape="rect" id="node2" href="icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="271,80,385,107"/><area shape="rect" id="node8" href="driver_8hpp.html" title="Component driver. " alt="" coords="382,155,460,181"/><area shape="rect" id="node10" href="logger_8cpp.html" title="logger.cpp" alt="" coords="460,80,541,107"/><area shape="rect" id="node11" href="cblog_8hpp.html" title="COSSB log library (on console stream) " alt="" coords="567,80,645,107"/><area shape="rect" id="node3" href="broker_8hpp.html" title="Component Broker. " alt="" coords="127,155,208,181"/><area shape="rect" id="node7" href="container_8hpp.html" title="component container class " alt="" coords="283,229,383,256"/><area shape="rect" id="node4" href="broker_8cpp.html" title="Component Broker. " alt="" coords="5,229,87,256"/><area shape="rect" id="node5" href="compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="269,304,397,331"/><area shape="rect" id="node6" href="instance_8cpp.html" title="instance.cpp" alt="" coords="163,229,259,256"/><area shape="rect" id="node9" href="driver_8cpp.html" title="Component driver. " alt="" coords="459,229,537,256"/><area shape="rect" id="node12" href="cblog_8cpp.html" title="cblog.cpp" alt="" coords="567,155,645,181"/></map>
 </div>
 </div>
 <p><a href="ilog_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -118,6 +118,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1log"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1log.html">cossb::log</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecossb_1_1driver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1driver.html">cossb::driver</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecossb_1_1interface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1interface.html">cossb::interface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -127,6 +129,21 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacecossb_1_1log.html#a4d2618be4968c3520ab36385de2cd7a1a9fc5887c030f7a3e19821ebec457e719">cossb::log::logstream::FILE</a>
  }</td></tr>
 <tr class="separator:a4d2618be4968c3520ab36385de2cd7a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945e0153588f1500ad9ef901ce5b1b83"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83">cossb::log::loglevel</a> : unsigned int { <br/>
+&#160;&#160;<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a2d3e4144aa384b18849ab9a8abad74d6">cossb::log::loglevel::TRACE</a> =1, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83adc30ec20708ef7b0f641ef78b7880a15">cossb::log::loglevel::DEBUG</a>, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a551b723eafd6a31d444fcb2f5920fbd3">cossb::log::loglevel::INFO</a>, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83aaa14599dc3fdfa9cc81a7c3c247b77b9">cossb::log::loglevel::NOTICE</a>, 
+<br/>
+&#160;&#160;<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a32bd8a1db2275458673903bdb84cb277">cossb::log::loglevel::WARN</a>, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83abb1ca97ec761fc37101737ba0aa2e7c5">cossb::log::loglevel::ERROR</a>, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a99cd1c61610c76a57cb8d10d6df6b870">cossb::log::loglevel::CRITICAL</a>, 
+<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a320f86f60f25459ba5550e000b2c3929">cossb::log::loglevel::ALERT</a>, 
+<br/>
+&#160;&#160;<a class="el" href="namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83abff1afbcb227a130b20214657d0a9b9a">cossb::log::loglevel::EMERG</a>
+<br/>
+ }</td></tr>
+<tr class="separator:a945e0153588f1500ad9ef901ce5b1b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Log interface. </p>
@@ -138,7 +155,7 @@ Enumerations</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 14 2015 00:26:14 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

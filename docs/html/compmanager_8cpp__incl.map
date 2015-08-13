@@ -1,12 +1,13 @@
 <map id="compmanager.cpp" name="compmanager.cpp">
-<area shape="rect" id="node2" href="$manager_8hpp.html" title="COSSB component manager. " alt="" coords="463,229,560,256"/>
-<area shape="rect" id="node14" href="$container_8hpp.html" title="component container class " alt="" coords="733,80,832,107"/>
-<area shape="rect" id="node19" href="$driver_8hpp.html" title="Component driver. " alt="" coords="882,155,960,181"/>
-<area shape="rect" id="node20" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="623,155,704,181"/>
-<area shape="rect" id="node3" href="$config_8hpp.html" title="COSSB configuration Management. " alt="" coords="471,304,552,331"/>
+<area shape="rect" id="node2" href="$manager_8hpp.html" title="COSSB component manager. " alt="" coords="467,229,564,256"/>
+<area shape="rect" id="node14" href="$container_8hpp.html" title="component container class " alt="" coords="793,80,892,107"/>
+<area shape="rect" id="node21" href="$driver_8hpp.html" title="Component driver. " alt="" coords="905,155,983,181"/>
+<area shape="rect" id="node22" href="$broker_8hpp.html" title="Component Broker. " alt="" coords="677,155,759,181"/>
+<area shape="rect" id="node3" href="$config_8hpp.html" title="COSSB configuration Management. " alt="" coords="475,304,556,331"/>
 <area shape="rect" id="node4" href="$singleton_8hpp.html" title="dynamic Singleton pattern design template class " alt="" coords="20,379,148,405"/>
-<area shape="rect" id="node11" href="$typedef_8hpp.html" title="COSSB Type definitions. " alt="" coords="305,304,396,331"/>
-<area shape="rect" id="node15" href="$icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="831,229,999,256"/>
-<area shape="rect" id="node16" href="$iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="1067,304,1152,331"/>
-<area shape="rect" id="node18" href="$imessage_8hpp.html" title="Message Interface class. " alt="" coords="831,304,933,331"/>
+<area shape="rect" id="node11" href="$typedef_8hpp.html" title="COSSB Type definitions. " alt="" coords="309,304,400,331"/>
+<area shape="rect" id="node15" href="$icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="860,229,1028,256"/>
+<area shape="rect" id="node16" href="$iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="1193,304,1279,331"/>
+<area shape="rect" id="node18" href="$imessage_8hpp.html" title="Message Interface class. " alt="" coords="785,304,887,331"/>
+<area shape="rect" id="node19" href="$ilog_8hpp.html" title="Log interface. " alt="" coords="1052,304,1119,331"/>
 </map>

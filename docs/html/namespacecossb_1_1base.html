@@ -98,12 +98,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcossb_1_1base_1_1__sDependency.html">_sDependency</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcossb_1_1base_1_1__sLibrary.html">_sLibrary</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1config.html">config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">system configuration class  <a href="classcossb_1_1base_1_1config.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1configloader.html">configloader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1soloader.html">soloader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1ipc.html">ipc</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcossb_1_1base_1_1cblog.html">cblog</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -111,11 +117,13 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ad6435f230759a1fa28a6bbfd3fbccb36"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
 <a class="el" href="structcossb_1_1base_1_1__sDependency.html">cossb::base::_sDependency</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#ad6435f230759a1fa28a6bbfd3fbccb36">sDependency</a></td></tr>
 <tr class="separator:ad6435f230759a1fa28a6bbfd3fbccb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8ebfe951dc80c4998a59e47d580b9a"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="structcossb_1_1base_1_1__sLibrary.html">cossb::base::_sLibrary</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#afc8ebfe951dc80c4998a59e47d580b9a">sLibrary</a></td></tr>
+<tr class="separator:afc8ebfe951dc80c4998a59e47d580b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac645957259e5a09ccb053e1c8e55e5e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9">dependencyType</a> : unsigned int { <a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341">dependencyType::LIBRARY</a> =1, 
-<a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">dependencyType::COMPONENT</a>, 
+<tr class="memitem:ac645957259e5a09ccb053e1c8e55e5e9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9">dependencyType</a> : unsigned int { <a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b">dependencyType::COMPONENT</a> =1, 
 <a class="el" href="namespacecossb_1_1base.html#ac645957259e5a09ccb053e1c8e55e5e9ae83af69d4844921d55507863e9099eb2">dependencyType::PACKAGE</a>
  }</td></tr>
 <tr class="separator:ac645957259e5a09ccb053e1c8e55e5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +135,18 @@ Enumerations</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef struct <a class="el" href="structcossb_1_1base_1_1__sDependency.html">cossb::base::_sDependency</a>  <a class="el" href="namespacecossb_1_1base.html#ad6435f230759a1fa28a6bbfd3fbccb36">cossb::base::sDependency</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afc8ebfe951dc80c4998a59e47d580b9a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structcossb_1_1base_1_1__sLibrary.html">cossb::base::_sLibrary</a>  <a class="el" href="namespacecossb_1_1base.html#afc8ebfe951dc80c4998a59e47d580b9a">cossb::base::sLibrary</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -152,9 +172,7 @@ Enumerations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ac645957259e5a09ccb053e1c8e55e5e9acb0a59495dfabbf78b33afa5ea3aa341"></a>LIBRARY</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b"></a>COMPONENT</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ac645957259e5a09ccb053e1c8e55e5e9a7fc67f9f99bcdc7656908ef20801d05b"></a>COMPONENT</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ac645957259e5a09ccb053e1c8e55e5e9ae83af69d4844921d55507863e9099eb2"></a>PACKAGE</em>&#160;</td><td class="fielddoc">
 </td></tr>
@@ -167,7 +185,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 9 2015 22:04:28 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 14 2015 00:26:14 for COSSB by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

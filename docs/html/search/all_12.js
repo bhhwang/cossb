@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['t_5fformatter',['T_formatter',['../classspdlog_1_1details_1_1T__formatter.html',1,'spdlog::details::T_formatter'],['../classspdlog_1_1details_1_1t__formatter.html',1,'spdlog::details::t_formatter']]],
+  ['t_5fformatter',['t_formatter',['../classspdlog_1_1details_1_1t__formatter.html',1,'spdlog::details::t_formatter'],['../classspdlog_1_1details_1_1T__formatter.html',1,'spdlog::details::T_formatter']]],
   ['task',['task',['../namespacecossb_1_1process.html#a429e2b7526e8e042f61fa9be96d26f45',1,'cossb::process']]],
   ['task_5fregister',['task_register',['../typedef_8hpp.html#ac9f4e8d7b4bb63fe2af31b6080674a70',1,'typedef.hpp']]],
   ['tcp',['tcp',['../classcossb_1_1net_1_1tcp.html',1,'cossb::net']]],
@@ -12,7 +12,7 @@ var searchData=
   ['to_5fshort_5fstr',['to_short_str',['../namespacespdlog_1_1level.html#ab2598a4421d3422c13e1d82cc35af672',1,'spdlog::level']]],
   ['to_5fstr',['to_str',['../namespacespdlog_1_1level.html#adda37b56695249db3481887290b26c7a',1,'spdlog::level']]],
   ['topic_5fmap',['topic_map',['../namespacecossb_1_1broker.html#afc0f44124404315dc7a9bd469901b215',1,'cossb::broker']]],
-  ['trace',['trace',['../classcossb_1_1interface_1_1ilog.html#ac67b42f71f6224eeabdb8dcb80ccf9da',1,'cossb::interface::ilog::trace()'],['../classcossb_1_1log_1_1logger.html#a66fde6952ba485089d8e9e562dbb9074',1,'cossb::log::logger::trace()'],['../classspdlog_1_1logger.html#a4e805b0063b93592607e513c36525424',1,'spdlog::logger::trace(const char *fmt, const Args &amp;...args)'],['../classspdlog_1_1logger.html#a69178c35503fb04dcce5ce0ce5ff30ae',1,'spdlog::logger::trace(const T &amp;)'],['../classspdlog_1_1logger.html#abf2501b88684e45d5d94933577cadab4',1,'spdlog::logger::trace()'],['../classspdlog_1_1logger.html#a6ac9503c434657e9d32319836defb11c',1,'spdlog::logger::trace(const char *fmt, const Args &amp;...args)'],['../classspdlog_1_1logger.html#a9915e3a54ea23a5de37f828c194ee0c4',1,'spdlog::logger::trace(const T &amp;msg)']]],
+  ['trace',['trace',['../classcossb_1_1interface_1_1ilog.html#ac67b42f71f6224eeabdb8dcb80ccf9da',1,'cossb::interface::ilog::trace()'],['../classspdlog_1_1logger.html#a4e805b0063b93592607e513c36525424',1,'spdlog::logger::trace(const char *fmt, const Args &amp;...args)'],['../classspdlog_1_1logger.html#a69178c35503fb04dcce5ce0ce5ff30ae',1,'spdlog::logger::trace(const T &amp;)'],['../classspdlog_1_1logger.html#abf2501b88684e45d5d94933577cadab4',1,'spdlog::logger::trace()'],['../classcossb_1_1base_1_1cblog.html#abc077ec19733e8da1672d418d26c9be8',1,'cossb::base::cblog::trace()'],['../classspdlog_1_1logger.html#a6ac9503c434657e9d32319836defb11c',1,'spdlog::logger::trace(const char *fmt, const Args &amp;...args)'],['../classspdlog_1_1logger.html#a9915e3a54ea23a5de37f828c194ee0c4',1,'spdlog::logger::trace(const T &amp;msg)'],['../namespacecossb_1_1log.html#a945e0153588f1500ad9ef901ce5b1b83a2d3e4144aa384b18849ab9a8abad74d6',1,'cossb::log::TRACE()']]],
   ['try_5flock',['try_lock',['../structspdlog_1_1details_1_1null__mutex.html#a1e367b1adaa6305edbe163c4d2021c53',1,'spdlog::details::null_mutex']]],
   ['tweakme_2eh',['tweakme.h',['../tweakme_8h.html',1,'']]],
   ['type',['type',['../classcossb_1_1profile_1_1type.html',1,'cossb::profile']]],

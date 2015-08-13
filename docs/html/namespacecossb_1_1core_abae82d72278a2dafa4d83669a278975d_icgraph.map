@@ -1,5 +1,5 @@
 <map id="cossb::core::cossb_destroy" name="cossb::core::cossb_destroy">
-<area shape="rect" id="node2" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy" alt="" coords="205,5,270,32"/>
-<area shape="rect" id="node4" href="$engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="187,56,287,83"/>
-<area shape="rect" id="node3" href="$engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="336,31,387,57"/>
+<area shape="rect" id="node2" href="$engine_8cpp.html#a3a80b6032f86a56bec74609034b3246f" title="destroy" alt="" coords="187,31,253,57"/>
+<area shape="rect" id="node3" href="$engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="302,5,402,32"/>
+<area shape="rect" id="node4" href="$engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="451,31,501,57"/>
 </map>

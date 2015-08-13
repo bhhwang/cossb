@@ -1,3 +1,8 @@
 <map id="cossb::driver::component_driver::component_driver" name="cossb::driver::component_driver::component_driver">
-<area shape="rect" id="node2" href="$namespacespdlog.html#a49048bcb45e437c84f317d0b8c10b463" title="spdlog::get" alt="" coords="227,12,314,39"/>
+<area shape="rect" id="node2" href="$namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="279,77,366,104"/>
+<area shape="rect" id="node6" href="$classcossb_1_1interface_1_1icomponent.html#a19811ca516f3c613faac9d906916e976" title="set component profile " alt="" coords="227,131,418,173"/>
+<area shape="rect" id="node3" href="$classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="467,5,631,46"/>
+<area shape="rect" id="node4" href="$classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="480,70,619,111"/>
+<area shape="rect" id="node5" href="$classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="681,70,818,111"/>
+<area shape="rect" id="node7" href="$classcossb_1_1interface_1_1iprofile.html#aebebe7c0abafa6fafb6d6ea2472c7889" title="cossb::interface::iprofile\l::load" alt="" coords="469,135,630,177"/>
 </map>

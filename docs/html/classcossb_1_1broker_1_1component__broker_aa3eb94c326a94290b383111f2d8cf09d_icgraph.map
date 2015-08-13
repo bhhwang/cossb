@@ -1,5 +1,0 @@
-<map id="cossb::broker::component_broker::destroy" name="cossb::broker::component_broker::destroy">
-<area shape="rect" id="node2" href="$namespacecossb_1_1core.html#abae82d72278a2dafa4d83669a278975d" title="destroy COSSB core instances " alt="" coords="227,23,360,65"/>
-<area shape="rect" id="node3" href="$engine_8cpp.html#a2748077e5eef67276e8171e525009a6f" title="SIGINT signal callback function. " alt="" coords="409,5,509,32"/>
-<area shape="rect" id="node4" href="$engine_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main routine. " alt="" coords="557,31,608,57"/>
-</map>

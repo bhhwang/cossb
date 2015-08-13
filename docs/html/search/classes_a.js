@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_5fformatter',['M_formatter',['../classspdlog_1_1details_1_1M__formatter.html',1,'spdlog::details::M_formatter'],['../classspdlog_1_1details_1_1m__formatter.html',1,'spdlog::details::m_formatter']]],
+  ['m_5fformatter',['m_formatter',['../classspdlog_1_1details_1_1m__formatter.html',1,'spdlog::details::m_formatter'],['../classspdlog_1_1details_1_1M__formatter.html',1,'spdlog::details::M_formatter']]],
   ['makeunsigned',['MakeUnsigned',['../structfmt_1_1internal_1_1MakeUnsigned.html',1,'fmt::internal']]],
   ['makevalue',['MakeValue',['../classfmt_1_1internal_1_1MakeValue.html',1,'fmt::internal']]],
   ['memorybuffer',['MemoryBuffer',['../classfmt_1_1internal_1_1MemoryBuffer.html',1,'fmt::internal']]],

@@ -9,6 +9,7 @@ var searchData=
   ['sink_2eh',['sink.h',['../sink_8h.html',1,'']]],
   ['sock_2ecpp',['sock.cpp',['../sock_8cpp.html',1,'']]],
   ['sock_2ehpp',['sock.hpp',['../sock_8hpp.html',1,'']]],
+  ['soloader_2ehpp',['soloader.hpp',['../soloader_8hpp.html',1,'']]],
   ['spdlog_2eh',['spdlog.h',['../spdlog_8h.html',1,'']]],
   ['spdlog_5fimpl_2eh',['spdlog_impl.h',['../spdlog__impl_8h.html',1,'']]],
   ['sqlite_2ecpp',['sqlite.cpp',['../sqlite_8cpp.html',1,'']]],
