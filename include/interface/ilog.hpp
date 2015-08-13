@@ -35,7 +35,6 @@ public:
 	ilog(log::logstream stream, const char* session):_stream(stream), _session(session) { }
 	virtual ~ilog() { }
 
-protected:
 
 	virtual void trace(const char* logstr) = 0;
 	virtual void debug(const char* logstr) = 0;
