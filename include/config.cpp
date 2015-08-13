@@ -19,7 +19,13 @@ config::~config()
 {
 	if(!_dependency.empty())
 	{
-		for(auto& itr:_dependency)
+		for(auto itr:_dependency)
+			delete itr;
+	}
+
+	if(!_library.empty())
+	{
+		for(auto itr:_library)
 			delete itr;
 	}
 
