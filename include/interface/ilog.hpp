@@ -10,10 +10,6 @@
 #ifndef _COSSB_ILOG_HPP_
 #define _COSSB_ILOG_HPP_
 
-#include <string>
-
-using namespace std;
-
 /**
  * @brief	interface for simple log process
  */
@@ -32,7 +28,7 @@ class ilog {
 	friend driver::component_driver;
 
 public:
-	ilog(log::logstream stream, const char* session):_stream(stream), _session(session) { }
+	ilog(log::logstream stream):_stream(stream) { }
 	virtual ~ilog() { }
 
 
@@ -51,7 +47,6 @@ protected:
 
 private:
 	log::logstream _stream;
-	string _session;
 
 };
 
