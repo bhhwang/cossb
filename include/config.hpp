@@ -21,7 +21,7 @@ using namespace std;
 namespace cossb {
 namespace base {
 
-enum class dependencyType : unsigned int { LIBRARY=1, COMPONENT, PACKAGE };
+enum class dependencyType : unsigned int { COMPONENT=1, PACKAGE };
 
 typedef struct _sDependency {
 	dependencyType type;
@@ -31,6 +31,13 @@ public:
 	_sDependency(dependencyType _type, string _name):type(_type),name(_name) { }
 	_sDependency& operator=(const _sDependency& other) { return *this; }
 } sDependency;
+
+typedef struct _sLibrary {
+	std::string use;
+	std::string sofile;
+public:
+	_sLibrary(string _use, string _sofile):use(_use), sofile(_sofile) { }
+} sLibrary;
 
 
 
@@ -58,6 +65,7 @@ public:
 	 */
 	vector<sDependency*>* get_dependency() { return &_dependency; };
 	vector<string>* get_repository() { return &_repository; }
+	vector<sLibrary>* get_library() { return &_library; }
 	map<string, string>* get_path() { return &_path; }
 	map<string, string>* get_product() { return &_product; }
 
@@ -72,6 +80,7 @@ private:
 	tinyxml2::XMLDocument* _doc;
 	vector<sDependency*> _dependency;
 	vector<string> _repository;
+	vector<sLibrary> _library;
 	map<string, string> _path;
 	map<string, string> _product;
 
