@@ -13,6 +13,7 @@
 #include "iprofile.hpp"
 #include "imessage.hpp"
 #include "ilog.hpp"
+#include <cassert>
 
 using namespace std;
 
@@ -83,6 +84,7 @@ public:
 	 * @brief
 	 */
 	iprofile* get_profile() const {
+		assert(_profile!=nullptr);
 		return _profile;
 	}
 
@@ -123,7 +125,10 @@ private:
 protected:
 	component::status _status;
 
-	ilog* logger() { return _logger; }
+	ilog* logger() {
+		assert(_logger!=nullptr);
+		return _logger;
+	}
 
 };
 
