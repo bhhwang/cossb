@@ -26,14 +26,12 @@ public:
 	template<typename... Args>
 	static T* instance(Args... args) {
 		if(!_instance) {
-			cout << "create singleton instance" << endl;
 			_instance = new T(std::forward<Args>(args)...);
 		}
 		return _instance;
 	}
 	static void destroy() {
 		if(_instance) {
-			cout << "destroy singleton instance" << endl;
 			delete _instance;
 			_instance = nullptr;
 		}
