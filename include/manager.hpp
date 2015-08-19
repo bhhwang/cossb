@@ -14,10 +14,13 @@
 #include <map>
 #include <vector>
 #include "arch/singleton.hpp"
+//#include "libadopter.hpp"
 
 using namespace std;
 
 namespace cossb {
+namespace base { template<class T> class libadopter; }
+namespace interface { class ilog; }
 namespace manager {
 
 /**
@@ -99,6 +102,11 @@ public:
 
 private:
 	bool initialized = false;
+
+	/**
+	 * @brief	dependent libraries adopter
+	 */
+	base::libadopter<interface::ilog>* _log_adopter = nullptr;
 };
 
 #define cossb_system_manager	cossb::manager::system_manager::instance()
