@@ -8,7 +8,8 @@
 
 #include "manager.hpp"
 #include "logger.hpp"
-#include "soloader.hpp"
+#include "interface/ilog.hpp"
+#include "libadopter.hpp"
 
 namespace cossb {
 namespace manager {
@@ -22,6 +23,8 @@ system_manager::~system_manager()
 {
 	cossb_component_manager->destroy();
 	cossb_log->destroy();
+	if(_log_adopter)
+		delete _log_adopter;
 }
 
 bool system_manager::setup(base::config* config)
@@ -30,12 +33,13 @@ bool system_manager::setup(base::config* config)
 	//1. load log library
 	for(auto dep:*config->get_library()) {
 		if(!dep->use.compare("log")) {
-			cout << "load logger" << endl;
-			cossb_log->_logger = base::soloader<interface::ilog>(dep->sofile.c_str()).load();
-			cossb_log->log("this is test");
-
+			_log_adopter = new base::libadopter<interface::ilog>(dep->sofile.c_str());
+			cossb::log::logger::instance(_log_adopter->get_lib());
+			cossb_log->log(log::loglevel::INFO, "this is test");
 		}
 	}
+
+
 
 	//2. load dependent components
 	for(auto dep:*config->get_dependency()) {
