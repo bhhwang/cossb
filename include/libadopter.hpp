@@ -22,20 +22,38 @@ template<class T>
 class libadopter {
 public:
 	libadopter(const char* solib):_so(solib) {
-		string libpath = fmt::format(".{}",_so);
+		string libpath = fmt::format("./{}",_so);
 		_handle = dlopen(libpath.c_str(), RTLD_NOW|RTLD_GLOBAL);
+		if(_handle) {
+			typedef T* create_t(void);
+			create_t* pfcreate = (create_t*)dlsym(_handle, "create");
+			if(pfcreate)
+				_lib = pfcreate();
+		}
 	}
 
 	virtual ~libadopter() {
+		if(_lib) {
+			typedef void(destroy_t)(T* arg);
+			destroy_t* pfdestroy = (destroy_t*)dlsym(_handle, "destroy");
+			if(pfdestroy)
+				pfdestroy(_lib);
+			_lib = nullptr;
+		}
+
 		if(_handle) {
 			dlclose(_handle);
 			_handle = nullptr;
 		}
 	}
 
+	T* get_lib() { return _lib; }
+
 private:
 	void* _handle = nullptr;
 	string _so;
+
+	T* _lib = nullptr;
 };
 
 } /* namespace base */
