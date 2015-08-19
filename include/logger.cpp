@@ -12,19 +12,15 @@
 namespace cossb {
 namespace log {
 
-logger::logger()
-{
-
-}
+logger::logger(){ }
+logger::logger(interface::ilog* log):_logger(log) { }
 
 logger::~logger() {
-	if(_logger)
-		delete _logger;
+	_logger = nullptr;
 
 }
-void logger::log(const char* str)
+void logger::log(const log::loglevel level, const char* str)
 {
-	cout << "call log" << endl;
 	if(_logger)
 		_logger->info(str);
 

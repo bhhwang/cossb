@@ -18,6 +18,8 @@ namespace interface { class ilog; }
 
 namespace log {
 
+enum class loglevel: unsigned int;
+
 class logger : public arch::singleton<logger>
 {
 
@@ -25,9 +27,10 @@ class logger : public arch::singleton<logger>
 
 public:
 	logger();
+	logger(interface::ilog* log);
 	virtual ~logger();
 
-	void log(const char* str);
+	void log(const loglevel level,  const char* str);
 
 	/*template<typename... Args>
 	void log2(loglevel level, const char* str, Args... args) {
