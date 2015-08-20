@@ -6,6 +6,7 @@
 		<serial>NSGW00000000FFFFFFFFFFFF</serial>
 		<manufacturer>Nsynapse Inc.</manufacturer>
 		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
+		<hostname>cossbgw.local</hostname>
 	</product>
 	
 	<!-- accessible repository server address -->
