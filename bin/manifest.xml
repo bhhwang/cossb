@@ -14,7 +14,8 @@
 	</repository>
 	
 	<!-- library required -->
-	<library use="log">libcblog.so</library>
+	<library use="log" enable="true">libcblog.so</library>
+	<library use="mdns" enable="true">libcbmdns.so</library>
 	
 	<!-- dependent libraries and components(required) -->
 	<dependency type="component">basic_service</dependency>
