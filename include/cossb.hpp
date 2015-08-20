@@ -17,7 +17,7 @@
 #include "typedef.hpp"
 #include "manager.hpp"
 #include "broker.hpp"
-#include "config.hpp"
+#include "base/configreader.hpp"
 #include "instance.hpp"
 #include "logger.hpp"
 
