@@ -1,9 +1,9 @@
 /**
- * @file		config.hpp
- * @brief		COSSB configuration Management
+ * @file		configreader.hpp
+ * @brief		COSSB configuration Reader
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 21
- * @details	Load configuration file
+ * @details	Load(Read) configuration file
  */
 
 #ifndef _COSSB_CONFIG_HPP_
@@ -44,11 +44,11 @@ public:
 /**
  * @brief	system configuration class
  */
-class config : public arch::singleton<config> {
+class configreader : public arch::singleton<configreader> {
 public:
 
-	config();
-	virtual ~config();
+	configreader();
+	virtual ~configreader();
 
 	/**
 	 * @brief	load configuration file(manifest file)
@@ -58,7 +58,7 @@ public:
 	/**
 	 * @brief	update configuration
 	 */
-	bool update(config* conf);
+	bool update(configreader* conf);
 
 	/**
 	 * @brief	getting manifest information
@@ -87,7 +87,7 @@ private:
 
 };
 
-#define cossb_config	cossb::base::config::instance()
+#define cossb_config	cossb::base::configreader::instance()
 
 } /* namespace base */
 } /* namespace cossb */

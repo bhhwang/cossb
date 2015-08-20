@@ -1,21 +1,21 @@
 /**
- * @file		config.CPP
+ * @file		configreader.CPP
  * @brief		Config file loader
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 21
  * @details	Load config file to run the engine
  */
 
-#include "config.hpp"
+#include <base/configreader.hpp>
 
 namespace cossb {
 namespace base {
 
-config::config():_doc(nullptr)
+configreader::configreader():_doc(nullptr)
 {
 
 }
-config::~config()
+configreader::~configreader()
 {
 	if(!_dependency.empty())
 	{
@@ -33,7 +33,7 @@ config::~config()
 		delete _doc;
 }
 
-bool config::load(const char* manifest_conf)
+bool configreader::load(const char* manifest_conf)
 {
 	if(_doc!=nullptr)
 	{
@@ -56,12 +56,12 @@ bool config::load(const char* manifest_conf)
 	return false;
 }
 
-bool config::update(config* conf)
+bool configreader::update(configreader* conf)
 {
 	return false;
 }
 
-void config::parse_dependency()
+void configreader::parse_dependency()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("dependency");child!=nullptr; child = child->NextSiblingElement("dependency"))
@@ -75,14 +75,14 @@ void config::parse_dependency()
 
 }
 
-void config::parse_path()
+void configreader::parse_path()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("property");
 	for(XMLElement* child = elem_com->FirstChildElement("path");child!=nullptr; child = child->NextSiblingElement("path"))
 		_path[child->Attribute("name")] = child->GetText();
 }
 
-void config::parse_repository()
+void configreader::parse_repository()
 {
 	XMLElement* elem_uri = _doc->FirstChildElement("manifest")->FirstChildElement("repository");
 	for(XMLElement* child = elem_uri->FirstChildElement("uri");child!=nullptr; child = child->NextSiblingElement("uri"))
@@ -90,14 +90,14 @@ void config::parse_repository()
 			_repository.push_back(child->GetText());
 }
 
-void config::parse_product()
+void configreader::parse_product()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("product");
 	for(XMLElement* child = elem_com->FirstChildElement();child!=nullptr; child = child->NextSiblingElement())
 		_product[child->Value()] = child->GetText();
 }
 
-void config::parse_library()
+void configreader::parse_library()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("library");child!=nullptr; child = child->NextSiblingElement("library"))
