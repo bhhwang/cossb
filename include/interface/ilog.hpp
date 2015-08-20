@@ -17,7 +17,7 @@
 namespace cossb {
 namespace log {
 enum class logstream : unsigned int { CONSOLE=1, FILE };
-enum class loglevel : unsigned int { TRACE=1, DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL, ALERT, EMERG };
+enum class loglevel: unsigned int { TRACE=1, DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL, ALERT, EMERG };
 }
 
 
