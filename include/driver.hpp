@@ -38,11 +38,6 @@ public:
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
 
-	/**
-	 * @brief	redefine operator
-	 */
-	//virtual interface::icomponent* operator->() { return _ptr_component; }
-	//virtual interface::icomponent& operator*() { return *_ptr_component; }
 
 private:
 
