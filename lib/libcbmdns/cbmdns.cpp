@@ -21,12 +21,4 @@ cbmdns::~cbmdns() {
 } /* namespace base */
 
 
-extern "C" interface::ilog* create() {
-	return new base::cblog;
-}
-
-extern "C" void destroy(interface::ilog* instance) {
-	delete instance;
-}
-
 } /* namespace cossb */
