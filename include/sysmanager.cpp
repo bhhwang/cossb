@@ -9,7 +9,7 @@
 #include "manager.hpp"
 #include "logger.hpp"
 #include "interface/ilog.hpp"
-#include "libadopter.hpp"
+#include "base/libadopter.hpp"
 
 namespace cossb {
 namespace manager {
@@ -27,7 +27,7 @@ system_manager::~system_manager()
 	if(_log_adopter)	delete _log_adopter;
 }
 
-bool system_manager::setup(base::config* config)
+bool system_manager::setup(base::configreader* config)
 {
 	//1. load log library
 	for(auto dep:*config->get_library()) {
@@ -36,7 +36,6 @@ bool system_manager::setup(base::config* config)
 			cossb_log->adopt(_log_adopter->get_lib());
 		}
 	}
-
 
 
 	//2. load dependent components
