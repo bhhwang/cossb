@@ -23,19 +23,17 @@ system_manager::~system_manager()
 {
 	cossb_component_manager->destroy();
 	cossb_log->destroy();
-	if(_log_adopter)
-		delete _log_adopter;
+
+	if(_log_adopter)	delete _log_adopter;
 }
 
 bool system_manager::setup(base::config* config)
 {
-
 	//1. load log library
 	for(auto dep:*config->get_library()) {
 		if(!dep->use.compare("log")) {
 			_log_adopter = new base::libadopter<interface::ilog>(dep->sofile.c_str());
-			cossb::log::logger::instance(_log_adopter->get_lib());
-			cossb_log->log(log::loglevel::INFO, "this is test");
+			cossb_log->adopt(_log_adopter->get_lib());
 		}
 	}
 
