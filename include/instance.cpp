@@ -1,10 +1,9 @@
 
 
+#include <base/configreader.hpp>
 #include "instance.hpp"
 #include "manager.hpp"
 #include "broker.hpp"
-#include "config.hpp"
-
 #include <string>
 #include <iostream>
 
@@ -21,7 +20,7 @@ bool cossb_init(const char* manifest)
 		return false;
 
 	//2. create(setup) instances according to the manifest
-	if(!cossb_system_manager->setup(base::config::instance()))
+	if(!cossb_system_manager->setup(cossb_config))
 		return false;
 
 

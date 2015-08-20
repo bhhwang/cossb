@@ -9,7 +9,7 @@
 #ifndef _COSSB_INSTANCE_HPP_
 #define _COSSB_INSTANCE_HPP_
 
-#include "config.hpp"
+#include "base/configreader.hpp"
 
 namespace cossb {
 namespace core {
