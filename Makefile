@@ -25,7 +25,8 @@ BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o $(OUTDIR)instance.o $(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o   
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
+		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o   
 	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
@@ -34,6 +35,10 @@ cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)con
 
 #Make libcbcore.so	
 libcblog.so: $(OUTDIR)cblog.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+	
+#Make libcbmdns.so	
+libcbmdns.so: $(OUTDIR)cbmdns.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #example components
@@ -58,7 +63,7 @@ $(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
 $(OUTDIR)driver.o: $(INCLUDE_FILES)driver.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-$(OUTDIR)config.o: $(INCLUDE_FILES)config.cpp
+$(OUTDIR)configreader.o: $(INCLUDE_FILES)base/configreader.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)logger.o: $(INCLUDE_FILES)logger.cpp
@@ -70,7 +75,7 @@ $(OUTDIR)localtime.o: $(INCLUDE_FILES)util/localtime.cpp
 $(OUTDIR)xmlprofile.o: $(INCLUDE_FILES)xmlprofile.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 		
-$(OUTDIR)auth.o: $(INCLUDE_FILES)auth.cpp
+$(OUTDIR)auth.o: $(INCLUDE_FILES)auth/auth.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
@@ -94,9 +99,13 @@ $(OUTDIR)engined.o: ./src/engined.cpp
 $(OUTDIR)cblog.o: $(LIB_FILES)libcblog/cblog.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+	
 
 # make all
-all: cossb libcblog.so basic_service.comp
+all: cossb libcblog.so libcbmdns.so basic_service.comp
 
 # Clean
 clean: 
