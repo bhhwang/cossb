@@ -30,13 +30,23 @@ public:
 	logger(interface::ilog* log);
 	virtual ~logger();
 
+	/**
+	 * @brief	simple log interface function
+	 */
 	void log(const loglevel level,  const char* str);
 
-	/*template<typename... Args>
-	void log2(loglevel level, const char* str, Args... args) {
-		//unsigned int size = sizeof...(args);
-		cout << "[TRACE] " << str << endl;
-	}*/
+
+	/**
+	 * @brief	to use another log interface dynamically
+	 */
+	void adopt(interface::ilog* intlog);
+
+private:
+
+	/**
+	 * @brief	default log base function
+	 */
+	void log_base(const loglevel level, const char* str);
 
 
 private:
