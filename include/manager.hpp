@@ -9,12 +9,11 @@
 #ifndef _COSSB_MANAGER_HPP_
 #define _COSSB_MANAGER_HPP_
 
-#include "config.hpp"
 #include "typedef.hpp"
 #include <map>
 #include <vector>
 #include "arch/singleton.hpp"
-//#include "libadopter.hpp"
+#include "base/configreader.hpp"
 
 using namespace std;
 
@@ -92,7 +91,7 @@ public:
 	/**
 	 * @brief	setup system configuration
 	 */
-	bool setup(base::config* config);
+	bool setup(base::configreader* config);
 
 	/**
 	 * @brief	check configured or not
@@ -107,6 +106,7 @@ private:
 	 * @brief	dependent libraries adopter
 	 */
 	base::libadopter<interface::ilog>* _log_adopter = nullptr;
+
 };
 
 #define cossb_system_manager	cossb::manager::system_manager::instance()
