@@ -19,7 +19,10 @@ using namespace std;
 
 namespace cossb {
 namespace base { template<class T> class libadopter; }
-namespace interface { class ilog; }
+namespace interface {
+	class ilog;
+	class isimpleservice;
+}
 namespace manager {
 
 /**
