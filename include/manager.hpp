@@ -115,6 +115,7 @@ private:
 	 */
 	base::libadopter<interface::isimpleservice>* _mdns_adopter = nullptr;
 
+
 };
 
 #define cossb_system_manager	cossb::manager::system_manager::instance()
