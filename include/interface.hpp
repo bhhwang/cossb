@@ -18,6 +18,7 @@
 #include "interface/isql.hpp"
 #include "interface/ilog.hpp"
 #include "interface/icomm.hpp"
+#include "interface/isimpleservice.hpp"
 
 #endif
 
