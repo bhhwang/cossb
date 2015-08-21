@@ -6,7 +6,7 @@
  * @details	Load config file to run the engine
  */
 
-#include <base/configreader.hpp>
+#include "configreader.hpp"
 
 namespace cossb {
 namespace base {
