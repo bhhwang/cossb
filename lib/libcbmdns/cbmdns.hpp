@@ -13,6 +13,7 @@
 #include "../../include/interface/isimpleservice.hpp"
 
 namespace cossb {
+
 namespace base {
 
 class cbmdns : public interface::isimpleservice {

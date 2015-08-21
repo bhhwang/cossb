@@ -18,7 +18,25 @@ cbmdns::cbmdns() {
 cbmdns::~cbmdns() {
 	// TODO Auto-generated destructor stub
 }
+
+void cbmdns::start()
+{
+
+}
+
+void cbmdns::stop()
+{
+
+}
+
 } /* namespace base */
 
+extern "C" interface::isimpleservice* create() {
+	return new base::cbmdns;
+}
+
+extern "C" void destroy(interface::isimpleservice* instance) {
+	delete instance;
+}
 
 } /* namespace cossb */
