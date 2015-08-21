@@ -9,7 +9,7 @@
 #ifndef _COSSB_CONFIG_HPP_
 #define _COSSB_CONFIG_HPP_
 
-#include "arch/singleton.hpp"
+#include "../arch/singleton.hpp"
 #include <tinyxml2.h>
 #include <vector>
 #include <string>
