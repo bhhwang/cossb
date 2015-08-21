@@ -25,15 +25,20 @@ system_manager::~system_manager()
 	cossb_log->destroy();
 
 	if(_log_adopter)	delete _log_adopter;
+	if(_mdns_adopter)	delete _mdns_adopter;
 }
 
 bool system_manager::setup(base::configreader* config)
 {
 	//1. load log library
 	for(auto dep:*config->get_library()) {
-		if(!dep->use.compare("log")) {
+		if(!dep->use.compare("log") && !dep->sofile.empty()) {
 			_log_adopter = new base::libadopter<interface::ilog>(dep->sofile.c_str());
 			cossb_log->adopt(_log_adopter->get_lib());
+		}
+
+		if(!dep->use.compare("mdns") && !dep->sofile.empty()) {
+			_mdns_adopter = new base::libadopter<interface::isimpleservice>(dep->sofile.c_str());
 		}
 	}
 
