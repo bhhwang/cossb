@@ -19,6 +19,7 @@ RM	= rm -rf
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 INCLUDE_FILES = ./include/
+COMPONENT_FILES = ./component/
 EXAMPLE_FILES = ./examples/
 LIB_FILES = ./lib/
 BASE_FILES = ./base/
