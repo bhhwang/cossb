@@ -9,13 +9,19 @@
 #ifndef _COSSB_SUPPORT_LIBCBMDNS_CBMDNS_HPP_
 #define _COSSB_SUPPORT_LIBCBMDNS_CBMDNS_HPP_
 
+
+#include "../../include/interface/isimpleservice.hpp"
+
 namespace cossb {
 namespace base {
 
-class cbmdns {
+class cbmdns : public interface::isimpleservice {
 public:
 	cbmdns();
 	virtual ~cbmdns();
+
+	void start();
+	void stop();
 };
 
 } /* namespace base */
