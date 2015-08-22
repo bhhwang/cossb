@@ -101,7 +101,14 @@ void configreader::parse_library()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("library");child!=nullptr; child = child->NextSiblingElement("library"))
-		_library.push_back(new sLibrary(child->Attribute("use"), child->GetText()));
+		_library.push_back(new sLibrary(child->Attribute("name"), child->GetText()));
+}
+
+void configreader::parse_service()
+{
+	XMLElement* elem_com = _doc->FirstChildElement("manifest");
+	for(XMLElement* child = elem_com->FirstChildElement("service");child!=nullptr; child = child->NextSiblingElement("service"))
+		_library.push_back(new sLibrary(child->Attribute("name"), child->GetText()));
 }
 
 } /* namespace base */
