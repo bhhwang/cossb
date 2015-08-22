@@ -5,6 +5,7 @@
  * @date 		2015. 8. 6
  * @details	component message interface class
  */
+
 #ifndef _COSSB_INTERFACE_IMESSAGE_HPP_
 #define _COSSB_INTERFACE_IMESSAGE_HPP_
 
