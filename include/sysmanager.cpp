@@ -41,17 +41,19 @@ bool system_manager::setup(base::configreader* config)
 		if(!dep->use.compare("log") && !dep->sofile.empty()) {
 			_log_adopter = new base::libadopter<interface::ilog>(dep->sofile.c_str());
 			cossb_log->adopt(_log_adopter->get_lib());
+			cossb_log->log(log::loglevel::INFO, fmt::format("Load library : {}", dep->sofile).c_str());
 		}
-
-		/*if(!dep->use.compare("mdns") && !dep->sofile.empty()) {
-			_mdns_adopter = new base::libadopter<interface::isimpleservice>(dep->sofile.c_str());
-		}*/
-
-		_srv_container.insert(std::pair<string, base::libadopter<interface::isimpleservice>*>("mdns", new base::libadopter<interface::isimpleservice>(dep->sofile.c_str())));
 	}
 
+	//2. load service library
+	for(auto dep:*config->get_service()) {
+		if(!dep.first.empty() && !dep.second.empty()) {
+			_srv_container.insert(std::pair<string, base::libadopter<interface::isimpleservice>*>(dep.first, new base::libadopter<interface::isimpleservice>(dep.second.c_str())));
+			cossb_log->log(log::loglevel::INFO, fmt::format("Load service : {}", dep.second).c_str());
+		}
+	}
 
-	//2. load dependent components
+	//3. load dependent components
 	for(auto dep:*config->get_dependency()) {
 		if(dep->type==base::dependencyType::COMPONENT)
 			cossb_component_manager->install(dep->name.c_str());
