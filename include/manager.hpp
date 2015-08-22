@@ -119,7 +119,7 @@ private:
 	/**
 	 * @brief	service library container
 	 */
-	map<std::string, base::libadopter<interface::isimpleservice>*> _srv_container;
+	map<std::string, base::libadopter<interface::iobject>*> _lib_container;
 
 
 
