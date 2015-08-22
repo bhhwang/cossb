@@ -11,6 +11,7 @@
 
 
 #include "../../include/interface/iobject.hpp"
+#include "../../include/net/udp.hpp"
 
 namespace cossb {
 namespace base {
@@ -19,6 +20,14 @@ class cbmdns : public interface::iobject {
 public:
 	cbmdns();
 	virtual ~cbmdns();
+
+private:
+	void start_mdns();
+	void stop_mdns();
+
+private:
+	net::udp* _udp_sock = nullptr;
+
 };
 
 } /* namespace base */

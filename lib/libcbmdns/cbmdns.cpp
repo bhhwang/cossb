@@ -6,8 +6,8 @@
  */
 
 #include "cbmdns.hpp"
-#include "../../include/library_util.hpp"
 #include <iostream>
+#include <pthread.h>
 
 using namespace std;
 
@@ -15,12 +15,23 @@ namespace cossb {
 namespace base {
 
 cbmdns::cbmdns() {
-	cout << "create mdns service" << endl;
-
+	start_mdns();
 }
 
 cbmdns::~cbmdns() {
-	cout << "destroy mdns service" << endl;
+	stop_mdns();
+}
+
+void cbmdns::start_mdns()
+{
+	_udp_sock = new net::udp(net::netType::SERVER);
+	net::endpoint_v4 address();
+}
+
+void cbmdns::stop_mdns()
+{
+	if(_udp_sock)
+		delete _udp_sock;
 }
 
 
