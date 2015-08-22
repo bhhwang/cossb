@@ -14,7 +14,7 @@
 		<uri></uri>
 	</repository>
 	
-	<!-- library required -->
+	<!-- library required(do not edit) -->
 	<library name="log" enable="true">libcblog.so</library>
 	
 	<!-- local service(not component, not accessible, work independently) -->
