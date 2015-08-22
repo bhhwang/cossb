@@ -6,36 +6,31 @@
  */
 
 #include "cbmdns.hpp"
+#include "../../include/library_util.hpp"
+#include <iostream>
+
+using namespace std;
 
 namespace cossb {
 namespace base {
 
 cbmdns::cbmdns() {
-	// TODO Auto-generated constructor stub
+	cout << "create mdns service" << endl;
 
 }
 
 cbmdns::~cbmdns() {
-	// TODO Auto-generated destructor stub
+	cout << "destroy mdns service" << endl;
 }
 
-void cbmdns::start()
-{
-
-}
-
-void cbmdns::stop()
-{
-
-}
 
 } /* namespace base */
 
-extern "C" interface::isimpleservice* create() {
+extern "C" interface::iobject* create() {
 	return new base::cbmdns;
 }
 
-extern "C" void destroy(interface::isimpleservice* instance) {
+extern "C" void destroy(interface::iobject* instance) {
 	delete instance;
 }
 
