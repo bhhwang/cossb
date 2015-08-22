@@ -22,7 +22,7 @@ namespace cossb {
 namespace base { template<class T> class libadopter; }
 namespace interface {
 	class ilog;
-	class isimpleservice;
+	class iobject;
 }
 namespace manager {
 
@@ -110,11 +110,6 @@ private:
 	 * @brief	dependent libraries adopter
 	 */
 	base::libadopter<interface::ilog>* _log_adopter = nullptr;
-
-	/**
-	 * @brief	mdns library adopter
-	 */
-	base::libadopter<interface::isimpleservice>* _mdns_adopter = nullptr;
 
 	/**
 	 * @brief	service library container
