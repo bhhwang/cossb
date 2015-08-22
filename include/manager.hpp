@@ -115,6 +115,10 @@ private:
 	 * @brief	mdns library adopter
 	 */
 	base::libadopter<interface::isimpleservice>* _mdns_adopter = nullptr;
+
+	/**
+	 * @brief	service library container
+	 */
 	map<std::string, base::libadopter<interface::isimpleservice>*> _srv_container;
 
 
