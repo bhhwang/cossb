@@ -1,5 +1,5 @@
 /**
- * @file		component_htil.hpp
+ * @file		component_util.hpp
  * @brief		COSSB component utility
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 8. 13
