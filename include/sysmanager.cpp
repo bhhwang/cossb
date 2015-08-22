@@ -31,7 +31,6 @@ system_manager::~system_manager()
 	}
 
 	if(_log_adopter)	delete _log_adopter;
-	if(_mdns_adopter)	delete _mdns_adopter;
 }
 
 bool system_manager::setup(base::configreader* config)
@@ -50,7 +49,6 @@ bool system_manager::setup(base::configreader* config)
 		if(!dep.first.empty() && !dep.second.empty()) {
 			_lib_container.insert(std::pair<string, base::libadopter<interface::iobject>*>(dep.first, new base::libadopter<interface::iobject>(dep.second.c_str())));
 			cossb_log->log(log::loglevel::INFO, fmt::format("Load service : {}", dep.second).c_str());
-			//_srv_container[dep.first]->get_lib()->start();
 		}
 	}
 
