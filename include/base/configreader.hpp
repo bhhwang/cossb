@@ -68,6 +68,7 @@ public:
 	vector<sLibrary*>* get_library() { return &_library; }
 	map<string, string>* get_path() { return &_path; }
 	map<string, string>* get_product() { return &_product; }
+	map<string, string>* get_service() { return &_service; }
 
 private:
 	void parse_dependency();
@@ -75,6 +76,7 @@ private:
 	void parse_repository();
 	void parse_product();
 	void parse_library();
+	void parse_service();
 
 
 private:
@@ -84,6 +86,7 @@ private:
 	vector<sLibrary*> _library;
 	map<string, string> _path;
 	map<string, string> _product;
+	map<string, string> _service;
 
 };
 
