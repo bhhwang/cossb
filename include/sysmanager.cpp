@@ -24,6 +24,12 @@ system_manager::~system_manager()
 	cossb_component_manager->destroy();
 	cossb_log->destroy();
 
+	if(!_srv_container.empty()) {
+		for(auto srv:_srv_container)
+			delete srv.second;
+		_srv_container.clear();
+	}
+
 	if(_log_adopter)	delete _log_adopter;
 	if(_mdns_adopter)	delete _mdns_adopter;
 }
@@ -37,9 +43,11 @@ bool system_manager::setup(base::configreader* config)
 			cossb_log->adopt(_log_adopter->get_lib());
 		}
 
-		if(!dep->use.compare("mdns") && !dep->sofile.empty()) {
+		/*if(!dep->use.compare("mdns") && !dep->sofile.empty()) {
 			_mdns_adopter = new base::libadopter<interface::isimpleservice>(dep->sofile.c_str());
-		}
+		}*/
+
+		_srv_container.insert(std::pair<string, base::libadopter<interface::isimpleservice>*>("mdns", new base::libadopter<interface::isimpleservice>(dep->sofile.c_str())));
 	}
 
 
