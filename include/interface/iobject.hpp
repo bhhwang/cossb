@@ -18,8 +18,9 @@ public:
 	iobject() { }
 	virtual ~iobject() { }
 };
-}
-}
+
+} /* namespace interface */
+} /* namespace cossb */
 
 
 #endif /* _COSSB_INTERFACE_IOBJECT_HPP_ */
