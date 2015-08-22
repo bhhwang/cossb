@@ -12,6 +12,7 @@
 #include "typedef.hpp"
 #include <map>
 #include <vector>
+#include <string>
 #include "arch/singleton.hpp"
 #include "base/configreader.hpp"
 
@@ -114,6 +115,8 @@ private:
 	 * @brief	mdns library adopter
 	 */
 	base::libadopter<interface::isimpleservice>* _mdns_adopter = nullptr;
+	map<std::string, base::libadopter<interface::isimpleservice>*> _srv_container;
+
 
 
 };
