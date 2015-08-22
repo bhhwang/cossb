@@ -24,10 +24,10 @@ system_manager::~system_manager()
 	cossb_component_manager->destroy();
 	cossb_log->destroy();
 
-	if(!_srv_container.empty()) {
-		for(auto srv:_srv_container)
+	if(!_lib_container.empty()) {
+		for(auto srv:_lib_container)
 			delete srv.second;
-		_srv_container.clear();
+		_lib_container.clear();
 	}
 
 	if(_log_adopter)	delete _log_adopter;
@@ -48,8 +48,9 @@ bool system_manager::setup(base::configreader* config)
 	//2. load service library
 	for(auto dep:*config->get_service()) {
 		if(!dep.first.empty() && !dep.second.empty()) {
-			_srv_container.insert(std::pair<string, base::libadopter<interface::isimpleservice>*>(dep.first, new base::libadopter<interface::isimpleservice>(dep.second.c_str())));
+			_lib_container.insert(std::pair<string, base::libadopter<interface::iobject>*>(dep.first, new base::libadopter<interface::iobject>(dep.second.c_str())));
 			cossb_log->log(log::loglevel::INFO, fmt::format("Load service : {}", dep.second).c_str());
+			//_srv_container[dep.first]->get_lib()->start();
 		}
 	}
 
