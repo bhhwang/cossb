@@ -16,7 +16,9 @@
 	
 	<!-- library required -->
 	<library use="log" enable="true">libcblog.so</library>
-	<library use="mdns" enable="true">libcbmdns.so</library>
+	
+	<!-- local service(not component, not accessible, work independently) -->
+	<service use="mdns">libcbmdns.so</service>
 	
 	<!-- dependent libraries and components(required) -->
 	<dependency type="component">basic_service</dependency>
