@@ -49,6 +49,7 @@ bool configreader::load(const char* manifest_conf)
 		parse_path();
 		parse_repository();
 		parse_library();
+		parse_service();
 
 		return true;
 	}
@@ -108,7 +109,7 @@ void configreader::parse_service()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("service");child!=nullptr; child = child->NextSiblingElement("service"))
-		_library.push_back(new sLibrary(child->Attribute("name"), child->GetText()));
+		_service.insert(std::pair<string, string>(child->Attribute("name"), child->GetText()));
 }
 
 } /* namespace base */
