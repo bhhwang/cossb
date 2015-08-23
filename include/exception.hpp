@@ -19,7 +19,8 @@ using namespace std;
 namespace cossb {
 
 struct cossb_exception : public exception {
-	cossb_exception(const char* ex):str_exception(ex) { }
+	cossb_exception(const char* msg):str_exception(msg) { }
+	cossb_exception(const string& msg):str_exception(msg) { }
 	~cossb_exception() throw() {}
 	const char* what() const throw() {
 		return str_exception.c_str();
