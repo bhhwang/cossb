@@ -21,23 +21,17 @@ using namespace std;
 namespace cossb {
 namespace base {
 
-enum class dependencyType : unsigned int { COMPONENT=1, PACKAGE };
+enum class requiredType : unsigned int { COMPONENT=1, LIBRARY, PACKAGE };
 
-typedef struct _sDependency {
-	dependencyType type;
+typedef struct _sRequired {
+	requiredType type;
 	std::string name;
+	std::string usefor;
 
 public:
-	_sDependency(dependencyType _type, string _name):type(_type),name(_name) { }
-	_sDependency& operator=(const _sDependency& other) { return *this; }
-} sDependency;
-
-typedef struct _sLibrary {
-	std::string use;
-	std::string sofile;
-public:
-	_sLibrary(string _use, string _sofile):use(_use), sofile(_sofile) { }
-} sLibrary;
+	_sRequired(requiredType _type, string _name, string _for):type(_type),name(_name),usefor(_for) { }
+	_sRequired& operator=(const _sRequired& other) { return *this; }
+} sRequired;
 
 
 
@@ -63,27 +57,24 @@ public:
 	/**
 	 * @brief	getting manifest information
 	 */
-	vector<sDependency*>* get_dependency() { return &_dependency; };
+	vector<sRequired*>* get_required() { return &_required; }
 	vector<string>* get_repository() { return &_repository; }
-	vector<sLibrary*>* get_library() { return &_library; }
 	map<string, string>* get_path() { return &_path; }
 	map<string, string>* get_product() { return &_product; }
 	map<string, string>* get_service() { return &_service; }
 
 private:
-	void parse_dependency();
+	void parse_required();
 	void parse_path();
 	void parse_repository();
 	void parse_product();
-	void parse_library();
 	void parse_service();
 
 
 private:
 	tinyxml2::XMLDocument* _doc;
-	vector<sDependency*> _dependency;
+	vector<sRequired*> _required;
 	vector<string> _repository;
-	vector<sLibrary*> _library;
 	map<string, string> _path;
 	map<string, string> _product;
 	map<string, string> _service;
