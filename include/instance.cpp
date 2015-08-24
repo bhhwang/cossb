@@ -41,7 +41,7 @@ bool cossb_sync()
 
 bool cossb_start()
 {
-	if(cossb_component_manager->run()==types::returntype::SUCCESS)
+	if(cossb_component_manager->run())
 		return true;
 
 	return false;
@@ -49,7 +49,7 @@ bool cossb_start()
 
 bool cossb_stop()
 {
-	if(cossb_component_manager->stop()==types::returntype::SUCCESS)
+	if(cossb_component_manager->stop())
 		return true;
 
 	return false;
