@@ -14,7 +14,7 @@ namespace interface {
 
 class irunnable {
 public:
-	virtual ~irunnable() = 0;
+	virtual ~irunnable() { };
 
 	/**
 	 * @brief	run(start) interface
