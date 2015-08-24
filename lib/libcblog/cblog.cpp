@@ -37,7 +37,7 @@ void cblog::warn(const char* logstr)
 }
 void cblog::error(const char* logstr)
 {
-	cout << _time.current_formatted() << "[RROR] " << logstr << endl;
+	cout << _time.current_formatted() << "[ERROR] " << logstr << endl;
 }
 void cblog::critical(const char* logstr)
 {
