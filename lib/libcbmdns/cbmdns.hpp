@@ -12,6 +12,7 @@
 
 #include "../../include/interface/iobject.hpp"
 #include "../../include/net/udp.hpp"
+#include "../../include/library_util.hpp"
 
 namespace cossb {
 namespace base {
@@ -27,6 +28,7 @@ private:
 
 private:
 	net::udp* _udp_sock = nullptr;
+	task _process;
 
 };
 

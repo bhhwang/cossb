@@ -1,9 +1,4 @@
-/*
- * cbmdns.cpp
- *
- *  Created on: 2015. 8. 20.
- *      Author: hwang-linux
- */
+
 
 #include "cbmdns.hpp"
 #include <iostream>
@@ -24,8 +19,7 @@ cbmdns::~cbmdns() {
 
 void cbmdns::start_mdns()
 {
-	_udp_sock = new net::udp(net::netType::SERVER);
-	net::endpoint_v4 address();
+	_udp_sock = new net::udp(net::netType::SERVER, 5353);
 }
 
 void cbmdns::stop_mdns()
