@@ -1,15 +1,17 @@
 /**
  * @file		task.hpp
- * @brief		base task(thread)
+ * @brief		base task(thread) using boost library
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 8. 24
- * @details	COSSB task
+ * @details	COSSB task based on Boost library
  */
 #ifndef _COSSB_TASK_HPP_
 #define _COSSB_TASK_HPP_
 
 #include <boost/thread.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/condition_variable.hpp>
 
 using namespace std;
 
