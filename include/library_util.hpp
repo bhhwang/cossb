@@ -14,6 +14,7 @@
 
 
 #include "logger.hpp"	//for base logger
+#include "base/task.hpp"	//for thread
 
 #endif
 
