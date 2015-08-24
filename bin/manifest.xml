@@ -14,15 +14,16 @@
 		<uri></uri>
 	</repository>
 	
-	<!-- library required(do not edit) -->
-	<library name="log" enable="true">libcblog.so</library>
-	
 	<!-- local service(not component, not accessible, work independently) -->
 	<service name="mdns">libcbmdns.so</service>
 	
-	<!-- dependent libraries and components(required) -->
-	<dependency type="component">basic_service</dependency>
-	<dependency type="package">sample.ipkg</dependency>
+	<!-- required component cannot be stopped by user -->
+	<!-- required library for advanced user or our support -->
+	<required>
+		<component>basic_service</component>
+		<library name="log" enable="true">libcblog.so</library>
+	</required>
+	
 	
 	<!-- do not edit this path -->
 	<property>
