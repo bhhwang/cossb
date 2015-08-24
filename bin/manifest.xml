@@ -19,10 +19,8 @@
 	
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
-	<required>
-		<component>basic_service</component>
-		<library name="log" enable="true">libcblog.so</library>
-	</required>
+	<required type="component" for="service">basic_service</required>
+	<required type="library" for="log">libcblog.so</required>
 	
 	
 	<!-- do not edit this path -->
