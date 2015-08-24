@@ -54,9 +54,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="cossb.null.888356682" name="cossb"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Default">
@@ -64,4 +61,13 @@
 		</configuration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.558846127;cdt.managedbuild.toolchain.gnu.base.558846127.31681471;cdt.managedbuild.tool.gnu.c.compiler.base.269558142;cdt.managedbuild.tool.gnu.c.compiler.input.1657727018">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.toolchain.gnu.base.558846127;cdt.managedbuild.toolchain.gnu.base.558846127.31681471;cdt.managedbuild.tool.gnu.cpp.compiler.base.1835596549;cdt.managedbuild.tool.gnu.cpp.compiler.input.1873573648">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
 </cproject>
