@@ -94,9 +94,8 @@ int main(int argc, char* argv[])
 		{
 			if(!cossb::core::cossb_init("manifest.xml"))
 				destroy();
-			else {
+			else
 				cossb_log->log(log::loglevel::INFO, fmt::format("Now Starting {}{}",COSSB_NAME, COSSB_VERSION).c_str());
-			}
 		}
 		break;
 
