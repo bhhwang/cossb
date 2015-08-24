@@ -36,11 +36,11 @@ system_manager::~system_manager()
 bool system_manager::setup(base::configreader* config)
 {
 	//1. load log library
-	for(auto dep:*config->get_library()) {
-		if(!dep->use.compare("log") && !dep->sofile.empty()) {
-			_log_adopter = new base::libadopter<interface::ilog>(dep->sofile.c_str());
+	for(auto dep:*config->get_required()) {
+		if(!dep->usefor.compare("log") && !dep->name.empty()) {
+			_log_adopter = new base::libadopter<interface::ilog>(dep->name.c_str());
 			cossb_log->adopt(_log_adopter->get_lib());
-			cossb_log->log(log::loglevel::INFO, fmt::format("Load library : {}", dep->sofile).c_str());
+			cossb_log->log(log::loglevel::INFO, fmt::format("Load library : {}", dep->name).c_str());
 		}
 	}
 
@@ -53,8 +53,8 @@ bool system_manager::setup(base::configreader* config)
 	}
 
 	//3. load dependent components
-	for(auto dep:*config->get_dependency()) {
-		if(dep->type==base::dependencyType::COMPONENT)
+	for(auto dep:*config->get_required()) {
+		if(dep->type==base::requiredType::COMPONENT)
 			cossb_component_manager->install(dep->name.c_str());
 	}
 
