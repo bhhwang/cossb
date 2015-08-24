@@ -18,6 +18,7 @@ namespace cossb {
 namespace net {
 
 enum class netType : unsigned int { SERVER=1, CLIENT };
+enum class sockType : unsigned int { DGRAM=1, STREAM };
 
 class sock {
 public:
