@@ -38,45 +38,48 @@ bool component_manager::install(const char* component_name)
 	return false;
 }
 
-types::returntype component_manager::uninstall(const char* component_name)
+bool component_manager::uninstall(const char* component_name)
 {
 	if(cossb_component_container->exist(component_name))
 	{
 		cossb_component_container->get_driver(component_name)->stop();
 		cossb_component_container->remove(component_name);
-		return types::returntype::SUCCESS;
+		return true;
 	}
-	return types::returntype::FAIL;
+	return false;
 }
 
 
-types::returntype component_manager::run(const char* component_name)
+bool component_manager::run(const char* component_name)
 {
 	if(cossb_component_container->exist(component_name))
 	{
 		cossb_component_container->get_driver(component_name)->run();
-		return types::returntype::SUCCESS;
+		return true;
 	}
-	return types::returntype::FAIL;
+	return false;
 }
 
-types::returntype component_manager::run()
+bool component_manager::run()
 {
-	return types::returntype::SUCCESS;
+	for(auto comp:cossb_component_container->_container) {
+		this->run(comp.first.c_str());
+	}
+	return true;
 }
 
-types::returntype component_manager::stop(const char* component_name)
+bool component_manager::stop(const char* component_name)
 {
 	if(cossb_component_container->exist(component_name))
 		cossb_component_container->get_driver(component_name)->stop();
-	return types::returntype::SUCCESS;
+	return true;
 }
 
-types::returntype component_manager::stop()
+bool component_manager::stop()
 {
 	for(auto itr:cossb_component_container->_container)
 		itr.second->stop();
-	return types::returntype::SUCCESS;
+	return true;
 }
 
 int component_manager::count()
