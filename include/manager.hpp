@@ -46,29 +46,29 @@ public:
 	/**
 	 * @brief	uninstall specific component
 	 */
-	types::returntype uninstall(const char* component_name);
-	types::returntype uninstall();
+	bool uninstall(const char* component_name);
+	bool uninstall();
 
 
 	/**
 	 * @brief run specific component
 	 */
-	types::returntype run(const char* component_name);
+	bool run(const char* component_name);
 
 	/**
 	 * @brief run all components
 	 */
-	types::returntype run();
+	bool run();
 
 	/**
 	 * @brief	stop specific component
 	 */
-	types::returntype stop(const char* component_name);
+	bool stop(const char* component_name);
 
 	/**
 	 * @brief	stop all components
 	 */
-	types::returntype stop();
+	bool stop();
 
 	/**
 	 * @brief	get count of the installed components
