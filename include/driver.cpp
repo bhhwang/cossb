@@ -23,16 +23,18 @@ component_driver::component_driver(const char* component_name)
 {
 	if(load(component_name))
 	{
-		//1. profile setting
 		string profile_path = fmt::format("./{}.xml",component_name);
 		if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
 			unload();
+		else
+			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Component load success : {}", component_name).c_str());
 	}
+	else
+		cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("Component load failed : {}", component_name).c_str());
 }
 
 component_driver::~component_driver()
 {
-
 	unload();
 }
 
@@ -52,20 +54,12 @@ bool component_driver::load(const char* component_name)
 
 			return false;
 		}
-		else
-		{
-			_ptr_component = pfcreate();
-			return true;
-		}
+
+		_ptr_component = pfcreate();
+		return true;
 	}
 
 	return false;
-}
-
-void component_driver::setup()
-{
-	if(_ptr_component)
-		_ptr_component->setup();
 }
 
 void component_driver::unload()
@@ -74,8 +68,12 @@ void component_driver::unload()
 	{
 		destroy_component pfdestroy = (destroy_component)dlsym(_handle, "destroy");
 
-		if(pfdestroy)
+		destroy_task(_request_proc_task);
+
+		if(pfdestroy) {
+			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Component unload success : {}", _ptr_component->get_name()).c_str());
 			pfdestroy();
+		}
 
 		_ptr_component = nullptr;
 	}
@@ -87,21 +85,56 @@ void component_driver::unload()
 	}
 }
 
+void component_driver::setup()
+{
+	if(_ptr_component)
+		_ptr_component->setup();
+}
+
 void component_driver::run()
 {
 	if(_ptr_component)
+	{
+		if(!_request_proc_task)
+			_request_proc_task = create_task(component_driver::request_proc);
+
 		_ptr_component->run();
+	}
+
 }
 
 void component_driver::stop()
 {
 	if(_ptr_component)
 		_ptr_component->stop();
+
+	destroy_task(_request_proc_task);
 }
 
 bool component_driver::set_profile(interface::iprofile* profile, const char* path)
 {
-	return false;
+	return true;
+}
+
+void component_driver::request_proc()
+{
+	if(_ptr_component) {
+		while(1) {
+			try {
+
+				boost::mutex::scoped_lock __lock(_mutex);
+				_condition.wait(__lock);
+
+				while(!_mailbox.empty()) {
+					_ptr_component->request(&_mailbox.front());
+					_mailbox.pop();
+				}
+
+				boost::this_thread::sleep(posix_time::milliseconds(0));
+			}
+			catch(thread_interrupted&) { break; }
+		}
+	}
 }
 
 
