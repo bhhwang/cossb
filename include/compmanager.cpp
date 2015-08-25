@@ -77,8 +77,9 @@ bool component_manager::stop(const char* component_name)
 
 bool component_manager::stop()
 {
-	for(auto itr:cossb_component_container->_container)
-		itr.second->stop();
+	for(auto comp:cossb_component_container->_container) {
+		this->stop(comp.first.c_str());
+	}
 	return true;
 }
 
