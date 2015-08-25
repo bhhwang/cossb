@@ -4,6 +4,7 @@
 #include "instance.hpp"
 #include "manager.hpp"
 #include "broker.hpp"
+#include "logger.hpp"
 #include <string>
 #include <iostream>
 
@@ -23,12 +24,13 @@ bool cossb_init(const char* manifest)
 	if(!cossb_system_manager->setup(cossb_config))
 		return false;
 
-
 	return true;
 }
 
 void cossb_destroy()
 {
+	cossb_stop();
+	cossb_log->log(log::loglevel::INFO, "Now terminating...");
 	cossb_system_manager->destroy();
 	cossb_config->destroy();
 }
@@ -41,6 +43,7 @@ bool cossb_sync()
 
 bool cossb_start()
 {
+	cossb_log->log(log::loglevel::INFO, "Now all components is running...");
 	if(cossb_component_manager->run())
 		return true;
 
@@ -49,6 +52,7 @@ bool cossb_start()
 
 bool cossb_stop()
 {
+	cossb_log->log(log::loglevel::INFO, "Now all components is stopping...");
 	if(cossb_component_manager->stop())
 		return true;
 
