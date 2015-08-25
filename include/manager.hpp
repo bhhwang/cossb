@@ -9,7 +9,6 @@
 #ifndef _COSSB_MANAGER_HPP_
 #define _COSSB_MANAGER_HPP_
 
-#include "typedef.hpp"
 #include <map>
 #include <vector>
 #include <string>
