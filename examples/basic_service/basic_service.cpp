@@ -19,20 +19,17 @@ basic_service::~basic_service()
 
 bool basic_service::setup()
 {
-	cout << "setup" << endl;
-	return false;
+	return true;
 }
 bool basic_service::run()
 {
-	cout << "run" << endl;
-	return false;
+	return true;
 }
 bool basic_service::stop()
 {
-	cout << "stop" << endl;
-	return false;
+	return true;
 }
 void basic_service::request(cossb::interface::imessage* msg)
 {
-	cout << "request" << endl;
+
 }
