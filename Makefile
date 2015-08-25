@@ -19,7 +19,7 @@ RM	= rm -rf
 OUTDIR		= ./bin/
 SRC_FILES = ./cbengine/engine.cpp
 INCLUDE_FILES = ./include/
-COMPONENT_FILES = ./component/
+COMPONENT_FILES = ./support/
 EXAMPLE_FILES = ./examples/
 LIB_FILES = ./lib/
 BASE_FILES = ./base/
@@ -45,10 +45,16 @@ libcbmdns.so: $(OUTDIR)cbmdns.o
 #example components
 basic_service.comp: $(OUTDIR)basic_service.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-	
 $(OUTDIR)basic_service.o: $(EXAMPLE_FILES)basic_service/basic_service.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-	
+
+#support components
+compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)compserial.o: $(COMPONENT_FILES)compserial/compserial.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+$(OUTDIR)libserial.o: $(COMPONENT_FILES)compserial/libserial.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 	
 	
@@ -106,7 +112,11 @@ $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 	
 
 # make all
-all: cossb libcblog.so libcbmdns.so basic_service.comp
+all: cossb libcblog.so basic_service.comp compserial.comp
+
+cossb: cossb
+
+support: compserial.comp
 
 # Clean
 clean: 
