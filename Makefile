@@ -114,7 +114,7 @@ $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 # make all
 all: cossb libcblog.so helloworld.comp compserial.comp
 
-cossb: cossb
+base: cossb
 
 support: compserial.comp
 
