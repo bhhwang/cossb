@@ -90,5 +90,13 @@ int component_manager::count()
 	return 0;
 }
 
+driver::component_driver* component_manager::get_driver(const char* component_name)
+{
+	if(cossb_component_container->exist(component_name)) {
+		return cossb_component_container->get_driver(component_name);
+	}
+	return nullptr;
+}
+
 } /* namespace manager */
 } /* namespace cossb */
