@@ -12,6 +12,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/condition_variable.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ namespace base {
 
 typedef boost::shared_ptr<boost::thread> task;
 
+#define task_register(fnptr)	boost::thread(boost::bind(fnptr, this))
 #define create_task(fnptr)	boost::shared_ptr<boost::thread>(new task_register(&fnptr))
 #define destroy_task(instance)	if(instance){ instance->interrupt(); instance->join(); }
 
