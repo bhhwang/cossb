@@ -13,6 +13,7 @@
 #if defined(__unix__) || defined(__gnu_linux__) || defined(linux) || defined(__linux__)
 
 #include "logger.hpp"	//for base logger
+#include "broker.hpp"	//for topic/message broker
 
 #endif
 
