@@ -28,6 +28,7 @@ bool compserial::setup()
 {
 	string port = get_profile()->get(profile::section::property, "port").asString("/dev/ttyS0");
 	int baudrate = get_profile()->get(profile::section::property, "baudrate").asInt(19200);
+	string topic = get_profile()->get(profile::section::info, "publish").asString("com/serial");
 
 	cossb_log->log(log::loglevel::INFO, fmt::format("Port/Baudrate : {}-{}",port,baudrate).c_str());
 
@@ -84,7 +85,7 @@ void compserial::read_task_proc()
 				vector<unsigned char> data;
 				data.assign(buffer, buffer+read*sizeof(unsigned char));
 
-				//publish data here
+				//publish here
 			}
 
 			delete []buffer;
