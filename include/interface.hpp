@@ -21,6 +21,8 @@
 #include "interface/isimpleservice.hpp"
 #include "interface/iobject.hpp"
 
+#include "../base/task.hpp"
+
 #endif
 
 #endif /* _COSSB_INTERFACE_HPP_ */
