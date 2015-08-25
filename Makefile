@@ -54,7 +54,12 @@ compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o
 $(OUTDIR)compserial.o: $(COMPONENT_FILES)compserial/compserial.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 $(OUTDIR)libserial.o: $(COMPONENT_FILES)compserial/libserial.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+compmdns.comp: $(OUTDIR)compmdns.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)compmdns.o: $(COMPONENT_FILES)compmdns/compmdns.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 	
 	
 	
@@ -112,11 +117,13 @@ $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 	
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp
 
 base: cossb
 
-support: compserial.comp
+example : helloworld.comp
+
+component: compserial.comp compmdns.comp
 
 # Clean
 clean: 
