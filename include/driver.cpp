@@ -119,20 +119,17 @@ bool component_driver::set_profile(interface::iprofile* profile, const char* pat
 void component_driver::request_proc()
 {
 	if(_ptr_component) {
-		while(1) {
-			try {
+		while(1)
+		{
+			boost::mutex::scoped_lock __lock(_mutex);
+			_condition.wait(__lock);
 
-				boost::mutex::scoped_lock __lock(_mutex);
-				_condition.wait(__lock);
-
-				while(!_mailbox.empty()) {
-					_ptr_component->request(&_mailbox.front());
-					_mailbox.pop();
-				}
-
-				boost::this_thread::sleep(posix_time::milliseconds(0));
+			while(!_mailbox.empty()) {
+				_ptr_component->request(&_mailbox.front());
+				_mailbox.pop();
 			}
-			catch(thread_interrupted&) { break; }
+
+			boost::this_thread::sleep(boost::posix_time::milliseconds(0));
 		}
 	}
 }
