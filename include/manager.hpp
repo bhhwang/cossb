@@ -23,6 +23,7 @@ namespace interface {
 	class ilog;
 	class iobject;
 }
+namespace driver { class component_driver; }
 namespace manager {
 
 /**
@@ -74,10 +75,15 @@ public:
 	 */
 	int count();
 
+	/**
+	 * @brief	return specific component driver
+	 */
+	driver::component_driver* get_driver(const char* component_name);
+
 
 };
 
-#define cossb_component_manager	cossb::manager::component_manager::instance()
+#define cossb_component_manager		cossb::manager::component_manager::instance()
 
 /**
  * @brief	system manager derived from singleton pattern
