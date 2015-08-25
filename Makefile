@@ -43,9 +43,9 @@ libcbmdns.so: $(OUTDIR)cbmdns.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #example components
-basic_service.comp: $(OUTDIR)basic_service.o 
+helloworld.comp: $(OUTDIR)helloworld.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-$(OUTDIR)basic_service.o: $(EXAMPLE_FILES)basic_service/basic_service.cpp
+$(OUTDIR)helloworld.o: $(EXAMPLE_FILES)helloworld/helloworld.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 
 #support components
@@ -112,7 +112,7 @@ $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 	
 
 # make all
-all: cossb libcblog.so basic_service.comp compserial.comp
+all: cossb libcblog.so helloworld.comp compserial.comp
 
 cossb: cossb
 
