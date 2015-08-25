@@ -6,8 +6,8 @@
  * @details	Serial Communication Component for COSSB
  */
 
-#ifndef SUPPORT_COMPONENT_COMPSERIAL_HPP_
-#define SUPPORT_COMPONENT_COMPSERIAL_HPP_
+#ifndef _COSSB_SUPPORT_COMPONENT_COMPSERIAL_HPP_
+#define _COSSB_SUPPORT_COMPONENT_COMPSERIAL_HPP_
 
 #include "../../include/interface.hpp"
 #include "libserial.hpp"
@@ -49,5 +49,5 @@ private:
 
 COMPONENT_EXPORT
 
-#endif /* SUPPORT_COMPONENT_COMPSERIAL_HPP_ */
+#endif /* _COSSB_SUPPORT_COMPONENT_COMPSERIAL_HPP_ */
 
