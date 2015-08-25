@@ -47,12 +47,16 @@ bool compserial::setup()
 
 bool compserial::run()
 {
-	cout << "run" << endl;
+	if(!_read_task)
+		_read_task = create_task(compserial::read_task_proc);
+
 	return true;
 }
 
 bool compserial::stop()
 {
+	destroy_task(_read_task);
+
 	if(_serial) {
 		_serial->close();
 		delete _serial;
@@ -68,5 +72,42 @@ void compserial::request(cossb::interface::imessage* msg)
 
 void compserial::read_task_proc()
 {
+	while(1)
+	{
+		if(_serial)
+		{
+			const unsigned int buffer_len = 2048;
+			unsigned char* buffer = new unsigned char[buffer_len];
+			int read = _serial->read(buffer, sizeof(unsigned char)*buffer_len);
+
+			if(read>0) {
+				vector<unsigned char> data;
+				data.assign(buffer, buffer+read*sizeof(unsigned char));
+
+				//publish data here
+			}
+
+			delete []buffer;
+		}
+
+		boost::this_thread::sleep(boost::posix_time::milliseconds(1));
+	}
+}
+
+void compserial::print_hex(unsigned char* data, int len)
+{
+	string res="";
+	char const hex[16] = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+	for(int i=0;i<len; ++i)
+	{
+		const char c = data[i];
+		res.append(&hex[(c&0xf0)>>4], 1);
+		res.append(&hex[c&0x0f],1);
+		res.append(" ");
+	}
+
+	cossb_log->log(log::loglevel::INFO, fmt::format("Received Data : {}", res).c_str());
 
 }
+
+

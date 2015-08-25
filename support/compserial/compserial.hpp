@@ -26,7 +26,15 @@ public:
 	void request(cossb::interface::imessage* msg);
 
 private:
+	/**
+	 * @brief	receive task process
+	 */
 	void read_task_proc();
+
+	/**
+	 * @brief	received data print
+	 */
+	void print_hex(unsigned char* data, int len);
 
 private:
 	/**
