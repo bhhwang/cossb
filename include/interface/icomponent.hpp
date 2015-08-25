@@ -110,6 +110,9 @@ protected:
 	}
 
 private:
+	/**
+	 * @brief	component name
+	 */
 	string _name;
 
 	/**
