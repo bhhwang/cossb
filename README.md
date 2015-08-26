@@ -3,9 +3,9 @@ Component-based Open Simple Service Broker & Framework
 
 Features
 ===============
-	* Services component can be downloaded/installed/uninstalled/updated dynamically.
-	* Fast by using C/C++ (meaning that it requries relatively lesser computational power.)
-	* loose-coupled with other services by Service Broker. This gives advantages like a service re-configuration or re-combination)
+1. Services component can be downloaded/installed/uninstalled/updated dynamically.
+2. Fast by using C/C++ (meaning that it requries relatively lesser computational power.)
+3. loose-coupled with other services by Service Broker. This gives advantages like a service re-configuration or re-combination)
 
 Dependecy
 ===============
