@@ -5,6 +5,9 @@ compiler:
   
 before_install:
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test --yes
+  - sudo apt-add-repository ppa:libccd-debs --yes
+  - sudo apt-add-repository ppa:fcl-debs --yes
+  - sudo apt-add-repository ppa:dartsim --yes
   - sudo apt-get update
 
 install:
