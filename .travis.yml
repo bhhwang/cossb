@@ -11,7 +11,9 @@ install:
   # g++4.9
   - if [ "$CXX" = "g++" ]; then sudo apt-get install build-essential; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9"; fi
-  - sudo apt-get install libboost1.55-all-dev
+  - sudo apt-get install libboost-dev
+  - sudo apt-get install libpopt-dev
+  - sudo apt-get install libtinyxml2-dev
   
 build: make
 
