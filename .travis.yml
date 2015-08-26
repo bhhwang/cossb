@@ -14,7 +14,7 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9"; fi
   - sudo apt-get install libboost1.55-all-dev
   
-script:
+build:
   - make
 
 notifications:
