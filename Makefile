@@ -13,6 +13,7 @@ CXXFLAGS = -O3 -g3 -fPIC -Wall -std=c++11 -D__cplusplus=201103L
 CCFLAGS = $(CXXFLAGS)
 LDFLAGS = -Wl,--export-dynamic
 LDLIBS = -lpopt -lboost_system -lboost_thread -ltinyxml2 -ldl
+LDLIBS_TEST = -lpopt -lboost_system -lboost_thread -ltinyxml2 -ldl -lgtest -lpthread
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
 
@@ -22,25 +23,32 @@ INCLUDE_FILES = ./include/
 COMPONENT_FILES = ./support/
 EXAMPLE_FILES = ./examples/
 LIB_FILES = ./lib/
+TEST_FILES = ./test/
+SOURCE_FILES = ./src/
 BASE_FILES = ./base/
 O_FILES	= $(SRC_FILES:%.cpp=%.o)
 
 # Make COSBB Engine
 cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
 		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o   
-	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
+		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
 cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o
-	$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
+		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
+	
+cossb_test: $(OUTDIR)engine_test.o $(OUTDIR)sysmanager_test.o \
+			$(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
+			$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o
+			$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS_TEST)	
 
 #Make libcbcore.so	
-libcblog.so: $(OUTDIR)cblog.o 
-	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+libcblog.so:	$(OUTDIR)cblog.o 
+				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #Make libcbmdns.so	
-libcbmdns.so: $(OUTDIR)cbmdns.o 
-	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+libcbmdns.so:	$(OUTDIR)cbmdns.o 
+				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #example components
 helloworld.comp: $(OUTDIR)helloworld.o 
@@ -115,7 +123,11 @@ $(OUTDIR)cblog.o: $(LIB_FILES)libcblog/cblog.cpp
 $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-	
+#for google test
+$(OUTDIR)engine_test.o: $(TEST_FILES)engine_test.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+$(OUTDIR)sysmanager_test.o: $(TEST_FILES)sysmanager_test.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
 all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp
@@ -125,6 +137,8 @@ base: cossb
 example : helloworld.comp
 
 component: compserial.comp compmdns.comp
+
+test: cossb_test
 
 # Clean
 clean: 
