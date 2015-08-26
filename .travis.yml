@@ -9,7 +9,7 @@ before_install:
 
 install:
   # g++4.9
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install g++-4.9 libpopt-dev libboost1.55.0-all-dev libtinyxml2-dev; fi
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install build-essential; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9"; fi
 
 notifications:
