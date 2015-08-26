@@ -48,14 +48,15 @@ helloworld.comp: $(OUTDIR)helloworld.o
 $(OUTDIR)helloworld.o: $(EXAMPLE_FILES)helloworld/helloworld.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 
-#support components
+#================== compserial component
 compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)compserial.o: $(COMPONENT_FILES)compserial/compserial.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 $(OUTDIR)libserial.o: $(COMPONENT_FILES)compserial/libserial.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-	
+
+#================== compmdns component
 compmdns.comp: $(OUTDIR)compmdns.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)compmdns.o: $(COMPONENT_FILES)compmdns/compmdns.cpp
