@@ -21,7 +21,7 @@
 #include "interface/isimpleservice.hpp"
 #include "interface/iobject.hpp"
 
-#include "../base/task.hpp"
+#include "base/task.hpp"
 
 #endif
 
