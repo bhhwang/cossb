@@ -15,8 +15,5 @@ install:
 notifications:
   email: false
 
-script: 
-  - $CXX --version
-
 os:
   - linux
