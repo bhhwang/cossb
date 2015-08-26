@@ -13,7 +13,7 @@
 
 using namespace cossb;
 
-class compmdns : interface::icomponent {
+class compmdns : public interface::icomponent {
 public:
 	compmdns();
 	virtual ~compmdns();

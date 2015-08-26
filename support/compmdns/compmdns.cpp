@@ -1,5 +1,4 @@
 
-
 #include "compmdns.hpp"
 #include "../../include/component_util.hpp"
 
@@ -8,7 +7,7 @@ COMPONENT_CREATE(compmdns)
 COMPONENT_DESTROY
 
 compmdns::compmdns()
-:icomponent(COMPONENT(compmdns))
+:interface::icomponent(COMPONENT(compmdns))
 {
 	// TODO Auto-generated constructor stub
 

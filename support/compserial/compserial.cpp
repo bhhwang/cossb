@@ -13,7 +13,7 @@ COMPONENT_CREATE(compserial)
 COMPONENT_DESTROY
 
 compserial::compserial()
-:icomponent(COMPONENT(compserial)){
+:interface::icomponent(COMPONENT(compserial)){
 
 
 }
