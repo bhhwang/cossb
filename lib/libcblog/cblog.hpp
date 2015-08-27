@@ -20,15 +20,7 @@ public:
 	cblog();
 	virtual ~cblog();
 
-	void trace(const char* logstr);
-	void debug(const char* logstr);
-	void info(const char* logstr);
-	void notice(const char* logstr);
-	void warn(const char* logstr);
-	void error(const char* logstr);
-	void critical(const char* logstr);
-	void alert(const char* logstr);
-	void emerg(const char* logstr);
+	void log(log::loglevel& level, const char* logstr);
 
 private:
 	util::systime _time;

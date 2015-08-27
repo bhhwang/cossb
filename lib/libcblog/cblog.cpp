@@ -15,41 +15,20 @@ cblog::~cblog()
 
 }
 
-void cblog::trace(const char* logstr)
+void cblog::log(log::loglevel& level, const char* logstr)
 {
-	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;
-}
-void cblog::debug(const char* logstr)
-{
-	cout << _time.current_formatted() << "[DEBUG] " << logstr << endl;
-}
-void cblog::info(const char* logstr)
-{
-	cout << _time.current_formatted() << "[INFO] " << logstr << endl;
-}
-void cblog::notice(const char* logstr)
-{
-	cout << _time.current_formatted() << "[NOTICE] " << logstr << endl;
-}
-void cblog::warn(const char* logstr)
-{
-	cout << _time.current_formatted() << "[WARNING] " << logstr << endl;
-}
-void cblog::error(const char* logstr)
-{
-	cout << _time.current_formatted() << "[ERROR] " << logstr << endl;
-}
-void cblog::critical(const char* logstr)
-{
-	cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;
-}
-void cblog::alert(const char* logstr)
-{
-	cout << _time.current_formatted() << "[ALERT] " << logstr << endl;
-}
-void cblog::emerg(const char* logstr)
-{
-	cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;
+	switch(level)
+	{
+	case	log::loglevel::TRACE:	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;	break;
+	case	log::loglevel::DEBUG:	cout << _time.current_formatted() << "[DEBUG] " << logstr << endl;	break;
+	case	log::loglevel::INFO:	cout << _time.current_formatted() << "[INFO] " << logstr << endl;	break;
+	case	log::loglevel::NOTICE:  cout << _time.current_formatted() << "[NOTICE] " << logstr << endl;	break;
+	case	log::loglevel::WARN: 	cout << _time.current_formatted() << "[WARNING] " << logstr << endl;	break;
+	case	log::loglevel::ERROR: cout << _time.current_formatted() << "[ERROR] " << logstr << endl;	break;
+	case	log::loglevel::CRITICAL: cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;	break;
+	case	log::loglevel::ALERT: cout << _time.current_formatted() << "[ALERT] " << logstr << endl;	break;
+	case	log::loglevel::EMERG: cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;	break;
+	}
 }
 
 
