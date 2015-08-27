@@ -26,7 +26,7 @@ LIB_FILES = ./lib/
 TEST_FILES = ./test/
 SOURCE_FILES = ./src/
 BASE_FILES = ./base/
-O_FILES	= $(SRC_FILES:%.cpp=%.o)
+
 
 # Make COSBB Engine
 cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
