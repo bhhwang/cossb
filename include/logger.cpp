@@ -20,28 +20,10 @@ logger::~logger() {
 	_logger = nullptr;
 
 }
-void logger::log(const log::loglevel level, const char* str)
-{
-	log_base(level, str);
-}
-
-void logger::log_base(const loglevel level, const char* str)
+void logger::log(const log::loglevel& level, const char* str)
 {
 	if(_logger)
-	{
-		switch(level)
-		{
-		case	loglevel::TRACE:	_logger->trace(str);	break;
-		case	loglevel::DEBUG:	_logger->debug(str);	break;
-		case	loglevel::INFO:	_logger->info(str);	break;
-		case	loglevel::NOTICE: _logger->notice(str);	break;
-		case	loglevel::WARN: _logger->warn(str);	break;
-		case	loglevel::ERROR: _logger->error(str);	break;
-		case	loglevel::CRITICAL: _logger->critical(str);	break;
-		case	loglevel::ALERT: _logger->alert(str);	break;
-		case	loglevel::EMERG: _logger->emerg(str);	break;
-		}
-	}
+		_logger->log(level, str);
 	else
 	{
 		switch(level)

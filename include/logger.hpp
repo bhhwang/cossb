@@ -33,7 +33,7 @@ public:
 	/**
 	 * @brief	simple log interface function
 	 */
-	void log(const loglevel level,  const char* str);
+	void log(const loglevel& level,  const char* str);
 
 
 	/**
