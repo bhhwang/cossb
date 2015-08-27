@@ -43,7 +43,7 @@ cossb_test: $(OUTDIR)engine_test.o $(OUTDIR)sysmanager_test.o \
 			$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS_TEST)	
 
 #Make libcbcore.so	
-libcblog.so:	$(OUTDIR)cblog.o 
+libcblog.so:	$(OUTDIR)cblog.o $(OUTDIR)localtime.o 
 				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #Make libcbmdns.so	
@@ -130,7 +130,7 @@ $(OUTDIR)sysmanager_test.o: $(TEST_FILES)sysmanager_test.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb cossb_test libcblog.so helloworld.comp compserial.comp compmdns.comp
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp
 
 base: cossb
 
