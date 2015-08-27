@@ -130,7 +130,7 @@ $(OUTDIR)sysmanager_test.o: $(TEST_FILES)sysmanager_test.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp
+all: cossb cossb_test libcblog.so helloworld.comp compserial.comp compmdns.comp
 
 base: cossb
 
