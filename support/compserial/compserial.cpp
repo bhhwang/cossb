@@ -30,7 +30,7 @@ bool compserial::setup()
 	int baudrate = get_profile()->get(profile::section::property, "baudrate").asInt(19200);
 	string topic = get_profile()->get(profile::section::info, "publish").asString("com/serial");
 
-	cossb_log->log(log::loglevel::INFO, fmt::format("Port/Baudrate : {}-{}",port,baudrate).c_str());
+	//cossb_log->log(log::loglevel::INFO, fmt::format("Port/Baudrate : {}-{}",port,baudrate).c_str());
 
 	if(!_serial)
 		_serial = new libserial();
@@ -39,7 +39,7 @@ bool compserial::setup()
 	{
 		delete _serial;
 		_serial = nullptr;
-		cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot open the serial port {}", port).c_str());
+		//cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot open the serial port {}", port).c_str());
 		return false;
 	}
 
@@ -107,7 +107,7 @@ void compserial::print_hex(unsigned char* data, int len)
 		res.append(" ");
 	}
 
-	cossb_log->log(log::loglevel::INFO, fmt::format("Received Data : {}", res).c_str());
+	//cossb_log->log(log::loglevel::INFO, fmt::format("Received Data : {}", res).c_str());
 
 }
 
