@@ -33,16 +33,11 @@ public:
 	ilog(log::logstream stream):_stream(stream) { }
 	virtual ~ilog() { }
 
+	/**
+	 * @brief	log interface function
+	 */
+	virtual void log(const log::loglevel& level,  const char* str) = 0;
 
-	virtual void trace(const char* logstr) = 0;
-	virtual void debug(const char* logstr) = 0;
-	virtual void info(const char* logstr) = 0;
-	virtual void notice(const char* logstr) = 0;
-	virtual void warn(const char* logstr) = 0;
-	virtual void error(const char* logstr) = 0;
-	virtual void critical(const char* logstr) = 0;
-	virtual void alert(const char* logstr) = 0;
-	virtual void emerg(const char* logstr) = 0;
 
 protected:
 	log::logstream get_stream() const { return _stream; }
