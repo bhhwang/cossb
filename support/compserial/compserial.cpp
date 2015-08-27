@@ -6,7 +6,7 @@
  */
 
 #include "compserial.hpp"
-#include "../../include/component_util.hpp"
+#include "../../include/componentpack.hpp"
 
 COMPONENT_INSTANCE(compserial)
 COMPONENT_CREATE(compserial)

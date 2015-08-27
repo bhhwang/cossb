@@ -1,6 +1,6 @@
 
 #include "helloworld.hpp"
-#include "../../include/component_util.hpp"
+#include "../../include/componentpack.hpp"
 
 using namespace std;
 

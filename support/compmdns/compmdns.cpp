@@ -1,6 +1,6 @@
 
 #include "compmdns.hpp"
-#include "../../include/component_util.hpp"
+#include "../../include/componentpack.hpp"
 
 COMPONENT_INSTANCE(compmdns)
 COMPONENT_CREATE(compmdns)
