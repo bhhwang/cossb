@@ -36,7 +36,7 @@ public:
 	/**
 	 * @brief	log interface function
 	 */
-	virtual void log(const log::loglevel& level,  const char* str) = 0;
+	virtual void log(const log::loglevel& level,  const char* logstr) = 0;
 
 
 protected:
