@@ -20,7 +20,7 @@ public:
 	cblog();
 	virtual ~cblog();
 
-	void log(log::loglevel& level, const char* logstr);
+	void log(const log::loglevel& level, const char* logstr);
 
 private:
 	util::systime _time;

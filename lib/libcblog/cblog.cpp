@@ -2,6 +2,8 @@
 #include "cblog.hpp"
 #include <iostream>
 
+using namespace std;
+
 namespace cossb {
 namespace base {
 
@@ -15,7 +17,7 @@ cblog::~cblog()
 
 }
 
-void cblog::log(log::loglevel& level, const char* logstr)
+void cblog::log(const log::loglevel& level, const char* logstr)
 {
 	switch(level)
 	{
