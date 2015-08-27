@@ -10,7 +10,7 @@ Features
 4. loose-coupled with other services by Service Broker. This gives advantages like a service re-configuration or re-combination)
 5. Not only for High performance computing machine(like a PC), It is going for the cheap embedded hardware devices like Raspberry Pi, Odroid..
 
-Dependecy
+Dependency
 ===============
 * libtinyxml2
 * libpopt
