@@ -20,23 +20,23 @@ logger::~logger() {
 	_logger = nullptr;
 
 }
-void logger::log(const log::loglevel& level, const char* str)
+void logger::log(const log::loglevel& level, const char* logstr)
 {
 	if(_logger)
-		_logger->log(level, str);
+		_logger->log(level, logstr);
 	else
 	{
 		switch(level)
 		{
-		case	loglevel::TRACE:	cout << "[TRACE]\t"	<< str << endl;	break;
-		case	loglevel::DEBUG:	cout << "[DEBUG]\t"	<< str << endl;	break;
-		case	loglevel::INFO:	cout << "[INFO]\t"	<< str << endl;	break;
-		case	loglevel::NOTICE: cout << "[NOTICE]\t"	<< str << endl;	break;
-		case	loglevel::WARN: cout << "[WARN]\t"	<< str << endl;	break;
-		case	loglevel::ERROR: cout << "[ERROR]\t"	<< str << endl;	break;
-		case	loglevel::CRITICAL: cout << "[CRITICAL]\t"	<< str << endl;	break;
-		case	loglevel::ALERT: cout << "[ALERT]\t"	<< str << endl;	break;
-		case	loglevel::EMERG: cout << "[EMERG]\t"	<< str << endl;	break;
+		case	loglevel::TRACE:	cout << "[TRACE]\t"	<< logstr << endl;	break;
+		case	loglevel::DEBUG:	cout << "[DEBUG]\t"	<< logstr << endl;	break;
+		case	loglevel::INFO:	cout << "[INFO]\t"	<< logstr << endl;	break;
+		case	loglevel::NOTICE: cout << "[NOTICE]\t"	<< logstr << endl;	break;
+		case	loglevel::WARN: cout << "[WARN]\t"	<< logstr << endl;	break;
+		case	loglevel::ERROR: cout << "[ERROR]\t"	<< logstr << endl;	break;
+		case	loglevel::CRITICAL: cout << "[CRITICAL]\t"	<< logstr << endl;	break;
+		case	loglevel::ALERT: cout << "[ALERT]\t"	<< logstr << endl;	break;
+		case	loglevel::EMERG: cout << "[EMERG]\t"	<< logstr << endl;	break;
 		}
 	}
 }
