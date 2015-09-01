@@ -46,11 +46,13 @@ int main(int argc, char* argv[])
 	signal(SIGINT, sigc_interrupt);
 
 	char* config_file = nullptr;
+	char* component_name = nullptr;
 	struct poptOption optionTable[] =
 	{
 		{"run",		'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
 		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
 		{"config", 	'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
+		{"newcomp", 'n', POPT_ARG_STRING, (void*)component_name, 'n', "Create new component and its profile", "Component Name"},
 		POPT_AUTOHELP
 		POPT_TABLEEND
 	};
@@ -97,6 +99,12 @@ int main(int argc, char* argv[])
 				destroy();
 			else
 				cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
+		}
+		break;
+
+		case 'n':
+		{
+
 		}
 		break;
 
