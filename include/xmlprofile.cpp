@@ -29,10 +29,8 @@ bool xmlprofile::load(const char* filepath)
 	if(result==XML_SUCCESS)
 		_loaded = true;
 	else
-	{
-		cout << filepath << "profile error : " << this->get_error_str(result) << endl;
 		_loaded = false;
-	}
+
 	return _loaded;
 }
 
