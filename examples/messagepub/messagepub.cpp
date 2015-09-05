@@ -15,26 +15,34 @@ messagepub::messagepub()
 }
 
 messagepub::~messagepub() {
-	// TODO Auto-generated destructor stub
+	destroy_task(_pub_task);
 }
 
 
 bool messagepub::setup()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world setup");
+	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub setup");
+	if(!_pub_task)
+		_pub_task = create_task(messagepub::pub);
+
 	return true;
 }
 bool messagepub::run()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world run");
+	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub run");
 	return true;
 }
 bool messagepub::stop()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world stop");
+	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub stop");
 	return true;
 }
 void messagepub::request(cossb::interface::imessage* msg)
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world request");
+	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub request");
+}
+
+void messagepub::pub()
+{
+
 }
