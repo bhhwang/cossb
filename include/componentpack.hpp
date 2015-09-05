@@ -14,6 +14,7 @@
 
 #include "logger.hpp"	//for base logger
 #include "broker.hpp"	//for topic/message broker
+#include "base/task.hpp"	//for task
 
 #endif
 
