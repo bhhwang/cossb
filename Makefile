@@ -70,7 +70,11 @@ compmdns.comp: $(OUTDIR)compmdns.o
 $(OUTDIR)compmdns.o: $(COMPONENT_FILES)compmdns/compmdns.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 	
-	
+#================== messagepub component
+messagepub.comp: $(OUTDIR)messagepub.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)messagepub.o: $(EXAMPLE_FILES)messagepub/messagepub.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@			
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -130,13 +134,13 @@ $(OUTDIR)sysmanager_test.o: $(TEST_FILES)sysmanager_test.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp
 
 base: cossb
 
 example : helloworld.comp
 
-component: compserial.comp compmdns.comp
+component: compserial.comp compmdns.comp messagepub.comp
 
 test: cossb_test
 
