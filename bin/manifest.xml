@@ -20,7 +20,7 @@
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
 	<required type="component" for="service">helloworld</required>
-	<required type="component" for="service">compserial</required>
+	<required type="component" for="service">messagepub</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
