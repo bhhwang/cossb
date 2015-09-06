@@ -22,7 +22,10 @@ public:
 	void request(cossb::interface::imessage* msg);
 
 private:
-	cossb::base::task _pub;
+	void pub();
+
+private:
+	cossb::base::task _pub_task;
 };
 
 COMPONENT_EXPORT
