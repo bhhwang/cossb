@@ -21,6 +21,7 @@
 #include "logger.hpp"
 
 #include "util/pid.h"
+#include "util/utilloader.hpp"
 #endif
 
 #endif
