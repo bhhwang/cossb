@@ -9,20 +9,20 @@
 #ifndef _COSSB_UTIL_LOADER_HPP_
 #define _COSSB_UTIL_LOADER_HPP_
 
-#include "../interface/ilaunch.hpp"
+#include "../interface/iutility.hpp"
 
 namespace cossb {
 namespace util {
 
 class utilloader : public interface::iutility {
 public:
-	utilloader();
+	utilloader(const char* target_util);
 	virtual ~utilloader();
 
 	/**
 	 * @brief	launch interface
 	 */
-	bool launch(const char* utilname, int argc, char* argv[]);
+	bool launch(int argc, char* argv[]);
 
 private:
 	void* _util_handle = nullptr;

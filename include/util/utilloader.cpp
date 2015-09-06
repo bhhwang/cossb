@@ -5,25 +5,26 @@
  *      Author: hwang-linux
  */
 
+#include "utilloader.hpp"
 #include <dlfcn.h>
 #include <popt.h>
-#include <util/utilloader.hpp>
+#include <sys/stat.h>
 
 namespace cossb {
 namespace util {
 
-utlaunch::utlaunch() {
-	// TODO Auto-generated constructor stub
+utilloader::utilloader(const char* target_util) {
+
 
 }
 
-utlaunch::~utlaunch() {
+utilloader::~utilloader() {
 	// TODO Auto-generated destructor stub
 }
 
-bool utlaunch::launch(const char* target_util, int argc, char* argv[])
+bool utilloader::launch(int argc, char* argv[])
 {
-	_ut_handle = dlopen(target_util, RTLD_LAZY|RTLD_GLOBAL);
+	/*_ut_handle = dlopen(target_util, RTLD_LAZY|RTLD_GLOBAL);
 	if(_ut_handle)
 	{
 		create_component pfcreate = (create_component)dlsym(_ut_handle, "create");
@@ -46,7 +47,7 @@ bool utlaunch::launch(const char* target_util, int argc, char* argv[])
 			_ut_handle = nullptr;
 		}
 
-	}
+	}*/
 
 	return false;
 }
