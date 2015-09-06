@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 		{"run",		'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
 		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
 		{"config", 	'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
-		{"utility", 		'u', POPT_ARG_STRING, (void*)util, 'u', "use COSSB utilities", "target utility"},
+		{"utility", 'u', POPT_ARG_STRING, (void*)util, 'u', "Target utility name to use for COSSB", "target utility"},
 		POPT_AUTOHELP
 		POPT_TABLEEND
 	};
@@ -66,8 +66,9 @@ int main(int argc, char* argv[])
 	}
 
 
-	int opt = 0;
-	while((opt = poptGetNextOpt(optionCon))>=0)
+	//only one opt
+	int opt = poptGetNextOpt(optionCon);
+	if(opt>=0)
 	{
 		switch(opt)
 		{
@@ -87,6 +88,12 @@ int main(int argc, char* argv[])
 			{
 				if(!cossb::core::cossb_init(manifest.c_str()))
 					destroy();
+				else
+					cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
+
+				//start the cossb service
+				cossb::core::cossb_start();
+				pause();
 			}
 		}
 			break;
@@ -99,6 +106,10 @@ int main(int argc, char* argv[])
 				destroy();
 			else
 				cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
+
+			//start the cossb service
+			cossb::core::cossb_start();
+			pause();
 		}
 		break;
 
@@ -106,7 +117,7 @@ int main(int argc, char* argv[])
 		case 'u':
 		{
 			string target = (const char*)poptGetOptArg(optionCon);
-			cossb_log->log(log::loglevel::INFO, fmt::format("Execute COSSB {} Utility..", target).c_str());
+			cossb_log->log(log::loglevel::INFO, fmt::format("Execute COSSB {} utility..", target).c_str());
 
 			interface::iutility* _utility = new util::utilloader(target.c_str());
 			_utility->launch(argc, argv);
@@ -124,10 +135,6 @@ int main(int argc, char* argv[])
 		destroy();
 	}
 
-	//start the cossb service
-	cossb::core::cossb_start();
-
-	pause();
 	poptFreeContext(optionCon);
 
 	destroy();
