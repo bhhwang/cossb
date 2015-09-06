@@ -23,6 +23,14 @@ Getting Started
 ===============
 * If you want to test all codes, Google Test Framework installation would be required. (Use gtest_setup.sh)
 
+Example (for Component)
+-------
+At first, you can use 'createcomp' utility as shown below, that will generate empty component class and its default profile.
+```
+$ sudo ./cossb --utility createcomp compcustom
+```
+
+
 License
 ===============
 You can freely use, modify, redistribute this source code under the BSD License.
