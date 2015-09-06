@@ -7,8 +7,8 @@
  * @details	Some services may requires process IDs of applications
  */
 
-#ifndef _COSSB_BASE_PID_H_
-#define _COSSB_BASE_PID_H_
+#ifndef _COSSB_UTIL_PID_H_
+#define _COSSB_UTIL_PID_H_
 
 namespace cossb {
 namespace util {
@@ -32,4 +32,4 @@ extern int get_pid(const char* processname);
 } /*  */
 } /* namespace cossb */
 
-#endif /* _COSSB_BASE_PID_H_ */
+#endif /* _COSSB_UTIL_PID_H_ */
