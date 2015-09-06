@@ -46,13 +46,13 @@ int main(int argc, char* argv[])
 	signal(SIGINT, sigc_interrupt);
 
 	char* config_file = nullptr;
-	char* component_name = nullptr;
+	char* util = nullptr;
 	struct poptOption optionTable[] =
 	{
 		{"run",		'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
 		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
 		{"config", 	'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
-		{"newcomp", 'n', POPT_ARG_STRING, (void*)component_name, 'n', "Create new component and its profile", "Component Name"},
+		{"utility", 		'u', POPT_ARG_STRING, (void*)util, 'u', "use COSSB utilities", "target utility"},
 		POPT_AUTOHELP
 		POPT_TABLEEND
 	};
@@ -102,8 +102,15 @@ int main(int argc, char* argv[])
 		}
 		break;
 
-		case 'n':
+		//use COSSB utility
+		case 'u':
 		{
+			string target = (const char*)poptGetOptArg(optionCon);
+			cossb_log->log(log::loglevel::INFO, fmt::format("Execute COSSB {} Utility..", target).c_str());
+
+			interface::iutility* _utility = new util::utilloader(target.c_str());
+			_utility->launch(argc, argv);
+			delete _utility;
 
 		}
 		break;
