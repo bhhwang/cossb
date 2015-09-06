@@ -120,7 +120,8 @@ int main(int argc, char* argv[])
 			cossb_log->log(log::loglevel::INFO, fmt::format("Execute COSSB {} utility..", target).c_str());
 
 			interface::iutility* _utility = new util::utilloader(target.c_str());
-			_utility->launch(argc, argv);
+			if(!_utility->launch(argc, argv))
+				cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot launch {} utility").c_str());
 			delete _utility;
 
 		}
