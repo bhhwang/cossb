@@ -30,7 +30,7 @@ BASE_FILES = ./base/
 
 # Make COSBB Engine
 cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
-		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o   
+		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o $(OUTDIR)utilloader.o   
 		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
@@ -107,6 +107,9 @@ $(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)pid.o: $(INCLUDE_FILES)util/pid.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+$(OUTDIR)utilloader.o: $(INCLUDE_FILES)util/utilloader.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)sha1.o: $(INCLUDE_FILES)util/sha1.cpp
