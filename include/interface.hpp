@@ -20,7 +20,6 @@
 #include "interface/icomm.hpp"
 #include "interface/isimpleservice.hpp"
 #include "interface/iobject.hpp"
-#include "interface/ilaunch.hpp"
 #include "interface/iutility.hpp"
 
 #include "base/task.hpp"
