@@ -87,7 +87,7 @@ bool component_manager::stop()
 
 int component_manager::count()
 {
-	return 0;
+	return cossb_component_container->_container.size();
 }
 
 driver::component_driver* component_manager::get_driver(const char* component_name)
