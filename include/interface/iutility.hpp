@@ -37,7 +37,7 @@ protected:
 
 
 } /* namespace interfce */
-} /* namespace ossb */
+} /* namespace cossb */
 
 
 
