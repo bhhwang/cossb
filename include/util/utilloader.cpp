@@ -22,7 +22,7 @@ utilloader::~utilloader() {
 	// TODO Auto-generated destructor stub
 }
 
-bool utilloader::launch(int argc, char* argv[])
+bool utilloader::execute(int argc, char* argv[])
 {
 	/*_ut_handle = dlopen(target_util, RTLD_LAZY|RTLD_GLOBAL);
 	if(_ut_handle)

@@ -22,7 +22,7 @@ public:
 	/**
 	 * @brief	launch interface
 	 */
-	bool launch(int argc, char* argv[]);
+	bool execute(int argc, char* argv[]);
 
 private:
 	void* _util_handle = nullptr;

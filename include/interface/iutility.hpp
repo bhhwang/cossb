@@ -25,7 +25,7 @@ public:
 	 * @brief	launch interface function
 	 * @details	pass all arguments to launch interface, inherited class should control the arguments
 	 */
-	virtual bool launch(int argc, char* argv[]) = 0;
+	virtual bool execute(int argc, char* argv[]) = 0;
 
 protected:
 
