@@ -52,11 +52,14 @@ bool cossb_start()
 
 bool cossb_stop()
 {
-	cossb_log->log(log::loglevel::INFO, "Now all components is stopping...");
-	if(cossb_component_manager->stop())
-		return true;
+	if(cossb_component_manager->count()>0)
+	{
+		cossb_log->log(log::loglevel::INFO, "Now all components is stopping...");
+		if(cossb_component_manager->stop())
+			return true;
+	}
 
-	return false;
+	return true;
 }
 
 
