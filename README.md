@@ -26,11 +26,18 @@ Getting Started
 
 COSSB Utility Usage
 -------
-1. createcomp
+1. createcomp (Not support yet completely)
 
-This utility generates empty component class and its default profile into the own directory. Target directory will be created as 'CURRENT_DIRECTORY/COMPONENT_PATH/YOUR_CLASSNAME'.
+This utility generates empty component class and its default profile into the own directory. Target directory will be created as 'CURRENT_DIRECTORY/COMPONENT_PATH/YOUR_CLASSNAME'. Note that this utility requires root permission to create directories.
 ```
 $ sudo ./cossb --utility createcomp <your component class name>
+```
+
+
+2. find (Not support yet)
+This utility tries to find devices, services. Summarized result will be presented.
+```
+$ sudo ./cossb --utility find --[device|service] <specific name>
 ```
 
 
