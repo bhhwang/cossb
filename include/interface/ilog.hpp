@@ -21,13 +21,9 @@ enum class loglevel: unsigned int { TRACE=1, DEBUG, INFO, NOTICE, WARN, ERROR, C
 }
 
 
-namespace driver { class component_driver; }
-
 namespace interface {
 
 class ilog {
-
-	friend driver::component_driver;
 
 public:
 	ilog(log::logstream stream):_stream(stream) { }
