@@ -38,7 +38,7 @@ bool messagepub::stop()
 }
 void messagepub::request(cossb::message::message* msg)
 {
-
+	cossb_log->log(cossb::log::loglevel::INFO, "received message");
 }
 
 void messagepub::pub()
@@ -47,5 +47,9 @@ void messagepub::pub()
 	{
 		cossb_log->log(cossb::log::loglevel::INFO, "message publish");
 		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
+
+		vector<unsigned char> data;
+		data.push_back('a');
+		//cossb_broker->publish(this, "service/helloworld", "raw", data);
 	}
 }

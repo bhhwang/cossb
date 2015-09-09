@@ -37,7 +37,7 @@ bool hello_world::stop()
 
 void hello_world::request(cossb::message::message* msg)
 {
-
+	cossb_log->log(cossb::log::loglevel::INFO, "received message");
 }
 
 void hello_world::hellotask()
