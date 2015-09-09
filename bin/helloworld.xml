@@ -11,7 +11,7 @@
 	<version>0.0.1</version>
 	<category></category>
 	<tags></tags>
-	<publish>service/basic</publish>
+	<publish>service/helloworld</publish>
 	<subscribe>null</subscribe>
 </info>
 
