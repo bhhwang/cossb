@@ -27,7 +27,7 @@ Example (for Component)
 -------
 At first, you can use 'createcomp' utility as shown below, that will generate empty component class and its default profile.
 ```
-$ sudo ./cossb --utility createcomp compcustom
+$ sudo ./cossb --utility createcomp <your component class name>
 ```
 
 
