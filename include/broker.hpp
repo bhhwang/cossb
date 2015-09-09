@@ -13,6 +13,7 @@
 #include <string>
 #include "interface/icomponent.hpp"
 #include "arch/singleton.hpp"
+#include "manager.hpp"
 
 using namespace std;
 

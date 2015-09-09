@@ -7,7 +7,6 @@
  */
 
 #include "broker.hpp"
-#include "manager.hpp"
 
 namespace cossb {
 namespace broker {
@@ -35,8 +34,8 @@ bool component_broker::publish(interface::icomponent* component, const char* to_
 	for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 		if(itr->second.compare(component->get_name())!=0) {
 			driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());//->request(api, args...);
-			/*if(_drv)
-				_drv->request(api, args...);*/
+			if(_drv)
+				_drv->request(api, args...);
 		}
 	}
 
