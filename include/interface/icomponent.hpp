@@ -71,7 +71,7 @@ public:
 	 * @brief	message request
 	 * @details	if request message comes in, this function will be called
 	 */
-	virtual void request(imessage* msg) = 0;
+	virtual void request(message::message* msg) = 0;
 
 	/**
 	 * @brief

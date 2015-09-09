@@ -22,27 +22,30 @@ messagepub::~messagepub() {
 bool messagepub::setup()
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub setup");
-	if(!_pub_task)
-		_pub_task = create_task(messagepub::pub);
 
 	return true;
 }
 bool messagepub::run()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub run");
+	if(!_pub_task)
+		_pub_task = create_task(messagepub::pub);
 	return true;
 }
 bool messagepub::stop()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub stop");
+	destroy_task(_pub_task);
 	return true;
 }
-void messagepub::request(cossb::interface::imessage* msg)
+void messagepub::request(cossb::message::message* msg)
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub request");
+
 }
 
 void messagepub::pub()
 {
-
+	while(1)
+	{
+		cossb_log->log(cossb::log::loglevel::INFO, "message publish");
+		boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+	}
 }

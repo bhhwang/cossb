@@ -19,7 +19,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::interface::imessage* msg);
+	void request(cossb::message::message* msg);
 
 private:
 	void pub();

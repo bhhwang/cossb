@@ -15,25 +15,33 @@ hello_world::hello_world()
 }
 hello_world::~hello_world()
 {
-
+	destroy_task(_task);
 }
 
 bool hello_world::setup()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world setup");
 	return true;
 }
 bool hello_world::run()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world run");
+	if(!_task)
+		_task = create_task(hello_world::hellotask);
 	return true;
 }
 bool hello_world::stop()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world stop");
+	destroy_task(_task);
 	return true;
 }
-void hello_world::request(cossb::interface::imessage* msg)
+void hello_world::request(cossb::message::message* msg)
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called hello world request");
+}
+
+void hello_world::hellotask()
+{
+	while(1)
+	{
+		cossb_log->log(cossb::log::loglevel::INFO, "hello world~");
+		boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+	}
 }
