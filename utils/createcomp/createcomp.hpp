@@ -5,17 +5,21 @@
  *      Author: hwang-linux
  */
 
-#ifndef UTILS_CREATECOMP_CREATECOMP_HPP_
-#define UTILS_CREATECOMP_CREATECOMP_HPP_
+#ifndef _COSSB_UTILS_CREATECOMP_HPP_
+#define _COSSB_UTILS_CREATECOMP_HPP_
+
+
+#include "../../include/interface/iutility.hpp"
 
 namespace cossb {
 
-class createcomp {
+class createcomp : public interface::iutility {
 public:
 	createcomp();
 	virtual ~createcomp();
-};
 
+	bool execute(int argc, char* argv[]);
+};
 } /* namespace cossb */
 
-#endif /* UTILS_CREATECOMP_CREATECOMP_HPP_ */
+#endif /* _COSSB_UTILS_CREATECOMP_HPP_ */
