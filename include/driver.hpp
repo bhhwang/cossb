@@ -108,7 +108,7 @@ private:
 	/**
 	 * @brief	add mailbox
 	 */
-	std::queue<interface::imessage> _mailbox;
+	std::queue<message::message> _mailbox;
 
 	boost::condition_variable _condition;
 	boost::mutex _mutex;
