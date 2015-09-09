@@ -65,11 +65,11 @@ void configreader::parse_required()
 		std::transform(type.begin(), type.end(), type.begin(), ::tolower);
 
 		if(!type.compare("component"))
-			_required.push_back(new sRequired(requiredType::COMPONENT, child->GetText(), child->Attribute("for")));
+			_required.push_back(new sRequired(bundleType::COMPONENT, child->GetText(), child->Attribute("for")));
 		else if(!type.compare("library"))
-			_required.push_back(new sRequired(requiredType::LIBRARY, child->GetText(), child->Attribute("for")));
+			_required.push_back(new sRequired(bundleType::LIBRARY, child->GetText(), child->Attribute("for")));
 		else if(!type.compare("package"))
-			_required.push_back(new sRequired(requiredType::PACKAGE, child->GetText(), child->Attribute("for")));
+			_required.push_back(new sRequired(bundleType::PACKAGE, child->GetText(), child->Attribute("for")));
 	}
 }
 

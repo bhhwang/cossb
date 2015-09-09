@@ -21,15 +21,15 @@ using namespace std;
 namespace cossb {
 namespace base {
 
-enum class requiredType : unsigned int { COMPONENT=1, LIBRARY, PACKAGE };
+enum class bundleType : unsigned int { COMPONENT=1, LIBRARY, PACKAGE };
 
 typedef struct _sRequired {
-	requiredType type;
+	bundleType type;
 	std::string name;
 	std::string usefor;
 
 public:
-	_sRequired(requiredType _type, string _name, string _for):type(_type),name(_name),usefor(_for) { }
+	_sRequired(bundleType _type, string _name, string _for):type(_type),name(_name),usefor(_for) { }
 	_sRequired& operator=(const _sRequired& other) { return *this; }
 } sRequired;
 
