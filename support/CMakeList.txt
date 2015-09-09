@@ -1,0 +1,9 @@
+# COSSB support CMakeList.txt
+
+cmake_minimum_required(VERSION 2.8)
+
+PROJECT(cossb-support)
+
+ADD_SUBDIRECTORY(compserial)
+ADD_SUBDIRECTORY(comptcpsever)
+ADD_SUBDIRECTORY(compmdns)
