@@ -26,6 +26,7 @@
 	
 	<!-- do not edit this path -->
 	<property>
+		<path name="home">./cossb_home/</path>
 		<path name="include">./include/</path>
 		<path name="component">./component/</path>
 		<path name="library">./library/</path>
