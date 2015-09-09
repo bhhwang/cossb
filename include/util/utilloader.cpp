@@ -45,7 +45,7 @@ bool utilloader::execute(int argc, char* argv[])
 
 bool utilloader::load(const char* target_util)
 {
-	_util_handle = dlopen(fmt::format("./{}.so",target_util).c_str(), RTLD_LAZY|RTLD_GLOBAL);
+	_util_handle = dlopen(fmt::format("./{}.util",target_util).c_str(), RTLD_LAZY|RTLD_GLOBAL);
 	if(_util_handle)
 		return true;
 

@@ -52,7 +52,7 @@ libcbmdns.so:	$(OUTDIR)cbmdns.o
 				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 				
 #Make createcomp utility
-createcomp.so:	$(OUTDIR)createcomp.o 
+createcomp.util:	$(OUTDIR)createcomp.o 
 				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #example components
@@ -146,7 +146,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp createcomp.so
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp createcomp.util
 
 base: cossb
 
