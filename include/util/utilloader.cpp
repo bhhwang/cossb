@@ -9,47 +9,58 @@
 #include <dlfcn.h>
 #include <popt.h>
 #include <sys/stat.h>
+#include "../logger.hpp"
 
 namespace cossb {
 namespace util {
 
 utilloader::utilloader(const char* target_util) {
-
-
+	if(!load(target_util))
+		cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Cannot load {} utility..", target_util).c_str());
 }
 
 utilloader::~utilloader() {
-	// TODO Auto-generated destructor stub
+	unload();
 }
 
 bool utilloader::execute(int argc, char* argv[])
 {
-	/*_ut_handle = dlopen(target_util, RTLD_LAZY|RTLD_GLOBAL);
-	if(_ut_handle)
+	if(_util_handle)
 	{
-		create_component pfcreate = (create_component)dlsym(_ut_handle, "create");
-		if(!pfcreate) {
-			dlclose(_ut_handle);
-			_ut_handle = nullptr;
+		typedef bool(*util_execute)(int argc, char* argv[]);
+		util_execute pf_execute = (util_execute)dlsym(_util_handle, "execute");
+		if(!pf_execute) {
+			dlclose(_util_handle);
+			_util_handle = nullptr;
 			return false;
 		}
 
+		pf_execute(argc, argv);
 
-
-
-		destroy_component pfdestroy = (destroy_component)dlsym(_ut_handle, "destroy");
-		if(pfdestroy)
-			pfdestroy();
-
-		if(_ut_handle)
-		{
-			dlclose(_ut_handle);
-			_ut_handle = nullptr;
-		}
-
-	}*/
+		return true;
+	}
 
 	return false;
+}
+
+bool utilloader::load(const char* target_util)
+{
+	_util_handle = dlopen(fmt::format("./{}.so",target_util).c_str(), RTLD_LAZY|RTLD_GLOBAL);
+	if(_util_handle)
+		return true;
+
+	return false;
+}
+
+
+void utilloader::unload()
+{
+	if(_util_handle)
+	{
+		dlclose(_util_handle);
+		_util_handle = nullptr;
+		cossb_log->log(cossb::log::loglevel::INFO, "Unload utility..");
+	}
 }
 
 } /* namespace util */

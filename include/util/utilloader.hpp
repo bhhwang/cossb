@@ -25,6 +25,18 @@ public:
 	bool execute(int argc, char* argv[]);
 
 private:
+	/**
+	 * @brief	load utility load
+	 */
+	bool load(const char* target_util);
+
+	/**
+	 * @brief	unload utility load
+	 */
+	void unload();
+
+
+private:
 	void* _util_handle = nullptr;
 };
 
