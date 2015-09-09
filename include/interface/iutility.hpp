@@ -39,6 +39,22 @@ protected:
 } /* namespace interfce */
 } /* namespace cossb */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+bool execute(int argc, char* argv[]);
+
+#ifdef __cplusplus
+}
+#endif
+
+#define USE_UTILITY_INTERFACE_EXECUTE(classname) extern "C" bool execute(int argc, char* argv[]) { \
+	classname* util = new classname();	\
+	bool ret = util->execute(argc, argv);	\
+	delete util;	\
+	return ret; \
+}
 
 
 #endif /* _COSSB_IUTILITY_HPP_ */
