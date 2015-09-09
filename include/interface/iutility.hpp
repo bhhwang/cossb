@@ -36,7 +36,7 @@ protected:
 };
 
 
-} /* namespace interfce */
+} /* namespace interface */
 } /* namespace cossb */
 
 #ifdef __cplusplus
