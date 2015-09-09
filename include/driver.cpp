@@ -136,16 +136,6 @@ void component_driver::request_proc()
 	}
 }
 
-/*template<typename... Args>
-void component_driver::request(const char* head, const Args&... args)
-{
-	auto data = std::make_tuple(head, args...);
-	message::message msg;
-	message::pack(&msg, data);
-
-	_mailbox.push(msg);
-	_condition.notify_one();
-}*/
 
 
 } /* namespace dirver */

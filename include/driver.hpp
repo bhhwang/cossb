@@ -25,7 +25,7 @@ namespace driver {
 
 class component_driver {
 
-	friend class manager::component_manager;
+	//friend class manager::component_manager;
 
 public:
 	component_driver(const char* component_name);
@@ -41,8 +41,19 @@ public:
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
 
+	/**
+	 * @brief	request message
+	 */
+	template<typename... Args>
+	void request(const char* head, const Args&... args) {
+		auto data = std::make_tuple(head, args...);
+		message::message msg;
+		message::pack(&msg, data);
 
-private:
+		_mailbox.push(msg);
+		_condition.notify_one();
+	}
+
 
 	/**
 	 * @brief	setup component
@@ -58,6 +69,9 @@ private:
 	 * @brief	stop component
 	 */
 	void stop();
+
+
+private:
 
 	/**
 	 * @brief	load component by name
@@ -78,19 +92,6 @@ private:
 	 * @brief	request process task
 	 */
 	void request_proc();
-
-	/**
-	 * @brief	request message
-	 */
-	template<typename... Args>
-	void request(const char* head, const Args&... args) {
-		auto data = std::make_tuple(head, args...);
-		message::message msg;
-		message::pack(&msg, data);
-
-		_mailbox.push(msg);
-		_condition.notify_one();
-	}
 
 	/**
 	 * for test, insert message
