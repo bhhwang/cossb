@@ -32,6 +32,7 @@ namespace manager {
 
 class component_manager : public arch::singleton<component_manager> {
 public:
+
 	component_manager();
 	virtual ~component_manager();
 

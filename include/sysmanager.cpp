@@ -54,7 +54,7 @@ bool system_manager::setup(base::configreader* config)
 
 	//3. load dependent components
 	for(auto dep:*config->get_required()) {
-		if(dep->type==base::requiredType::COMPONENT)
+		if(dep->type==base::bundleType::COMPONENT)
 			cossb_component_manager->install(dep->name.c_str());
 	}
 
