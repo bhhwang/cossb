@@ -26,9 +26,8 @@ Getting Started
 
 COSSB Utility Usage
 -------
-* createcomp
-This utility generates empty component class and its default profile into the own directory.
-Target directory will be created as 'CURRENT_DIRECTORY/COMPONENT_PATH/YOUR_CLASSNAME'.
+1. createcomp
+This utility generates empty component class and its default profile into the own directory. Target directory will be created as 'CURRENT_DIRECTORY/COMPONENT_PATH/YOUR_CLASSNAME'.
 ```
 $ sudo ./cossb --utility createcomp <your component class name>
 ```
