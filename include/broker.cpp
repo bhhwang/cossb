@@ -34,8 +34,9 @@ bool component_broker::publish(interface::icomponent* component, const char* to_
 	auto range = _topic_map.equal_range(to_topic);
 	for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 		if(itr->second.compare(component->get_name())!=0) {
-			//cossb_component_manager->get_driver()
-			//cossb_component_manager->get_driver(itr->second.c_str())->request(api, args...);
+			driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());//->request(api, args...);
+			/*if(_drv)
+				_drv->request(api, args...);*/
 		}
 	}
 
