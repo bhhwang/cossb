@@ -14,6 +14,7 @@
 #include <string>
 #include "arch/singleton.hpp"
 #include "base/configreader.hpp"
+#include "driver.hpp"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ namespace interface {
 	class ilog;
 	class iobject;
 }
-namespace driver { class component_driver; }
+//namespace driver { class component_driver; }
 namespace manager {
 
 /**
