@@ -22,7 +22,7 @@ Dependency
 Getting Started
 ===============
 * If you want to test all codes, Google Test Framework installation should be installed. (Use gtest_setup.sh)
-* All supported utilities cannot execute directly.
+* All supported utilities cannot be executed directly. it runs as a shared library.
 
 COSSB Utility Usage
 -------
