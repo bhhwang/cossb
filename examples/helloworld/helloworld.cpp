@@ -13,6 +13,7 @@ hello_world::hello_world()
 {
 
 }
+
 hello_world::~hello_world()
 {
 	destroy_task(_task);
@@ -33,8 +34,10 @@ bool hello_world::stop()
 	destroy_task(_task);
 	return true;
 }
+
 void hello_world::request(cossb::message::message* msg)
 {
+
 }
 
 void hello_world::hellotask()
@@ -42,6 +45,6 @@ void hello_world::hellotask()
 	while(1)
 	{
 		cossb_log->log(cossb::log::loglevel::INFO, "hello world~");
-		boost::this_thread::sleep(boost::posix_time::milliseconds(10));
+		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
 	}
 }

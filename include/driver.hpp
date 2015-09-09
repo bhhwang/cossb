@@ -77,7 +77,7 @@ private:
 	/**
 	 * @brief	request message
 	 */
-	void request(interface::imessage* msg);
+	void request(message::message* msg);
 
 	/**
 	 * @brief	request process task

@@ -32,7 +32,7 @@ bool compmdns::stop()
 	return true;
 }
 
-void compmdns::request(cossb::interface::imessage* msg)
+void compmdns::request(cossb::message::message* msg)
 {
 
 }

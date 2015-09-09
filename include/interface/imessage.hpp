@@ -39,6 +39,7 @@ inline bool unpack(msgType* data, const message& msg)
 		msgpack::unpack(&_unpack_msg, msg.data(), msg.size());
 		msgpack::object obj = _unpack_msg.get();
 		obj.convert(data);
+		return true;
 	}
 	catch(std::exception& e) {
 
@@ -47,16 +48,6 @@ inline bool unpack(msgType* data, const message& msg)
 }
 
 } /* namespace message */
-
-namespace interface {
-
-class imessage {
-public:
-	virtual ~imessage() { }
-
-};
-
-} /* namespace interface */
 } /* namespace cossb */
 
 
