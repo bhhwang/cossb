@@ -21,7 +21,7 @@ extern "C" {
 /**
  * @brief create COSSB core instances
  */
-extern bool cossb_init(const char* manifest);
+extern bool cossb_init(const char* manifest, bool setup=true);
 
 /**
  * @brief destroy COSSB core instances
