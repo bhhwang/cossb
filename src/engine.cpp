@@ -116,12 +116,17 @@ int main(int argc, char* argv[])
 		//use COSSB utility
 		case 'u':
 		{
+			cossb_log->log(log::loglevel::INFO, "Initializing....");
+			if(!cossb::core::cossb_init("manifest.xml", false))
+				destroy();
+			else
+				cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
+
 			string target = (const char*)poptGetOptArg(optionCon);
-			cossb_log->log(log::loglevel::INFO, fmt::format("Execute COSSB {} utility..", target).c_str());
 
 			interface::iutility* _utility = new util::utilloader(target.c_str());
-			if(!_utility->launch(argc, argv))
-				cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot launch {} utility").c_str());
+			if(!_utility->execute(argc, argv))
+				cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot execute '{}' utility", target).c_str());
 			delete _utility;
 
 		}
