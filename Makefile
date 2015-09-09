@@ -12,7 +12,7 @@ CXX = g++
 CXXFLAGS = -O3 -g3 -fPIC -Wall -std=c++11 -D__cplusplus=201103L
 CCFLAGS = $(CXXFLAGS)
 LDFLAGS = -Wl,--export-dynamic
-LDLIBS = -lpopt -lboost_system -lboost_thread -ltinyxml2 -ldl
+LDLIBS = -lpopt -lboost_system -lboost_thread -lboost_filesystem -ltinyxml2 -ldl
 LDLIBS_TEST = -lpopt -lboost_system -lboost_thread -ltinyxml2 -ldl -lgtest -lpthread
 INCLUDE = -I./include -I/usr/include -I/usr/local/include
 RM	= rm -rf
@@ -23,6 +23,7 @@ INCLUDE_FILES = ./include/
 COMPONENT_FILES = ./support/
 EXAMPLE_FILES = ./examples/
 LIB_FILES = ./lib/
+UTIL_FILES = ./utils/
 TEST_FILES = ./test/
 SOURCE_FILES = ./src/
 BASE_FILES = ./base/
@@ -48,6 +49,10 @@ libcblog.so:	$(OUTDIR)cblog.o $(OUTDIR)localtime.o
 	
 #Make libcbmdns.so	
 libcbmdns.so:	$(OUTDIR)cbmdns.o 
+				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+				
+#Make createcomp utility
+createcomp.so:	$(OUTDIR)createcomp.o 
 				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 #example components
@@ -134,16 +139,22 @@ $(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
 $(OUTDIR)engine_test.o: $(TEST_FILES)engine_test.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 $(OUTDIR)sysmanager_test.o: $(TEST_FILES)sysmanager_test.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+#utility
+$(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp createcomp.so
 
 base: cossb
 
 example : helloworld.comp
 
 component: compserial.comp compmdns.comp messagepub.comp
+
+util : createcomp.so
 
 test: cossb_test
 
