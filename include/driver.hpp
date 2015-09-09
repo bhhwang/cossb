@@ -75,14 +75,22 @@ private:
 	bool set_profile(interface::iprofile* profile, const char* path);
 
 	/**
-	 * @brief	request message
-	 */
-	void request(message::message* msg);
-
-	/**
 	 * @brief	request process task
 	 */
 	void request_proc();
+
+	/**
+	 * @brief	request message
+	 */
+	template<typename... Args>
+	void request(const char* head, const Args&... args) {
+		auto data = std::make_tuple(head, args...);
+		message::message msg;
+		message::pack(&msg, data);
+
+		_mailbox.push(msg);
+		_condition.notify_one();
+	}
 
 	/**
 	 * for test, insert message
