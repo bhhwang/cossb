@@ -26,6 +26,7 @@ Getting Started
 Example (for Component)
 -------
 At first, you can use 'createcomp' utility as shown below, that will generate empty component class and its default profile.
+This command creates directories as 'CURRENT_DIRECTORY/COMPONENT_PATH/YOUR_CLASSNAME', and then all required files will be created.
 ```
 $ sudo ./cossb --utility createcomp <your component class name>
 ```
