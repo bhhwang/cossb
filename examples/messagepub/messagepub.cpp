@@ -50,6 +50,6 @@ void messagepub::pub()
 
 		vector<unsigned char> data;
 		data.push_back('a');
-		//cossb_broker->publish(this, "service/helloworld", "raw", data);
+		cossb_broker->publish(this, "service/helloworld", "raw", data);
 	}
 }
