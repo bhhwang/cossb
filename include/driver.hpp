@@ -11,21 +11,17 @@
 
 #include <string>
 #include <queue>
-#include "interface/icomponent.hpp"
-#include "interface/iprofile.hpp"
-#include "interface/ilog.hpp"
-#include "interface/imessage.hpp"
-#include "manager.hpp"
-#include "base/task.hpp"
+#include "interface.hpp"
 
 using namespace std;
 
 namespace cossb {
+namespace manager { class component_manager; }
 namespace driver {
 
 class component_driver {
 
-	//friend class manager::component_manager;
+	friend class manager::component_manager;
 
 public:
 	component_driver(const char* component_name);
@@ -41,6 +37,8 @@ public:
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; };
 
+
+private:
 	/**
 	 * @brief	request message
 	 */
