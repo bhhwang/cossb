@@ -79,6 +79,14 @@ $(OUTDIR)compmdns.o: $(COMPONENT_FILES)compmdns/compmdns.cpp
 messagepub.comp: $(OUTDIR)messagepub.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)messagepub.o: $(EXAMPLE_FILES)messagepub/messagepub.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+#================== zeroconf component
+compzeroconf.comp: $(OUTDIR)compzeroconf.o $(OUTDIR)libzeroconf.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS) -lavahi-common -lavahi-client
+$(OUTDIR)compzeroconf.o: $(COMPONENT_FILES)compzeroconf/compzeroconf.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+$(OUTDIR)libzeroconf.o: $(COMPONENT_FILES)compzeroconf/libzeroconf.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@			
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
@@ -146,7 +154,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp createcomp.util
+all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp compzeroconf.comp createcomp.util
 
 base: cossb
 
