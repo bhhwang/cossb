@@ -22,7 +22,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::interface::imessage* msg);
+	void request(message::message* msg);
 };
 
 COMPONENT_EXPORT
