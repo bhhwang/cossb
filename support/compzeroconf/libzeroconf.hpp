@@ -1,5 +1,9 @@
 /**
- * @brief	zeroconfig using Avahi (version 0.6.31)
+ * @file		libzeroconf.hpp
+ * @brief		Zero Configuration Impl. using Avahi
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 9. 12
+ * @details	Zero Configuration wrapper class using Avahi
  */
 
 #ifndef SUPPORT_COMPZEROCONF_LIBZEROCONF_HPP_
