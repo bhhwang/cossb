@@ -2,17 +2,17 @@
 # COSSB CMakeList.txt
 ################################
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(cossb)
+cmake_minimum_required(VERSION 2.8)
+project(cossb)
 
-#COSSB version
-SET(COSSB_VERSION_MAJOR	0)
-SET(COSSB_VERSION_MINOR	0)
-SET(COSSB_VERSION_REV	1)
+include_directories(${cossb_SOURCE_DIR}/include)
 
-ADD_EXECUTABLE(cossb engine.cxx)
-ADD_EXECUTABLE(cossbd engined.cxx)
+set (INCLUDE_DIR ${cossb_SOURCE_DIR}/include)
+set (EXAMPLE_DIR ${cossb_SOURCE_DIR}/example)
+set (LIB_DIR ${cossb_SOURCE_DIR}/lib)
+set (SUPPORT_DIR ${cossb_SOURCE_DIR}/support)
+set (TEST_DIR ${cossb_SOURCE_DIR}/test)
+set (SOURCE_DIR ${cossb_SOURCE_DIR}/src)
 
-ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(support)
-ADD_SUBDIRECTORY(examples)
+add_executable(cossb ${SOURCE_DIR}/engine.cpp)
+add_executable(cossbd ${SOURCE_DIR}/engined.cpp)
