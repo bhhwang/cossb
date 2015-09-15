@@ -17,11 +17,13 @@ using namespace std;
 
 namespace cossb {
 namespace manager { class component_manager; }
+namespace broker { class component_broker; }
 namespace driver {
 
 class component_driver {
 
 	friend class manager::component_manager;
+	friend class broker::component_broker;
 
 public:
 	component_driver(const char* component_name);
@@ -50,6 +52,7 @@ private:
 
 		_mailbox.push(msg);
 		_condition.notify_one();
+		cout << "?" << endl;
 	}
 
 
