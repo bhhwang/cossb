@@ -13,6 +13,8 @@
 #include <string>
 #include "interface/icomponent.hpp"
 #include "arch/singleton.hpp"
+#include "manager.hpp"
+#include "logger.hpp"
 
 using namespace std;
 
@@ -30,13 +32,29 @@ public:
 	/**
 	 *@brief	regist component with topic
 	 */
-	bool regist(interface::icomponent* component, string topic_name);
+	bool regist(interface::icomponent* component, string topic_name) {
+		_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
+		return true;
+	}
 
 	/**
 	 * @brief	publish data pack to specific service component
 	 */
 	template<typename... Args>
-	bool publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args);
+	bool publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args) {
+		auto range = _topic_map.equal_range(to_topic);
+		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
+			if(itr->second.compare(component->get_name())!=0) {
+				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
+				if(_drv) {
+					cossb_log->log(log::loglevel::INFO, "publish");
+					//_drv->request(api, args...);
+				}
+			}
+		}
+
+		return true;
+	}
 
 private:
 	topic_map	_topic_map;

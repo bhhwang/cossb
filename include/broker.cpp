@@ -22,7 +22,7 @@ component_broker::~component_broker()
 {
 
 }
-
+/*
 bool component_broker::regist(interface::icomponent* component, string topic_name)
 {
 	_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
@@ -44,7 +44,7 @@ bool component_broker::publish(interface::icomponent* component, const char* to_
 	}
 
 	return true;
-}
+}*/
 
 } /* namespace broker */
 } /* namespace cossb */
