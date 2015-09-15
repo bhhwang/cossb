@@ -44,12 +44,14 @@ public:
 	bool publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args) {
 		auto range = _topic_map.equal_range(to_topic);
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
-			if(itr->second.compare(component->get_name())!=0) {
+			if(itr->second.compare(component->get_name())==0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
 				if(_drv) {
 					cossb_log->log(log::loglevel::INFO, "publish");
-					//_drv->request(api, args...);
+					_drv->request(api, args...);
 				}
+				else
+					cossb_log->log(log::loglevel::INFO, "cannot publish");
 			}
 		}
 
