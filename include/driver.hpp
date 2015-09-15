@@ -10,6 +10,7 @@
 #define _COSSB_DRIVER_HPP_
 
 #include <string>
+#include <tuple>
 #include <queue>
 #include "interface.hpp"
 
