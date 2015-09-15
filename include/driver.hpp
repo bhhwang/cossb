@@ -52,7 +52,6 @@ private:
 
 		_mailbox.push(msg);
 		_condition.notify_one();
-		cout << "?" << endl;
 	}
 
 
