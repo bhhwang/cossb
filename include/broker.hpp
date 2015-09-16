@@ -26,8 +26,8 @@ typedef multimap<string, string> topic_map;
 
 class component_broker : public arch::singleton<component_broker> {
 public:
-	component_broker();
-	virtual ~component_broker();
+	component_broker() { };
+	virtual ~component_broker() { };
 
 	/**
 	 *@brief	regist component with topic
