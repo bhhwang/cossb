@@ -46,12 +46,8 @@ public:
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 			if(itr->second.compare(component->get_name())==0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
-				if(_drv) {
-					cossb_log->log(log::loglevel::INFO, "publish");
+				if(_drv)
 					_drv->request(api, args...);
-				}
-				else
-					cossb_log->log(log::loglevel::INFO, "cannot publish");
 			}
 		}
 
