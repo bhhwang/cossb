@@ -30,16 +30,16 @@ BASE_FILES = ./base/
 
 
 # Make COSBB Engine
-cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
+cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
 		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o $(OUTDIR)utilloader.o   
 		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
-cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)broker.o $(OUTDIR)config.o
+cossbd: $(OUTDIR)engined.o $(OUTDIR)compmanager.o $(OUTDIR)config.o
 		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 cossb_test: $(OUTDIR)engine_test.o $(OUTDIR)sysmanager_test.o \
-			$(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)broker.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
+			$(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
 			$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o
 			$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS_TEST)	
 
@@ -93,9 +93,6 @@ $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)sysmanager.o: $(INCLUDE_FILES)sysmanager.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-	
-$(OUTDIR)broker.o: $(INCLUDE_FILES)broker.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 $(OUTDIR)driver.o: $(INCLUDE_FILES)driver.cpp
