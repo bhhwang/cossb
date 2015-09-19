@@ -32,7 +32,10 @@ bool compzeroconf::setup()
 
 bool compzeroconf::run()
 {
+	if(_zeroconf) {
 	_zeroconf->browse();
+	cossb_log->log(log::loglevel::INFO, "call browse function");
+	}
 	return true;
 }
 

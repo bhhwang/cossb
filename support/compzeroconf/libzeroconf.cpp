@@ -147,7 +147,7 @@ void libzeroconf::browse()
 {
 	//allocate main loop object
 	if(!(_poll = avahi_simple_poll_new())) {
-		cout << "Fail to create simpol poll object" << endl;
+		cout << "Fail to create simple poll object" << endl;
 		return;
 	}
 
@@ -161,7 +161,7 @@ void libzeroconf::browse()
 	}
 
 	//create the service browser
-	if(!(_browser=avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "_http._tcp", NULL, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client))) {
+	if(!(_browser=avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "", NULL, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client))) {
 		cout << "Failed to create service browser : " << avahi_strerror(avahi_client_errno(_client)) << endl;
 		clean();
 	}
