@@ -32,6 +32,7 @@ bool compzeroconf::setup()
 
 bool compzeroconf::run()
 {
+	_zeroconf->browse();
 	return true;
 }
 

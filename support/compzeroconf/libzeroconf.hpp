@@ -12,6 +12,7 @@
 #include <avahi-client/client.h>
 #include <avahi-client/lookup.h>
 #include <avahi-common/simple-watch.h>
+#include <avahi-common/malloc.h>
 
 class libzeroconf {
 public:
@@ -21,9 +22,11 @@ public:
 	void browse();
 
 private:
+	void clean();
+
+private:
 	AvahiClient* _client = nullptr;
 	AvahiServiceBrowser* _browser = nullptr;
-	AvahiSimplePoll* _poll = nullptr;
 };
 
 #endif /* SUPPORT_COMPZEROCONF_LIBZEROCONF_HPP_ */
