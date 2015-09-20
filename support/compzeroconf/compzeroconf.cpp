@@ -53,6 +53,8 @@ bool compzeroconf::run()
 
 bool compzeroconf::stop()
 {
+	destroy_task(_browse_task);
+
 	if(_zeroconf)
 	{
 		delete _zeroconf;
