@@ -13,7 +13,7 @@ using namespace std;
 
 static AvahiSimplePoll* _poll = nullptr;
 
-static void resolve_callback(
+void libzeroconf::resolve_callback(
     AvahiServiceResolver* resolver,
     AVAHI_GCC_UNUSED AvahiIfIndex interface,
     AVAHI_GCC_UNUSED AvahiProtocol protocol,
@@ -64,7 +64,7 @@ static void resolve_callback(
         }
     }
 
-    avahi_service_resolver_free(r);
+    avahi_service_resolver_free(resolver);
 }
 
 void libzeroconf::type_browse_callback(AvahiServiceTypeBrowser* browser, AvahiIfIndex interface, AvahiProtocol protocol, AvahiBrowserEvent event, const char* type, const char* domain, AvahiLookupResultFlags flags, void* userdata)
@@ -93,13 +93,13 @@ void libzeroconf::type_browse_callback(AvahiServiceTypeBrowser* browser, AvahiIf
 	}
 }
 
-static void browse_callback(AvahiServiceBrowser *b,
+void libzeroconf::browse_callback(AvahiServiceBrowser* browser,
 	    AvahiIfIndex interface,
 	    AvahiProtocol protocol,
 	    AvahiBrowserEvent event,
-	    const char *name,
-	    const char *type,
-	    const char *domain,
+	    const char* name,
+	    const char* type,
+	    const char* domain,
 	    AVAHI_GCC_UNUSED AvahiLookupResultFlags flags,
 	    void* userdata) {
 
@@ -110,7 +110,7 @@ static void browse_callback(AvahiServiceBrowser *b,
 	switch (event) {
 		case AVAHI_BROWSER_FAILURE:
 
-			fprintf(stderr, "(Browser) %s\n", avahi_strerror(avahi_client_errno(avahi_service_browser_get_client(b))));
+			fprintf(stderr, "(Browser) %s\n", avahi_strerror(avahi_client_errno(avahi_service_browser_get_client(browser))));
 			avahi_simple_poll_quit(_poll);
 			return;
 

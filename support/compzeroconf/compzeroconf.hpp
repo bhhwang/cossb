@@ -24,7 +24,12 @@ public:
 	void request(cossb::message::message* msg);
 
 private:
+	void browse_task();
+
+private:
 	libzeroconf* _zeroconf = nullptr;
+
+	base::task _browse_task = nullptr;
 
 };
 
