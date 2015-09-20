@@ -14,7 +14,7 @@ using namespace std;
 static AvahiSimplePoll* _poll = nullptr;
 
 static void resolve_callback(
-    AvahiServiceResolver *r,
+    AvahiServiceResolver* resolver,
     AVAHI_GCC_UNUSED AvahiIfIndex interface,
     AVAHI_GCC_UNUSED AvahiProtocol protocol,
     AvahiResolverEvent event,
@@ -32,7 +32,7 @@ static void resolve_callback(
 
     switch (event) {
         case AVAHI_RESOLVER_FAILURE:
-            fprintf(stderr, "(Resolver) Failed to resolve service '%s' of type '%s' in domain '%s': %s\n", name, type, domain, avahi_strerror(avahi_client_errno(avahi_service_resolver_get_client(r))));
+            fprintf(stderr, "(Resolver) Failed to resolve service '%s' of type '%s' in domain '%s': %s\n", name, type, domain, avahi_strerror(avahi_client_errno(avahi_service_resolver_get_client(resolver))));
             break;
 
         case AVAHI_RESOLVER_FOUND: {
