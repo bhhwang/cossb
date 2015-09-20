@@ -33,7 +33,7 @@ bool compzeroconf::setup()
 bool compzeroconf::run()
 {
 	if(_zeroconf) {
-	_zeroconf->browse();
+	_zeroconf->browse("_http._tcp","local");
 	cossb_log->log(log::loglevel::INFO, "call browse function");
 	}
 	return true;

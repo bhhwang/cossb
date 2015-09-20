@@ -68,6 +68,39 @@ static void resolve_callback(
     avahi_service_resolver_free(r);
 }
 
+static void type_browse_callback(AvahiServiceTypeBrowser *b,
+	    AvahiIfIndex interface,
+	    AvahiProtocol protocol,
+	    AvahiBrowserEvent event,
+	    const char *type,
+	    const char *domain,
+	    AvahiLookupResultFlags flags,
+	    void *userdata){
+
+	switch (event)
+	{
+		case AVAHI_BROWSER_FAILURE:
+
+			fprintf(stderr, "(Browser) %s\n", avahi_strerror(avahi_client_errno(avahi_service_type_browser_get_client(b))));
+			avahi_simple_poll_quit(_poll);
+			return;
+
+		case AVAHI_BROWSER_NEW:
+			fprintf(stderr, "(Browser) NEW: service type '%s' in domain '%s'\n", type, domain);
+
+			break;
+
+		case AVAHI_BROWSER_REMOVE:
+			fprintf(stderr, "(Browser) REMOVE: service type '%s' in domain '%s'\n", type, domain);
+			break;
+
+		case AVAHI_BROWSER_ALL_FOR_NOW:
+		case AVAHI_BROWSER_CACHE_EXHAUSTED:
+			fprintf(stderr, "(Browser) %s\n", event == AVAHI_BROWSER_CACHE_EXHAUSTED ? "CACHE_EXHAUSTED" : "ALL_FOR_NOW");
+			break;
+	}
+}
+
 static void browse_callback(AvahiServiceBrowser *b,
 	    AvahiIfIndex interface,
 	    AvahiProtocol protocol,
@@ -143,7 +176,7 @@ void libzeroconf::clean()
 		avahi_simple_poll_free(_poll);
 }
 
-void libzeroconf::browse()
+void libzeroconf::browse(const char* srv_type, const char* domain)
 {
 	//allocate main loop object
 	if(!(_poll = avahi_simple_poll_new())) {
@@ -160,11 +193,19 @@ void libzeroconf::browse()
 		clean();
 	}
 
-	//create the service browser
-	if(!(_browser=avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, "_cossb", ".local", AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client))) {
+	//create the service browser(for ipv4)
+	if(!(_browser=avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client))) {
 		cout << "Failed to create service browser : " << avahi_strerror(avahi_client_errno(_client)) << endl;
 		clean();
 	}
+
+	_srv_browser = avahi_service_type_browser_new(
+			_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET,
+			domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST,
+			type_browse_callback,
+			_client);
+
+
 
 	//run mani loop
 	avahi_simple_poll_loop(_poll);

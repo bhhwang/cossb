@@ -19,7 +19,14 @@ public:
 	libzeroconf();
 	virtual ~libzeroconf();
 
-	void browse();
+	/**
+	 * @brief	browse services
+	 */
+	void browse(const char* srv_type, const char* domain);
+
+	/**
+	 * @brief	get list of service type
+	 */
 
 private:
 	void clean();
@@ -27,6 +34,7 @@ private:
 private:
 	AvahiClient* _client = nullptr;
 	AvahiServiceBrowser* _browser = nullptr;
+	AvahiServiceTypeBrowser* _srv_browser = nullptr;
 };
 
 #endif /* SUPPORT_COMPZEROCONF_LIBZEROCONF_HPP_ */
