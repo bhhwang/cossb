@@ -19,7 +19,7 @@
 
 using namespace std;
 
-enum class IPVersion : unsigned int { IPV4=0, IPV6 };
+enum class IPVersion : unsigned int { IPV4=0, IPV6, UNSPEC };
 
 class libzeroconf {
 public:

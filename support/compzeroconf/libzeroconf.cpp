@@ -170,7 +170,42 @@ void libzeroconf::clean()
 
 void libzeroconf::browse(const char* domain, IPVersion ipv)
 {
+	if(!(_poll=avahi_simple_poll_new()))
+		return;
 
+	int error = 0;
+	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, NULL, &error);
+
+	if(!_client)
+		clean();
+
+	_srv_browser = avahi_service_type_browser_new(
+			_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
+
+
+	switch(ipv)
+	{
+	case	IPVersion::IPV4:
+	{
+		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
+			clean();
+	}
+		break;
+	case	IPVersion::IPV6:
+	{
+		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET6, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
+			clean();
+	}
+		break;
+	case	IPVersion::UNSPEC:
+	{
+		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
+			clean();
+	}
+		break;
+	}
+
+	avahi_simple_poll_loop(_poll);
 }
 
 void libzeroconf::browse(const char* srv_type, const char* domain)
