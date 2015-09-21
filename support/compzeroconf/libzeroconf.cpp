@@ -168,6 +168,11 @@ void libzeroconf::clean()
 		avahi_simple_poll_free(_poll);
 }
 
+void libzeroconf::browse(const char* domain, IPVersion ipv)
+{
+
+}
+
 void libzeroconf::browse(const char* srv_type, const char* domain)
 {
 	//allocate main loop object
@@ -203,3 +208,9 @@ vector<string>* libzeroconf::get_service_types(const char* domain)
 {
 	return &_service_types;
 }
+
+void libzeroconf::discover(const char* domain, IPVersion ipv)
+{
+
+}
+

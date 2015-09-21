@@ -10,6 +10,11 @@
 #define SUPPORT_COMPZEROCONF_COMPZEROCONF_HPP_
 
 #include "../../include/interface.hpp"
+#include <string>
+#include <vector>
+#include <map>
+
+using namespace std;
 
 using namespace cossb;
 class libzeroconf;
@@ -26,8 +31,15 @@ public:
 private:
 	void browse_task();
 
+	void update_services();
+
 private:
 	libzeroconf* _zeroconf = nullptr;
+
+	/**
+	 * @brief	all services found
+	 */
+	vector<string> _services;
 
 	base::task _browse_task = nullptr;
 

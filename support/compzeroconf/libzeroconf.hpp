@@ -19,6 +19,8 @@
 
 using namespace std;
 
+enum class IPVersion : unsigned int { IPV4=0, IPV6 };
+
 class libzeroconf {
 public:
 	libzeroconf();
@@ -28,6 +30,13 @@ public:
 	 * @brief	browse services
 	 */
 	void browse(const char* srv_type, const char* domain);
+	void browse(const char* domain, IPVersion ipv);
+
+	/**
+	 * @brief	service discovery
+	 */
+	void discover(const char* domain, IPVersion ipv);
+
 
 	/**
 	 * @brief	get list of service type
