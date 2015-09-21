@@ -59,13 +59,7 @@ void compzeroconf::request(cossb::message::message* msg)
 void compzeroconf::browse_task()
 {
 	_zeroconf = new libzeroconf();
-
 	_zeroconf->browse("local", IPVersion::IPV4);
-
-	while(1)
-	{
-		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
-	}
 
 
 	if(_zeroconf) {
