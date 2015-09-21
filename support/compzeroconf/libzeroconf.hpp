@@ -30,7 +30,7 @@ public:
 	 * @brief	browse services
 	 */
 	void browse(const char* srv_type, const char* domain);
-	void browse(const char* domain, IPVersion ipv);
+	void browse(const char* domain, IPVersion ipv, void (*event)(void));
 
 	/**
 	 * @brief	service discovery

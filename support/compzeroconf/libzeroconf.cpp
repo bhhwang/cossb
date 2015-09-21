@@ -168,7 +168,7 @@ void libzeroconf::clean()
 		avahi_simple_poll_free(_poll);
 }
 
-void libzeroconf::browse(const char* domain, IPVersion ipv)
+void libzeroconf::browse(const char* domain, IPVersion ipv, void (*event)(void))
 {
 	if(!(_poll=avahi_simple_poll_new()))
 		return;
@@ -183,7 +183,7 @@ void libzeroconf::browse(const char* domain, IPVersion ipv)
 			_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
 
 
-	switch(ipv)
+	/*switch(ipv)
 	{
 	case	IPVersion::IPV4:
 	{
@@ -203,7 +203,7 @@ void libzeroconf::browse(const char* domain, IPVersion ipv)
 			clean();
 	}
 		break;
-	}
+	}*/
 
 	avahi_simple_poll_loop(_poll);
 }

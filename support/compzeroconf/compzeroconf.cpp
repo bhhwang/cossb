@@ -59,13 +59,18 @@ void compzeroconf::request(cossb::message::message* msg)
 void compzeroconf::browse_task()
 {
 	_zeroconf = new libzeroconf();
-	_zeroconf->browse("local", IPVersion::IPV4);
+	_zeroconf->browse("local", IPVersion::IPV4, on_change);
 
-
+	cossb_log->log(log::loglevel::INFO, "browse services");
 	if(_zeroconf) {
 		delete _zeroconf;
 		_zeroconf = nullptr;
 	}
 
+
+}
+
+void compzeroconf::on_change()
+{
 
 }

@@ -32,6 +32,7 @@ private:
 	void browse_task();
 
 	void update_services();
+	static void on_change();
 
 private:
 	libzeroconf* _zeroconf = nullptr;
