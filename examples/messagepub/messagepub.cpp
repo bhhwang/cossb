@@ -33,6 +33,7 @@ bool messagepub::run()
 }
 bool messagepub::stop()
 {
+	cossb_log->log(cossb::log::loglevel::INFO, "stop messagepub task");
 	destroy_task(_pub_task);
 	return true;
 }
@@ -45,11 +46,17 @@ void messagepub::pub()
 {
 	while(1)
 	{
+		try {
 		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
 
 		vector<unsigned char> data;
 		data.push_back('a');
 		cossb_broker->publish(this, "service/helloworld", "raw", data);
 		cossb_log->log(cossb::log::loglevel::INFO, "message publish");
+		}
+		catch(thread_interrupted&)
+		{
+			break;
+		}
 	}
 }
