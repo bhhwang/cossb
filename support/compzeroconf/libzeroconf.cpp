@@ -8,6 +8,7 @@
 #include "libzeroconf.hpp"
 #include <iostream>
 #include <avahi-common/error.h>
+#include <avahi-common/domain.h>
 #include <algorithm>
 
 
@@ -16,8 +17,80 @@ using namespace std;
 
 static AvahiSimplePoll* _poll = nullptr;
 static AvahiClient* _client = nullptr;
+static AvahiStringList* browsed_types = nullptr;
+static ServiceInfo* services = nullptr;
 static vector<string> _service_types;
+static int browsing = 0;
 
+static ServiceInfo* find_service(AvahiIfIndex interface, AvahiProtocol protocol, const char *name, const char *type, const char *domain)
+{
+    ServiceInfo* i;
+
+    for (i = services; i; i = i->info_next)
+		if (i->interface == interface &&
+			i->protocol == protocol &&
+			strcasecmp(i->name, name) == 0 &&
+			avahi_domain_equal(i->type, type) &&
+			avahi_domain_equal(i->domain, domain))
+
+			return i;
+
+    return nullptr;
+}
+
+static void remove_service(Config* c, ServiceInfo* i)
+{
+    AVAHI_LLIST_REMOVE(ServiceInfo, info, services, i);
+
+    if (i->resolver)
+        avahi_service_resolver_free(i->resolver);
+
+    avahi_free(i->name);
+    avahi_free(i->type);
+    avahi_free(i->domain);
+    avahi_free(i);
+}
+
+static int start(Config *config) {
+
+    if (config->verbose && !config->parsable) {
+        const char *version, *hn;
+
+        if (!(version = avahi_client_get_version_string(_client))) {
+            fprintf(stderr, ("Failed to query version string: %s\n"), avahi_strerror(avahi_client_errno(_client)));
+            return -1;
+        }
+
+        if (!(hn = avahi_client_get_host_name_fqdn(_client))) {
+            fprintf(stderr, ("Failed to query host name: %s\n"), avahi_strerror(avahi_client_errno(_client)));
+            return -1;
+        }
+
+        fprintf(stderr, ("Server version: %s; Host name: %s\n"), version, hn);
+
+        if (config->command == COMMAND_BROWSE_DOMAINS) {
+            /* Translators: This is a column heading with abbreviations for
+             *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
+            fprintf(stderr, ("E Ifce Prot Domain\n"));
+        } else {
+            /* Translators: This is a column heading with abbreviations for
+             *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
+            fprintf(stderr, ("E Ifce Prot %-*s %-20s Domain\n"), n_columns-35, ("Name"), ("Type"));
+        }
+    }
+
+    if (config->command == COMMAND_BROWSE_SERVICES)
+        browse_service_type(config, config->stype, config->domain);
+    else if (config->command == COMMAND_BROWSE_ALL_SERVICES)
+        browse_all(config);
+    else {
+        assert(config->command == COMMAND_BROWSE_DOMAINS);
+        browse_domains(config);
+    }
+
+    browsing = 1;
+    return 0;
+}
 
 
 /**
@@ -192,18 +265,18 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 				avahi_string_list_free(browsed_types);
 				browsed_types = NULL;
 
-				while (services)
+				while(services)
 					remove_service(config, services);
 
 				browsing = 0;
 
-				if (!(client = avahi_client_new(avahi_simple_poll_get(simple_poll), AVAHI_CLIENT_NO_FAIL, client_callback, config, &error))) {
-					fprintf(stderr, _("Failed to create client object: %s\n"), avahi_strerror(error));
+				if (!(client = avahi_client_new(avahi_simple_poll_get(_poll), AVAHI_CLIENT_NO_FAIL, client_callback, config, &error))) {
+					fprintf(stderr, "Failed to create client object: %s\n", avahi_strerror(error));
 					avahi_simple_poll_quit(simple_poll);
 				}
 
 			} else {
-				fprintf(stderr, _("Client failure, exiting: %s\n"), avahi_strerror(avahi_client_errno(c)));
+				fprintf(stderr, "Client failure, exiting: %s\n", avahi_strerror(avahi_client_errno(client)));
 				avahi_simple_poll_quit(simple_poll);
 			}
 
@@ -255,8 +328,8 @@ void libzeroconf::clean()
 	if(_client)
 		avahi_client_free(_client);
 
-	avahi_free(config.domain);
-	avahi_free(config.stype);
+	//avahi_free(config.domain);
+	//avahi_free(config.stype);
 
 	avahi_string_list_free(browsed_types);
 

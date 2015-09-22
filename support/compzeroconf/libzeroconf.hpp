@@ -13,6 +13,7 @@
 #include <avahi-client/lookup.h>
 #include <avahi-common/simple-watch.h>
 #include <avahi-common/malloc.h>
+#include <avahi-common/llist.h>
 #include <vector>
 #include <map>
 #include <string>
@@ -35,8 +36,8 @@ typedef struct Config {
     int verbose;
     int terminate_on_all_for_now;
     int terminate_on_cache_exhausted;
-    char *domain;
-    char *stype;
+    char* domain;
+    char* stype;
     int ignore_local;
     Command command;
     int resolve;
@@ -46,6 +47,21 @@ typedef struct Config {
     int no_db_lookup;
 #endif
 } Config;
+
+typedef struct ServiceInfo ServiceInfo;
+
+struct ServiceInfo {
+	AvahiIfIndex interface;
+	AvahiProtocol protocol;
+	char* name;
+	char* type;
+	char* domain;
+
+	AvahiServiceResolver* resolver;
+	Config* config;
+
+	AVAHI_LLIST_FIELDS(ServiceInfo, info);
+};
 
 enum class IPVersion : unsigned int { IPV4=0, IPV6, UNSPEC };
 
