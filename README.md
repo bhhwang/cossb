@@ -15,7 +15,8 @@ Dependency
 * libtinyxml2
 * libpopt
 * libboost (thread, mutex, posix_time..)
-* [google test framework 1.7.0](http://code.google.com/p/googletest/downloads/list)
+* [google test framework 1.7.0](http://code.google.com/p/googletest/downloads/list) (only for test)
+* [avahi-daemon](http://avahi.org/)
 
 
 
