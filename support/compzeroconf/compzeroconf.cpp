@@ -68,8 +68,8 @@ void compzeroconf::request(cossb::message::message* msg)
 
 void compzeroconf::browse_task()
 {
-	if(!_zeroconf->browse("local", IPVersion::IPV4, on_change))
-		cossb_log->log(log::loglevel::ERROR, "Zero Configuration Error");
+	if(_zeroconf)
+		_zeroconf->browse("local", IProtocol::IPV4, on_change);
 }
 
 void compzeroconf::on_change()

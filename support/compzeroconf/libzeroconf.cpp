@@ -247,10 +247,11 @@ static void browse_callback(AvahiServiceBrowser* browser,
  */
 static void client_callback(AvahiClient* client, AvahiClientState state, void* userdata)
 {
-    Config *config = userdata;
+	Config* config = userdata;
 
-	switch (state) {
-		case AVAHI_CLIENT_FAILURE:
+	switch(state)
+	{
+	case AVAHI_CLIENT_FAILURE:
 
 			if (config->no_fail && avahi_client_errno(client) == AVAHI_ERR_DISCONNECTED) {
 				int error;
@@ -285,11 +286,11 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 		case AVAHI_CLIENT_S_REGISTERING:
 		case AVAHI_CLIENT_S_RUNNING:
 		case AVAHI_CLIENT_S_COLLISION:
-
+		{
 			if (!browsing)
 				if (start(config) < 0)
 					avahi_simple_poll_quit(simple_poll);
-
+		}
 			break;
 
 		case AVAHI_CLIENT_CONNECTING:
@@ -323,13 +324,13 @@ void libzeroconf::clean()
 	avahi_simple_poll_quit(_poll);
 
 	while(services)
-		remove_service(&config, services);
+		remove_service(&_config, services);
 
 	if(_client)
 		avahi_client_free(_client);
 
-	//avahi_free(config.domain);
-	//avahi_free(config.stype);
+	avahi_free(_config.domain);
+	avahi_free(_config.stype);
 
 	avahi_string_list_free(browsed_types);
 
@@ -337,40 +338,33 @@ void libzeroconf::clean()
 		avahi_simple_poll_free(_poll);
 }
 
-bool libzeroconf::browse(const char* domain, IPVersion ipv, event on_updated)
+void libzeroconf::browse(const char* domain, IProtocol ipv, event on_updated)
 {
 	if(!(_poll=avahi_simple_poll_new())) {
 		clean();
-		return false;
+		return;
 	}
 
-	int error = 0;
-	Config config;
-
-	config.command = COMMAND_BROWSE_ALL_SERVICES;
-	config.verbose =
-	config.terminate_on_cache_exhausted =
-	config.terminate_on_all_for_now =
-	config.ignore_local =
-	config.resolve =
-	config.no_fail =
-	config.parsable = 0;
-	config.domain = config.stype = NULL;
+	_config.command = COMMAND_BROWSE_ALL_SERVICES;
+	_config.verbose =
+	_config.terminate_on_cache_exhausted =
+	_config.terminate_on_all_for_now =
+	_config.ignore_local =
+	_config.resolve =
+	_config.no_fail =
+	_config.parsable = 0;
+	_config.domain = _config.stype = nullptr;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
     c.no_db_lookup = 0;
 #endif
 
-	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, &config, &error);
-
-	if(!_client) {
-		clean();
-		return false;
+    int error = 0;
+    if(!(_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, &_config, &error))) {
+    	clean();
+		return;
 	}
 
-	//for test
     avahi_simple_poll_loop(_poll);
-
-
 
 
 
@@ -417,8 +411,6 @@ bool libzeroconf::browse(const char* domain, IPVersion ipv, event on_updated)
 		avahi_simple_poll_loop(_poll);
 		avahi_service_browser_free(srv_browser);
 	}*/
-
-	return true;
 }
 
 
