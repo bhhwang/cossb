@@ -39,13 +39,23 @@ bool compzeroconf::setup()
 bool compzeroconf::run()
 {
 	if(!_browse_task)
+	{
+		_zeroconf = new libzeroconf();
 		_browse_task = create_task(compzeroconf::browse_task);
+	}
 
 	return true;
 }
 
 bool compzeroconf::stop()
 {
+	cossb_log->log(log::loglevel::INFO, "stop task");
+
+	if(_zeroconf) {
+		delete _zeroconf;
+		_zeroconf = nullptr;
+	}
+
 	destroy_task(_browse_task);
 
 	return true;
@@ -58,19 +68,10 @@ void compzeroconf::request(cossb::message::message* msg)
 
 void compzeroconf::browse_task()
 {
-	_zeroconf = new libzeroconf();
 	_zeroconf->browse("local", IPVersion::IPV4, on_change);
-
-	cossb_log->log(log::loglevel::INFO, "browse services");
-	if(_zeroconf) {
-		delete _zeroconf;
-		_zeroconf = nullptr;
-	}
-
-
 }
 
 void compzeroconf::on_change()
 {
-
+	cossb_log->log(log::loglevel::INFO, "on change event occurred");
 }

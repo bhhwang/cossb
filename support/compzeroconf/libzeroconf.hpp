@@ -19,6 +19,8 @@
 
 using namespace std;
 
+typedef void (*event)(void);
+
 enum class IPVersion : unsigned int { IPV4=0, IPV6, UNSPEC };
 
 class libzeroconf {
@@ -30,7 +32,7 @@ public:
 	 * @brief	browse services
 	 */
 	void browse(const char* srv_type, const char* domain);
-	void browse(const char* domain, IPVersion ipv, void (*event)(void));
+	void browse(const char* domain, IPVersion ipv, event on_updated);
 
 	/**
 	 * @brief	service discovery
@@ -50,6 +52,8 @@ private:
 	AvahiClient* _client = nullptr;
 	AvahiServiceBrowser* _browser = nullptr;
 	AvahiServiceTypeBrowser* _srv_browser = nullptr;
+
+	event _test = nullptr;
 
 	/**
 	 * @brief	resolve callback function

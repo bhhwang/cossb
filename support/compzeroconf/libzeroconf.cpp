@@ -153,11 +153,13 @@ libzeroconf::libzeroconf() {
 }
 
 libzeroconf::~libzeroconf() {
-	// TODO Auto-generated destructor stub
+	clean();
 }
 
 void libzeroconf::clean()
 {
+	cout << "clean libzeroconf" << endl;
+
 	if(_browser)
 		avahi_service_browser_free(_browser);
 
@@ -168,19 +170,28 @@ void libzeroconf::clean()
 		avahi_simple_poll_free(_poll);
 }
 
-void libzeroconf::browse(const char* domain, IPVersion ipv, void (*event)(void))
+void libzeroconf::browse(const char* domain, IPVersion ipv, event on_updated)
 {
-	if(!(_poll=avahi_simple_poll_new()))
+	_test = on_updated;
+
+	if(!(_poll=avahi_simple_poll_new())) {
+		cout << "simple poll new failed" << endl;
+		clean();
 		return;
+	}
 
 	int error = 0;
 	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, NULL, &error);
 
-	if(!_client)
+	if(!_client) {
+		cout << "client new failed" << endl;
 		clean();
+	}
 
-	_srv_browser = avahi_service_type_browser_new(
-			_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
+	_srv_browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
+
+	if(_test)
+		_test();
 
 
 	/*switch(ipv)
