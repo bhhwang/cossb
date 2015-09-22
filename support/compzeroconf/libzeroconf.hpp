@@ -20,6 +20,32 @@
 using namespace std;
 
 typedef void (*event)(void);
+typedef enum {
+    COMMAND_HELP,
+    COMMAND_VERSION,
+    COMMAND_BROWSE_SERVICES,
+    COMMAND_BROWSE_ALL_SERVICES,
+    COMMAND_BROWSE_DOMAINS
+#if defined(HAVE_GDBM) || defined(HAVE_DBM)
+    , COMMAND_DUMP_STDB
+#endif
+} Command;
+
+typedef struct Config {
+    int verbose;
+    int terminate_on_all_for_now;
+    int terminate_on_cache_exhausted;
+    char *domain;
+    char *stype;
+    int ignore_local;
+    Command command;
+    int resolve;
+    int no_fail;
+    int parsable;
+#if defined(HAVE_GDBM) || defined(HAVE_DBM)
+    int no_db_lookup;
+#endif
+} Config;
 
 enum class IPVersion : unsigned int { IPV4=0, IPV6, UNSPEC };
 
@@ -31,68 +57,24 @@ public:
 	/**
 	 * @brief	browse services
 	 */
-	void browse(const char* srv_type, const char* domain);
-	void browse(const char* domain, IPVersion ipv, event on_updated);
-
-	/**
-	 * @brief	service discovery
-	 */
-	void discover(const char* domain, IPVersion ipv);
+	bool browse(const char* domain, IPVersion ipv, event on_updated);
 
 
 	/**
 	 * @brief	get list of service type
 	 */
-	vector<string>* get_service_types(const char* domain);
+	vector<string> get_service_types(const char* domain);
+
+private:
+	void update_service_types();
+
 
 private:
 	void clean();
 
 private:
-	AvahiClient* _client = nullptr;
-	AvahiServiceBrowser* _browser = nullptr;
-	AvahiServiceTypeBrowser* _srv_browser = nullptr;
 
 	event _test = nullptr;
-
-	/**
-	 * @brief	resolve callback function
-	 */
-	static void resolve_callback(
-			AvahiServiceResolver* resolver,
-			AVAHI_GCC_UNUSED AvahiIfIndex interface,
-			AVAHI_GCC_UNUSED AvahiProtocol protocol,
-			AvahiResolverEvent event,
-			const char *name,
-			const char* type,
-			const char* domain,
-			const char* host_name,
-			const AvahiAddress* address,
-			uint16_t port,
-			AvahiStringList* txt,
-			AvahiLookupResultFlags flags,
-			AVAHI_GCC_UNUSED void* userdata);
-
-	/**
-	 * @brief	browse service type callback function
-	 */
-	static void type_browse_callback(AvahiServiceTypeBrowser* browser, AvahiIfIndex interface, AvahiProtocol protocol,
-		    AvahiBrowserEvent event, const char* type, const char* domain, AvahiLookupResultFlags flags, void* userdata);
-
-	/**
-	 * @brief	browse specific service callback function
-	 */
-	static void browse_callback(AvahiServiceBrowser* browser,
-			AvahiIfIndex interface,
-			AvahiProtocol protocol,
-			AvahiBrowserEvent event,
-			const char* name,
-			const char* type,
-			const char* domain,
-			AVAHI_GCC_UNUSED AvahiLookupResultFlags flags,
-			void* userdata);
-
-	vector<string> _service_types;
 };
 
 #endif /* SUPPORT_COMPZEROCONF_LIBZEROCONF_HPP_ */

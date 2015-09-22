@@ -8,12 +8,22 @@
 #include "libzeroconf.hpp"
 #include <iostream>
 #include <avahi-common/error.h>
+#include <algorithm>
+
+
 
 using namespace std;
 
 static AvahiSimplePoll* _poll = nullptr;
+static AvahiClient* _client = nullptr;
+static vector<string> _service_types;
 
-void libzeroconf::resolve_callback(
+
+
+/**
+ * @brief	static callback function to resolve service
+ */
+static void resolve_callback(
     AvahiServiceResolver* resolver,
     AVAHI_GCC_UNUSED AvahiIfIndex interface,
     AVAHI_GCC_UNUSED AvahiProtocol protocol,
@@ -67,33 +77,54 @@ void libzeroconf::resolve_callback(
     avahi_service_resolver_free(resolver);
 }
 
-void libzeroconf::type_browse_callback(AvahiServiceTypeBrowser* browser, AvahiIfIndex interface, AvahiProtocol protocol, AvahiBrowserEvent event, const char* type, const char* domain, AvahiLookupResultFlags flags, void* userdata)
+/**
+ * @brief	static callback function to browse service types in domain
+ */
+static void type_browse_callback(
+		AvahiServiceTypeBrowser* browser,
+		AvahiIfIndex interface,
+		AvahiProtocol protocol,
+		AvahiBrowserEvent event,
+		const char* type,
+		const char* domain,
+		AvahiLookupResultFlags flags,
+		void* userdata)
 {
 
 	switch (event)
 	{
 		case AVAHI_BROWSER_FAILURE:
-
-			fprintf(stderr, "(Browser) %s\n", avahi_strerror(avahi_client_errno(avahi_service_type_browser_get_client(browser))));
+			//fprintf(stderr, "(Browser) Failed %s\n", avahi_strerror(avahi_client_errno(avahi_service_type_browser_get_client(browser))));
+		{
 			avahi_simple_poll_quit(_poll);
+		}
 			return;
 
 		case AVAHI_BROWSER_NEW:
-			fprintf(stderr, "(Browser) NEW: service type '%s' in domain '%s'\n", type, domain);
+		{
+			_service_types.push_back(type);
+		}
 			break;
 
 		case AVAHI_BROWSER_REMOVE:
-			fprintf(stderr, "(Browser) REMOVE: service type '%s' in domain '%s'\n", type, domain);
+		{
+			vector<string>::iterator itr = std::find(_service_types.begin(), _service_types.end(), type);
+			if(itr!=_service_types.end())
+				_service_types.erase(itr);
+		}
 			break;
 
 		case AVAHI_BROWSER_ALL_FOR_NOW:
 		case AVAHI_BROWSER_CACHE_EXHAUSTED:
-			fprintf(stderr, "(Browser) %s\n", event == AVAHI_BROWSER_CACHE_EXHAUSTED ? "CACHE_EXHAUSTED" : "ALL_FOR_NOW");
+			avahi_simple_poll_quit(_poll);
 			break;
 	}
 }
 
-void libzeroconf::browse_callback(AvahiServiceBrowser* browser,
+/**
+ * @brief	static callback function to browse specific service type
+ */
+static void browse_callback(AvahiServiceBrowser* browser,
 	    AvahiIfIndex interface,
 	    AvahiProtocol protocol,
 	    AvahiBrowserEvent event,
@@ -109,7 +140,6 @@ void libzeroconf::browse_callback(AvahiServiceBrowser* browser,
 
 	switch (event) {
 		case AVAHI_BROWSER_FAILURE:
-
 			fprintf(stderr, "(Browser) %s\n", avahi_strerror(avahi_client_errno(avahi_service_browser_get_client(browser))));
 			avahi_simple_poll_quit(_poll);
 			return;
@@ -134,21 +164,80 @@ void libzeroconf::browse_callback(AvahiServiceBrowser* browser,
 		case AVAHI_BROWSER_ALL_FOR_NOW:
 		case AVAHI_BROWSER_CACHE_EXHAUSTED:
 			fprintf(stderr, "(Browser) %s\n", event == AVAHI_BROWSER_CACHE_EXHAUSTED ? "CACHE_EXHAUSTED" : "ALL_FOR_NOW");
+			avahi_simple_poll_quit(_poll);
 			break;
 	}
 }
 
+/**
+ * @brief	static callback function for connection
+ */
 static void client_callback(AvahiClient* client, AvahiClientState state, void* userdata)
 {
-	if(state == AVAHI_CLIENT_FAILURE)
-	{
-		cout << "server connection failure : " << avahi_strerror(avahi_client_errno(client)) << endl;
-		avahi_simple_poll_quit(_poll);
+    Config *config = userdata;
+
+	switch (state) {
+		case AVAHI_CLIENT_FAILURE:
+
+			if (config->no_fail && avahi_client_errno(client) == AVAHI_ERR_DISCONNECTED) {
+				int error;
+
+				/* We have been disconnected, so let reconnect */
+
+				fprintf(stderr, ("Disconnected, reconnecting ...\n"));
+
+				avahi_client_free(client);
+				client = NULL;
+
+				avahi_string_list_free(browsed_types);
+				browsed_types = NULL;
+
+				while (services)
+					remove_service(config, services);
+
+				browsing = 0;
+
+				if (!(client = avahi_client_new(avahi_simple_poll_get(simple_poll), AVAHI_CLIENT_NO_FAIL, client_callback, config, &error))) {
+					fprintf(stderr, _("Failed to create client object: %s\n"), avahi_strerror(error));
+					avahi_simple_poll_quit(simple_poll);
+				}
+
+			} else {
+				fprintf(stderr, _("Client failure, exiting: %s\n"), avahi_strerror(avahi_client_errno(c)));
+				avahi_simple_poll_quit(simple_poll);
+			}
+
+			break;
+
+		case AVAHI_CLIENT_S_REGISTERING:
+		case AVAHI_CLIENT_S_RUNNING:
+		case AVAHI_CLIENT_S_COLLISION:
+
+			if (!browsing)
+				if (start(config) < 0)
+					avahi_simple_poll_quit(simple_poll);
+
+			break;
+
+		case AVAHI_CLIENT_CONNECTING:
+
+			if (config->verbose && !config->parsable)
+				fprintf(stderr, _("Waiting for daemon ...\n"));
+
+			break;
 	}
 }
 
-libzeroconf::libzeroconf() {
-	// TODO Auto-generated constructor stub
+
+vector<string> libzeroconf::get_service_types(const char* domain)
+{
+	return _service_types;
+}
+
+
+
+libzeroconf::libzeroconf()
+{
 
 }
 
@@ -158,105 +247,112 @@ libzeroconf::~libzeroconf() {
 
 void libzeroconf::clean()
 {
-	cout << "clean libzeroconf" << endl;
+	avahi_simple_poll_quit(_poll);
 
-	if(_browser)
-		avahi_service_browser_free(_browser);
+	while(services)
+		remove_service(&config, services);
 
 	if(_client)
 		avahi_client_free(_client);
+
+	avahi_free(config.domain);
+	avahi_free(config.stype);
+
+	avahi_string_list_free(browsed_types);
 
 	if(_poll)
 		avahi_simple_poll_free(_poll);
 }
 
-void libzeroconf::browse(const char* domain, IPVersion ipv, event on_updated)
+bool libzeroconf::browse(const char* domain, IPVersion ipv, event on_updated)
 {
-	_test = on_updated;
-
 	if(!(_poll=avahi_simple_poll_new())) {
-		cout << "simple poll new failed" << endl;
 		clean();
-		return;
+		return false;
 	}
 
 	int error = 0;
-	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, NULL, &error);
+	Config config;
+
+	config.command = COMMAND_BROWSE_ALL_SERVICES;
+	config.verbose =
+	config.terminate_on_cache_exhausted =
+	config.terminate_on_all_for_now =
+	config.ignore_local =
+	config.resolve =
+	config.no_fail =
+	config.parsable = 0;
+	config.domain = config.stype = NULL;
+#if defined(HAVE_GDBM) || defined(HAVE_DBM)
+    c.no_db_lookup = 0;
+#endif
+
+	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, &config, &error);
 
 	if(!_client) {
-		cout << "client new failed" << endl;
 		clean();
+		return false;
 	}
 
-	_srv_browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
-
-	if(_test)
-		_test();
+	//for test
+    avahi_simple_poll_loop(_poll);
 
 
-	/*switch(ipv)
+
+
+
+	//clear container
+	/*_service_types.clear();
+
+	//1. list-up service types in local network
+	AvahiServiceTypeBrowser* type_browser =nullptr;
+	switch(ipv)
 	{
-	case	IPVersion::IPV4:
-	{
-		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
-			clean();
-	}
+	case IPVersion::IPV4:
+		type_browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
 		break;
-	case	IPVersion::IPV6:
-	{
-		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET6, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
-			clean();
-	}
+	case IPVersion::IPV6:
+		type_browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET6, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
 		break;
-	case	IPVersion::UNSPEC:
-	{
-		if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client)))
-			clean();
-	}
+	case IPVersion::UNSPEC:
+		type_browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
 		break;
+	}
+
+	avahi_simple_poll_loop(_poll);
+	avahi_service_type_browser_free(type_browser);
+
+	cout << _service_types.size() << " service types was found" << endl;
+
+	//2. list-up services in local network
+	AvahiServiceBrowser* srv_browser = nullptr;
+	for(auto type: _service_types)
+	{
+		cout << "now find " << type << " service type" << endl;
+		switch(ipv)
+		{
+		case IPVersion::IPV4:
+			srv_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, type.c_str(), domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client);
+			break;
+		case IPVersion::IPV6:
+			srv_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET6, type.c_str(), domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client);
+			break;
+		case IPVersion::UNSPEC:
+			srv_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, type.c_str(), domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client);
+			break;
+		}
+		avahi_simple_poll_loop(_poll);
+		avahi_service_browser_free(srv_browser);
 	}*/
 
-	avahi_simple_poll_loop(_poll);
+	return true;
 }
 
-void libzeroconf::browse(const char* srv_type, const char* domain)
-{
-	//allocate main loop object
-	if(!(_poll = avahi_simple_poll_new())) {
-		cout << "Fail to create simple poll object" << endl;
-		return;
-	}
-
-	//allocate new client
-	int error = 0;
-	_client = avahi_client_new(avahi_simple_poll_get(_poll), AvahiClientFlags::AVAHI_CLIENT_NO_FAIL, client_callback, NULL, &error);
 
 
-	if(!_client) {
-		cout << "Failed to create client : " << avahi_strerror(error) << endl;
-		clean();
-	}
 
-	//create the service browser(for ipv4)
-	if(!(_browser = avahi_service_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, srv_type, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, browse_callback, _client))) {
-		cout << "Failed to create service browser : " << avahi_strerror(avahi_client_errno(_client)) << endl;
-		clean();
-	}
 
-	_srv_browser = avahi_service_type_browser_new(
-			_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_INET, domain, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, type_browse_callback, _client);
-
-	//run mani loop
-	avahi_simple_poll_loop(_poll);
-}
-
-vector<string>* libzeroconf::get_service_types(const char* domain)
-{
-	return &_service_types;
-}
-
-void libzeroconf::discover(const char* domain, IPVersion ipv)
+void libzeroconf::update_service_types()
 {
 
 }
-
