@@ -20,7 +20,8 @@ static AvahiClient* _client = nullptr;
 static AvahiStringList* browsed_types = nullptr;
 static ServiceInfo* services = nullptr;
 static vector<string> _service_types;
-static int browsing = 0;
+static bool browsing = false;
+static int n_columns = 80;
 
 static ServiceInfo* find_service(AvahiIfIndex interface, AvahiProtocol protocol, const char *name, const char *type, const char *domain)
 {
@@ -37,7 +38,41 @@ static ServiceInfo* find_service(AvahiIfIndex interface, AvahiProtocol protocol,
 
     return nullptr;
 }
+/**
+ * @brief	add service
+ */
+static ServiceInfo* add_service(Config* c, AvahiIfIndex interface, AvahiProtocol protocol, const char* name, const char* type, const char* domain)
+{
+    ServiceInfo* i;
 
+    i = avahi_new(ServiceInfo, 1);
+
+    if (c->resolve) {
+        if (!(i->resolver = avahi_service_resolver_new(_client, interface, protocol, name, type, domain, AVAHI_PROTO_UNSPEC, 0, service_resolver_callback, i))) {
+            avahi_free(i);
+            fprintf(stderr, ("Failed to resolve service '%s' of type '%s' in domain '%s': %s\n"), name, type, domain, avahi_strerror(avahi_client_errno(_client)));
+            return NULL;
+        }
+
+        n_resolving++;
+    } else
+        i->resolver = NULL;
+
+    i->interface = interface;
+    i->protocol = protocol;
+    i->name = avahi_strdup(name);
+    i->type = avahi_strdup(type);
+    i->domain = avahi_strdup(domain);
+    i->config = c;
+
+    AVAHI_LLIST_PREPEND(ServiceInfo, info, services, i);
+
+    return i;
+}
+
+/**
+ * @brief	remove services that found
+ */
 static void remove_service(Config* c, ServiceInfo* i)
 {
     AVAHI_LLIST_REMOVE(ServiceInfo, info, services, i);
@@ -51,45 +86,162 @@ static void remove_service(Config* c, ServiceInfo* i)
     avahi_free(i);
 }
 
-static int start(Config *config) {
+/**
+ * @brief	callback function to browse service
+ */
+static void service_browser_callback(
+	AvahiServiceBrowser* browser,
+	AvahiIfIndex interface,
+	AvahiProtocol protocol,
+	AvahiBrowserEvent event,
+	const char *name,
+	const char *type,
+	const char *domain,
+	AvahiLookupResultFlags flags,
+	void *userdata)
+{
 
-    if (config->verbose && !config->parsable) {
-        const char *version, *hn;
+	Config* conf = userdata;
 
-        if (!(version = avahi_client_get_version_string(_client))) {
-            fprintf(stderr, ("Failed to query version string: %s\n"), avahi_strerror(avahi_client_errno(_client)));
-            return -1;
-        }
+	if(!browser || !conf)
+		return;
 
-        if (!(hn = avahi_client_get_host_name_fqdn(_client))) {
-            fprintf(stderr, ("Failed to query host name: %s\n"), avahi_strerror(avahi_client_errno(_client)));
-            return -1;
-        }
+	switch(event)
+	{
+		case AVAHI_BROWSER_NEW:
+		{
+			if(conf->ignore_local && (flags & AVAHI_LOOKUP_RESULT_LOCAL))
+				break;
 
-        fprintf(stderr, ("Server version: %s; Host name: %s\n"), version, hn);
+			if(find_service(interface, protocol, name, type, domain))
+				return;
 
-        if (config->command == COMMAND_BROWSE_DOMAINS) {
-            /* Translators: This is a column heading with abbreviations for
-             *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
-            fprintf(stderr, ("E Ifce Prot Domain\n"));
-        } else {
-            /* Translators: This is a column heading with abbreviations for
-             *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
-            fprintf(stderr, ("E Ifce Prot %-*s %-20s Domain\n"), n_columns-35, ("Name"), ("Type"));
-        }
-    }
+			add_service(conf, interface, protocol, name, type, domain);
 
-    if (config->command == COMMAND_BROWSE_SERVICES)
-        browse_service_type(config, config->stype, config->domain);
-    else if (config->command == COMMAND_BROWSE_ALL_SERVICES)
+			print_service_line(c, '+', interface, protocol, name, type, domain, 1);
+			break;
+
+		}
+
+		case AVAHI_BROWSER_REMOVE: {
+			ServiceInfo *info;
+
+			if (!(info = find_service(interface, protocol, name, type, domain)))
+				return;
+
+			remove_service(c, info);
+
+			print_service_line(c, '-', interface, protocol, name, type, domain, 1);
+			break;
+		}
+
+		case AVAHI_BROWSER_FAILURE:
+			fprintf(stderr, _("service_browser failed: %s\n"), avahi_strerror(avahi_client_errno(client)));
+			avahi_simple_poll_quit(simple_poll);
+			break;
+
+		case AVAHI_BROWSER_CACHE_EXHAUSTED:
+			n_cache_exhausted --;
+			check_terminate(c);
+			break;
+
+		case AVAHI_BROWSER_ALL_FOR_NOW:
+			n_all_for_now --;
+			check_terminate(c);
+			break;
+	}
+}
+
+/**
+ * @brief	browse service type in specific domain
+ */
+static void browse_service_type(Config *c, const char *stype, const char *domain)
+{
+	AvahiServiceBrowser* browser;
+	AvahiStringList* i;
+
+	for(i = browsed_types; i; i = i->next)
+		if (avahi_domain_equal(stype, (char*) i->text))
+			return;
+
+	if(!(browser = avahi_service_browser_new(
+			  _client,
+			  AVAHI_IF_UNSPEC,
+			  AVAHI_PROTO_UNSPEC,
+			  stype,
+			  domain,
+			  0,
+			  service_browser_callback,
+			  c))) {
+
+		fprintf(stderr, ("avahi_service_browser_new() failed: %s\n"), avahi_strerror(avahi_client_errno(_client)));
+		avahi_simple_poll_quit(simple_poll);
+	}
+
+	browsed_types = avahi_string_list_add(browsed_types, stype);
+
+	n_all_for_now++;
+	n_cache_exhausted++;
+}
+
+/**
+ * @brief	browse all services
+ */
+static void browse_all(Config* conf)
+{
+	if(!conf)
+		return;
+
+	AvahiServiceTypeBrowser* browser = nullptr;
+
+	if(!(browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, conf->domain, 0, service_type_browser_callback, conf))) {
+
+		fprintf(stderr, _("avahi_service_type_browser_new() failed: %s\n"), avahi_strerror(avahi_client_errno(client)));
+		avahi_simple_poll_quit(simple_poll);
+	}
+
+	n_cache_exhausted++;
+	n_all_for_now++;
+}
+
+/**
+ * @brief	start to browse services with configuration
+ */
+static bool start(Config *config)
+{
+	if(config->verbose && !config->parsable)
+	{
+		const char *version, *hn;
+		if(!(version = avahi_client_get_version_string(_client))) {
+			fprintf(stderr, ("Failed to query version string: %s\n"), avahi_strerror(avahi_client_errno(_client)));
+			return -1;
+		}
+
+		if(!(hn = avahi_client_get_host_name_fqdn(_client))) {
+			fprintf(stderr, ("Failed to query host name: %s\n"), avahi_strerror(avahi_client_errno(_client)));
+			return -1;
+		}
+
+		fprintf(stderr, ("Server version: %s; Host name: %s\n"), version, hn);
+
+		if(config->command == COMMAND_BROWSE_DOMAINS) {
+			/* Translators: This is a column heading with abbreviations for
+			 *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
+			fprintf(stderr, ("E Ifce Prot Domain\n"));
+		} else {
+			/* Translators: This is a column heading with abbreviations for
+			 *   Event (+/-), Network Interface, Protocol (IPv4/v6), Domain */
+			fprintf(stderr, ("E Ifce Prot %-*s %-20s Domain\n"), n_columns-35, ("Name"), ("Type"));
+		}
+	}
+
+	if(config->command == COMMAND_BROWSE_SERVICES)
+		browse_service_type(config, config->stype, config->domain);
+    else if(config->command == COMMAND_BROWSE_ALL_SERVICES)
         browse_all(config);
-    else {
-        assert(config->command == COMMAND_BROWSE_DOMAINS);
-        browse_domains(config);
-    }
 
-    browsing = 1;
-    return 0;
+    browsing = true;
+    return true;
 }
 
 
@@ -252,55 +404,96 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 	switch(state)
 	{
 	case AVAHI_CLIENT_FAILURE:
+		if(config->no_fail && avahi_client_errno(client)==AVAHI_ERR_DISCONNECTED)
+		{
+			/* We have been disconnected, so let reconnect */
+			avahi_client_free(client);
+			client = nullptr;
 
-			if (config->no_fail && avahi_client_errno(client) == AVAHI_ERR_DISCONNECTED) {
-				int error;
+			avahi_string_list_free(browsed_types);
+			browsed_types = nullptr;
 
-				/* We have been disconnected, so let reconnect */
+			while(services)
+				remove_service(config, services);
 
-				fprintf(stderr, ("Disconnected, reconnecting ...\n"));
+			browsing = false;
 
-				avahi_client_free(client);
-				client = NULL;
-
-				avahi_string_list_free(browsed_types);
-				browsed_types = NULL;
-
-				while(services)
-					remove_service(config, services);
-
-				browsing = 0;
-
-				if (!(client = avahi_client_new(avahi_simple_poll_get(_poll), AVAHI_CLIENT_NO_FAIL, client_callback, config, &error))) {
-					fprintf(stderr, "Failed to create client object: %s\n", avahi_strerror(error));
-					avahi_simple_poll_quit(simple_poll);
-				}
-
-			} else {
-				fprintf(stderr, "Client failure, exiting: %s\n", avahi_strerror(avahi_client_errno(client)));
-				avahi_simple_poll_quit(simple_poll);
-			}
-
+			//retry
+			int error;
+			cout << "try reconnect" << endl;
+			if(!(client = avahi_client_new(avahi_simple_poll_get(_poll), AVAHI_CLIENT_NO_FAIL, client_callback, config, &error)))
+				avahi_simple_poll_quit(_poll);
+		}
+		else
+		{
+			fprintf(stderr, "Client failure, exiting: %s\n", avahi_strerror(avahi_client_errno(client)));
+			avahi_simple_poll_quit(simple_poll);
+		}
 			break;
 
 		case AVAHI_CLIENT_S_REGISTERING:
 		case AVAHI_CLIENT_S_RUNNING:
 		case AVAHI_CLIENT_S_COLLISION:
 		{
-			if (!browsing)
-				if (start(config) < 0)
-					avahi_simple_poll_quit(simple_poll);
+			if(!browsing)
+				if(!start(config))
+					avahi_simple_poll_quit(_poll);
 		}
 			break;
 
 		case AVAHI_CLIENT_CONNECTING:
-
-			if (config->verbose && !config->parsable)
-				fprintf(stderr, _("Waiting for daemon ...\n"));
+			if(config->verbose && !config->parsable)
+				fprintf(stderr, "Waiting for daemon ...\n");
 
 			break;
 	}
 }
+/**
+ * @brief	callback function to browse service types in domain
+ */
+static void service_type_browser_callback(
+    AvahiServiceTypeBrowser* browser,
+    AVAHI_GCC_UNUSED AvahiIfIndex interface,
+    AVAHI_GCC_UNUSED AvahiProtocol protocol,
+    AvahiBrowserEvent event,
+    const char *type,
+    const char *domain,
+    AVAHI_GCC_UNUSED AvahiLookupResultFlags flags,
+    void *userdata)
+{
+
+	Config* conf = userdata;
+
+	if(!browser||!conf)
+		return;
+
+	switch(event)
+	{
+	case AVAHI_BROWSER_NEW:
+		browse_service_type(conf, type, domain);
+		break;
+
+	case AVAHI_BROWSER_REMOVE:
+		/* We're dirty and never remove the browser again */
+		break;
+
+	case AVAHI_BROWSER_FAILURE:
+		fprintf(stderr, _("service_type_browser failed: %s\n"), avahi_strerror(avahi_client_errno(client)));
+		avahi_simple_poll_quit(simple_poll);
+		break;
+
+	case AVAHI_BROWSER_CACHE_EXHAUSTED:
+		n_cache_exhausted --;
+		check_terminate(c);
+		break;
+
+	case AVAHI_BROWSER_ALL_FOR_NOW:
+		n_all_for_now --;
+		check_terminate(c);
+		break;
+	}
+}
+
 
 
 vector<string> libzeroconf::get_service_types(const char* domain)
@@ -345,6 +538,7 @@ void libzeroconf::browse(const char* domain, IProtocol ipv, event on_updated)
 		return;
 	}
 
+	//set configuration to browse all services in network
 	_config.command = COMMAND_BROWSE_ALL_SERVICES;
 	_config.verbose =
 	_config.terminate_on_cache_exhausted =
