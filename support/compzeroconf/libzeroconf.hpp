@@ -63,7 +63,7 @@ struct ServiceInfo {
 	AVAHI_LLIST_FIELDS(ServiceInfo, info);
 };
 
-enum class IProtocol : unsigned int { IPV4=0, IPV6, UNSPEC };
+enum class IProtocol : int { IPV4=0, IPV6, UNSPEC=-1 };
 
 class libzeroconf {
 public:
@@ -72,8 +72,15 @@ public:
 
 	/**
 	 * @brief	browse services
+	 * @detail	all services will be browsed.
+	 * @return	return false if it is failed.
 	 */
-	void browse(const char* domain, IProtocol ipv, event on_updated);
+	bool browse(const char* domain, IProtocol ipv, event on_updated);
+
+	/**
+	 * @brief	get hostname
+	 */
+	const char* get_hostname();
 
 
 	/**
@@ -83,6 +90,11 @@ public:
 
 private:
 	void update_service_types();
+
+	/**
+	 * @brief	Server version
+	 */
+	const char* get_version();
 
 
 private:
