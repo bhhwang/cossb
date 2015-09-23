@@ -77,11 +77,6 @@ public:
 	 */
 	bool browse(const char* domain, IProtocol ipv, event on_updated);
 
-	/**
-	 * @brief	get hostname
-	 */
-	const char* get_hostname();
-
 
 	/**
 	 * @brief	get list of service type
@@ -91,18 +86,11 @@ public:
 private:
 	void update_service_types();
 
-	/**
-	 * @brief	Server version
-	 */
-	const char* get_version();
-
-
 private:
 	void clean();
 
 private:
 	Config _config;
-	event _test = nullptr;
 };
 
 #endif /* SUPPORT_COMPZEROCONF_LIBZEROCONF_HPP_ */

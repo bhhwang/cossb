@@ -41,6 +41,7 @@ bool compzeroconf::run()
 	if(!_browse_task)
 	{
 		_zeroconf = new libzeroconf();
+		//cossb_log->log(log::loglevel::INFO, _zeroconf->get_hostname());
 		_browse_task = create_task(compzeroconf::browse_task);
 	}
 

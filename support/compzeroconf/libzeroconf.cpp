@@ -218,7 +218,7 @@ static void service_browser_callback(
 				return;
 
 			add_service(conf, interface, protocol, name, type, domain);*/
-			cout << "+\t" << name << ":" << type << ":" << domain << endl;
+			cout << "+\t" << name << endl;
 		}
 			break;
 
@@ -321,7 +321,6 @@ static void service_type_browser_callback(
 	{
 	case AVAHI_BROWSER_NEW:
 	{
-		cout << "found new service type : " << avahi_proto_to_string(protocol) << ":" << type << ":" << domain << endl;
 		browse_service_type(conf, type, domain);
 	}
 		break;
@@ -356,9 +355,6 @@ static void browse_all(Config* conf)
 
 	if(!browser)
 		avahi_simple_poll_quit(_poll);
-
-	//n_cache_exhausted++;
-	//n_all_for_now++;
 }
 
 
@@ -543,7 +539,6 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 		}
 		else
 		{
-			//fprintf(stderr, "Client failure, exiting: %s\n", avahi_strerror(avahi_client_errno(client)));
 			avahi_simple_poll_quit(_poll);
 		}
 			break;
@@ -602,9 +597,6 @@ void libzeroconf::clean()
 
 bool libzeroconf::browse(const char* domain, IProtocol ipv, event on_updated)
 {
-	if(_poll)
-		return false;
-
 	if(!(_poll=avahi_simple_poll_new())) {
 		clean();
 		return false;
@@ -612,12 +604,12 @@ bool libzeroconf::browse(const char* domain, IProtocol ipv, event on_updated)
 
 	//set configuration to browse all services in network
 	_config.command = COMMAND_BROWSE_ALL_SERVICES;
-	_config.verbose =
-	_config.terminate_on_cache_exhausted =
-	_config.terminate_on_all_for_now =
-	_config.ignore_local =
-	_config.resolve =
-	_config.no_fail =
+	_config.verbose = 0;
+	_config.terminate_on_cache_exhausted = 0;
+	_config.terminate_on_all_for_now = 0;
+	_config.ignore_local = 0;
+	_config.resolve = 0;
+	_config.no_fail = 0;
 	_config.parsable = 0;
 	_config.domain = _config.stype = nullptr;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
@@ -640,7 +632,7 @@ void libzeroconf::update_service_types()
 {
 
 }
-
+/*
 const char* libzeroconf::get_hostname()
 {
 	if(_client)
@@ -653,4 +645,4 @@ const char* libzeroconf::get_version()
 	if(_client)
 		return avahi_client_get_version_string(_client);
 	return nullptr;
-}
+}*/
