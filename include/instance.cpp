@@ -33,6 +33,7 @@ bool cossb_init(const char* manifest, bool setup)
 void cossb_destroy()
 {
 	cossb_log->log(log::loglevel::INFO, "Now terminating...");
+	cossb_broker->destroy();
 	cossb_system_manager->destroy();
 	cossb_config->destroy();
 }
