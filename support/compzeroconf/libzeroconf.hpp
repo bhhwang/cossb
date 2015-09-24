@@ -20,7 +20,7 @@
 
 using namespace std;
 
-typedef void (*event)(void);
+//typedef void (*event)(void);
 typedef enum {
     COMMAND_HELP,
     COMMAND_VERSION,
@@ -75,7 +75,7 @@ public:
 	 * @detail	all services will be browsed.
 	 * @return	return false if it is failed.
 	 */
-	bool browse(const char* domain, IProtocol ipv, event on_updated);
+	bool browse(const char* domain, IProtocol ipv);
 
 
 	/**

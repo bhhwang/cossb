@@ -41,8 +41,7 @@ bool compzeroconf::run()
 	if(!_browse_task)
 	{
 		_zeroconf = new libzeroconf();
-		//cossb_log->log(log::loglevel::INFO, _zeroconf->get_hostname());
-		_browse_task = create_task(compzeroconf::browse_task);
+		//_browse_task = create_task(compzeroconf::browse_task);
 	}
 
 	return true;
@@ -70,7 +69,7 @@ void compzeroconf::request(cossb::message::message* msg)
 void compzeroconf::browse_task()
 {
 	if(_zeroconf)
-		_zeroconf->browse("local", IProtocol::IPV4, on_change);
+		_zeroconf->browse("local", IProtocol::IPV4);
 }
 
 void compzeroconf::on_change()

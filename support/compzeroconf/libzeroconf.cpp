@@ -578,24 +578,22 @@ libzeroconf::~libzeroconf() {
 
 void libzeroconf::clean()
 {
-	avahi_simple_poll_quit(_poll);
-
-	while(services)
-		remove_service(&_config, services);
+	if(_poll)
+		avahi_simple_poll_quit(_poll);
 
 	if(_client)
 		avahi_client_free(_client);
 
-	avahi_free(_config.domain);
-	avahi_free(_config.stype);
+	//avahi_free(_config.domain);
+	//avahi_free(_config.stype);
 
-	avahi_string_list_free(browsed_types);
+	//avahi_string_list_free(browsed_types);
 
 	if(_poll)
 		avahi_simple_poll_free(_poll);
 }
 
-bool libzeroconf::browse(const char* domain, IProtocol ipv, event on_updated)
+bool libzeroconf::browse(const char* domain, IProtocol ipv)
 {
 	if(!(_poll=avahi_simple_poll_new())) {
 		clean();
