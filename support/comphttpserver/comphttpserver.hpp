@@ -3,7 +3,7 @@
  * @brief		HTTP Server
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 9. 29
- * @details	Light weight HTTP server
+ * @details	Light weight HTTP server component using microhttpd-dev
  */
 
 #ifndef SUPPORT_COMPHTTPSERVER_COMPHTTPSERVER_HPP_
