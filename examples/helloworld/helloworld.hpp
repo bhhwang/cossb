@@ -3,7 +3,7 @@
  * @brief	hello world component
  * @author	Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 	2015. 8. 7
- * @details	hello world component
+ * @details	hello world 컴포넌트 예제
  */
 
 #ifndef _COSSB_EXAMPLE_HELLOWORLD_HPP_
