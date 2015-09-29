@@ -20,11 +20,10 @@ static vector<string> _service_types;
 
 static AvahiSimplePoll* _poll = nullptr;
 static AvahiClient* _client = nullptr;
-static AvahiStringList* browsed_types = nullptr;
 static ServiceInfo* services = nullptr;
-static bool browsing = false;
-static int n_columns = 80;
+static AvahiStringList* browsed_types = nullptr;
 static int n_all_for_now = 0, n_cache_exhausted = 0, n_resolving = 0;
+static bool browsing = false;
 
 static ServiceInfo* find_service(AvahiIfIndex interface, AvahiProtocol protocol, const char *name, const char *type, const char *domain)
 {
@@ -144,12 +143,10 @@ static void service_resolver_callback(
  */
 static ServiceInfo* add_service(Config* c, AvahiIfIndex interface, AvahiProtocol protocol, const char* name, const char* type, const char* domain)
 {
-    ServiceInfo* i;
-
-    i = avahi_new(ServiceInfo, 1);
+    ServiceInfo* i = avahi_new(ServiceInfo, 1);
 
     if (c->resolve) {
-        if (!(i->resolver = avahi_service_resolver_new(_client, interface, protocol, name, type, domain, AVAHI_PROTO_UNSPEC, AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST, service_resolver_callback, i))) {
+        if (!(i->resolver = avahi_service_resolver_new(_client, interface, protocol, name, type, domain, AVAHI_PROTO_UNSPEC, (AvahiLookupFlags)0, service_resolver_callback, i))) {
             avahi_free(i);
             fprintf(stderr, ("Failed to resolve service '%s' of type '%s' in domain '%s': %s\n"), name, type, domain, avahi_strerror(avahi_client_errno(_client)));
             return NULL;
@@ -214,10 +211,10 @@ static void service_browser_callback(
 			if(conf->ignore_local && (flags & AVAHI_LOOKUP_RESULT_LOCAL))
 				break;
 
-			/*if(find_service(interface, protocol, name, type, domain))
+			if(find_service(interface, protocol, name, type, domain))
 				return;
 
-			add_service(conf, interface, protocol, name, type, domain);*/
+			//add_service(conf, interface, protocol, name, type, domain);
 			cout << "+\t" << name << endl;
 		}
 			break;
@@ -241,15 +238,18 @@ static void service_browser_callback(
 			break;
 
 		case AVAHI_BROWSER_CACHE_EXHAUSTED:
-			//n_cache_exhausted --;
-			//check_terminate(conf);
+			n_cache_exhausted --;
+			check_terminate(conf);
 			break;
 
 		case AVAHI_BROWSER_ALL_FOR_NOW:
 		{
-			//n_all_for_now --;
-			//check_terminate(conf);
-			cout << "AVAHI_BROWSER_ALL_FOR_NOW" << endl;
+			n_all_for_now --;
+			check_terminate(conf);
+			if(n_all_for_now==0){
+				cout << "AVAHI_BROWSER_ALL_FOR_NOW" << endl;
+				avahi_simple_poll_quit(_poll);
+			}
 		}
 			break;
 	}
@@ -261,7 +261,7 @@ static void service_browser_callback(
 static void browse_service_type(Config* conf, const char *stype, const char* domain)
 {
 	//for test
-	AvahiServiceBrowser* browser = nullptr;
+	/*AvahiServiceBrowser* browser = nullptr;
 	auto itr = std::find(_service_types.begin(), _service_types.end(), stype);
 	if(itr==_service_types.end())
 	{
@@ -272,9 +272,9 @@ static void browse_service_type(Config* conf, const char *stype, const char* dom
 		if(!browser)
 			avahi_simple_poll_quit(_poll);
 		}
-	}
+	}*/
 
-	/*AvahiServiceBrowser* browser = nullptr;
+	AvahiServiceBrowser* browser = nullptr;
 	AvahiStringList* i = nullptr;
 
 	for(i = browsed_types; i; i = i->next)
@@ -287,18 +287,16 @@ static void browse_service_type(Config* conf, const char *stype, const char* dom
 			  AVAHI_PROTO_UNSPEC,
 			  stype,
 			  domain,
-			  AvahiLookupFlags::AVAHI_LOOKUP_USE_MULTICAST,
+			  (AvahiLookupFlags)0,
 			  service_browser_callback,
 			  conf))) {
-
-		fprintf(stderr, ("avahi_service_browser_new() failed: %s\n"), avahi_strerror(avahi_client_errno(_client)));
 		avahi_simple_poll_quit(_poll);
 	}
 
 	browsed_types = avahi_string_list_add(browsed_types, stype);
 
 	n_all_for_now++;
-	n_cache_exhausted++;*/
+	n_cache_exhausted++;
 }
 
 /**
@@ -314,7 +312,6 @@ static void service_type_browser_callback(
     AVAHI_GCC_UNUSED AvahiLookupResultFlags flags,
     void *userdata)
 {
-
 	Config* conf = (Config*)userdata;
 
 	switch(event)
@@ -334,14 +331,13 @@ static void service_type_browser_callback(
 		break;
 
 	case AVAHI_BROWSER_CACHE_EXHAUSTED:
-		//n_cache_exhausted --;
-		//check_terminate(conf);
+		n_cache_exhausted--;
+		check_terminate(conf);
 		break;
 
 	case AVAHI_BROWSER_ALL_FOR_NOW:
-		cout << "found " << _service_types.size() << " service types" << endl;
-		//n_all_for_now --;
-		//check_terminate(conf);
+		n_all_for_now --;
+		check_terminate(conf);
 		break;
 	}
 }
@@ -351,10 +347,13 @@ static void service_type_browser_callback(
  */
 static void browse_all(Config* conf)
 {
-	AvahiServiceTypeBrowser* browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, conf->domain, (AvahiLookupFlags)0, service_type_browser_callback, conf);
+	AvahiServiceTypeBrowser* browser = nullptr;
 
-	if(!browser)
+	if(!(browser = avahi_service_type_browser_new(_client, AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC, conf->domain, (AvahiLookupFlags)0, service_type_browser_callback, conf)))
 		avahi_simple_poll_quit(_poll);
+
+	n_cache_exhausted++;
+	n_all_for_now++;
 }
 
 
@@ -440,20 +439,21 @@ static void type_browse_callback(
 
 		case AVAHI_BROWSER_NEW:
 		{
-			_service_types.push_back(type);
+			//_service_types.push_back(type);
 		}
 			break;
 
 		case AVAHI_BROWSER_REMOVE:
 		{
-			vector<string>::iterator itr = std::find(_service_types.begin(), _service_types.end(), type);
+			/*vector<string>::iterator itr = std::find(_service_types.begin(), _service_types.end(), type);
 			if(itr!=_service_types.end())
-				_service_types.erase(itr);
+				_service_types.erase(itr);*/
 		}
 			break;
 
 		case AVAHI_BROWSER_ALL_FOR_NOW:
 		case AVAHI_BROWSER_CACHE_EXHAUSTED:
+			cout << "type browse all for now" << endl;
 			avahi_simple_poll_quit(_poll);
 			break;
 	}
@@ -508,6 +508,33 @@ static void browse_callback(AvahiServiceBrowser* browser,
 }
 
 /**
+ * @brief	works responding to command
+ */
+static int start(Config *config) {
+
+	if(config->verbose && !config->parsable)
+	{
+		const char *version, *hn;
+
+		if (!(version = avahi_client_get_version_string(_client)))
+			return -1;
+
+		if (!(hn = avahi_client_get_host_name_fqdn(_client)))
+			return -1;
+	}
+
+	if(config->command == COMMAND_BROWSE_SERVICES) {
+		browse_service_type(config, config->stype, config->domain);
+	}
+	else if (config->command == COMMAND_BROWSE_ALL_SERVICES) {
+		browse_all(config);
+	}
+
+	browsing = true;
+	return 0;
+}
+
+/**
  * @brief	static callback function for connection
  */
 static void client_callback(AvahiClient* client, AvahiClientState state, void* userdata)
@@ -518,14 +545,11 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 	switch(state)
 	{
 	case AVAHI_CLIENT_FAILURE:
+	{
 		if(config->no_fail && avahi_client_errno(client)==AVAHI_ERR_DISCONNECTED)
 		{
-			/* We have been disconnected, so let reconnect */
 			avahi_client_free(_client);
 			_client = nullptr;
-
-			avahi_string_list_free(browsed_types);
-			browsed_types = nullptr;
 
 			while(services)
 				remove_service(config, services);
@@ -538,19 +562,17 @@ static void client_callback(AvahiClient* client, AvahiClientState state, void* u
 				avahi_simple_poll_quit(_poll);
 		}
 		else
-		{
 			avahi_simple_poll_quit(_poll);
-		}
+	}
 			break;
 
 		case AVAHI_CLIENT_S_REGISTERING:
 		case AVAHI_CLIENT_S_RUNNING:
 		case AVAHI_CLIENT_S_COLLISION:
 		{
-			if(config->command == COMMAND_BROWSE_ALL_SERVICES)
-			    browse_all(config);
-			else
-				avahi_simple_poll_quit(_poll);
+			if(!browsing)
+				if(start(config) < 0)
+					avahi_simple_poll_quit(_poll);
 		}
 			break;
 
@@ -567,39 +589,16 @@ vector<string> libzeroconf::get_service_types(const char* domain)
 
 
 
-libzeroconf::libzeroconf()
-{
-
+libzeroconf::libzeroconf(){
+	setup();
 }
 
 libzeroconf::~libzeroconf() {
-	clean();
+	shutdown();
 }
 
-void libzeroconf::clean()
+void libzeroconf::setup()
 {
-	if(_poll)
-		avahi_simple_poll_quit(_poll);
-
-	if(_client)
-		avahi_client_free(_client);
-
-	//avahi_free(_config.domain);
-	//avahi_free(_config.stype);
-
-	//avahi_string_list_free(browsed_types);
-
-	if(_poll)
-		avahi_simple_poll_free(_poll);
-}
-
-bool libzeroconf::browse(const char* domain, IProtocol ipv)
-{
-	if(!(_poll=avahi_simple_poll_new())) {
-		clean();
-		return false;
-	}
-
 	//set configuration to browse all services in network
 	_config.command = COMMAND_BROWSE_ALL_SERVICES;
 	_config.verbose = 0;
@@ -611,16 +610,42 @@ bool libzeroconf::browse(const char* domain, IProtocol ipv)
 	_config.parsable = 0;
 	_config.domain = _config.stype = nullptr;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
-    c.no_db_lookup = 0;
+	c.no_db_lookup = 0;
 #endif
+}
 
-    int error = 0;
-    if(!(_client = avahi_client_new(avahi_simple_poll_get(_poll), _config.no_fail?AVAHI_CLIENT_NO_FAIL:(AvahiClientFlags)0, client_callback, &_config, &error))) {
-    	clean();
+void libzeroconf::shutdown()
+{
+	while(services)
+		remove_service(&_config, services);
+
+	if(_client)
+		avahi_client_free(_client);
+
+	if(_poll)
+		avahi_simple_poll_free(_poll);
+
+	//avahi_free(_config.domain);
+	//avahi_free(_config.stype);
+
+	avahi_string_list_free(browsed_types);
+}
+
+bool libzeroconf::browse(const char* domain, IProtocol ipv)
+{
+	if(!(_poll=avahi_simple_poll_new())) {
+		shutdown();
+		browsing = false;
 		return false;
 	}
 
-    avahi_simple_poll_loop(_poll);
+	int error = 0;
+	if(!(_client = avahi_client_new(avahi_simple_poll_get(_poll), _config.no_fail?AVAHI_CLIENT_NO_FAIL:(AvahiClientFlags)0, client_callback, &_config, &error))) {
+		shutdown();
+		return false;
+	}
+
+	avahi_simple_poll_loop(_poll);
 
     return true;
 }
@@ -630,17 +655,4 @@ void libzeroconf::update_service_types()
 {
 
 }
-/*
-const char* libzeroconf::get_hostname()
-{
-	if(_client)
-		return avahi_client_get_host_name_fqdn(_client);
-	return nullptr;
-}
 
-const char* libzeroconf::get_version()
-{
-	if(_client)
-		return avahi_client_get_version_string(_client);
-	return nullptr;
-}*/

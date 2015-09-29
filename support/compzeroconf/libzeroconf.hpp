@@ -87,7 +87,15 @@ private:
 	void update_service_types();
 
 private:
-	void clean();
+	/**
+	 * @brief	setup for zero config
+	 */
+	void setup();
+
+	/**
+	 * @brief	shutdown for zero config
+	 */
+	void shutdown();
 
 private:
 	Config _config;
