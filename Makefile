@@ -68,12 +68,6 @@ $(OUTDIR)compserial.o: $(COMPONENT_FILES)compserial/compserial.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 $(OUTDIR)libserial.o: $(COMPONENT_FILES)compserial/libserial.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-
-#================== compmdns component
-compmdns.comp: $(OUTDIR)compmdns.o
-	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-$(OUTDIR)compmdns.o: $(COMPONENT_FILES)compmdns/compmdns.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 	
 #================== messagepub component
 messagepub.comp: $(OUTDIR)messagepub.o
@@ -87,7 +81,19 @@ compzeroconf.comp: $(OUTDIR)compzeroconf.o $(OUTDIR)libzeroconf.o
 $(OUTDIR)compzeroconf.o: $(COMPONENT_FILES)compzeroconf/compzeroconf.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 $(OUTDIR)libzeroconf.o: $(COMPONENT_FILES)compzeroconf/libzeroconf.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@			
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
+#================== zeroconf component
+compsqlite.comp: $(OUTDIR)compsqlite.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)compsqlite.o: $(COMPONENT_FILES)compsqlite/compsqlite.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
+#================== zeroconf component
+comphttp.comp: $(OUTDIR)comphttp.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)comphttp.o: $(COMPONENT_FILES)comphttp/comphttp.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -137,9 +143,6 @@ $(OUTDIR)engined.o: ./src/engined.cpp
 $(OUTDIR)cblog.o: $(LIB_FILES)libcblog/cblog.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
-$(OUTDIR)cbmdns.o: $(LIB_FILES)libcbmdns/cbmdns.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-	
 #for google test
 $(OUTDIR)engine_test.o: $(TEST_FILES)engine_test.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
@@ -151,13 +154,13 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp compmdns.comp messagepub.comp compzeroconf.comp createcomp.util
+all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttp.comp compsqlite.comp createcomp.util
 
 base: cossb
 
-example : helloworld.comp
+example : helloworld.comp messagepub.comp
 
-component: compserial.comp compmdns.comp messagepub.comp
+component: compserial.comp compsqlite.comp comphttp.comp 
 
 util : createcomp.so
 
