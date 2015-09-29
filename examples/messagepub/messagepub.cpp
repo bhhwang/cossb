@@ -21,8 +21,7 @@ messagepub::~messagepub() {
 
 bool messagepub::setup()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "called messagepub setup");
-	cossb_broker->regist(this, "service/helloworld");
+	cossb_broker->regist(this, "service/messagepub");
 	return true;
 }
 bool messagepub::run()
@@ -33,7 +32,6 @@ bool messagepub::run()
 }
 bool messagepub::stop()
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "stop messagepub task");
 	destroy_task(_pub_task);
 	return true;
 }
@@ -51,8 +49,7 @@ void messagepub::pub()
 
 		vector<unsigned char> data;
 		data.push_back('a');
-		cossb_broker->publish(this, "service/helloworld", "raw", data);
-		cossb_log->log(cossb::log::loglevel::INFO, "message publish");
+		cossb_broker->publish(this, "service/messagepub", "raw", data);
 		}
 		catch(thread_interrupted&)
 		{
