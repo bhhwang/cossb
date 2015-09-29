@@ -90,9 +90,9 @@ $(OUTDIR)compsqlite.o: $(COMPONENT_FILES)compsqlite/compsqlite.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 #================== zeroconf component
-comphttp.comp: $(OUTDIR)comphttp.o
+comphttpserver.comp: $(OUTDIR)comphttpserver.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-$(OUTDIR)comphttp.o: $(COMPONENT_FILES)comphttp/comphttp.cpp
+$(OUTDIR)comphttpserver.o: $(COMPONENT_FILES)comphttpserver/comphttpserver.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
@@ -154,7 +154,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttp.comp compsqlite.comp createcomp.util
+all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp createcomp.util
 
 base: cossb
 
