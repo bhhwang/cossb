@@ -1,8 +1,9 @@
-/*
- * comphttpserver.hpp
- *
- *  Created on: 2015. 9. 29.
- *      Author: hwang
+/**
+ * @file		comphttpserver.hpp
+ * @brief		HTTP Server
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 9. 29
+ * @details	Light weight HTTP server
  */
 
 #ifndef SUPPORT_COMPHTTPSERVER_COMPHTTPSERVER_HPP_
