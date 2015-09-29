@@ -123,6 +123,7 @@ void component_driver::request_proc()
 	if(_ptr_component) {
 		while(1)
 		{
+			try {
 			boost::mutex::scoped_lock __lock(_mutex);
 			_condition.wait(__lock);
 
@@ -132,6 +133,10 @@ void component_driver::request_proc()
 			}
 
 			boost::this_thread::sleep(boost::posix_time::milliseconds(0));
+			}
+			catch(thread_interrupted&) {
+				break;
+			}
 		}
 	}
 }
