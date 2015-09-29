@@ -1,9 +1,11 @@
-/*
- * compsqlite.hpp
- *
- *  Created on: 2015. 9. 29.
- *      Author: hwang
+/**
+ * @file		compsqlite.hpp
+ * @brief		Sqlite component
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 9. 29
+ * @details	Sqlite database component
  */
+
 
 #ifndef SUPPORT_COMPSQLITE_COMPSQLITE_HPP_
 #define SUPPORT_COMPSQLITE_COMPSQLITE_HPP_
