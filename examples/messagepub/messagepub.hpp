@@ -1,9 +1,9 @@
 /**
  * @file	messagepub.hpp
- * @brief	messagepub
+ * @brief	message publish 예제
  * @author	Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 	2015. 9. 5
- * @details	message publish example
+ * @details	메시지를 발행하는 컴포넌트 예제
  */
 
 #ifndef _COSSB_EXAMPLES_MESSAGEPUB_HPP_
