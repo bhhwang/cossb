@@ -15,6 +15,7 @@
 #include "arch/singleton.hpp"
 #include "manager.hpp"
 #include "logger.hpp"
+#include "exception.hpp"
 
 using namespace std;
 
@@ -46,8 +47,11 @@ public:
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 			if(itr->second.compare(component->get_name())==0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
-				if(_drv)
+				if(_drv) {
 					_drv->request(api, args...);
+				}
+				else
+					throw broker::exception(cossb::broker::excode::DRIVER_NOT_FOUND);
 			}
 		}
 
