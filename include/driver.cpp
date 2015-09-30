@@ -60,6 +60,8 @@ bool component_driver::load(const char* component_name)
 		_ptr_component = pfcreate();
 		return true;
 	}
+	else
+		cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("Load Error : {}", dlerror()).c_str());
 
 	return false;
 }
