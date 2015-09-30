@@ -47,5 +47,5 @@ $ sudo ./cossb --utility find --[device|service] <specific name>
 
 License
 ===============
-You can freely use, modify, redistribute this source code under the BSD License.
+You can freely use, modify, redistribute this source code under the 3-clause BSD License.
 Some parts of the components and core libraries use open source code under the other license(LGPL, MIT..).

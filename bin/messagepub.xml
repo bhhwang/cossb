@@ -11,7 +11,7 @@
 	<version>0.0.1</version>
 	<category></category>
 	<tags></tags>
-	<publish>test/messagepub</publish>
+	<publish>service/messagepub</publish>
 	<subscribe>null</subscribe>
 </info>
 
