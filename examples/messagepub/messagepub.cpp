@@ -49,7 +49,11 @@ void messagepub::pub()
 
 		vector<unsigned char> data;
 		data.push_back('a');
-		cossb_broker->publish(this, "service/messagepub", "raw", data);
+		try {
+			cossb_broker->publish(this, "service/messagepub", "raw", data);
+		} catch(cossb::broker::exception& e) {
+			cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("{}", e.what()).c_str());
+		}
 		}
 		catch(thread_interrupted&)
 		{
