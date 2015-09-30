@@ -18,6 +18,7 @@ using namespace std;
 
 static vector<string> _service_types;
 static vector<ServiceInfo*> _services;
+static event* event_on_change;
 
 static AvahiSimplePoll* _poll = nullptr;
 AvahiServiceTypeBrowser* _type_browser = nullptr;
@@ -217,7 +218,7 @@ void service_browser_callback(
 			srv->name = name;
 			srv->type = type;
 			_services.push_back(srv);
-			(*(config->on_change))();
+			//(*(config->on_change))();
 		}
 			break;
 
@@ -279,9 +280,11 @@ void service_type_browser_callback(
 	{
 	case AVAHI_BROWSER_NEW:
 		browse_service_type(config, type, domain);
+		(*event_on_change)();
 		break;
 
 	case AVAHI_BROWSER_REMOVE:
+		(*event_on_change)();
 		/* We're dirty and never remove the browser again */
 		break;
 
@@ -445,7 +448,7 @@ libzeroconf::~libzeroconf() {
 	shutdown();
 }
 
-void libzeroconf::setup(const char* domain, IProtocol ipv, event on_change)
+void libzeroconf::setup(const char* domain, IProtocol ipv)
 {
 	//set configuration to browse all services in network
 	_config.command = COMMAND_BROWSE_ALL_SERVICES;
@@ -459,7 +462,6 @@ void libzeroconf::setup(const char* domain, IProtocol ipv, event on_change)
 	_config.protocol = (AvahiProtocol)ipv;
 	_config.domain = avahi_strdup(domain);
 	_config.stype = nullptr;
-	_config.on_change = &on_change;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
 	c.no_db_lookup = 0;
 #endif
@@ -489,8 +491,8 @@ void libzeroconf::shutdown()
 
 bool libzeroconf::browse(const char* domain, IProtocol ipv, event on_change)
 {
-	setup(domain, ipv, on_change);
-	//event_on_change = &on_change;
+	setup(domain, ipv);
+	event_on_change = &on_change;
 
 	if(!(_poll=avahi_simple_poll_new())) {
 		shutdown();

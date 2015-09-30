@@ -46,7 +46,6 @@ typedef struct Config {
     int resolve;
     int no_fail;
     int parsable;
-    static event* on_change;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
     int no_db_lookup;
 #endif
@@ -101,7 +100,7 @@ private:
 	/**
 	 * @brief	setup for zero config
 	 */
-	void setup(const char* domain, IProtocol ipv, event on_change);
+	void setup(const char* domain, IProtocol ipv);
 
 	/**
 	 * @brief	shutdown for zero config

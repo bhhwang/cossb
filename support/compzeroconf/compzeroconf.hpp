@@ -38,10 +38,8 @@ private:
 	libzeroconf* _zeroconf = nullptr;
 
 	/**
-	 * @brief	all services found
+	 * @brief	service browse task using Avahi
 	 */
-	vector<string> _services;
-
 	base::task _browse_task = nullptr;
 
 };
