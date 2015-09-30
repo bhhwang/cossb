@@ -12,23 +12,48 @@
 
 
 #include <string>
+#include <iostream>
 #include <exception>
+#include <stdexcept>
+#include "logger.hpp"
 
 using namespace std;
 
+
 namespace cossb {
-
-struct cossb_exception : public exception {
-	cossb_exception(const char* msg):str_exception(msg) { }
-	cossb_exception(const string& msg):str_exception(msg) { }
-	~cossb_exception() throw() {}
-	const char* what() const throw() {
-		return str_exception.c_str();
+namespace exception {
+class cossb_exception : public std::exception {
+public:
+	cossb_exception(const char* msg) : exception_str(msg) { }
+	~cossb_exception() throw() { }
+	virtual const char* what() const throw() {
+		return exception_str.c_str();
 	}
+protected:
+	void set(const char* msg) { exception_str = msg; }
 private:
-	string str_exception;
-
+	std::string exception_str;
 };
+} /* namespace exception */
+
+/**
+ * @brief	broker exception
+ */
+namespace broker {
+enum class excode : int { DRIVER_NOT_FOUND=0, };
+
+class exception : public cossb::exception::cossb_exception {
+public:
+	exception(broker::excode code):cossb::exception::cossb_exception("unknown exception") {
+		switch(code)
+		{
+		case	excode::DRIVER_NOT_FOUND: set("Driver cannot be found");  break;
+		}
+	}
+};
+
+} /* namespace broker */
+
 
 } /* namespace cossb */
 
