@@ -44,10 +44,12 @@ enum class excode : int { DRIVER_NOT_FOUND=0, };
 
 class exception : public cossb::exception::cossb_exception {
 public:
-	exception(broker::excode code):cossb::exception::cossb_exception("unknown exception") {
+	exception(broker::excode code):cossb::exception::cossb_exception("") {
 		switch(code)
 		{
 		case	excode::DRIVER_NOT_FOUND: set("Driver cannot be found");  break;
+		default:
+			set("Unknown Exception");
 		}
 	}
 };
