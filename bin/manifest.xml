@@ -14,14 +14,10 @@
 		<uri></uri>
 	</repository>
 	
-	<!-- local service(not component, not accessible, work independently) -->
-	<service name="mdns">libcbmdns.so</service>
-	
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
 	<required type="component" for="service">compzeroconf</required>
 	<required type="component" for="service">messagepub</required>
-	<required type="component" for="service">comphttpserver</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
