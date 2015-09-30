@@ -12,9 +12,10 @@
 
 #if defined(__unix__) || defined(__gnu_linux__) || defined(linux) || defined(__linux__)
 
-#include "logger.hpp"	//for base logger
-#include "broker.hpp"	//for topic/message broker
-#include "base/task.hpp"	//for task
+#include "logger.hpp"
+#include "broker.hpp"
+#include "base/task.hpp"
+#include "exception.hpp"
 
 #endif
 
