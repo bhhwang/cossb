@@ -66,7 +66,7 @@ void compzeroconf::request(cossb::message::message* msg)
 void compzeroconf::browse_task()
 {
 	if(_zeroconf) {
-		_zeroconf->browse("local", IProtocol::IPV4);
+		_zeroconf->browse("local", IProtocol::IPV4, compzeroconf::on_change);
 	}
 }
 

@@ -20,7 +20,7 @@
 
 using namespace std;
 
-//typedef void (*event)(void);
+typedef void (*event)(void);
 typedef enum {
     COMMAND_HELP,
     COMMAND_VERSION,
@@ -32,6 +32,8 @@ typedef enum {
 #endif
 } Command;
 
+enum class IProtocol : int { IPV4=0, IPV6, UNSPEC=-1 };
+
 typedef struct Config {
     int verbose;
     int terminate_on_all_for_now;
@@ -40,15 +42,17 @@ typedef struct Config {
     char* stype;
     int ignore_local;
     Command command;
+    AvahiProtocol protocol;
     int resolve;
     int no_fail;
     int parsable;
+    static event* on_change;
 #if defined(HAVE_GDBM) || defined(HAVE_DBM)
     int no_db_lookup;
 #endif
 } Config;
 
-typedef struct ServiceInfo ServiceInfo;
+/*typedef struct ServiceInfo ServiceInfo;
 
 struct ServiceInfo {
 	AvahiIfIndex interface;
@@ -61,9 +65,15 @@ struct ServiceInfo {
 	Config* config;
 
 	AVAHI_LLIST_FIELDS(ServiceInfo, info);
-};
+};*/
 
-enum class IProtocol : int { IPV4=0, IPV6, UNSPEC=-1 };
+typedef struct ServiceInfo	ServiceInfo;
+struct ServiceInfo {
+	string name;
+	string type;
+	string domain;
+	IProtocol protocol;
+};
 
 class libzeroconf {
 public:
@@ -75,7 +85,7 @@ public:
 	 * @detail	all services will be browsed.
 	 * @return	return false if it is failed.
 	 */
-	bool browse(const char* domain, IProtocol ipv);
+	bool browse(const char* domain, IProtocol ipv, event on_change);
 
 
 	/**
@@ -87,15 +97,42 @@ private:
 	void update_service_types();
 
 private:
+
 	/**
 	 * @brief	setup for zero config
 	 */
-	void setup();
+	void setup(const char* domain, IProtocol ipv, event on_change);
 
 	/**
 	 * @brief	shutdown for zero config
 	 */
 	void shutdown();
+
+private:
+	/**
+	 * @brief	avahi callback functions
+	 */
+	static void client_callback(AvahiClient* client, AvahiClientState state, void* userdata);
+	static void service_type_browser_callback(
+	    AvahiServiceTypeBrowser* browser,
+	    AVAHI_GCC_UNUSED AvahiIfIndex interface,
+	    AVAHI_GCC_UNUSED AvahiProtocol protocol,
+	    AvahiBrowserEvent event,
+	    const char *type,
+	    const char *domain,
+	    AVAHI_GCC_UNUSED AvahiLookupResultFlags flags,
+	    void *userdata);
+
+	static void service_browser_callback(
+		AvahiServiceBrowser* browser,
+		AvahiIfIndex interface,
+		AvahiProtocol protocol,
+		AvahiBrowserEvent event,
+		const char *name,
+		const char *type,
+		const char *domain,
+		AvahiLookupResultFlags flags,
+		void *userdata);
 
 private:
 	Config _config;
