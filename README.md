@@ -31,7 +31,8 @@ COSSB Usage
 1. Edit manifest.xml
 
 Manifest.xml file contained all information about running environments.
-'''
+
+```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest>
 	<!-- product information (IMPORTANT section) -->
@@ -59,7 +60,7 @@ Manifest.xml file contained all information about running environments.
 	</property>
 	
 </manifest>
-'''
+```
 
 COSSB Utility Usage
 -------
