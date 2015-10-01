@@ -13,6 +13,7 @@
 
 using namespace cossb;
 
+class libhttpserver;
 class comphttpserver : public interface::icomponent {
 public:
 	comphttpserver();
@@ -22,6 +23,13 @@ public:
 	bool run();
 	bool stop();
 	void request(cossb::message::message* msg);
+
+private:
+	void server_run();
+
+private:
+	base::task _server_task;
+	libhttpserver* _libhttpserver = nullptr;
 };
 
 COMPONENT_EXPORT

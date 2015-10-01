@@ -7,6 +7,7 @@
 
 #include "comphttpserver.hpp"
 #include "../../include/componentpack.hpp"
+#include "libhttpserver.hpp"
 
 COMPONENT_INSTANCE(comphttpserver)
 COMPONENT_CREATE(comphttpserver)
@@ -29,15 +30,37 @@ bool comphttpserver::setup()
 
 bool comphttpserver::run()
 {
+	if(!_libhttpserver)
+		_libhttpserver = new libhttpserver();
+
+	if(!_server_task)
+		_server_task = create_task(comphttpserver::server_run);
+
 	return true;
 }
 
 bool comphttpserver::stop()
 {
+	destroy_task(_server_task);
+
+	if(_libhttpserver) {
+		delete _libhttpserver;
+		_libhttpserver = nullptr;
+	}
+
 	return true;
 }
 
 void comphttpserver::request(cossb::message::message* msg)
 {
 
+}
+
+void comphttpserver::server_run()
+{
+	if(_libhttpserver)
+	{
+		cossb_log->log(log::loglevel::INFO, "HTTP server is running...");
+		_libhttpserver->run();
+	}
 }
