@@ -30,7 +30,8 @@ COSSB Usage
 -------
 1. Edit manifest.xml
 
-Manifest.xml file contained all information about running environments.
+Manifest.xml file contained all information about running environments like below.
+You should edit just <required> tags, then the COSSB components surrounding <required> tag will be loaded. 
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -60,6 +61,14 @@ Manifest.xml file contained all information about running environments.
 	</property>
 	
 </manifest>
+```
+
+2. Just run with manifest
+
+COSSB will find and load manifest.xml file at first when gives 'run' option.
+
+```
+$ ./cossb --run
 ```
 
 COSSB Utility Usage
