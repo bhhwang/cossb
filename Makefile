@@ -83,16 +83,18 @@ $(OUTDIR)compzeroconf.o: $(COMPONENT_FILES)compzeroconf/compzeroconf.cpp
 $(OUTDIR)libzeroconf.o: $(COMPONENT_FILES)compzeroconf/libzeroconf.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
-#================== zeroconf component
+#================== sqlite component
 compsqlite.comp: $(OUTDIR)compsqlite.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)compsqlite.o: $(COMPONENT_FILES)compsqlite/compsqlite.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
-#================== zeroconf component
-comphttpserver.comp: $(OUTDIR)comphttpserver.o
-	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+#================== httpserver component
+comphttpserver.comp: $(OUTDIR)comphttpserver.o $(OUTDIR)libhttpserver.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS) -lmicrohttpd
 $(OUTDIR)comphttpserver.o: $(COMPONENT_FILES)comphttpserver/comphttpserver.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+$(OUTDIR)libhttpserver.o: $(COMPONENT_FILES)comphttpserver/libhttpserver.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
@@ -154,13 +156,13 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp createcomp.util
+all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
 
 base: cossb
 
 example : helloworld.comp messagepub.comp
 
-component: compserial.comp compsqlite.comp comphttp.comp 
+component: compserial.comp compsqlite.comp comphttpserver.comp 
 
 util : createcomp.so
 
