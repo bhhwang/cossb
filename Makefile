@@ -54,13 +54,21 @@ libcbmdns.so:	$(OUTDIR)cbmdns.o
 #Make createcomp utility
 createcomp.util:	$(OUTDIR)createcomp.o 
 				$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-	
-#example components
+				
+######################################################	
+#helloworld example components
 helloworld.comp: $(OUTDIR)helloworld.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)helloworld.o: $(EXAMPLE_FILES)helloworld/helloworld.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
-
+	
+#mbed_rgb example components
+mbed_rgb.comp: $(OUTDIR)mbed_rgb.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)mbed_rgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
+#####################################################
 #================== compserial component
 compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
@@ -96,7 +104,9 @@ $(OUTDIR)comphttpserver.o: $(COMPONENT_FILES)comphttpserver/comphttpserver.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 $(OUTDIR)libhttpserver.o: $(COMPONENT_FILES)comphttpserver/libhttpserver.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
-	
+
+
+#####################################################	
 $(OUTDIR)compmanager.o: $(INCLUDE_FILES)compmanager.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
@@ -156,11 +166,11 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
+all: cossb libcblog.so helloworld.comp mbed_rgb.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
 
 base: cossb
 
-example : helloworld.comp messagepub.comp
+example : helloworld.comp messagepub.comp mbed_rgb.comp
 
 component: compserial.comp compsqlite.comp comphttpserver.comp 
 
