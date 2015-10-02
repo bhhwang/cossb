@@ -39,23 +39,26 @@ public:
 	}
 
 	/**
-	 * @brief	publish data pack to specific service component
+	 * @brief		publish data pack to specific service component
+	 * @return		times published
 	 */
 	template<typename... Args>
-	bool publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args) {
+	unsigned int publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args) {
 		auto range = _topic_map.equal_range(to_topic);
+		unsigned int times = 0;
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 			if(itr->second.compare(component->get_name())==0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
 				if(_drv) {
 					_drv->request(api, args...);
+					times++;
 				}
 				else
 					throw broker::exception(cossb::broker::excode::DRIVER_NOT_FOUND);
 			}
 		}
 
-		return true;
+		return times;
 	}
 
 private:
