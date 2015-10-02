@@ -40,7 +40,9 @@ private:
  * @brief	broker exception
  */
 namespace broker {
-enum class excode : int { DRIVER_NOT_FOUND=0, };
+enum class excode : int {
+	DRIVER_NOT_FOUND=0,
+};
 
 class exception : public cossb::exception::cossb_exception {
 public:
