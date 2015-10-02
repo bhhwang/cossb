@@ -31,7 +31,7 @@ bool comphttpserver::setup()
 bool comphttpserver::run()
 {
 	if(!_libhttpserver)
-		_libhttpserver = new libhttpserver();
+		_libhttpserver = new libhttpserver(80);
 
 	if(!_server_task)
 		_server_task = create_task(comphttpserver::server_run);

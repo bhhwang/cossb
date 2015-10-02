@@ -11,50 +11,7 @@
 
 using namespace std;
 
-
-/*
-int print_out_key (void *cls, enum MHD_ValueKind kind, const char *key,const char *value)
-{
-  std::cout << "\"" << key << "\" = \"" <<  value << "\"" << std::endl ;
-  return MHD_YES;
-}
-
-int ahc_echo (void *p_callback_data,
-          struct MHD_Connection *connection,
-          const char *url,
-          const char *method,
-          const char *version,
-          const char *upload_data, size_t *upload_data_size, void **ptr)
-{
-  static int aptr;
-  const char *p_content_page = (char*)p_callback_data;
-  struct MHD_Response *response;
-  int ret;
-
-  std::cout << "Method = \"" << method << "\"" <<std::endl ;
-  std::cout << "URL = \"" << url << "\"" <<std::endl ;
-
-  MHD_get_connection_values (connection, MHD_HEADER_KIND, print_out_key,NULL);
-
-  if (0 != strcmp (method, "GET"))
-    return MHD_NO;              // unexpected method
-  if (&aptr != *ptr)
-    {
-      // do never respond on first call
-      *ptr = &aptr;
-      return MHD_YES;
-    }
-  *ptr = NULL;                  // reset when done
-  response = MHD_create_response_from_buffer (strlen (p_content_page),
-                                              (void *) p_content_page,
-                                              MHD_RESPMEM_PERSISTENT);
-  ret = MHD_queue_response (connection, MHD_HTTP_OK, response);
-  MHD_destroy_response (response);
-  return ret;
-}*/
-
-static int
-answer_to_connection (void *cls, struct MHD_Connection *connection,
+int libhttpserver::request_handle (void *cls, struct MHD_Connection *connection,
                       const char *url, const char *method,
                       const char *version, const char *upload_data,
                       size_t *upload_data_size, void **con_cls)
@@ -71,8 +28,8 @@ answer_to_connection (void *cls, struct MHD_Connection *connection,
 }
 
 
-libhttpserver::libhttpserver() {
-	// TODO Auto-generated constructor stub
+libhttpserver::libhttpserver(int port):_port(port) {
+
 
 }
 
@@ -96,7 +53,7 @@ void libhttpserver::listen(unsigned int port)
 
 void libhttpserver::run()
 {
-	struct MHD_Daemon* daemon = MHD_start_daemon(MHD_USE_SELECT_INTERNALLY, DEFAULT_PORT, NULL, NULL, &answer_to_connection, NULL, MHD_OPTION_END);
+	daemon = MHD_start_daemon(MHD_USE_THREAD_PER_CONNECTION, _port, NULL, NULL, &libhttpserver::request_handle, this, MHD_OPTION_END);
 	if(!daemon)
 		return;
 
