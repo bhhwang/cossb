@@ -30,11 +30,6 @@ private:
 private:
 
 	/**
-	 * @brief	http server runs on thread(task)
-	 */
-	base::task _server_task;
-
-	/**
 	 * @brief	http server library
 	 */
 	libhttpserver* _libhttpserver = nullptr;

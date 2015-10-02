@@ -14,15 +14,11 @@
 #include <sys/socket.h>
 #include <microhttpd.h>
 
-#define DEFAULT_PORT	8888
-
 class libhttpserver
 {
 public:
 	libhttpserver(int port=80);
 	virtual ~libhttpserver();
-
-	void listen(unsigned int port);
 
 	/**
 	 * @brief	start http server

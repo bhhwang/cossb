@@ -30,18 +30,18 @@ bool comphttpserver::setup()
 
 bool comphttpserver::run()
 {
-	if(!_libhttpserver)
-		_libhttpserver = new libhttpserver(80);
-
-	if(!_server_task)
-		_server_task = create_task(comphttpserver::server_run);
+	if(!_libhttpserver) {
+		const int port = 8888;
+		_libhttpserver = new libhttpserver(port);
+		cossb_log->log(log::loglevel::INFO, fmt::format("HTTP server is running on port {}",port).c_str());
+		_libhttpserver->run();
+	}
 
 	return true;
 }
 
 bool comphttpserver::stop()
 {
-	destroy_task(_server_task);
 
 	if(_libhttpserver) {
 		delete _libhttpserver;
@@ -54,13 +54,4 @@ bool comphttpserver::stop()
 void comphttpserver::request(cossb::message::message* msg)
 {
 
-}
-
-void comphttpserver::server_run()
-{
-	if(_libhttpserver)
-	{
-		cossb_log->log(log::loglevel::INFO, "HTTP server is running...");
-		_libhttpserver->run();
-	}
 }
