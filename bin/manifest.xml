@@ -18,7 +18,6 @@
 	<!-- required library for advanced user or our support -->
 	<required type="component" for="service">compzeroconf</required>
 	<required type="component" for="service">messagepub</required>
-	<required type="component" for="service">comphttpserver</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
