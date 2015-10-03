@@ -3,36 +3,24 @@ This firmware is only for TI CC3200 Launchpad.
 In order to test the COSSB system, we will support temporary open & public hardware platforms like TI Launchpad, Odroid, Raspberry Pi...
 If you have any questions for this sample code, please contact us(bhhwang@nsynapse.com).
 */
+
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <WiFiServer.h>
 #include <WiFiClient.h>
 
-
-
-char ssid[] = "nsynapseap";
+char ssid[] = "hellfire";
 char password[] = "elec6887";
 WiFiClient client = 0;
+WiFiServer server(8000);
 
-void printWifiStatus() {
-  Serial.print("Network Name: ");
-  Serial.println(WiFi.SSID());
-
-  IPAddress ip = WiFi.localIP();
-  Serial.print("IP Address: ");
-  Serial.println(ip);
-
-  long rssi = WiFi.RSSI();
-  Serial.print("signal strength (RSSI):");
-  Serial.print(rssi);
-  Serial.println(" dBm");
-}
+boolean bConnected = false;
 
 void setup()
 {
   Serial.begin(115200);
-  WiFi.init();
   WiFi.begin(ssid, password);
+  
   while(WiFi.status()!=WL_CONNECTED) {
     Serial.print(".");
     delay(300);
@@ -45,31 +33,48 @@ void setup()
     delay(300);
   }
   
-  Serial.print("Network Name: ");
+  printWifiStatus();
+  server.begin();
+}
+
+
+void loop()
+{
+  WiFiClient client = server.available();
+
+  if(client) {
+    if(!bConnected) {
+      bConnected = true;
+      client.flush();
+      client.println("hello, client!!");
+      Serial.println("client connected");
+    }
+    
+    if(client.available() > 0) {
+      char recv = client.read();
+      server.write(recv);
+      Serial.write(recv);
+    }
+  }
+}
+
+
+void printWifiStatus() {
+
+  // print the SSID of the network you're attached to:
+  Serial.print("SSID: ");
   Serial.println(WiFi.SSID());
 
+  // print your WiFi shield's IP address:
   IPAddress ip = WiFi.localIP();
   Serial.print("IP Address: ");
   Serial.println(ip);
 
+  // print the received signal strength:
   long rssi = WiFi.RSSI();
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
-  
-}
 
-void loop()
-{
-  mdnsAdvertiser(1, "CC3000", 6);
-  
-  /*client = server.available();
-  int ret = 0;
-  ret = mdnsAdvertise(1."cc3200", 6);
-  Serial.println("MDNS Advertising returning");
-  Serial.println(ret);*/
-  delay(5000);
-  
 }
-
 
