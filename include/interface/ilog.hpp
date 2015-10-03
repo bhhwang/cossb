@@ -10,10 +10,6 @@
 #ifndef _COSSB_ILOG_HPP_
 #define _COSSB_ILOG_HPP_
 
-/**
- * @brief	interface for simple log process
- */
-
 namespace cossb {
 namespace log {
 enum class logstream : unsigned int { CONSOLE=1, FILE };
