@@ -16,7 +16,8 @@
 	
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
-	<required type="component" for="service">compzeroconf</required>
+	<required type="component" for="service">mbed_rgb</required>
+	<required type="component" for="service">cc3200button</required>
 	<required type="component" for="service">messagepub</required>
 	<required type="library" for="log">libcblog.so</required>
 	
