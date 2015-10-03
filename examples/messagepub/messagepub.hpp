@@ -1,9 +1,9 @@
 /**
  * @file	messagepub.hpp
- * @brief	message publish ì˜ˆì œ
+ * @brief	message publish ¹ßÇà ¿¹Á¦
  * @author	Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 	2015. 9. 5
- * @details	ë©”ì‹œì§€ë¥¼ ë°œí–‰í•˜ëŠ” ì»´í¬ë„ŒíŠ¸ ì˜ˆì œ
+ * @details Æ¯Á¤ ¼­ºñ½º ÄÄÆ÷³ÍÆ®¿¡°Ô ¸Ş¼¼Áö¸¦ ¹ßÇà(publish)ÇÏ´Â ¿¹Á¦
  */
 
 #ifndef _COSSB_EXAMPLES_MESSAGEPUB_HPP_

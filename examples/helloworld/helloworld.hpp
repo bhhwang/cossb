@@ -1,9 +1,9 @@
 /**
  * @file	helloworld.hpp
- * @brief	hello world component
+ * @brief	hello world component ¿¹Á¦
  * @author	Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 	2015. 8. 7
- * @details	hello world ì»´í¬ë„ŒíŠ¸ ì˜ˆì œ
+ * @details	hello world ¿¹Á¦, ±âº» ÄÄÆ÷³ÍÆ®ÀÇ ±¸¼º È®ÀÎ
  */
 
 #ifndef _COSSB_EXAMPLE_HELLOWORLD_HPP_
