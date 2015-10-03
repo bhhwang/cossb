@@ -8,6 +8,11 @@ COMPONENT_INSTANCE(messagepub)
 COMPONENT_CREATE(messagepub)
 COMPONENT_DESTROY
 
+template <typename T, size_t N>
+T* _begin(T(&arr)[N]) { return &arr[0]; }
+template <typename T, size_t N>
+T* _end(T(&arr)[N]) { return &arr[0]+N; }
+
 messagepub::messagepub()
 :icomponent(COMPONENT(messagepub)){
 	// TODO Auto-generated constructor stub
@@ -47,10 +52,14 @@ void messagepub::pub()
 		try {
 		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
 
-		vector<unsigned char> data;
-		data.push_back('a');
+		char packet[] = {255, 0, 0};
+		vector<char> data(_begin(packet), _end(packet));
+
 		try {
-			cossb_broker->publish(this, "service/messagepub", "raw", data);
+			int a = cossb_broker->publish(this, "service/mbed_rgb", "rgb", data);
+			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("sent : {}",a).c_str());
+
+			cossb_log->log(cossb::log::loglevel::INFO, "sent message");
 		} catch(cossb::broker::exception& e) {
 			cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("{}", e.what()).c_str());
 		}
