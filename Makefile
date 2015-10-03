@@ -68,6 +68,12 @@ mbed_rgb.comp: $(OUTDIR)mbed_rgb.o
 $(OUTDIR)mbed_rgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
+#cc3200 button example components
+cc3200button.comp: $(OUTDIR)cc3200button.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)cc3200button.o: $(EXAMPLE_FILES)cc3200_button/cc3200button.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
 #####################################################
 #================== compserial component
 compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o 
@@ -166,11 +172,11 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp mbed_rgb.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
+all: cossb libcblog.so helloworld.comp mbed_rgb.comp cc3200button.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
 
 base: cossb
 
-example : helloworld.comp messagepub.comp mbed_rgb.comp
+example : helloworld.comp messagepub.comp mbed_rgb.comp cc3200button.comp
 
 component: compserial.comp compsqlite.comp comphttpserver.comp 
 
