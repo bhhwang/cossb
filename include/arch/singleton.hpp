@@ -3,7 +3,7 @@
  * @brief		dynamic Singleton pattern design template class
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 8. 2
- * @details	Dynamic Singleton pattern design for single global instance
+ * @details		singleton 패턴 템플릿 클래
  */
 
 #ifndef _COSSB_ARCH_SINGLETON_HPP_
