@@ -12,14 +12,14 @@ Features
 
 Dependency
 ===============
-* libtinyxml2
-* libpopt
-* libboost (thread, mutex, posix_time..)
-* [google test framework 1.7.0](http://code.google.com/p/googletest/downloads/list) (only for test)
-* [Doxygen](http://www.doxygen.org) (for auto-documentation)
-  - Graphviz (for doxygen)
-* [avahi-daemon](http://avahi.org/) (only for compzeroconf component)
-* libmicrohttpd (only for comphttpserver component)
+* libtinyxml2 (required)
+* libpopt (required)
+* libboost [thread, mutex, posix_time..] (required)
+* [google test framework 1.7.0](http://code.google.com/p/googletest/downloads/list) (only for test, optional)
+* [Doxygen](http://www.doxygen.org) (for auto-documentation / optional)
+  - Graphviz (for doxygen, optional)
+* [avahi-daemon](http://avahi.org/) (only for compzeroconf component, optional)
+* libmicrohttpd (only for comphttpserver component, optional)
 
 
 
