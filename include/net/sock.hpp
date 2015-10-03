@@ -25,6 +25,8 @@ public:
 	sock(netType type):_type(type) { }
 	virtual ~sock();
 
+	virtual int write(char* data, unsigned int len) = 0;
+
 protected:
 	netType* get_type() { return &_type; }
 
