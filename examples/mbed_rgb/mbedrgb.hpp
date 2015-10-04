@@ -26,15 +26,16 @@ public:
 
 private:
 	bool connect(const char* ipaddr, unsigned short port);
-
+	bool endsWith(char* inString, int len, char* compString);
+	bool startsWith(char* inString, char* compString);
 	void process();
 
-	cossb::base::task _client_task;
-
 private:
-
+	int socket_fd;
 	string _host;
 	unsigned short _port;
+	cossb::base::task _client_task;
+
 
 };
 
