@@ -1,3 +1,12 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcossb_1_1profile_1_1type.html" title="cossb::profile::type" alt="" coords="5,5,139,32"/>
+<area shape="rect" id="node1" href="$d3/de0/classcossb_1_1interface_1_1icomponent.html" title="component interface class " alt="" coords="5,208,196,235"/>
+<area shape="rect" id="node2" href="$df/d71/classcc3200__button.html" title="cc3200_button" alt="" coords="247,5,353,32"/>
+<area shape="rect" id="node3" href="$d8/d03/classcomphttpserver.html" title="comphttpserver" alt="" coords="244,56,356,83"/>
+<area shape="rect" id="node4" href="$de/d9b/classcompserial.html" title="compserial" alt="" coords="257,107,343,133"/>
+<area shape="rect" id="node5" href="$d5/d56/classcompsqlite.html" title="compsqlite" alt="" coords="257,157,343,184"/>
+<area shape="rect" id="node6" href="$d3/ddc/classcomptcpserver.html" title="comptcpserver" alt="" coords="246,208,354,235"/>
+<area shape="rect" id="node7" href="$d7/dfd/classcompzeroconf.html" title="compzeroconf" alt="" coords="248,259,352,285"/>
+<area shape="rect" id="node8" href="$dd/d6d/classhello__world.html" title="hello_world" alt="" coords="257,309,343,336"/>
+<area shape="rect" id="node9" href="$df/d09/classmbed__rgb.html" title="mbed_rgb" alt="" coords="261,360,339,387"/>
+<area shape="rect" id="node10" href="$d4/dd7/classmessagepub.html" title="messagepub" alt="" coords="252,411,348,437"/>
 </map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['item_5ftype',['item_type',['../classspdlog_1_1details_1_1async__log__helper.html#a697d7c2f16fe34871f560eeb50bdb8f9',1,'spdlog::details::async_log_helper::item_type()'],['../classspdlog_1_1details_1_1mpmc__bounded__queue.html#a031988ff55da961ad0cd1df08c9112b5',1,'spdlog::details::mpmc_bounded_queue::item_type()']]]
+  ['formatfunc',['FormatFunc',['../df/d28/structfmt_1_1internal_1_1Value.html#a1bdc8aa6f70614fbb514aaa56106c669',1,'fmt::internal::Value::FormatFunc()'],['../df/d28/structfmt_1_1internal_1_1Value.html#a1bdc8aa6f70614fbb514aaa56106c669',1,'fmt::internal::Value::FormatFunc()']]],
+  ['formatter_5fptr',['formatter_ptr',['../dc/dec/namespacespdlog.html#ac37ffdf8bf14091d0c2374a6c4a8d409',1,'spdlog']]]
 ];

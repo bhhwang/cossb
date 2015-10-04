@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['q_5ftype',['q_type',['../classspdlog_1_1details_1_1async__log__helper.html#adc1eff190d4b041a9f90232c7097581a',1,'spdlog::details::async_log_helper']]]
+  ['ostream_5fsink_5fmt',['ostream_sink_mt',['../db/dec/namespacespdlog_1_1sinks.html#a5822ee0090061b9982d334e64da1b240',1,'spdlog::sinks']]],
+  ['ostream_5fsink_5fst',['ostream_sink_st',['../db/dec/namespacespdlog_1_1sinks.html#a0cb719bc6348503c00a05697d7eb65ca',1,'spdlog::sinks']]]
 ];

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['level',['level',['../structspdlog_1_1details_1_1log__msg.html#a4142f4d66140a1ea24053311ebea5706',1,'spdlog::details::log_msg']]],
-  ['logger_5fname',['logger_name',['../structspdlog_1_1details_1_1log__msg.html#a8e4e969bdb20304c4af100e6a2589193',1,'spdlog::details::log_msg']]],
-  ['long_5fdouble_5fvalue',['long_double_value',['../structfmt_1_1internal_1_1Value.html#a7adfb34f6e0b12676681de8a6597ed17',1,'fmt::internal::Value']]],
-  ['long_5flong_5fvalue',['long_long_value',['../structfmt_1_1internal_1_1Value.html#a1dab8b1df1f88c35b6893d63b1b72af8',1,'fmt::internal::Value']]],
-  ['longlong',['LongLong',['../namespacefmt.html#aef84b50b68fdc25388fed2952c2db563',1,'fmt']]]
+  ['id',['id',['../d2/d93/structcossb_1_1__mDNSHeader.html#af6b0683654cee5984cbfb6848efffa0b',1,'cossb::_mDNSHeader']]],
+  ['ignore_5flocal',['ignore_local',['../df/d87/structConfig.html#a7948e8324a7562f39c236a58a37da182',1,'Config']]],
+  ['int_5fvalue',['int_value',['../df/d28/structfmt_1_1internal_1_1Value.html#ac295b81747c26b97893be505a03381c8',1,'fmt::internal::Value']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['component_5fmanager',['component_manager',['../classcossb_1_1container_1_1component__container.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::container::component_container::component_manager()'],['../classcossb_1_1driver_1_1component__driver.html#a0f270d11e09e884b99bef0e26020a412',1,'cossb::driver::component_driver::component_manager()']]],
-  ['system_5fmanager',['system_manager',['../classcossb_1_1log_1_1logger.html#a7f68d767df4918c1b9c636d1fe34f14c',1,'cossb::log::logger']]]
+  ['argformatter_3c_20char_20_3e',['ArgFormatter&lt; Char &gt;',['../db/d1d/classfmt_1_1BasicWriter.html#aea9e1456e0d613711f19085741334f59',1,'fmt::BasicWriter']]],
+  ['iprofile',['iprofile',['../dd/da1/classcossb_1_1profile_1_1type.html#ac8b26b59e4ac1c05014dcb1fa62d1fd3',1,'cossb::profile::type']]],
+  ['printfformatter_3c_20char_20_3e',['PrintfFormatter&lt; Char &gt;',['../db/d1d/classfmt_1_1BasicWriter.html#a61b824a3ef9c3d3339aff493f8c5ec68',1,'fmt::BasicWriter']]]
 ];

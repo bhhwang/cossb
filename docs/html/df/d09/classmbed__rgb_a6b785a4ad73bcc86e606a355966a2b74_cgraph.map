@@ -1,0 +1,10 @@
+<map id="mbed_rgb::setup" name="mbed_rgb::setup">
+<area shape="rect" id="node2" href="$d3/de0/classcossb_1_1interface_1_1icomponent.html#a1cd6b395cb00f1ff602962b98b623952" title="cossb::interface::icomponent\l::get_profile" alt="" coords="172,5,363,47"/>
+<area shape="rect" id="node3" href="$dd/df3/classcossb_1_1interface_1_1iprofile.html#a4b3dd906bcd42ab9849db598f603fbe6" title="cossb::interface::iprofile::get" alt="" coords="174,71,361,98"/>
+<area shape="rect" id="node4" href="$dd/da1/classcossb_1_1profile_1_1type.html#a0d930f24349248d44ec41035c43e8369" title="cossb::profile::type\l::asString" alt="" coords="201,123,334,164"/>
+<area shape="rect" id="node5" href="$dd/da1/classcossb_1_1profile_1_1type.html#a5bdff64418954338077f62edf266443b" title="cossb::profile::type\l::asUInt" alt="" coords="201,188,334,229"/>
+<area shape="rect" id="node6" href="$d4/d6d/namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="224,254,311,281"/>
+<area shape="rect" id="node7" href="$da/dfc/classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="411,181,575,223"/>
+<area shape="rect" id="node8" href="$d2/d48/classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="423,247,562,288"/>
+<area shape="rect" id="node9" href="$d9/d2f/classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="623,247,760,288"/>
+</map>

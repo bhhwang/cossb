@@ -1,0 +1,17 @@
+<map id="format.h" name="format.h">
+<area shape="rect" id="node2" href="$df/ddb/libadopter_8hpp.html" title="internal standard library adopter(loader) " alt="" coords="136,80,239,107"/>
+<area shape="rect" id="node4" href="$d6/da3/logger_8hpp.html" title="ossb default console logger " alt="" coords="386,80,469,107"/>
+<area shape="rect" id="node8" href="$d5/d15/driver_8cpp.html" title="Component driver. " alt="" coords="640,155,719,181"/>
+<area shape="rect" id="node9" href="$d3/d30/logger_8cpp.html" title="logger.cpp" alt="" coords="743,155,826,181"/>
+<area shape="rect" id="node12" href="$d0/d14/format_8cc.html" title="format.cc" alt="" coords="762,80,839,107"/>
+<area shape="rect" id="node13" href="$dc/d75/localtime_8hpp.html" title="localtime.hpp" alt="" coords="863,80,962,107"/>
+<area shape="rect" id="node3" href="$d2/da7/sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="5,155,124,181"/>
+<area shape="rect" id="node5" href="$df/d66/broker_8hpp.html" title="Component Broker. " alt="" coords="210,229,293,256"/>
+<area shape="rect" id="node6" href="$dd/d8e/instance_8cpp.html" title="instance.cpp" alt="" coords="247,304,343,331"/>
+<area shape="rect" id="node7" href="$d7/d1e/exception_8hpp.html" title="COSSB exception. " alt="" coords="200,155,303,181"/>
+<area shape="rect" id="node10" href="$d4/dbb/utilloader_8cpp.html" title="Utility library loader. " alt="" coords="378,155,477,181"/>
+<area shape="rect" id="node11" href="$df/dea/createcomp_8cpp.html" title="createcomp.cpp" alt="" coords="501,155,615,181"/>
+<area shape="rect" id="node14" href="$d4/de7/localtime_8cpp.html" title="localtime.cpp" alt="" coords="859,155,958,181"/>
+<area shape="rect" id="node15" href="$dd/dd9/cblog_8hpp.html" title="COSSB log library (on console stream) " alt="" coords="983,155,1061,181"/>
+<area shape="rect" id="node16" href="$d2/d50/cblog_8cpp.html" title="cblog.cpp" alt="" coords="983,229,1061,256"/>
+</map>

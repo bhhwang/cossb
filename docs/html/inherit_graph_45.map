@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structfmt_1_1internal_1_1Conditional_3_01false_00_01T_00_01F_01_4.html" title="fmt::internal::Conditional\l\&lt; false, T, F \&gt;" alt="" coords="6,5,170,46"/>
+<area shape="rect" id="node1" href="$da/d20/structfmt_1_1EmptySpec.html" title="fmt::EmptySpec" alt="" coords="5,5,123,32"/>
+<area shape="rect" id="node2" href="$d6/db1/structfmt_1_1TypeSpec.html" title="fmt::TypeSpec\&lt; TYPE \&gt;" alt="" coords="171,5,337,32"/>
 </map>

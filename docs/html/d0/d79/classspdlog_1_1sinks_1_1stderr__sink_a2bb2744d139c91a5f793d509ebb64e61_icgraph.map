@@ -1,0 +1,4 @@
+<map id="spdlog::sinks::stderr_sink::instance" name="spdlog::sinks::stderr_sink::instance">
+<area shape="rect" id="node2" href="$dc/dec/namespacespdlog.html#aac34b83516f50ad518aa1cbe4bad2bdc" title="spdlog::stderr_logger_mt" alt="" coords="193,5,359,32"/>
+<area shape="rect" id="node3" href="$dc/dec/namespacespdlog.html#ac70399315157dd549e169e4f92b10854" title="spdlog::stderr_logger_st" alt="" coords="195,56,357,83"/>
+</map>

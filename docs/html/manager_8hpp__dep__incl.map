@@ -1,8 +1,0 @@
-<map id="manager.hpp" name="manager.hpp">
-<area shape="rect" id="node2" href="$compmanager_8cpp.html" title="COSSB component manager. " alt="" coords="5,229,133,256"/>
-<area shape="rect" id="node3" href="$driver_8hpp.html" title="Component driver. " alt="" coords="87,80,165,107"/>
-<area shape="rect" id="node6" href="$instance_8cpp.html" title="instance.cpp" alt="" coords="191,80,287,107"/>
-<area shape="rect" id="node7" href="$sysmanager_8cpp.html" title="COSSB system manager. " alt="" coords="311,80,429,107"/>
-<area shape="rect" id="node4" href="$container_8hpp.html" title="component container class " alt="" coords="107,155,207,181"/>
-<area shape="rect" id="node5" href="$driver_8cpp.html" title="Component driver. " alt="" coords="231,155,309,181"/>
-</map>

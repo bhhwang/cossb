@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['returntype',['returntype',['../namespacecossb_1_1types.html#aec2a8f1ebb840653b5420ea258b0b7a7',1,'cossb::types']]]
+  ['nettype',['netType',['../d8/d7d/namespacecossb_1_1net.html#a45aaf57ce015f8d22ea0e1113bfc121a',1,'cossb::net']]]
 ];

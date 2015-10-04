@@ -1,0 +1,10 @@
+<map id="fmt::printf" name="fmt::printf">
+<area shape="rect" id="node2" href="$d4/d6d/namespacefmt.html#ac98fc8595f5508ae46a91247393aede1" title="fmt::fprintf" alt="" coords="132,129,215,155"/>
+<area shape="rect" id="node3" href="$d4/d6d/namespacefmt.html#a345c4d67d545e3054d0ed87bab467793" title="fmt::printf" alt="" coords="299,78,377,105"/>
+<area shape="rect" id="node8" href="$db/d1d/classfmt_1_1BasicWriter.html#a1b6721b4ba4d3fa18ac781a36616cc2a" title="fmt::BasicWriter::size" alt="" coords="263,129,413,155"/>
+<area shape="rect" id="node9" href="$db/d1d/classfmt_1_1BasicWriter.html#a62d1c7b5be9c3580326320d5d178d096" title="fmt::BasicWriter::data" alt="" coords="263,179,413,206"/>
+<area shape="rect" id="node4" href="$d4/d6d/namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="461,78,548,105"/>
+<area shape="rect" id="node5" href="$da/dfc/classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="596,5,760,47"/>
+<area shape="rect" id="node6" href="$d2/d48/classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="609,71,747,112"/>
+<area shape="rect" id="node7" href="$d9/d2f/classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="808,71,945,112"/>
+</map>

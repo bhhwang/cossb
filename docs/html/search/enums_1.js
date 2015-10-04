@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['color',['Color',['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8a',1,'fmt::Color()'],['../namespacefmt.html#ace617112a82e0f90aac9858ecb446c8a',1,'fmt::Color()']]]
+  ['bundletype',['bundleType',['../d8/d36/namespacecossb_1_1base.html#a98ec313f1059ac0fce59449af538332f',1,'cossb::base']]]
 ];

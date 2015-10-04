@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['pointer',['pointer',['../structfmt_1_1internal_1_1Value.html#a3627bcfa0a5bcb7e48f6fc632243b17d',1,'fmt::internal::Value']]],
-  ['powers_5fof_5f10_5f32',['POWERS_OF_10_32',['../structfmt_1_1internal_1_1BasicData.html#ab3412a5441b6b7e60e4e4d75a4875993',1,'fmt::internal::BasicData']]],
-  ['powers_5fof_5f10_5f64',['POWERS_OF_10_64',['../structfmt_1_1internal_1_1BasicData.html#a60a2ec9b3bca80c4062a63b9889fd988',1,'fmt::internal::BasicData']]],
-  ['precision_5f',['precision_',['../structfmt_1_1FormatSpec.html#a8444724bdd0a55bf3226a17e321c12c5',1,'fmt::FormatSpec']]],
-  ['ptr_5f',['ptr_',['../classfmt_1_1internal_1_1Buffer.html#a07b9c0f0a2c05efd9ee500e72894d64f',1,'fmt::internal::Buffer::ptr_()'],['../classfmt_1_1Buffer.html#a17b11ccf916407fdb464b53b3e556849',1,'fmt::Buffer::ptr_()']]]
+  ['name',['name',['../d3/dc5/structcossb_1_1base_1_1__sRequired.html#a43483be1fb8b66d507bed081f6d38dcd',1,'cossb::base::_sRequired::name()'],['../d2/dff/structServiceInfo.html#ab5add4fe8725379a1c0f7ddcef8a59c9',1,'ServiceInfo::name()']]],
+  ['no_5ffail',['no_fail',['../df/d87/structConfig.html#a581792cbad3d4034e12ad69d1ab354f1',1,'Config']]],
+  ['nscount',['nscount',['../d2/d93/structcossb_1_1__mDNSHeader.html#ab7de62cffbe22126904d56ceceee51e9',1,'cossb::_mDNSHeader']]]
 ];

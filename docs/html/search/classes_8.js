@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['i_5fformatter',['I_formatter',['../classspdlog_1_1details_1_1I__formatter.html',1,'spdlog::details']]],
-  ['iauth',['iauth',['../classcossb_1_1interface_1_1iauth.html',1,'cossb::interface']]],
-  ['icomm',['icomm',['../classcossb_1_1interface_1_1icomm.html',1,'cossb::interface']]],
-  ['icommread',['icommread',['../classcossb_1_1interface_1_1icommread.html',1,'cossb::interface']]],
-  ['icommwrite',['icommwrite',['../classcossb_1_1interface_1_1icommwrite.html',1,'cossb::interface']]],
-  ['icomponent',['icomponent',['../classcossb_1_1interface_1_1icomponent.html',1,'cossb::interface']]],
-  ['ilog',['ilog',['../classcossb_1_1interface_1_1ilog.html',1,'cossb::interface']]],
-  ['imessage',['imessage',['../classcossb_1_1interface_1_1imessage.html',1,'cossb::interface']]],
-  ['intformatspec',['IntFormatSpec',['../classfmt_1_1IntFormatSpec.html',1,'fmt']]],
-  ['inttraits',['IntTraits',['../structfmt_1_1internal_1_1IntTraits.html',1,'fmt::internal']]],
-  ['ipc',['ipc',['../classcossb_1_1base_1_1ipc.html',1,'cossb::base']]],
-  ['iprofile',['iprofile',['../classcossb_1_1interface_1_1iprofile.html',1,'cossb::interface']]],
-  ['isconvertibletoint',['IsConvertibleToInt',['../classfmt_1_1internal_1_1IsConvertibleToInt.html',1,'fmt::internal']]],
-  ['isql',['iSQL',['../classcossb_1_1interface_1_1iSQL.html',1,'cossb::interface']]]
+  ['i_5fformatter',['I_formatter',['../d5/dca/classspdlog_1_1details_1_1I__formatter.html',1,'spdlog::details']]],
+  ['iauth',['iauth',['../d2/da9/classcossb_1_1interface_1_1iauth.html',1,'cossb::interface']]],
+  ['icomm',['icomm',['../db/dce/classcossb_1_1interface_1_1icomm.html',1,'cossb::interface']]],
+  ['icommread',['icommread',['../d6/dce/classcossb_1_1interface_1_1icommread.html',1,'cossb::interface']]],
+  ['icommwrite',['icommwrite',['../da/d9e/classcossb_1_1interface_1_1icommwrite.html',1,'cossb::interface']]],
+  ['icomponent',['icomponent',['../d3/de0/classcossb_1_1interface_1_1icomponent.html',1,'cossb::interface']]],
+  ['ilog',['ilog',['../d1/dd9/classcossb_1_1interface_1_1ilog.html',1,'cossb::interface']]],
+  ['intformatspec',['IntFormatSpec',['../d3/d32/classfmt_1_1IntFormatSpec.html',1,'fmt']]],
+  ['inttraits',['IntTraits',['../db/d51/structfmt_1_1internal_1_1IntTraits.html',1,'fmt::internal']]],
+  ['iobject',['iobject',['../d7/d97/classcossb_1_1interface_1_1iobject.html',1,'cossb::interface']]],
+  ['iprofile',['iprofile',['../dd/df3/classcossb_1_1interface_1_1iprofile.html',1,'cossb::interface']]],
+  ['irunnable',['irunnable',['../da/d28/classcossb_1_1interface_1_1irunnable.html',1,'cossb::interface']]],
+  ['isconvertibletoint',['IsConvertibleToInt',['../dd/daf/classfmt_1_1internal_1_1IsConvertibleToInt.html',1,'fmt::internal']]],
+  ['isimpleservice',['isimpleservice',['../d0/d44/classcossb_1_1interface_1_1isimpleservice.html',1,'cossb::interface']]],
+  ['isql',['iSQL',['../d8/db1/classcossb_1_1interface_1_1iSQL.html',1,'cossb::interface']]],
+  ['iutility',['iutility',['../d7/d54/classcossb_1_1interface_1_1iutility.html',1,'cossb::interface']]]
 ];

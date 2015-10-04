@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_5fformatter',['Y_formatter',['../classspdlog_1_1details_1_1Y__formatter.html',1,'spdlog::details']]]
+  ['xmlprofile',['xmlprofile',['../d3/d64/classcossb_1_1profile_1_1xmlprofile.html',1,'cossb::profile']]]
 ];

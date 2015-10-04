@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['warraywriter',['WArrayWriter',['../namespacefmt.html#a5b96a2878c97ba4e61570434be494746',1,'fmt']]],
-  ['wmemorywriter',['WMemoryWriter',['../namespacefmt.html#af29f0778f567c91de86ea57e02cef2b9',1,'fmt']]],
-  ['writer',['Writer',['../namespacefmt.html#a103f8b119b985ea52281faf5a6ba8cf9',1,'fmt']]],
-  ['wstringref',['WStringRef',['../namespacefmt.html#a5d05f17cd2d69284a05289c4c2abb4ae',1,'fmt']]],
-  ['wwriter',['WWriter',['../namespacefmt.html#ac2f5d1a3d66f34f8b6258a504bb51c05',1,'fmt']]]
+  ['unsupported',['Unsupported',['../dc/d3f/structfmt_1_1internal_1_1WCharHelper.html#abc10996c32464f7de811c65b94ff56a9',1,'fmt::internal::WCharHelper::Unsupported()'],['../d6/d9b/structfmt_1_1internal_1_1WCharHelper_3_01T_00_01wchar__t_01_4.html#aaf7b6d9464af4a8cdd91c897cd7feee3',1,'fmt::internal::WCharHelper&lt; T, wchar_t &gt;::Unsupported()'],['../dc/d3f/structfmt_1_1internal_1_1WCharHelper.html#abc10996c32464f7de811c65b94ff56a9',1,'fmt::internal::WCharHelper::Unsupported()'],['../d6/d9b/structfmt_1_1internal_1_1WCharHelper_3_01T_00_01wchar__t_01_4.html#aaf7b6d9464af4a8cdd91c897cd7feee3',1,'fmt::internal::WCharHelper&lt; T, wchar_t &gt;::Unsupported()']]]
 ];

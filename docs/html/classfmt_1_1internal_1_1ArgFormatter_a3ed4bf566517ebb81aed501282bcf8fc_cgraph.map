@@ -1,7 +1,0 @@
-<map id="fmt::internal::ArgFormatter::visit_pointer" name="fmt::internal::ArgFormatter::visit_pointer">
-<area shape="rect" id="node2" href="$namespacefmt_1_1internal.html#a1c77e19c210ba2c96316bea2bfed0f39" title="fmt::internal::report\l_unknown_type" alt="" coords="230,70,362,111"/>
-<area shape="rect" id="node3" href="$namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="411,77,498,104"/>
-<area shape="rect" id="node4" href="$classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="547,5,711,46"/>
-<area shape="rect" id="node5" href="$classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="560,70,699,111"/>
-<area shape="rect" id="node6" href="$classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="761,70,898,111"/>
-</map>

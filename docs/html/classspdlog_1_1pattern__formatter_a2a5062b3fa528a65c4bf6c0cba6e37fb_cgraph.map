@@ -1,8 +1,0 @@
-<map id="spdlog::pattern_formatter::format" name="spdlog::pattern_formatter::format">
-<area shape="rect" id="node2" href="$namespacespdlog_1_1details_1_1os.html#aa8c9705aaf2091477b8d66c612c7f73b" title="spdlog::details::os\l::localtime" alt="" coords="235,5,363,46"/>
-<area shape="rect" id="node3" href="$namespacespdlog_1_1details_1_1os.html#a6720394346371f7d8619dfb798d0d1c5" title="spdlog::details::os::eol" alt="" coords="222,71,375,97"/>
-<area shape="rect" id="node4" href="$namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="255,121,342,148"/>
-<area shape="rect" id="node5" href="$classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="425,49,589,90"/>
-<area shape="rect" id="node6" href="$classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="437,114,576,155"/>
-<area shape="rect" id="node7" href="$classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="638,114,775,155"/>
-</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memorywriter',['MemoryWriter',['../namespacefmt.html#af10d90e61d770082df8e284f83821e0c',1,'fmt']]]
+  ['log_5fclock',['log_clock',['../dc/dec/namespacespdlog.html#a173dd7064323e4807d720eabcc95fc73',1,'spdlog']]]
 ];

@@ -1,0 +1,15 @@
+<map id="broker.hpp" name="broker.hpp">
+<area shape="rect" id="node4" href="$d7/dbd/icomponent_8hpp.html" title="Component(Shared Library) interface. " alt="" coords="912,155,1080,181"/>
+<area shape="rect" id="node12" href="$de/d6d/singleton_8hpp.html" title="dynamic Singleton pattern design template class " alt="" coords="1022,229,1150,256"/>
+<area shape="rect" id="node15" href="$da/d04/manager_8hpp.html" title="COSSB component manager. " alt="" coords="492,80,589,107"/>
+<area shape="rect" id="node22" href="$d6/da3/logger_8hpp.html" title="ossb default console logger " alt="" coords="1208,155,1291,181"/>
+<area shape="rect" id="node38" href="$d7/d1e/exception_8hpp.html" title="COSSB exception. " alt="" coords="1300,80,1402,107"/>
+<area shape="rect" id="node5" href="$d7/d89/iprofile_8hpp.html" title="Component Profile interface class. " alt="" coords="912,229,998,256"/>
+<area shape="rect" id="node7" href="$d1/dbe/imessage_8hpp.html" title="Message Interface class. " alt="" coords="633,229,736,256"/>
+<area shape="rect" id="node10" href="$d4/dc9/ilog_8hpp.html" title="Log interface. " alt="" coords="1224,229,1291,256"/>
+<area shape="rect" id="node16" href="$dc/d7c/configreader_8hpp.html" title="COSSB configuration Reader. " alt="" coords="465,155,616,181"/>
+<area shape="rect" id="node18" href="$d7/d7e/driver_8hpp.html" title="Component driver. " alt="" coords="213,155,292,181"/>
+<area shape="rect" id="node21" href="$dd/d61/interface_8hpp.html" title="interface headers " alt="" coords="105,229,202,256"/>
+<area shape="rect" id="node23" href="$d0/d0a/format_8h.html" title="util/format.h" alt="" coords="1455,229,1546,256"/>
+<area shape="rect" id="node32" href="$d0/d14/format_8cc.html" title="format.cc" alt="" coords="1500,304,1578,331"/>
+</map>

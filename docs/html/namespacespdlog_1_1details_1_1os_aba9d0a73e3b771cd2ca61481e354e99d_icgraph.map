@@ -1,5 +1,0 @@
-<map id="spdlog::details::os::now" name="spdlog::details::os::now">
-<area shape="rect" id="node2" href="$classspdlog_1_1details_1_1async__log__helper.html#a1e42d4ca767ff71d3d9df0f2668a87eb" title="spdlog::details::async\l_log_helper::log" alt="" coords="213,5,363,46"/>
-<area shape="rect" id="node3" href="$classspdlog_1_1sinks_1_1daily__file__sink.html#a757721271b25ffec511efae0830a4976" title="spdlog::sinks::daily\l_file_sink::_sink_it" alt="" coords="221,70,355,111"/>
-<area shape="rect" id="node4" href="$classspdlog_1_1details_1_1line__logger.html#af61561a353cc434ee1fc06192cdc39b6" title="spdlog::details::line\l_logger::~line_logger" alt="" coords="217,135,359,177"/>
-</map>

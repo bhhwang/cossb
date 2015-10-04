@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcossb_1_1base_1_1soloader.html" title="cossb::base::soloader\&lt; T \&gt;" alt="" coords="6,5,189,32"/>
+<area shape="rect" id="node1" href="$d1/d51/classcossb_1_1arch_1_1singleton.html" title="cossb::arch::singleton\l\&lt; system_manager \&gt;" alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node2" href="$de/d8d/classcossb_1_1manager_1_1system__manager.html" title="system manager derived from singleton pattern " alt="" coords="204,5,371,47"/>
 </map>
