@@ -20,6 +20,7 @@ Dependency
   - Graphviz (for doxygen, optional)
 * [avahi-daemon](http://avahi.org/) (only for compzeroconf component, optional)
 * libmicrohttpd (only for comphttpserver component, optional)
+* json serialization/deserialization for C++ [json](https://github.com/nlohmann/json)
 
 
 
