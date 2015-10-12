@@ -31,7 +31,8 @@ BASE_FILES = ./base/
 
 # Make COSBB Engine
 cossb: $(OUTDIR)engine.o $(OUTDIR)compmanager.o $(OUTDIR)sysmanager.o $(OUTDIR)configreader.o $(OUTDIR)instance.o \
-		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o $(OUTDIR)utilloader.o   
+		$(OUTDIR)pid.o $(OUTDIR)auth.o $(OUTDIR)driver.o $(OUTDIR)xmlprofile.o $(OUTDIR)logger.o $(OUTDIR)localtime.o $(OUTDIR)utilloader.o   \
+		$(OUTDIR)message.o
 		$(CXX) $(LDFLAGS) -o $(OUTDIR)$@ $^ $(LDLIBS)
 	
 # Make COSBB Engine Daemon
@@ -72,6 +73,12 @@ $(OUTDIR)mbed_rgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
 cc3200button.comp: $(OUTDIR)cc3200button.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)cc3200button.o: $(EXAMPLE_FILES)cc3200_button/cc3200button.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
+#message test example components
+messagetest.comp: $(OUTDIR)messagetest.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)messagetest.o: $(EXAMPLE_FILES)messagetest/messagetest.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 #####################################################
@@ -137,6 +144,9 @@ $(OUTDIR)xmlprofile.o: $(INCLUDE_FILES)xmlprofile.cpp
 $(OUTDIR)auth.o: $(INCLUDE_FILES)auth/auth.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
+$(OUTDIR)message.o: $(INCLUDE_FILES)message.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
 $(OUTDIR)instance.o: $(INCLUDE_FILES)instance.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
@@ -172,7 +182,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so helloworld.comp mbed_rgb.comp cc3200button.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
+all: cossb libcblog.so messagetest.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
 
 base: cossb
 
