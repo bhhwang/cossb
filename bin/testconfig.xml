@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+	
+	<!-- product information (IMPORTANT section) -->
+	<product>
+		<serial>NSGW00000000FFFFFFFFFFFF</serial>
+		<manufacturer>Nsynapse Inc.</manufacturer>
+		<license>cdefabcd-cdefabcd-cdefabcd-cdefabcd</license>
+		<hostname>cossbgw.local</hostname>
+	</product>
+	
+	<!-- accessible repository server address -->
+	<repository>
+		<uri></uri>
+	</repository>
+	
+	<!-- required component cannot be stopped by user -->
+	<!-- required library for advanced user or our support -->
+	<required type="component" for="service">messagetest</required>
+	<required type="library" for="log">libcblog.so</required>
+	
+	
+	<!-- do not edit this path -->
+	<property>
+		<path name="home">./cossb_home/</path>
+		<path name="include">./include/</path>
+		<path name="component">./component/</path>
+		<path name="library">./library/</path>
+	</property>
+	
+</manifest>
