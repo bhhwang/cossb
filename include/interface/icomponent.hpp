@@ -11,7 +11,7 @@
 
 #include <string>
 #include "iprofile.hpp"
-#include "imessage.hpp"
+#include "../message.hpp"
 #include "ilog.hpp"
 #include <cassert>
 
@@ -71,7 +71,7 @@ public:
 	 * @brief	message request
 	 * @details	if request message comes in, this function will be called
 	 */
-	virtual void request(message::message* msg) = 0;
+	virtual void request(cossb::message::message* msg) = 0;
 
 	/**
 	 * @brief
