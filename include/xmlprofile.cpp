@@ -46,10 +46,10 @@ const char* xmlprofile::get_error_str(int error) const
 	case	XML_ERROR_PARSING_ELEMENT: 				return "Parsing element";	break;
 	case	XML_ERROR_PARSING_ATTRIBUTE: 			return "Parsing attribute";	break;
 	case	XML_ERROR_IDENTIFYING_TAG: 				return "Identifying tag";	break;
-	case	XML_ERROR_PARSING_TEXT: 					return "Parsing text";	break;
+	case	XML_ERROR_PARSING_TEXT: 				return "Parsing text";	break;
 	case	XML_ERROR_PARSING_CDATA: 				return "Parsing CDATA";	break;
 	case	XML_ERROR_PARSING_COMMENT: 				return "Parsing comment";	break;
-	case	XML_ERROR_PARSING_DECLARATION: 			return "Parsing declaration";	break;
+	case	XML_ERROR_PARSING_DECLARATION: 		return "Parsing declaration";	break;
 	case	XML_ERROR_PARSING_UNKNOWN: 				return "Parsing unknown";	break;
 	case	XML_ERROR_EMPTY_DOCUMENT: 				return "Empty document";	break;
 	case	XML_ERROR_MISMATCHED_ELEMENT: 			return "Mismatched element";	break;
@@ -59,17 +59,18 @@ const char* xmlprofile::get_error_str(int error) const
 	return "";
 }
 
-profile::type xmlprofile::get(profile::section section, const char* element)
+profile::type_value xmlprofile::get(profile::section section, const char* element)
 {
-	profile::type result;
+	profile::type_value result;
 	string section_name = "";
 	bool exist = false;
 
 	switch(section)
 	{
-	case profile::section::info:		section_name = "info"; exist = true;	break;
-	case profile::section::property: section_name = "property";	exist = true;	break;
-	case profile::section::resource: section_name = "resource";	exist = true;	break;
+	case profile::section::info:		section_name = "info"; 		exist = true;	break;
+	case profile::section::property:	section_name = "property";	exist = true;	break;
+	case profile::section::resource:	section_name = "resource";	exist = true;	break;
+	case profile::section::service:	section_name = "service";	exist = true; break;
 	default:	{ section_name = "unknown"; exist = false; }
 	}
 
@@ -81,16 +82,36 @@ profile::type xmlprofile::get(profile::section section, const char* element)
 			XMLNode* _node = _doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
 			if(_node)
 				set(result, _node->ToText()->Value());
-			/*else
-				spdlog::get("main_thread")->error("Does not exist element value");*/
 		}
-		/*else
-			spdlog::get("main_thread")->error("{} element in {} does not exist.", element, section_name);*/
 	}
-	/*else
-		spdlog::get("main_thread")->error("Cannot find {} in the profile", section_name);*/
 
 	return result;
+}
+
+bool xmlprofile::update(profile::section section, const char* element, const char* value)
+{
+	bool exist = false;
+
+	string section_name = "";
+	switch(section)
+	{
+	case profile::section::property:	section_name = "property";	exist = true;	break;	//property only editable
+	default: { section_name="unknown"; exist=false; }
+	}
+
+	if(_loaded && exist && _doc.FirstChildElement(section_name.c_str())!=0)
+	{
+		if(_doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)!=0)
+		{
+			XMLNode* pNode = _doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
+			if(pNode){
+				pNode->SetValue(value);
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
 
 bool xmlprofile::save()

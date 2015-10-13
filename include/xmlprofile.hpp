@@ -24,10 +24,31 @@ public:
 	xmlprofile();
 	virtual ~xmlprofile();
 
-private:
+	/**
+	 * @brief	load xml profile
+	 */
 	bool load(const char* filepath);
-	profile::type get(profile::section section, const char* element);
+
+	/**
+	 * @brief	getting profile value with matched type
+	 */
+	profile::type_value get(profile::section section, const char* element);
+
+	/**
+	 * @brief	update
+	 */
+	bool update(profile::section section, const char* element, const char* value);
+
+	/**
+	 * @brief	save
+	 */
 	bool save();
+
+private:
+
+	/**
+	 * @brief	getting comment what error is occurred
+	 */
 	const char* get_error_str(int error) const;
 
 private:
