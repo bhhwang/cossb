@@ -11,9 +11,13 @@
 	<version>0.0.1</version>
 	<category></category>
 	<tags></tags>
-	<publish>service/messagetest</publish>
-	<subscribe>null</subscribe>
 </info>
 
 <property>
 </property>
+
+<service name="test_publish" method="publish" topic="service/messagetest">
+</service>
+
+<service name="test_subscribe" method="subscribe" topic="service/messagetest">
+</service>
