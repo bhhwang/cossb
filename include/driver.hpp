@@ -38,7 +38,12 @@ public:
 	/**
 	 * @brief	getting component pointer to access
 	 */
-	interface::icomponent* get_component() const { return _ptr_component; };
+	interface::icomponent* get_component() const { return _ptr_component; }
+
+	/**
+	 * @brief	getting services
+	 */
+	service::service_desc_container* get_services() const { return _services; }
 
 
 private:
@@ -47,12 +52,16 @@ private:
 	 */
 	template<typename... Args>
 	void request(const char* head, const Args&... args) {
-		auto data = std::make_tuple(head, args...);
+		/*auto data = std::make_tuple(head, args...);
 		message::message msg;
 		message::pack(&msg, data);
 
 		_mailbox.push(msg);
-		_condition.notify_one();
+		_condition.notify_one();*/
+	}
+
+	void request(cossb::message::message* msg) {
+		msg->serialize();
 	}
 
 
@@ -109,7 +118,15 @@ private:
 
 
 private:
+	/**
+	 * @brief	component impl.
+	 */
 	interface::icomponent* _ptr_component = nullptr;
+
+	/**
+	 * @brief	service container
+	 */
+	service::service_desc_container _services;
 
 	void* _handle = nullptr;
 
@@ -118,7 +135,7 @@ private:
 	/**
 	 * @brief	add mailbox
 	 */
-	std::queue<message::message> _mailbox;
+	std::queue<cossb::message::message*> _mailbox;
 
 	boost::condition_variable _condition;
 	boost::mutex _mutex;

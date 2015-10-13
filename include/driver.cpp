@@ -8,12 +8,14 @@
 
 #include "driver.hpp"
 #include <dlfcn.h>
-#include "xmlprofile.hpp"
 #include <iostream>
+#include "xmlprofile.hpp"
 #include "logger.hpp"
 #include "util/format.h"
 #include <tuple>
-#include "interface/imessage.hpp"
+#include "message.hpp"
+#include "broker.hpp"
+#include "exception.hpp"
 
 using namespace std;
 
@@ -23,21 +25,29 @@ namespace driver {
 component_driver::component_driver(const char* component_name)
 :_component_name(component_name)
 {
-	if(load(component_name))
-	{
-		string profile_path = fmt::format("./{}.xml",component_name);
-		if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
-			unload();
+	try {
+		if(load(component_name))
+		{
+			string profile_path = fmt::format("./{}.xml",component_name);
+			if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
+				unload();
+		}
 		else
-			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Component load success : {}", component_name).c_str());
+			throw exception(excode::COMPONENT_LOAD_FAIL);
 	}
-	else
-		cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("Component load failed : {}", component_name).c_str());
+	catch(driver::exception& e) {
+		cossb_log->log(log::loglevel::ERROR, e.what());
+	}
 }
 
 component_driver::~component_driver()
 {
-	unload();
+	try {
+		unload();
+	}
+	catch(driver::exception& e) {
+		cossb_log->log(log::loglevel::ERROR, e.what());
+	}
 }
 
 bool component_driver::load(const char* component_name)
@@ -45,6 +55,7 @@ bool component_driver::load(const char* component_name)
 	string component_path = fmt::format("./{}.comp",component_name);
 
 	_handle = dlopen(component_path.c_str(), RTLD_LAZY|RTLD_GLOBAL);
+
 
 	if(_handle)
 	{
@@ -61,7 +72,7 @@ bool component_driver::load(const char* component_name)
 		return true;
 	}
 	else
-		cossb_log->log(cossb::log::loglevel::ERROR, fmt::format("Load Error : {}", dlerror()).c_str());
+		throw exception(excode::COMPONENT_OPEN_ERROR, dlerror());
 
 	return false;
 }
@@ -75,9 +86,10 @@ void component_driver::unload()
 		destroy_task(_request_proc_task);
 
 		if(pfdestroy) {
-			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Component unload success : {}", _ptr_component->get_name()).c_str());
 			pfdestroy();
 		}
+		else
+			throw exception(excode::COMPONENT_UNLOAD_FAIL);
 
 		_ptr_component = nullptr;
 	}
@@ -91,8 +103,9 @@ void component_driver::unload()
 
 void component_driver::setup()
 {
-	if(_ptr_component)
+	if(_ptr_component) {
 		_ptr_component->setup();
+	}
 }
 
 void component_driver::run()
@@ -130,7 +143,7 @@ void component_driver::request_proc()
 			_condition.wait(__lock);
 
 			while(!_mailbox.empty()) {
-				_ptr_component->request(&_mailbox.front());
+				_ptr_component->request(_mailbox.front());
 				_mailbox.pop();
 			}
 
