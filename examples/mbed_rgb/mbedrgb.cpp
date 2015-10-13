@@ -59,7 +59,7 @@ bool mbed_rgb::stop()
 
 	return true;
 }
-void mbed_rgb::request(cossb::message::message* msg)
+void mbed_rgb::request(cossb::message::messageframe* msg)
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "Received message");
 

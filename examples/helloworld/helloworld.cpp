@@ -35,7 +35,7 @@ bool hello_world::stop()
 	return true;
 }
 
-void hello_world::request(cossb::message::message* msg)
+void hello_world::request(cossb::message::messageframe* msg)
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "received message");
 }

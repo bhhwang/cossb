@@ -56,7 +56,7 @@ bool cc3200_button::stop()
 
 	return true;
 }
-void cc3200_button::request(cossb::message::message* msg)
+void cc3200_button::request(cossb::message::messageframe* msg)
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "Received message");
 

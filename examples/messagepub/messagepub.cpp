@@ -47,7 +47,7 @@ void messagepub::request(cossb::message::message* msg)
 
 void messagepub::pub()
 {
-	while(1)
+	/*while(1)
 	{
 		try {
 		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
@@ -68,5 +68,5 @@ void messagepub::pub()
 		{
 			break;
 		}
-	}
+	}*/
 }

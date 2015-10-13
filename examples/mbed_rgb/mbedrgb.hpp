@@ -22,7 +22,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::message* msg);
+	void request(cossb::message::messageframe* msg);
 
 private:
 	bool connect(const char* ipaddr, unsigned short port);
