@@ -20,17 +20,18 @@ namespace interface { class iprofile; }
 
 namespace profile {
 
-typedef enum {
+enum class section : unsigned int {
 	info = 0,	//component information
 	property, 	//properties
 	resource,	//related resource
-} section;
+	service,	//service supporting
+};
 
-class type
+class type_value
 {
 public:
-	type():value("") { }
-	virtual ~type() { }
+	type_value():value("") { }
+	virtual ~type_value() { }
 
 	friend class interface::iprofile;
 
@@ -68,17 +69,23 @@ public:
 	virtual ~iprofile() { }
 
 	/**
-	 * @brief
+	 * @brief	load profile
 	 */
 	virtual bool load(const char* filepath) = 0;
 
 	/**
-	 * @brief
+	 * @brief	get profile
 	 */
-	virtual profile::type get(profile::section section, const char* element) = 0;
+	virtual profile::type_value get(profile::section section, const char* element) = 0;
 
 	/**
-	 * @brief
+	 * @brief	update profile value
+	 */
+
+	virtual bool update(profile::section section, const char* element, const char* value) = 0;
+
+	/**
+	 * @brief	save profile
 	 */
 	virtual bool save() = 0;
 
@@ -86,7 +93,7 @@ protected:
 	/**
 	 * @brief
 	 */
-	void set(profile::type& profile, string value) { profile.value = value; }
+	void set(profile::type_value& profile, string value) { profile.value = value; }
 
 };
 
