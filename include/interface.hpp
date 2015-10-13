@@ -13,16 +13,16 @@
 
 #include "interface/icomponent.hpp"
 #include "interface/iauth.hpp"
-#include "interface/imessage.hpp"
 #include "interface/iprofile.hpp"
 #include "interface/isql.hpp"
 #include "interface/ilog.hpp"
 #include "interface/icomm.hpp"
 #include "interface/isimpleservice.hpp"
-#include "interface/iobject.hpp"
 #include "interface/iutility.hpp"
+#include "interface/iservice.hpp"
 
 #include "base/task.hpp"
+#include "message.hpp"
 
 #endif
 
