@@ -24,7 +24,7 @@ namespace cossb {
 namespace exception {
 class cossb_exception : public std::exception {
 public:
-	cossb_exception(const char* msg) : exception_str(msg) { }
+	cossb_exception() { }
 	~cossb_exception() throw() { }
 	virtual const char* what() const throw() {
 		return exception_str.c_str();
@@ -36,17 +36,17 @@ private:
 };
 } /* namespace exception */
 
-/**
- * @brief	broker exception
- */
 namespace broker {
 enum class excode : int {
 	DRIVER_NOT_FOUND=0,
 };
 
+/**
+ * @brief	broker exception
+ */
 class exception : public cossb::exception::cossb_exception {
 public:
-	exception(broker::excode code):cossb::exception::cossb_exception("") {
+	exception(broker::excode code) {
 		switch(code)
 		{
 		case	excode::DRIVER_NOT_FOUND: set("Driver cannot be found");  break;
@@ -57,6 +57,32 @@ public:
 };
 
 } /* namespace broker */
+
+
+namespace driver {
+
+enum class excode : int {
+	COMPONENT_LOAD_FAIL = 0,	//driver cannnot be loaded own component
+	COMPONENT_UNLOAD_FAIL,
+	COMPONENT_OPEN_ERROR,
+};
+
+/**
+ * @brief	component driver exception
+ */
+class exception : public cossb::exception::cossb_exception {
+public:
+	exception(driver::excode code, const char* err_msg = nullptr) {
+		switch(code) {
+		case excode::COMPONENT_LOAD_FAIL: set("Component load fail"); break;
+		case excode::COMPONENT_UNLOAD_FAIL: set("Component unload fail"); break;
+		case excode::COMPONENT_OPEN_ERROR: err_msg?set(err_msg):set("No error message"); break;
+		default: set("Unknown exception");
+		}
+	}
+};
+
+} /* namespace driver */
 
 
 } /* namespace cossb */
