@@ -16,6 +16,7 @@
 #include "broker.hpp"
 #include "base/task.hpp"
 #include "exception.hpp"
+#include "message.hpp"
 
 #endif
 
