@@ -16,6 +16,7 @@
 #include "manager.hpp"
 #include "logger.hpp"
 #include "exception.hpp"
+#include "message.hpp"
 
 using namespace std;
 
@@ -37,6 +38,28 @@ public:
 		cossb_log->log(log::loglevel::INFO, fmt::format("Topic registered : {}", topic_name).c_str());
 		_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
 		return true;
+	}
+
+	/**
+	 * @brief	publish message
+	 */
+	unsigned int publish(message::message& msg) {
+		auto range = _topic_map.equal_range(msg.get_topic());
+		unsigned int times = 0;
+		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
+			if(itr->second.compare(msg.get_name())!=0) {
+				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
+				if(_drv) {
+					cossb_log->log(log::loglevel::INFO, fmt::format("publish to : {}", msg.get_topic()).c_str());
+					_drv->request(&msg);
+					times++;
+				}
+				else
+					throw broker::exception(cossb::broker::excode::DRIVER_NOT_FOUND);
+			}
+		}
+
+		return times;
 	}
 
 	/**
