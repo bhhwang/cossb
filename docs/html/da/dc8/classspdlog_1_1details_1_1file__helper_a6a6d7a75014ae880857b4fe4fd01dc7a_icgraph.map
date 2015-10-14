@@ -1,9 +1,0 @@
-<map id="spdlog::details::file_helper::close" name="spdlog::details::file_helper::close">
-<area shape="rect" id="node2" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#aad84ef5f999c2721a0a8ad36ce641e8c" title="spdlog::details::file\l_helper::~file_helper" alt="" coords="184,71,323,112"/>
-<area shape="rect" id="node3" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a26bbabf11a86f0cb6fe0e34619310c16" title="spdlog::details::file\l_helper::open" alt="" coords="188,136,319,177"/>
-<area shape="rect" id="node4" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a21c688da7f241c53871b462c3a5c2c94" title="spdlog::details::file\l_helper::reopen" alt="" coords="397,5,527,47"/>
-<area shape="rect" id="node5" href="$dd/d6b/classspdlog_1_1sinks_1_1simple__file__sink.html#a82dc982f4ebfddb0b3cec6f9d4490f7c" title="spdlog::sinks::simple\l_file_sink::simple_file_sink" alt="" coords="373,71,551,112"/>
-<area shape="rect" id="node6" href="$de/d2b/classspdlog_1_1sinks_1_1rotating__file__sink.html#a2bf3367b12f03f2c440451eedb3faec6" title="spdlog::sinks::rotating\l_file_sink::rotating_file_sink" alt="" coords="371,136,553,177"/>
-<area shape="rect" id="node7" href="$d4/d07/classspdlog_1_1sinks_1_1daily__file__sink.html#a90931e081600c0b4130bbb8a50c09cb1" title="spdlog::sinks::daily\l_file_sink::daily_file_sink" alt="" coords="379,201,545,243"/>
-<area shape="rect" id="node8" href="$d4/d07/classspdlog_1_1sinks_1_1daily__file__sink.html#a757721271b25ffec511efae0830a4976" title="spdlog::sinks::daily\l_file_sink::_sink_it" alt="" coords="395,267,529,308"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="cossb::broker::component_broker::regist" name="cossb::broker::component_broker::regist">
-<area shape="rect" id="node2" href="$d4/d6d/namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="279,78,365,105"/>
-<area shape="rect" id="node6" href="$d3/de0/classcossb_1_1interface_1_1icomponent.html#af66ffe1e185146d99525d7a3ac599519" title="cossb::interface::icomponent\l::get_name" alt="" coords="227,129,417,171"/>
-<area shape="rect" id="node3" href="$da/dfc/classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="465,5,629,47"/>
-<area shape="rect" id="node4" href="$d2/d48/classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="478,71,617,112"/>
-<area shape="rect" id="node5" href="$d9/d2f/classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="677,71,815,112"/>
-</map>

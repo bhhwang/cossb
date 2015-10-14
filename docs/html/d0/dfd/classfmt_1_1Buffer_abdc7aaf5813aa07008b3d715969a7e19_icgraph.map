@@ -1,5 +1,0 @@
-<map id="fmt::Buffer::grow" name="fmt::Buffer::grow">
-<area shape="rect" id="node2" href="$d0/dfd/classfmt_1_1Buffer.html#a20f893164dc20e8ea8c77810d4ea8d59" title="fmt::Buffer\&lt; Char \&gt;\l::resize" alt="" coords="173,5,309,47"/>
-<area shape="rect" id="node3" href="$d0/dfd/classfmt_1_1Buffer.html#a7f46a3ce8d86abe35904f6654bd4ea1e" title="fmt::Buffer\&lt; Char \&gt;\l::reserve" alt="" coords="173,71,309,112"/>
-<area shape="rect" id="node4" href="$d0/dfd/classfmt_1_1Buffer.html#a4056b71637286b41b3275e3dac57462d" title="fmt::Buffer\&lt; Char \&gt;\l::push_back" alt="" coords="173,136,309,177"/>
-</map>

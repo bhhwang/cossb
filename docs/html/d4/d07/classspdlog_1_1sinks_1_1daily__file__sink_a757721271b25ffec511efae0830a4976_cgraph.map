@@ -1,9 +1,0 @@
-<map id="spdlog::sinks::daily_file_sink::_sink_it" name="spdlog::sinks::daily_file_sink::_sink_it">
-<area shape="rect" id="node2" href="$df/d2b/namespacespdlog_1_1details_1_1os.html#aba9d0a73e3b771cd2ca61481e354e99d" title="spdlog::details::os::now" alt="" coords="188,17,348,43"/>
-<area shape="rect" id="node3" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a26bbabf11a86f0cb6fe0e34619310c16" title="spdlog::details::file\l_helper::open" alt="" coords="203,68,333,109"/>
-<area shape="rect" id="node6" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#ab86646bf59fce30003bdfedfb29768ae" title="spdlog::details::file\l_helper::write" alt="" coords="203,133,333,175"/>
-<area shape="rect" id="node4" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a6a6d7a75014ae880857b4fe4fd01dc7a" title="spdlog::details::file\l_helper::close" alt="" coords="406,5,537,47"/>
-<area shape="rect" id="node5" href="$df/d2b/namespacespdlog_1_1details_1_1os.html#a91cf83326b5a4dc9b0849d9d5f3e8657" title="spdlog::details::os\l::fopen_s" alt="" coords="407,71,535,112"/>
-<area shape="rect" id="node7" href="$db/d1d/classfmt_1_1BasicWriter.html#a1b6721b4ba4d3fa18ac781a36616cc2a" title="fmt::BasicWriter::size" alt="" coords="397,138,546,165"/>
-<area shape="rect" id="node8" href="$db/d1d/classfmt_1_1BasicWriter.html#a62d1c7b5be9c3580326320d5d178d096" title="fmt::BasicWriter::data" alt="" coords="396,189,547,215"/>
-</map>

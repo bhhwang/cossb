@@ -1,5 +1,0 @@
-<map id="spdlog::sinks::simple_file_sink::simple_file_sink" name="spdlog::sinks::simple_file_sink::simple_file_sink">
-<area shape="rect" id="node2" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a26bbabf11a86f0cb6fe0e34619310c16" title="spdlog::details::file\l_helper::open" alt="" coords="232,39,363,80"/>
-<area shape="rect" id="node3" href="$da/dc8/classspdlog_1_1details_1_1file__helper.html#a6a6d7a75014ae880857b4fe4fd01dc7a" title="spdlog::details::file\l_helper::close" alt="" coords="411,5,541,47"/>
-<area shape="rect" id="node4" href="$df/d2b/namespacespdlog_1_1details_1_1os.html#a91cf83326b5a4dc9b0849d9d5f3e8657" title="spdlog::details::os\l::fopen_s" alt="" coords="412,71,540,112"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="cossb::_mDNSFrame" name="cossb::_mDNSFrame">
-<area shape="rect" id="node2" href="$d0/d20/structcossb_1_1__mDNSAnswer.html" title="cossb::_mDNSAnswer" alt="" coords="5,5,161,32"/>
-<area shape="rect" id="node3" href="$d8/da0/structcossb_1_1__mDNSQuestion.html" title="cossb::_mDNSQuestion" alt="" coords="185,5,349,32"/>
-<area shape="rect" id="node4" href="$d2/d93/structcossb_1_1__mDNSHeader.html" title="mDNS flags " alt="" coords="374,5,529,32"/>
-<area shape="rect" id="node5" href="$d4/db6/structcossb_1_1__mDNSData.html" title="cossb::_mDNSData" alt="" coords="553,5,693,32"/>
-</map>

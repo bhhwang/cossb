@@ -1,8 +1,0 @@
-<map id="fmt::BasicWriter::write" name="fmt::BasicWriter::write">
-<area shape="rect" id="node2" href="$d4/d6d/namespacefmt.html#aa440312b8f82c9074e9fba43635c2735" title="fmt::print" alt="" coords="237,31,311,57"/>
-<area shape="rect" id="node5" href="$d4/d6d/namespacefmt.html#a49ed8c032e54c66fcdd8b6f4139786cc" title="fmt::format" alt="" coords="231,81,317,108"/>
-<area shape="rect" id="node6" href="$da/dc0/classspdlog_1_1details_1_1line__logger.html#a5d81970deb5768f117b9b24266695db8" title="spdlog::details::line\l_logger::write" alt="" coords="207,133,341,174"/>
-<area shape="rect" id="node7" href="$da/dc0/classspdlog_1_1details_1_1line__logger.html#aabdf0e038b5a4ee8e2f9dbd1376081b2" title="spdlog::details::line\l_logger::operator\&lt;\&lt;" alt="" coords="207,198,341,239"/>
-<area shape="rect" id="node3" href="$d4/d6d/namespacefmt.html#aee4f9a5f5515970793f1c7e0de02df53" title="fmt::print" alt="" coords="413,5,488,32"/>
-<area shape="rect" id="node4" href="$d4/d6d/namespacefmt.html#a81fa72f592b25c62844ea79a6b4dba9e" title="fmt::print_colored" alt="" coords="389,56,512,83"/>
-</map>

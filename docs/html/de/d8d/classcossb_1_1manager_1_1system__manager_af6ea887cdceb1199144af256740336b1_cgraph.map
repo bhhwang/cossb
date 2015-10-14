@@ -1,9 +1,0 @@
-<map id="cossb::manager::system_manager::setup" name="cossb::manager::system_manager::setup">
-<area shape="rect" id="node2" href="$d7/d2c/classcossb_1_1base_1_1configreader.html#adb4091574d221d2eb4db6a1c659693da" title="getting manifest information " alt="" coords="220,5,392,47"/>
-<area shape="rect" id="node3" href="$df/d35/classcossb_1_1base_1_1libadopter.html#a80c30b51c7e1fdd5a4ca887886be4022" title="cossb::base::libadopter\l::get_lib" alt="" coords="227,71,385,112"/>
-<area shape="rect" id="node4" href="$d4/d6d/namespacefmt.html#a285a60249a41e75ca9b87f83508d16ce" title="fmt::format" alt="" coords="263,137,349,163"/>
-<area shape="rect" id="node8" href="$d7/d2c/classcossb_1_1base_1_1configreader.html#a7a78e2eb820f29e7e47c14397f54adf2" title="cossb::base::configreader\l::get_service" alt="" coords="220,188,392,229"/>
-<area shape="rect" id="node5" href="$da/dfc/classfmt_1_1internal_1_1MakeValue.html#a76bdc225a49d8825223274a028dee064" title="fmt::internal::MakeValue\l::type" alt="" coords="440,64,604,105"/>
-<area shape="rect" id="node6" href="$d2/d48/classfmt_1_1BasicFormatter.html#a8a5d3549213ed1c21e576557cd6ee606" title="fmt::BasicFormatter\l::format" alt="" coords="453,129,591,171"/>
-<area shape="rect" id="node7" href="$d9/d2f/classfmt_1_1BasicStringRef.html#a3aecb5de1a62d0954c382eba43ce72ad" title="fmt::BasicStringRef\l::c_str" alt="" coords="652,129,789,171"/>
-</map>

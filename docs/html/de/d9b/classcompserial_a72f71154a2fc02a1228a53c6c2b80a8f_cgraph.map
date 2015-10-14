@@ -1,7 +1,0 @@
-<map id="compserial::setup" name="compserial::setup">
-<area shape="rect" id="node2" href="$d3/de0/classcossb_1_1interface_1_1icomponent.html#a1cd6b395cb00f1ff602962b98b623952" title="cossb::interface::icomponent\l::get_profile" alt="" coords="179,5,369,47"/>
-<area shape="rect" id="node3" href="$dd/df3/classcossb_1_1interface_1_1iprofile.html#a4b3dd906bcd42ab9849db598f603fbe6" title="cossb::interface::iprofile::get" alt="" coords="181,71,367,98"/>
-<area shape="rect" id="node4" href="$dd/da1/classcossb_1_1profile_1_1type.html#a0d930f24349248d44ec41035c43e8369" title="cossb::profile::type\l::asString" alt="" coords="207,123,341,164"/>
-<area shape="rect" id="node5" href="$dd/da1/classcossb_1_1profile_1_1type.html#a4cbe9b05182efdb4d02c6accbd14c9bf" title="cossb::profile::type\l::asInt" alt="" coords="207,188,341,229"/>
-<area shape="rect" id="node6" href="$df/d34/classlibserial.html#a21929411e995620572f3e938f08d3a8d" title="open serial port " alt="" coords="223,254,325,281"/>
-</map>
