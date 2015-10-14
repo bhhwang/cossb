@@ -62,7 +62,7 @@ bool comptcpserver::stop()
 	return true;
 }
 
-void comptcpserver::request(cossb::message::message* msg)
+void comptcpserver::request(cossb::message::messageframe* msg)
 {
 
 }

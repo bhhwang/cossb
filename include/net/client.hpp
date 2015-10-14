@@ -11,11 +11,7 @@
 namespace cossb {
 namespace net {
 
-class client {
-public:
-	client(sockType type);
-	virtual ~client();
-};
+
 
 } /* namespace net */
 } /* namespace cossb */
