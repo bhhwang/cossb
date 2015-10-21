@@ -44,6 +44,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <cstdlib>
 #include <popt.h>
 #include <memory>
+#include <dirent.h>
 
 #include "cossb.hpp"
 
@@ -72,14 +73,14 @@ int main(int argc, char* argv[])
 {
 	signal(SIGINT, sigc_interrupt);
 
-	char* config_file = nullptr;
+	char* manifest_file = nullptr;
 	char* util = nullptr;
 	struct poptOption optionTable[] =
 	{
-		{"run",		'r', POPT_ARG_NONE, 0, 'r', "Run Engine with default configuration", ""},
+		{"run",		'r', POPT_ARG_STRING, (void*)manifest_file, 'r', "Run Engine with manifest configuration file", "XML manifest file"},
 		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
-		{"config", 	'c', POPT_ARG_STRING, (void*)config_file, 'c', "Open configuration file", "XML Configuration file"},
-		{"utility", 'u', POPT_ARG_STRING, (void*)util, 'u', "Target utility name to use for COSSB", "target utility"},
+		{"utility", 'u', POPT_ARG_STRING, (void*)util, 'u', "Run target utility for COSSB", "target utility"},
+		{"utilitylist", 'l', POPT_ARG_NONE, 0, 'l', "Show exist COSSB utility", ""},
 		POPT_AUTOHELP
 		POPT_TABLEEND
 	};
@@ -107,10 +108,11 @@ int main(int argc, char* argv[])
 
 		} break;
 
-		//load configuration file
-		case 'c':
+		//run with default configuration file(manifest.xml)
+		case 'r':
 		{
 			string manifest = (const char*)poptGetOptArg(optionCon);
+
 			if(!manifest.empty())
 			{
 				if(!cossb::core::cossb_init(manifest.c_str()))
@@ -122,20 +124,6 @@ int main(int argc, char* argv[])
 				cossb::core::cossb_start();
 				pause();
 			}
-		}
-			break;
-
-		//run with default configuration file(manifest.xml)
-		case 'r':
-		{
-			if(!cossb::core::cossb_init("manifest.xml"))
-				destroy();
-			else
-				cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
-
-			//start the cossb service
-			cossb::core::cossb_start();
-			pause();
 		}
 		break;
 
@@ -157,6 +145,38 @@ int main(int argc, char* argv[])
 
 		}
 		break;
+
+		//show utility
+		case 'l':
+		{
+			cossb_log->log(log::loglevel::INFO, "Utility Listing..");
+
+			//find files in dir.
+			struct dirent* ent;
+			struct stat st;
+			DIR* dir;
+
+			dir = ::opendir("./");
+			while((ent = readdir(dir))) {
+				const string filename = ent->d_name;
+				const string fullpath = "./"+filename;
+
+				if(!stat(fullpath.c_str(), &st) && (st.st_mode&S_IFMT)==S_IFREG) {
+					if(filename.substr(filename.find_last_of(".") + 1) == "util") {
+						//interface::iutility* _utility = new util::utilloader(filename.c_str());
+						//cossb_log->log(log::loglevel::INFO, fmt::format("help : {}", _utility->help()).c_str());
+						//delete _utility;
+					}
+				}
+			}
+			closedir(dir);
+
+			/*interface::iutility* _utility = new util::utilloader(target.c_str());
+			if(!_utility->execute(argc, argv))
+				cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot execute '{}' utility", target).c_str());
+			delete _utility;*/
+		}
+			break;
 
 		}
 	}
