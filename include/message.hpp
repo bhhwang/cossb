@@ -65,7 +65,7 @@ public:
 
 	cossb::message::msgframe* get_frame() { return &frame; }
 	const char* get_topic() { return frame.pub_topic.c_str(); }
-	const char* get_name() { return frame.from.c_str(); }
+	const char* get_from() { return frame.from.c_str(); }
 
 protected:
 	/**

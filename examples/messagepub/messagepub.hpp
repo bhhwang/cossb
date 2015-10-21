@@ -19,7 +19,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::message* msg);
+	void request(cossb::message::message* msg) const;
 
 private:
 	void pub();

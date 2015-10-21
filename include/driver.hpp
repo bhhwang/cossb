@@ -40,11 +40,6 @@ public:
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; }
 
-	/**
-	 * @brief	getting services
-	 */
-	service::service_desc_container* get_services() const { return _services; }
-
 
 private:
 	/**
@@ -82,6 +77,11 @@ private:
 
 
 private:
+
+	/**
+	 * @brief	read service description
+	 */
+	void regist_service_desc();
 
 	/**
 	 * @brief	load component by name
@@ -123,17 +123,12 @@ private:
 	 */
 	interface::icomponent* _ptr_component = nullptr;
 
-	/**
-	 * @brief	service container
-	 */
-	service::service_desc_container _services;
-
 	void* _handle = nullptr;
 
 	string _component_name;
 
 	/**
-	 * @brief	add mailbox
+	 * @brief	mailbox
 	 */
 	std::queue<cossb::message::message*> _mailbox;
 

@@ -7,6 +7,7 @@
 
 #include "xmlprofile.hpp"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -14,20 +15,27 @@ namespace cossb {
 namespace profile {
 
 xmlprofile::xmlprofile() {
-	// TODO Auto-generated constructor stub
 
 }
 
 xmlprofile::~xmlprofile() {
-	// TODO Auto-generated destructor stub
+	if(_doc)
+		delete _doc;
 }
 
 bool xmlprofile::load(const char* filepath)
 {
-	int result = _doc.LoadFile(filepath);
+	if(_doc!=nullptr)
+	{
+		delete _doc;
+		_doc = nullptr;
+	}
 
-	if(result==XML_SUCCESS)
+	_doc = new tinyxml2::XMLDocument;
+	if(_doc->LoadFile(filepath)==XML_SUCCESS) {
+		read_profile();
 		_loaded = true;
+	}
 	else
 		_loaded = false;
 
@@ -75,11 +83,11 @@ profile::type_value xmlprofile::get(profile::section section, const char* elemen
 	}
 
 
-	if(_loaded && exist && _doc.FirstChildElement(section_name.c_str())!=0)
+	if(_loaded && exist && _doc->FirstChildElement(section_name.c_str())!=0)
 	{
-		if(_doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)!=0)
+		if(_doc->FirstChildElement(section_name.c_str())->FirstChildElement(element)!=0)
 		{
-			XMLNode* _node = _doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
+			XMLNode* _node = _doc->FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
 			if(_node)
 				set(result, _node->ToText()->Value());
 		}
@@ -99,11 +107,11 @@ bool xmlprofile::update(profile::section section, const char* element, const cha
 	default: { section_name="unknown"; exist=false; }
 	}
 
-	if(_loaded && exist && _doc.FirstChildElement(section_name.c_str())!=0)
+	if(_loaded && exist && _doc->FirstChildElement(section_name.c_str())!=0)
 	{
-		if(_doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)!=0)
+		if(_doc->FirstChildElement(section_name.c_str())->FirstChildElement(element)!=0)
 		{
-			XMLNode* pNode = _doc.FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
+			XMLNode* pNode = _doc->FirstChildElement(section_name.c_str())->FirstChildElement(element)->FirstChild();
 			if(pNode){
 				pNode->SetValue(value);
 				return true;
@@ -117,12 +125,29 @@ bool xmlprofile::update(profile::section section, const char* element, const cha
 bool xmlprofile::save()
 {
 	if(_loaded) {
-		_doc.SaveFile(_filepath.c_str());
+		_doc->SaveFile(_filepath.c_str());
 		return true;
 	}
 
 	return false;
 }
+
+void xmlprofile::read_profile()
+{
+	//read service desc.
+	for(XMLElement* elem = _doc->FirstChildElement("service");elem!=nullptr; elem = elem->NextSiblingElement("service"))
+	{
+		//regist service description
+		service::service_desc* desc = new service::service_desc;
+		desc->name = elem->Attribute("name");
+		desc->method = service::service_method(elem->Attribute("method"));
+		desc->topic = elem->Attribute("topic");
+		//cout << desc->show() << endl;
+		this->_service_desc_container->push_back(desc);
+		cout << "service desc address : " << this->_service_desc_container << endl;
+	}
+}
+
 
 } /* namespace profile */
 } /* namespace cossb */

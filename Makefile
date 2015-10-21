@@ -182,7 +182,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp compserial.comp messagepub.comp compzeroconf.comp comphttpserver.comp compsqlite.comp comphttpserver.comp createcomp.util
+all: cossb libcblog.so messagetest.comp compserial.comp createcomp.util
 
 base: cossb
 

@@ -12,7 +12,7 @@
 namespace cossb {
 namespace base {
 
-configreader::configreader():_doc(nullptr)
+configreader::configreader()
 {
 
 }
@@ -28,7 +28,7 @@ configreader::~configreader()
 		delete _doc;
 }
 
-bool configreader::load(const char* manifest_conf)
+bool configreader::load(const char* manifest_file)
 {
 	if(_doc!=nullptr)
 	{
@@ -37,22 +37,16 @@ bool configreader::load(const char* manifest_conf)
 	}
 
 	_doc = new tinyxml2::XMLDocument;
-	if(_doc->LoadFile(manifest_conf)==XML_SUCCESS)
+	if(_doc->LoadFile(manifest_file)==XML_SUCCESS)
 	{
 		parse_required();
-		parse_product();
+		parse_product_info();
 		parse_path();
 		parse_repository();
-		parse_service();
 
 		return true;
 	}
 
-	return false;
-}
-
-bool configreader::update(configreader* conf)
-{
 	return false;
 }
 
@@ -65,11 +59,11 @@ void configreader::parse_required()
 		std::transform(type.begin(), type.end(), type.begin(), ::tolower);
 
 		if(!type.compare("component"))
-			_required.push_back(new sRequired(bundleType::COMPONENT, child->GetText(), child->Attribute("for")));
+			_required.push_back(new conf_required(bundleType::COMPONENT, child->GetText(), child->Attribute("for")));
 		else if(!type.compare("library"))
-			_required.push_back(new sRequired(bundleType::LIBRARY, child->GetText(), child->Attribute("for")));
+			_required.push_back(new conf_required(bundleType::LIBRARY, child->GetText(), child->Attribute("for")));
 		else if(!type.compare("package"))
-			_required.push_back(new sRequired(bundleType::PACKAGE, child->GetText(), child->Attribute("for")));
+			_required.push_back(new conf_required(bundleType::PACKAGE, child->GetText(), child->Attribute("for")));
 	}
 }
 
@@ -88,19 +82,19 @@ void configreader::parse_repository()
 			_repository.push_back(child->GetText());
 }
 
-void configreader::parse_product()
+void configreader::parse_product_info()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest")->FirstChildElement("product");
 	for(XMLElement* child = elem_com->FirstChildElement();child!=nullptr; child = child->NextSiblingElement())
 		_product[child->Value()] = child->GetText();
 }
 
-void configreader::parse_service()
+/*void configreader::parse_service()
 {
 	XMLElement* elem_com = _doc->FirstChildElement("manifest");
 	for(XMLElement* child = elem_com->FirstChildElement("service");child!=nullptr; child = child->NextSiblingElement("service"))
 		_service.insert(std::pair<string, string>(child->Attribute("name"), child->GetText()));
-}
+}*/
 
 } /* namespace base */
 } /* namespace cossb */

@@ -21,24 +21,19 @@
 using namespace std;
 
 namespace cossb {
+namespace driver { class component_driver; }
 namespace broker {
 
 //(topic, component name) pair
 typedef multimap<string, string> topic_map;
 
 class component_broker : public arch::singleton<component_broker> {
+
+	friend class component_driver;
+
 public:
 	component_broker() { };
 	virtual ~component_broker() { };
-
-	/**
-	 *@brief	regist component with topic
-	 */
-	bool regist(interface::icomponent* component, string topic_name) {
-		cossb_log->log(log::loglevel::INFO, fmt::format("Topic registered : {}", topic_name).c_str());
-		_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
-		return true;
-	}
 
 	/**
 	 * @brief	publish message
@@ -47,7 +42,7 @@ public:
 		auto range = _topic_map.equal_range(msg.get_topic());
 		unsigned int times = 0;
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
-			if(itr->second.compare(msg.get_name())!=0) {
+			if(itr->second.compare(msg.get_from())!=0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
 				if(_drv) {
 					cossb_log->log(log::loglevel::INFO, fmt::format("publish to : {}", msg.get_topic()).c_str());
@@ -83,6 +78,38 @@ public:
 		}
 
 		return times;
+	}
+
+private:
+	/**
+	 *@brief	regist component with topic
+	 */
+	bool regist(interface::icomponent* component, string topic_name) {
+		auto range = _topic_map.equal_range(topic_name);
+		bool found = false;
+		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
+			if(itr->second.compare(component->get_name())==0)
+				found = true;
+		}
+		if(!found) {
+			cossb_log->log(log::loglevel::INFO, fmt::format("Topic registered : {}", topic_name).c_str());
+			_topic_map.insert(topic_map::value_type(topic_name, component->get_name()));
+		}
+		else
+			cossb_log->log(log::loglevel::WARN, fmt::format("Already registered topic : {}", topic_name).c_str());
+
+
+		return true;
+	}
+
+	/**
+	 * @brief	regist component
+	 */
+	bool regist(interface::icomponent* component, interface::iprofile* profile) {
+		if(profile) {
+			//profile->
+		}
+		return false;
 	}
 
 private:

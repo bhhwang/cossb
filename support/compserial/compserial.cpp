@@ -66,7 +66,7 @@ bool compserial::stop()
 	return true;
 }
 
-void compserial::request(cossb::message::message* msg)
+void compserial::request(cossb::message::message* msg) const
 {
 	cout << "request" << endl;
 }

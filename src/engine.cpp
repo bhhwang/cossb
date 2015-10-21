@@ -128,7 +128,6 @@ int main(int argc, char* argv[])
 		//run with default configuration file(manifest.xml)
 		case 'r':
 		{
-			cossb_log->log(log::loglevel::INFO, "Initializing....");
 			if(!cossb::core::cossb_init("manifest.xml"))
 				destroy();
 			else

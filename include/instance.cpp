@@ -13,11 +13,11 @@ using namespace std;
 namespace cossb {
 namespace core {
 
-bool cossb_init(const char* manifest, bool setup)
+bool cossb_init(const char* manifest_file, bool setup)
 {
 
 	//1. load manifest file
-	if(!cossb_config->load(manifest))
+	if(!cossb_config->load(manifest_file))
 		return false;
 
 	if(setup)

@@ -104,25 +104,13 @@ public:
 	 */
 	bool setup(base::configreader* config);
 
-	/**
-	 * @brief	check configured or not
-	 */
-	bool is_setup() const;
-
 
 private:
-	bool initialized = false;
 
 	/**
 	 * @brief	dependent libraries adopter
 	 */
 	base::libadopter<interface::ilog>* _log_adopter = nullptr;
-
-	/**
-	 * @brief	service library container
-	 */
-	map<std::string, base::libadopter<interface::iobject>*> _lib_container;
-
 
 
 };

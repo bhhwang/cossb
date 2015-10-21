@@ -11,14 +11,79 @@
 #define _COSSB_IPROFILE_HPP_
 
 #include <string>
+#include <vector>
+#include <map>
 #include <boost/lexical_cast.hpp>
+#include <cstring>
+#include "../util/format.h"
 
 using namespace std;
 
 namespace cossb {
+namespace service {
+
+/**
+ * @brief	service method type
+ */
+enum class methodtype : int {
+	PUBLISH = 1,
+	SUBSCRIBE,
+	UNDEFINED,
+};
+
+/**
+ * @brief	service method
+ */
+typedef struct _service_method {
+public:
+	_service_method():method(methodtype::UNDEFINED) {}
+	_service_method(const char* type) {
+		if(strcmp(type, "publish")==0)
+			method = methodtype::PUBLISH;
+		else if(strcmp(type, "subscribe")==0)
+			method = methodtype::SUBSCRIBE;
+	}
+	const char* str() {
+		string mt = "Undefined";
+		switch(method) {
+		case methodtype::PUBLISH: mt = "Publish"; break;
+		case methodtype::SUBSCRIBE: mt = "Subscribe"; break;
+		case methodtype::UNDEFINED: mt = "Undefined"; break;
+		}
+		return mt.c_str();
+	}
+	_service_method& operator= (_service_method const& m) { this->method = m.method; return *this; }
+private:
+	methodtype method = methodtype::UNDEFINED;
+} service_method;
+
+/**
+ * @brief	service description
+ */
+typedef struct _service_desc {
+	string name;				//service name
+	service_method method;
+	string topic;				//service topic
+	const char* show() {
+		return fmt::format("Name : {}\nMethod : {}\nTopic : {}", name, method.str(), topic).c_str();
+	}
+} service_desc;
+
+/**
+ * @brief	profile service section container
+ */
+typedef vector<service::service_desc*> service_desc_container;
+
+} /* namespace service */
+
 namespace interface { class iprofile; }
 
 namespace profile {
+
+/**
+ * @brief	profile information section container
+ */
+typedef map<string, string> profile_info_container;
 
 enum class section : unsigned int {
 	info = 0,	//component information
@@ -66,7 +131,12 @@ namespace interface {
 class iprofile {
 public:
 	iprofile() { }
-	virtual ~iprofile() { }
+	virtual ~iprofile() {
+		if(_service_desc_container) {
+			for(auto desc:*_service_desc_container)
+				delete desc;
+		}
+	}
 
 	/**
 	 * @brief	load profile
@@ -89,11 +159,23 @@ public:
 	 */
 	virtual bool save() = 0;
 
+	/**
+	 * @brief	get multiple service descriptions
+	 */
+	service::service_desc_container* get_service_descs() const { return _service_desc_container; }
+
 protected:
 	/**
 	 * @brief
 	 */
 	void set(profile::type_value& profile, string value) { profile.value = value; }
+
+protected:
+
+	/**
+	 * @brief	service description container
+	 */
+	service::service_desc_container* _service_desc_container = nullptr;
 
 };
 

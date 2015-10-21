@@ -15,17 +15,17 @@ COMPONENT_DESTROY
 
 messagetest::messagetest()
 :icomponent(COMPONENT(messagetest)){
-	// TODO Auto-generated constructor stub
+
 
 }
 
 messagetest::~messagetest() {
-	// TODO Auto-generated destructor stub
+
 }
 
 bool messagetest::setup()
 {
-	cossb_broker->regist(this, get_profile()->get(profile::section::info, "publish").asString("undefined"));
+	//cossb_broker->regist(this, get_profile()->get(profile::section::info, "publish").asString("undefined"));
 	return true;
 }
 
@@ -52,7 +52,7 @@ bool messagetest::stop()
 	return true;
 }
 
-void messagetest::request(cossb::message::message* msg)
+void messagetest::request(cossb::message::message* msg) const
 {
 
 }

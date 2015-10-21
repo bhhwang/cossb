@@ -19,6 +19,9 @@ using namespace tinyxml2;
 namespace cossb {
 namespace profile {
 
+/**
+ * @brief	xml style profile
+ */
 class xmlprofile : public interface::iprofile {
 public:
 	xmlprofile();
@@ -32,12 +35,13 @@ public:
 	/**
 	 * @brief	getting profile value with matched type
 	 */
-	profile::type_value get(profile::section section, const char* element);
+	type_value get(profile::section section, const char* element);
 
 	/**
 	 * @brief	update
 	 */
 	bool update(profile::section section, const char* element, const char* value);
+
 
 	/**
 	 * @brief	save
@@ -47,12 +51,18 @@ public:
 private:
 
 	/**
+	 * @brief	read profile
+	 */
+	void read_profile();
+
+	/**
 	 * @brief	getting comment what error is occurred
 	 */
 	const char* get_error_str(int error) const;
 
 private:
-	XMLDocument _doc;
+	XMLDocument* _doc = nullptr;
+
 	bool _loaded = false;
 	string _filepath;
 };

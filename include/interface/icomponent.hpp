@@ -71,7 +71,7 @@ public:
 	 * @brief	message request
 	 * @details	if request message comes in, this function will be called
 	 */
-	virtual void request(cossb::message::message* msg) = 0;
+	virtual void request(cossb::message::message* msg) const = 0;
 
 	/**
 	 * @brief
@@ -98,8 +98,12 @@ public:
 	 */
 	bool set_profile(iprofile* profile, const char* path)
 	{
+		if(profile) {
 		_profile = profile;
 		return _profile->load(path);
+		}
+
+		return false;
 	}
 
 

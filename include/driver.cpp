@@ -31,6 +31,8 @@ component_driver::component_driver(const char* component_name)
 			string profile_path = fmt::format("./{}.xml",component_name);
 			if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
 				unload();
+			else
+				regist_service_desc();	//regist service description
 		}
 		else
 			throw exception(excode::COMPONENT_LOAD_FAIL);
@@ -156,6 +158,17 @@ void component_driver::request_proc()
 	}
 }
 
+void component_driver::regist_service_desc()
+{
+	if(_ptr_component) {
+		interface::iprofile* profile = _ptr_component->get_profile();
+		if(profile) {
+			cout << "service desc : " << profile->get_service_descs() << endl;
+			//cout << "profiles : " << profile->get_service_descs()->size() << endl;
+			//cossb_broker->regist(_ptr_component, profile->g)
+		}
+	}
+}
 
 
 } /* namespace dirver */
