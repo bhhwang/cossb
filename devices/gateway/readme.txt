@@ -19,3 +19,20 @@ $ ./install.sh
 
 If you want to connect to the secure network.
 edit /etc/network/interface file.
+
+or
+
+in /etc/wpa_supplicant.conf file, add like below
+
+network={
+        ssid="ADD-YOUR-SSID-HERE"
+        proto=RSN
+        key_mgmt=WPA-PSK
+        pairwise=CCMP TKIP
+        group=CCMP TKIP
+        psk="ADD-YOUR-WPA-PASSWORD-HERE"
+}
+
+and then, reboot or restart networking service
+
+$ service networking restart
