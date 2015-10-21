@@ -41,7 +41,7 @@ bool createcomp::execute(int argc, char* argv[])
 
 	if(argcc>1)
 	{
-		string path = cossb_config->get_path()->find("component")->second;
+		string path = cossb_config->get_path().find("component")->second;
 		path.append(argvv[1]);
 
 		filesystem::path fullpath = filesystem::system_complete(path);
