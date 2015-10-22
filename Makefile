@@ -81,6 +81,12 @@ messagetest.comp: $(OUTDIR)messagetest.o
 $(OUTDIR)messagetest.o: $(EXAMPLE_FILES)messagetest/messagetest.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
+#wavealarm example components
+wavealarm.comp: $(OUTDIR)wavealarm.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS) -lsfml-audio
+$(OUTDIR)wavealarm.o: $(EXAMPLE_FILES)wavealarm/wavealarm.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
 #####################################################
 #================== compserial component
 compserial.comp: $(OUTDIR)compserial.o $(OUTDIR)libserial.o 
@@ -182,11 +188,11 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp compserial.comp createcomp.util
+all: cossb libcblog.so messagetest.comp wavealarm.comp compserial.comp createcomp.util
 
 base: cossb
 
-example : helloworld.comp messagepub.comp mbed_rgb.comp cc3200button.comp
+example : helloworld.comp messagepub.comp mbed_rgb.comp cc3200button.comp wavealarm.comp
 
 component: compserial.comp compsqlite.comp comphttpserver.comp 
 
