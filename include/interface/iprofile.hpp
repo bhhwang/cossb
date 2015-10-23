@@ -126,9 +126,13 @@ private:
 };
 }
 
+namespace driver { class component_driver; }
 
 namespace interface {
 class iprofile {
+
+	friend class driver::component_driver;
+
 public:
 	iprofile() { }
 	virtual ~iprofile() {
@@ -137,11 +141,6 @@ public:
 				delete desc;
 		}
 	}
-
-	/**
-	 * @brief	load profile
-	 */
-	virtual bool load(const char* filepath) = 0;
 
 	/**
 	 * @brief	get profile
@@ -163,6 +162,12 @@ public:
 	 * @brief	get multiple service descriptions
 	 */
 	service::service_desc_container* get_service_descs() const { return _service_desc_container; }
+
+private:
+	/**
+	 * @brief	load profile
+	 */
+	virtual bool load(const char* filepath) = 0;
 
 protected:
 	/**
