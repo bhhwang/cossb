@@ -93,20 +93,6 @@ public:
 	 */
 	component::status get_status() { return _status; }
 
-	/**
-	 * @brief	set component profile
-	 */
-	bool set_profile(iprofile* profile, const char* path)
-	{
-		if(profile) {
-		_profile = profile;
-		return _profile->load(path);
-		}
-
-		return false;
-	}
-
-
 protected:
 	explicit icomponent(const char* name)
 	:_name(name), _status(component::status::IDLE) {
