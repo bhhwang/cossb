@@ -9,9 +9,7 @@
 #include "../../include/componentpack.hpp"
 #include "libhttpserver.hpp"
 
-COMPONENT_INSTANCE(comphttpserver)
-COMPONENT_CREATE(comphttpserver)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(comphttpserver)
 
 comphttpserver::comphttpserver()
 :interface::icomponent(COMPONENT(comphttpserver)) {

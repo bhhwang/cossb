@@ -8,9 +8,7 @@
 #include "compserial.hpp"
 #include "../../include/componentpack.hpp"
 
-COMPONENT_INSTANCE(compserial)
-COMPONENT_CREATE(compserial)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(compserial)
 
 compserial::compserial()
 :interface::icomponent(COMPONENT(compserial)){

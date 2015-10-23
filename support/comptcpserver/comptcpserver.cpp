@@ -9,9 +9,7 @@
 #include "../../include/componentpack.hpp"
 #include "sessionmanager.hpp"
 
-COMPONENT_INSTANCE(comptcpserver)
-COMPONENT_CREATE(comptcpserver)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(comptcpserver)
 
 comptcpserver::comptcpserver()
 :interface::icomponent(COMPONENT(comptcpserver)),_acceptor(boost::asio::ip::tcp::acceptor(_io_service))

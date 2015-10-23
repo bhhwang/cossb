@@ -13,9 +13,7 @@
 
 using namespace std;
 
-COMPONENT_INSTANCE(compzeroconf)
-COMPONENT_CREATE(compzeroconf)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(compzeroconf)
 
 compzeroconf::compzeroconf()
 :interface::icomponent(COMPONENT(compzeroconf)){

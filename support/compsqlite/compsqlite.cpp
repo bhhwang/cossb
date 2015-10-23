@@ -8,9 +8,7 @@
 #include "compsqlite.hpp"
 #include "../../include/componentpack.hpp"
 
-COMPONENT_INSTANCE(compsqlite)
-COMPONENT_CREATE(compsqlite)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(compsqlite)
 
 compsqlite::compsqlite()
 :interface::icomponent(COMPONENT(compsqlite)){
