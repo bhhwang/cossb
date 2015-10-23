@@ -29,10 +29,13 @@ component_driver::component_driver(const char* component_name)
 		if(load(component_name))
 		{
 			string profile_path = fmt::format("./{}.xml",component_name);
-			if(!_ptr_component->set_profile(new profile::xmlprofile, profile_path.c_str()))
-				unload();
-			else
-				regist_service_desc();	//regist service description
+			if(_ptr_component) {
+				_ptr_component->_profile = new profile::xmlprofile();
+				if(_ptr_component->_profile->load(profile_path.c_str()))
+					regist_service_desc();
+				else
+					unload();
+			}
 		}
 		else
 			throw exception(excode::COMPONENT_LOAD_FAIL);
