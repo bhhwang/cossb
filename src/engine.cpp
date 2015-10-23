@@ -93,7 +93,6 @@ int main(int argc, char* argv[])
 		_exit(EXIT_SUCCESS);
 	}
 
-
 	//only one opt
 	int opt = poptGetNextOpt(optionCon);
 	if(opt>=0)
@@ -146,7 +145,7 @@ int main(int argc, char* argv[])
 		}
 		break;
 
-		//show utility
+		//show list of utilities
 		case 'l':
 		{
 			cossb_log->log(log::loglevel::INFO, "Utility Listing..");
@@ -163,9 +162,9 @@ int main(int argc, char* argv[])
 
 				if(!stat(fullpath.c_str(), &st) && (st.st_mode&S_IFMT)==S_IFREG) {
 					if(filename.substr(filename.find_last_of(".") + 1) == "util") {
-						//interface::iutility* _utility = new util::utilloader(filename.c_str());
+						interface::iutility* _utility = new util::utilloader(filename.c_str());
 						//cossb_log->log(log::loglevel::INFO, fmt::format("help : {}", _utility->help()).c_str());
-						//delete _utility;
+						delete _utility;
 					}
 				}
 			}
