@@ -4,9 +4,7 @@
 
 using namespace std;
 
-COMPONENT_INSTANCE(messagepub)
-COMPONENT_CREATE(messagepub)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(messagepub)
 
 template <typename T, size_t N>
 T* _begin(T(&arr)[N]) { return &arr[0]; }

@@ -17,9 +17,8 @@ T* _begin(T(&arr)[N]) { return &arr[0]; }
 template <typename T, size_t N>
 T* _end(T(&arr)[N]) { return &arr[0]+N; }
 
-COMPONENT_INSTANCE(cc3200_button)
-COMPONENT_CREATE(cc3200_button)
-COMPONENT_DESTROY
+
+USE_COMPONENT_INTERFACE(cc3200_button)
 
 cc3200_button::cc3200_button()
 :icomponent(COMPONENT(cc3200_button)),_port(8000){

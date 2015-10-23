@@ -16,9 +16,7 @@
 
 using namespace std;
 
-COMPONENT_INSTANCE(mbed_rgb)
-COMPONENT_CREATE(mbed_rgb)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(mbed_rgb)
 
 template <typename T, size_t N>
 T* _begin(T(&arr)[N]) { return &arr[0]; }

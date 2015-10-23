@@ -4,9 +4,7 @@
 
 using namespace std;
 
-COMPONENT_INSTANCE(hello_world)
-COMPONENT_CREATE(hello_world)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(hello_world)
 
 hello_world::hello_world()
 :icomponent(COMPONENT(hello_world))
