@@ -10,9 +10,11 @@
 #include <SFML/Audio.hpp>	//depends on SFML library
 
 
-COMPONENT_INSTANCE(wavealarm)
-COMPONENT_CREATE(wavealarm)
-COMPONENT_DESTROY
+//COMPONENT_INSTANCE(wavealarm)
+//COMPONENT_CREATE(wavealarm)
+//COMPONENT_DESTROY
+
+USE_COMPONENT_INTERFACE(wavealarm)
 
 
 wavealarm::wavealarm()
