@@ -25,13 +25,7 @@ public:
 	iservice() { }
 	virtual ~iservice() { }
 
-	/**
-	 * @brief	getting service description
-	 */
-	//service::service_description* get_description() { return &_description; }
-
 private:
-	//service::service_description	_description;
 
 };
 
