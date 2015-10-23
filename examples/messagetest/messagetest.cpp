@@ -9,9 +9,7 @@
 
 #include "../../include/componentpack.hpp"
 
-COMPONENT_INSTANCE(messagetest)
-COMPONENT_CREATE(messagetest)
-COMPONENT_DESTROY
+USE_COMPONENT_INTERFACE(messagetest)
 
 messagetest::messagetest()
 :icomponent(COMPONENT(messagetest)){
