@@ -24,13 +24,8 @@ namespace profile {
  */
 class xmlprofile : public interface::iprofile {
 public:
-	xmlprofile();
+	xmlprofile(const char* profile_path = nullptr);
 	virtual ~xmlprofile();
-
-	/**
-	 * @brief	load xml profile
-	 */
-	bool load(const char* filepath);
 
 	/**
 	 * @brief	getting profile value with matched type
@@ -47,6 +42,12 @@ public:
 	 * @brief	save
 	 */
 	bool save();
+
+private:
+	/**
+	 * @brief	load xml profile
+	 */
+	bool load(const char* filepath);
 
 private:
 

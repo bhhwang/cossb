@@ -14,8 +14,9 @@ using namespace std;
 namespace cossb {
 namespace profile {
 
-xmlprofile::xmlprofile() {
-
+xmlprofile::xmlprofile(const char* profile_path) {
+	if(profile_path)
+		load(profile_path);
 }
 
 xmlprofile::~xmlprofile() {
