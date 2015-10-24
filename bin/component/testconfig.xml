@@ -16,7 +16,7 @@
 	
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
-	<!--<required type="component" for="service">wavealarm</required>-->
+	<required type="component" for="service">messagetest</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
@@ -25,7 +25,6 @@
 		<path name="home">./cossb_home/</path>
 		<path name="include">./include/</path>
 		<path name="component">./component/</path>
-		<path name="utility">./utility/</path>
 		<path name="library">./library/</path>
 	</property>
 	
