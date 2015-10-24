@@ -46,7 +46,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <memory>
 #include <dirent.h>
 
-#include "cossb.hpp"
+#include <cossb.hpp>
 
 using namespace std;
 using namespace cossb;
@@ -75,12 +75,14 @@ int main(int argc, char* argv[])
 
 	char* manifest_file = nullptr;
 	char* util = nullptr;
+	char* target = nullptr;
 	struct poptOption optionTable[] =
 	{
-		{"run",		'r', POPT_ARG_STRING, (void*)manifest_file, 'r', "Run Engine with manifest configuration file", "XML manifest file"},
-		{"version",	'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
-		{"utility", 'u', POPT_ARG_STRING, (void*)util, 'u', "Run target utility for COSSB", "target utility"},
-		{"utilitylist", 'l', POPT_ARG_NONE, 0, 'l', "Show exist COSSB utility", ""},
+		{"run",			'r', POPT_ARG_NONE, 0, 'r', "Run Engine with manifest configuration file", "manifest.xml file"},
+		{"run-config",	'c', POPT_ARG_STRING, (void*)manifest_file, 'c', "Run Engine with manifest configuration file", "XML manifest file"},
+		{"version",		'v', POPT_ARG_NONE, 0, 'v', "Version", "version"},
+		{"utility", 	'u', POPT_ARG_STRING, (void*)util, 'u', "Run target utility for COSSB", "target utility"},
+		{"list", 		'l', POPT_ARG_STRING, (void*)target, 'l', "Show list", "[component|utiltiy]"},
 		POPT_AUTOHELP
 		POPT_TABLEEND
 	};
@@ -110,6 +112,20 @@ int main(int argc, char* argv[])
 		//run with default configuration file(manifest.xml)
 		case 'r':
 		{
+			if(!cossb::core::cossb_init("manifest.xml"))
+				destroy();
+			else
+				cossb_log->log(log::loglevel::INFO, fmt::format("{}{} Now Starting....",COSSB_NAME, COSSB_VERSION).c_str());
+
+			//start the cossb service
+			cossb::core::cossb_start();
+			pause();
+		}
+		break;
+
+		//run with custom config file
+		case 'c':
+		{
 			string manifest = (const char*)poptGetOptArg(optionCon);
 
 			if(!manifest.empty())
@@ -124,7 +140,7 @@ int main(int argc, char* argv[])
 				pause();
 			}
 		}
-		break;
+			break;
 
 		//use COSSB utility
 		case 'u':
@@ -145,8 +161,74 @@ int main(int argc, char* argv[])
 		}
 		break;
 
-		//show list of utilities
+		//show list of what
 		case 'l':
+		{
+			if(!cossb::core::cossb_init("manifest.xml", false))
+				destroy();
+			else
+			{
+				string target = (const char*)poptGetOptArg(optionCon);
+				std::transform(target.begin(), target.end(), target.begin(), ::tolower);
+
+				const char* targets[] = {"component", "utility"};
+				std::vector<string> ltarget(targets,targets+sizeof(targets)/sizeof(char*));
+
+				std::vector<string>::iterator itr = std::find(ltarget.begin(), ltarget.end(), target);
+				if(itr!=ltarget.end()) {
+					int pos = itr-ltarget.begin();
+					cossb_log->log(log::loglevel::INFO, fmt::format("Show all {}", target).c_str());
+					struct dirent* ent;
+					struct stat st;
+					DIR* dir;
+
+					switch(pos) {
+					case 0:	//component
+					{
+						string path = cossb_config->get_path()["component"];
+						if(!path.empty()) {
+							dir = ::opendir(path.c_str());
+							while((ent = readdir(dir))) {
+								const string filename = ent->d_name;
+								const string fullpath = path+filename;
+
+								if(!stat(fullpath.c_str(), &st) && (st.st_mode&S_IFMT)==S_IFREG) {
+									if(filename.substr(filename.find_last_of(".") + 1) == "comp") {
+										cossb_log->log(log::loglevel::INFO, fmt::format("Component : {}",filename));
+									}
+								}
+							}
+							closedir(dir);
+						}
+					}
+						break;
+					case 1: //utility
+					{
+						string path = cossb_config->get_path()["utility"];
+						if(!path.empty()) {
+							dir = ::opendir(path.c_str());
+							while((ent = readdir(dir))) {
+								const string filename = ent->d_name;
+								const string fullpath = path+filename;
+
+								if(!stat(fullpath.c_str(), &st) && (st.st_mode&S_IFMT)==S_IFREG) {
+									if(filename.substr(filename.find_last_of(".") + 1) == "util") {
+										cossb_log->log(log::loglevel::INFO, fmt::format("Utility : {}",filename));
+									}
+								}
+							}
+							closedir(dir);
+						}
+					}
+						break;
+					}
+				}
+			}
+		}
+		break;
+
+		//show list of utilities
+		case 'k':
 		{
 			cossb_log->log(log::loglevel::INFO, "Utility Listing..");
 
