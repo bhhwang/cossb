@@ -3,7 +3,7 @@
  * @brief		Component driver
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 6. 21
- * @details	Load components(shared library that support COSSB interface) and peripheral instances
+ * @details		Load components(shared library that support COSSB interface) and peripheral instances
  */
 
 #ifndef _COSSB_DRIVER_HPP_
@@ -39,7 +39,6 @@ public:
 	 * @brief	getting component pointer to access
 	 */
 	interface::icomponent* get_component() const { return _ptr_component; }
-
 
 private:
 	/**
