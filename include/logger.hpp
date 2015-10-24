@@ -32,6 +32,7 @@ public:
 	 * @brief	simple log interface function
 	 */
 	void log(const loglevel& level,  const char* logstr);
+	void log(const log::loglevel& level, string logstr);
 
 
 	/**
