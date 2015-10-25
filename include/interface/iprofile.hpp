@@ -134,12 +134,11 @@ class iprofile {
 	friend class driver::component_driver;
 
 public:
-	iprofile() { }
+	iprofile() {
+		_service_desc_container = new service::service_desc_container;
+	}
 	virtual ~iprofile() {
-		if(_service_desc_container) {
-			for(auto desc:*_service_desc_container)
-				delete desc;
-		}
+		delete _service_desc_container;
 	}
 
 	/**
