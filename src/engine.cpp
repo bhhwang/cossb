@@ -228,38 +228,6 @@ int main(int argc, char* argv[])
 		}
 		break;
 
-		//show list of utilities
-		case 'k':
-		{
-			cossb_log->log(log::loglevel::INFO, "Utility Listing..");
-
-			//find files in dir.
-			struct dirent* ent;
-			struct stat st;
-			DIR* dir;
-
-			dir = ::opendir("./");
-			while((ent = readdir(dir))) {
-				const string filename = ent->d_name;
-				const string fullpath = "./"+filename;
-
-				if(!stat(fullpath.c_str(), &st) && (st.st_mode&S_IFMT)==S_IFREG) {
-					if(filename.substr(filename.find_last_of(".") + 1) == "util") {
-						interface::iutility* _utility = new util::utilloader(filename.c_str());
-						//cossb_log->log(log::loglevel::INFO, fmt::format("help : {}", _utility->help()).c_str());
-						delete _utility;
-					}
-				}
-			}
-			closedir(dir);
-
-			/*interface::iutility* _utility = new util::utilloader(target.c_str());
-			if(!_utility->execute(argc, argv))
-				cossb_log->log(log::loglevel::ERROR, fmt::format("Cannot execute '{}' utility", target).c_str());
-			delete _utility;*/
-		}
-			break;
-
 		}
 	}
 
