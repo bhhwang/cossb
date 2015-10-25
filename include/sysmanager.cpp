@@ -33,7 +33,10 @@ bool system_manager::setup(base::configreader* config)
 
 		//1. pre-load log library
 		if(!dep->usefor.compare("log") && !dep->name.empty()) {
-			_log_adopter = new base::libadopter<interface::ilog>(dep->name.c_str());
+			string prefix = config->get_path()["library"];
+			if(prefix.empty()) prefix = "./";
+
+			_log_adopter = new base::libadopter<interface::ilog>((prefix+dep->name).c_str());
 			cossb_log->adopt(_log_adopter->get_lib());
 			cossb_log->log(log::loglevel::INFO, fmt::format("Load library : {}", dep->name).c_str());
 		}
@@ -48,8 +51,13 @@ bool system_manager::setup(base::configreader* config)
 
 	//3. pre-load components after loading libraries
 	for(auto dep:config->get_required()) {
-		if(dep->type==base::bundleType::COMPONENT)
-			cossb_component_manager->install(dep->name.c_str());
+		string prefix = config->get_path()["component"];
+		if(prefix.empty()) prefix = "./";
+
+		if(dep->type==base::bundleType::COMPONENT) {
+			cossb_log->log(log::loglevel::INFO, fmt::format("Component installed : {}", dep->name).c_str());
+			cossb_component_manager->install((prefix+dep->name).c_str());
+		}
 	}
 
 	return true;

@@ -138,14 +138,12 @@ void xmlprofile::read_profile()
 	//read service desc.
 	for(XMLElement* elem = _doc->FirstChildElement("service");elem!=nullptr; elem = elem->NextSiblingElement("service"))
 	{
-		//regist service description
-		service::service_desc* desc = new service::service_desc;
-		desc->name = elem->Attribute("name");
-		desc->method = service::service_method(elem->Attribute("method"));
-		desc->topic = elem->Attribute("topic");
-		//cout << desc->show() << endl;
-		this->_service_desc_container->push_back(desc);
-		cout << "service desc address : " << this->_service_desc_container << endl;
+		service::service_desc desc;
+		if(elem->Attribute("name")) desc.name = elem->Attribute("name");
+		if(elem->Attribute("method")) desc.name = elem->Attribute("method");
+		if(elem->Attribute("topic")) desc.name = elem->Attribute("topic");
+
+		_service_desc_container->push_back(&desc);
 	}
 }
 
