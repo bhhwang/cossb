@@ -9,7 +9,7 @@
 #ifndef _COSSB_XMLPROFILE_HPP_
 #define _COSSB_XMLPROFILE_HPP_
 
-#include "interface/iprofile.hpp"
+#include <interface/iprofile.hpp>
 #include <tinyxml2.h>
 #include <string>
 

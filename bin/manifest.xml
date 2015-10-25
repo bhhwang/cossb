@@ -24,8 +24,8 @@
 	<property>
 		<path name="home">./cossb_home/</path>
 		<path name="include">./include/</path>
-		<path name="component">./component/</path>
-		<path name="utility">./utility/</path>
+		<path name="component">./</path>
+		<path name="utility">./</path>
 		<path name="library">./library/</path>
 	</property>
 	
