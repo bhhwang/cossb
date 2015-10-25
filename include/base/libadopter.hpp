@@ -21,9 +21,8 @@ namespace base {
 template<class T>
 class libadopter {
 public:
-	libadopter(const char* solib):_so(solib) {
-		string libpath = fmt::format("./{}",_so);
-		_handle = dlopen(libpath.c_str(), RTLD_NOW|RTLD_GLOBAL);
+	libadopter(const char* path) {
+		_handle = dlopen(path, RTLD_NOW|RTLD_GLOBAL);
 		if(_handle) {
 			typedef T* create_t(void);
 			create_t* pfcreate = (create_t*)dlsym(_handle, "create");
@@ -51,7 +50,6 @@ public:
 
 private:
 	void* _handle = nullptr;
-	string _so;
 
 	T* _lib = nullptr;
 };
