@@ -32,7 +32,7 @@ cc3200_button::~cc3200_button() {
 
 bool cc3200_button::setup()
 {
-	cossb_broker->regist(this, "service/cc3200button");
+	//cossb_broker->regist(this, "service/cc3200button");
 	_host = get_profile()->get(cossb::profile::section::property, "host").asString("127.0.0.1");
 	_port = get_profile()->get(cossb::profile::section::property, "port").asUInt(8000);
 
@@ -43,15 +43,15 @@ bool cc3200_button::setup()
 }
 bool cc3200_button::run()
 {
-	if(!_client_task)
-		_client_task = create_task(cc3200_button::process);
+	/*if(!_client_task)
+		_client_task = create_task(cc3200_button::process);*/
 
 	return true;
 }
 bool cc3200_button::stop()
 {
-	destroy_task(_client_task);
-	close(socket_fd);
+	//destroy_task(_client_task);
+	//close(socket_fd);
 
 	return true;
 }

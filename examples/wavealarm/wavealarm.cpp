@@ -38,13 +38,13 @@ bool wavealarm::setup()
 		return false;
 
 	// Display sound informations
-	std::cout << "dingdong.wav:" << std::endl;
-	std::cout << " " << buffer.getDuration().asSeconds() << " seconds"       << std::endl;
-	std::cout << " " << buffer.getSampleRate()           << " samples / sec" << std::endl;
-	std::cout << " " << buffer.getChannelCount()         << " channels"      << std::endl;
+	//std::cout << "dingdong.wav:" << std::endl;
+	//std::cout << " " << buffer.getDuration().asSeconds() << " seconds"       << std::endl;
+	//std::cout << " " << buffer.getSampleRate()           << " samples / sec" << std::endl;
+	//std::cout << " " << buffer.getChannelCount()         << " channels"      << std::endl;
 
 	// Create a sound instance and play it
-	sf::Sound sound(buffer);
+	/*sf::Sound sound(buffer);
 	sound.play();
 
 	// Loop while the sound is playing
@@ -57,7 +57,7 @@ bool wavealarm::setup()
 		std::cout << "\rPlaying... " << std::fixed << std::setprecision(2) << sound.getPlayingOffset().asSeconds() << " sec   ";
 		std::cout << std::flush;
 	}
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl << std::endl;*/
 
 	return true;
 }
