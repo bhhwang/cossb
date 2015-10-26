@@ -56,7 +56,7 @@ bool compzeroconf::stop()
 	return true;
 }
 
-void compzeroconf::request(cossb::message::message* msg)
+void compzeroconf::request(cossb::message::message* msg) const
 {
 
 }

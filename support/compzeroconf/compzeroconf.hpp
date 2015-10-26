@@ -9,7 +9,7 @@
 #ifndef SUPPORT_COMPZEROCONF_COMPZEROCONF_HPP_
 #define SUPPORT_COMPZEROCONF_COMPZEROCONF_HPP_
 
-#include "../../include/interface.hpp"
+#include <interface.hpp>
 #include <string>
 #include <vector>
 #include <map>
@@ -26,7 +26,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::message* msg);
+	void request(cossb::message::message* msg) const;
 
 private:
 	void browse_task();
