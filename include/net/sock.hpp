@@ -17,21 +17,25 @@
 namespace cossb {
 namespace net {
 
-enum class netType : unsigned int { SERVER=1, CLIENT };
+enum class netType : unsigned int { HOST=1, CLIENT };
 enum class sockType : unsigned int { DGRAM=1, STREAM };
 
 class sock {
 public:
 	sock(netType type):_type(type) { }
-	virtual ~sock();
-
-	virtual int write(char* data, unsigned int len) = 0;
+	virtual ~sock() {
+			if(sockfd>0)
+				close(sockfd);
+	}
 
 protected:
 	netType* get_type() { return &_type; }
 
-protected:
+public:
 	int sockfd = -1;
+
+protected:
+	struct sockaddr_in	_address;
 
 private:
 	netType _type;
