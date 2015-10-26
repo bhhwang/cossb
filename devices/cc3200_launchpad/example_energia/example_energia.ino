@@ -24,6 +24,14 @@ WiFiClient client;
 WiFiServer server(8000);
 WiFiUDP Udp;
 
+int push1_state = LOW;
+int prev_push1_state = LOW;
+int push2_state = LOW;
+int prev_push2_state = LOW;
+
+unsigned char btn = 0x00;
+unsigned char btn_value = 0x00;
+
 enum {IDLE = 0, ANNOUNCE=100, SERVICE=200 };
 unsigned int process_state = IDLE;
 
@@ -78,20 +86,33 @@ void loop()
       Udp.beginPacket(DEFAULT_UDP_MEMBERSHIP, DEFAULT_UDP_PORT);
       Udp.write(service_desc);
       Udp.endPacket();
-      process_state = SERVICE;
+      process_state++;
+    }
+    break;
+    
+    case ANNOUNCE+1:
+    {
+      client = server.available();
+      if(client) {
+        process_state=SERVICE;
+        digitalWrite(YELLOW_LED, HIGH);
+      }
+      else {
+        process_state = ANNOUNCE;
+        delay(3000);
+      }
     }
     break;
     
     //////////////////////// service run
     case SERVICE:
     {
-      client = server.available();
+      digitalWrite(RED_LED, HIGH); 
       if(client) {
-        Serial.println("New client is connected.");
         while(client.connected()) {
-          digitalWrite(YELLOW_LED, HIGH);
         }
         client.stop();
+        digitalWrite(RED_LED, LOW);
         process_state = IDLE;
       }
     }
@@ -205,6 +226,12 @@ void connect_led()
 {
   yellow_state = !yellow_state;
   digitalWrite(YELLOW_LED, yellow_state);
+}
+
+void serve_led()
+{
+  red_state = !red_state;
+  digitalWrite(RED_LED, red_state);
 }
 
 ///////////////////////////// IPAddress to string
