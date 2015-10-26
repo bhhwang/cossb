@@ -22,9 +22,7 @@ namespace util {
  * @return		true, if the component is valid
  */
 inline bool component_validation(const char* component_name) {
-	struct dirent* ent;
-	struct stat st;
-	DIR* dir;
+
 	return false;
 }
 
