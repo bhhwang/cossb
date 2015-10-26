@@ -9,14 +9,23 @@ If you have any questions for this sample code, please contact us(bhhwang@nsynap
 #include <WiFiServer.h>
 #include <WiFiClient.h>
 
+#define DEFAULT_UDP_MEMBERSHIP  "225.0.0.37"
+#define DEFAULT_UDP_PORT  21928
+
 volatile int yellow_state = LOW;
 volatile int red_state = LOW;
 volatile int green_state = LOW;
 
-char ssid[] = "nsynapseap";
+//access point should only work for b and g
+char ssid[] = "nsynapse";
 char password[] = "elec6887";
+char service_desc[] = "{devicename:\"TIcc3200\",componentname:\"cc3200button\",protocol:tcp, port:8000}";
 WiFiClient client;
 WiFiServer server(8000);
+WiFiUDP Udp;
+
+enum {IDLE = 0, ANNOUNCE=100, SERVICE=200 };
+unsigned int process_state = IDLE;
 
 void setup()
 {
@@ -41,15 +50,55 @@ void setup()
     net_led();
     delay(300);
   }
-  digitalWrite(GREEN_LED, HIGH);
   
   printWifiStatus();
   server.begin();
+  Udp.begin(DEFAULT_UDP_PORT);
 }
-
 
 void loop()
 {
+  switch(process_state)
+  {
+    ///////////////////////// onlu connected to ap
+    case IDLE: 
+    {
+      net_led();
+      if(WiFi.status()==WL_CONNECTED) {
+        process_state = ANNOUNCE;
+        digitalWrite(GREEN_LED, HIGH);
+      }
+    }
+    break;
+    
+    //////////////////////// service announce
+    case ANNOUNCE: 
+    {
+      connect_led();
+      Udp.beginPacket(DEFAULT_UDP_MEMBERSHIP, DEFAULT_UDP_PORT);
+      Udp.write(service_desc);
+      Udp.endPacket();
+      process_state = SERVICE;
+    }
+    break;
+    
+    //////////////////////// service run
+    case SERVICE:
+    {
+      client = server.available();
+      if(client) {
+        Serial.println("New client is connected.");
+        while(client.connected()) {
+          digitalWrite(YELLOW_LED, HIGH);
+        }
+        client.stop();
+        process_state = IDLE;
+      }
+    }
+    break;
+  }
+ 
+  /*
   int i=0;
   client = server.available();
   
@@ -61,7 +110,7 @@ void loop()
   unsigned char btn = 0x00;
   unsigned char btn_value = 0x00;
   
-  connet_led();
+  
   
   if(client) 
   {
@@ -107,7 +156,7 @@ void loop()
     client.stop();
   }
   
-  delay(300);
+  delay(300);*/
 }
 
 
@@ -152,12 +201,22 @@ void net_led()
   digitalWrite(GREEN_LED, green_state);
 }
 
-void connet_led()
+void connect_led()
 {
   yellow_state = !yellow_state;
   digitalWrite(YELLOW_LED, yellow_state);
 }
 
+///////////////////////////// IPAddress to string
+String ip2string(IPAddress& ip)
+{
+  String addr="";
+  for(int i=0;i<4;i++)
+  {
+    //addr+=ip[0]/100;
+  }
+  return addr;
+}
 
 void send(unsigned char b, unsigned char v) {
   if(client.connected()) {

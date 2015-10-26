@@ -29,6 +29,8 @@ public:
 		inet_pton(AF_INET, ipaddr, &(this->sin_addr));
 	}
 
+	const char* str() { return (const char*)ipv4; }
+
 private:
 	char ipv4[INET_ADDRSTRLEN];
 };

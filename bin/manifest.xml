@@ -18,6 +18,7 @@
 	<!-- required library for advanced user or our support -->
 	<required type="component" for="service">wavealarm</required>
 	<required type="component" for="service">messagetest</required>
+	<required type="component" for="service">compsrvmgr</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
@@ -28,6 +29,7 @@
 		<path name="component">./</path>
 		<path name="utility">./</path>
 		<path name="library">./</path>
+		<path name="template">./template/</path>
 	</property>
 	
 </manifest>
