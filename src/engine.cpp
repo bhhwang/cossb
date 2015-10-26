@@ -45,7 +45,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <popt.h>
 #include <memory>
 #include <dirent.h>
-
+#include <util/validation.hpp>
 #include <cossb.hpp>
 
 using namespace std;

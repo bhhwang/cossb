@@ -9,7 +9,10 @@
 #include "manager.hpp"
 #include "container.hpp"
 #include "driver.hpp"
+#include <logger.hpp>
+#include <base/configreader.hpp>
 #include <list>
+#include <exception.hpp>
 
 using namespace std;
 
@@ -27,13 +30,17 @@ component_manager::~component_manager()
 	cossb_component_container->destroy();
 }
 
-bool component_manager::install(const char* component_name)
+bool component_manager::install(const char* component_path)
 {
-	if(cossb_component_container->add(component_name, new driver::component_driver(component_name)))
+	string path = component_path;
+	string component_name = path.substr(path.find_last_of("/")+1);
+
+	if(cossb_component_container->add(component_name.c_str(), new driver::component_driver(component_path)))
 	{
-		cossb_component_container->get_driver(component_name)->setup();
+		cossb_component_container->get_driver(component_name.c_str())->setup();
 		return true;
 	}
+
 	return false;
 }
 

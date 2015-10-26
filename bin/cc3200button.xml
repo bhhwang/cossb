@@ -19,3 +19,9 @@
 	<host>172.30.1.27</host>
 	<port>8000</port>
 </property>
+
+<service name="cc3200pub" method="publish" topic="service/cc3200pub">
+</service>
+
+<service name="cc3200sub" method="subscribe" topic="service/cc3200sub">
+</service>

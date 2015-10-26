@@ -16,7 +16,8 @@
 	
 	<!-- required component cannot be stopped by user -->
 	<!-- required library for advanced user or our support -->
-	<!--<required type="component" for="service">wavealarm</required>-->
+	<required type="component" for="service">wavealarm</required>
+	<required type="component" for="service">messagetest</required>
 	<required type="library" for="log">libcblog.so</required>
 	
 	
@@ -26,7 +27,7 @@
 		<path name="include">./include/</path>
 		<path name="component">./</path>
 		<path name="utility">./</path>
-		<path name="library">./library/</path>
+		<path name="library">./</path>
 	</property>
 	
 </manifest>
