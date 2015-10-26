@@ -116,6 +116,12 @@ compsqlite.comp: $(OUTDIR)compsqlite.o
 $(OUTDIR)compsqlite.o: $(COMPONENT_FILES)compsqlite/compsqlite.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
+#================== remote service management component
+compsrvmgr.comp: $(OUTDIR)compsrvmgr.o
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)compsrvmgr.o: $(COMPONENT_FILES)compsrvmgr/compsrvmgr.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
+	
 #================== httpserver component
 comphttpserver.comp: $(OUTDIR)comphttpserver.o $(OUTDIR)libhttpserver.o
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS) -lmicrohttpd
@@ -188,7 +194,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp wavealarm.comp compserial.comp createcomp.util
+all: cossb libcblog.so messagetest.comp compsrvmgr.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
 
 base: cossb
 
