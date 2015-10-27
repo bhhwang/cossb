@@ -22,13 +22,12 @@ using namespace std;
 namespace cossb {
 namespace driver {
 
-component_driver::component_driver(const char* component_name)
-:_component_name(component_name)
+component_driver::component_driver(const char* component_path)
 {
 	try {
-		if(load(component_name))
+		if(load(component_path))
 		{
-			string profile_path = fmt::format("{}.xml",component_name);
+			string profile_path = fmt::format("{}.xml",component_path);
 
 			if(_ptr_component) {
 				_ptr_component->_profile = new profile::xmlprofile();
@@ -54,11 +53,11 @@ component_driver::~component_driver()
 	}
 }
 
-bool component_driver::load(const char* component_name)
+bool component_driver::load(const char* component_path)
 {
-	string component_path = fmt::format("{}.comp",component_name);
+	string fullpath = fmt::format("{}.comp",component_path);
 
-	_handle = dlopen(component_path.c_str(), RTLD_LAZY|RTLD_GLOBAL);
+	_handle = dlopen(fullpath.c_str(), RTLD_LAZY|RTLD_GLOBAL);
 
 	if(_handle)
 	{

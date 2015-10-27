@@ -27,7 +27,7 @@ class component_driver {
 	friend class broker::component_broker;
 
 public:
-	component_driver(const char* component_name);
+	component_driver(const char* component_path);
 	virtual ~component_driver();
 
 	/**
@@ -123,8 +123,6 @@ private:
 	interface::icomponent* _ptr_component = nullptr;
 
 	void* _handle = nullptr;
-
-	string _component_name;
 
 	/**
 	 * @brief	mailbox
