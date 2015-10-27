@@ -30,14 +30,17 @@ component_manager::~component_manager()
 	cossb_component_container->destroy();
 }
 
-bool component_manager::install(const char* component_path)
+bool component_manager::install(const char* component_name)
 {
-	string path = component_path;
-	string component_name = path.substr(path.find_last_of("/")+1);
+	string component_path = cossb_config->get_path()["component"];
+	if(component_path.empty())
+		component_path = "./"+string(component_name);
+	else
+		component_path+=component_name;
 
-	if(cossb_component_container->add(component_name.c_str(), new driver::component_driver(component_path)))
+	if(cossb_component_container->add(component_name, new driver::component_driver(component_path.c_str())))
 	{
-		cossb_component_container->get_driver(component_name.c_str())->setup();
+		cossb_component_container->get_driver(component_name)->setup();
 		return true;
 	}
 
