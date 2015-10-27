@@ -72,6 +72,8 @@ void setup()
     aJson.addStringToObject(root, "protocol", "tcp");
     aJson.addNumberToObject(root, "port", 8000);
   }
+  
+  client = server.available();
 }
 
 void loop()
@@ -103,22 +105,8 @@ void loop()
     }
     break;
     
-    /*case ANNOUNCE+1: 
-    {
-      int packetsize = Udp.parsePacket();
-      if(packetsize)
-      {
-        Serial.println(packetsize);
-        process_state++;
-      }
-      process_state = ANNOUNCE;
-      delay(1000);
-    }
-    break;*/
-    
     case ANNOUNCE+1:
     {
-      client = server.available();
       if(client) {
         process_state=SERVICE;
         digitalWrite(YELLOW_LED, HIGH);

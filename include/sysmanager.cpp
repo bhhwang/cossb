@@ -55,7 +55,6 @@ bool system_manager::setup(base::configreader* config)
 		if(prefix.empty()) prefix = "./";
 
 		if(dep->type==base::bundleType::COMPONENT) {
-			cossb_log->log(log::loglevel::INFO, fmt::format("Component installed : {}", dep->name).c_str());
 			cossb_component_manager->install((prefix+dep->name).c_str());
 		}
 	}

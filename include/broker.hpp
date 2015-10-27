@@ -41,6 +41,7 @@ public:
 	unsigned int publish(message::message& msg) {
 		auto range = _topic_map.equal_range(msg.get_topic());
 		unsigned int times = 0;
+		cossb_log->log(log::loglevel::INFO, fmt::format("publish to : {}", msg.get_topic()).c_str());
 		for(topic_map::iterator itr = range.first; itr!=range.second; ++itr) {
 			if(itr->second.compare(msg.get_from())!=0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());

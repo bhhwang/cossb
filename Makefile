@@ -194,7 +194,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp compdevmgr.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
+all: cossb libcblog.so messagetest.comp compdevmgr.comp cc3200button.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
 
 base: cossb
 

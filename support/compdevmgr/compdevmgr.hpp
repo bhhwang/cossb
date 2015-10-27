@@ -11,8 +11,13 @@
 
 #include <interface.hpp>
 #include <net/udpmulticast.hpp>
+#include <map>
 
 using namespace cossb;
+using namespace std;
+
+typedef string	devicename;
+typedef map<string, sockaddr_in> deviceinfo_container;
 
 class compdevmgr : public cossb::interface::icomponent {
 public:
@@ -37,6 +42,16 @@ private:
 	 * @brief	UDP response task
 	 */
 	base::task _response_task;
+
+	/**
+	 * @brief	receive buffer
+	 */
+	char* _rcv_buffer = nullptr;
+
+	/**
+	 * @brief	device information container
+	 */
+	deviceinfo_container* _dev_container = nullptr;
 
 };
 

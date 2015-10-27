@@ -40,6 +40,7 @@ bool component_manager::install(const char* component_name)
 
 	if(cossb_component_container->add(component_name, new driver::component_driver(component_path.c_str())))
 	{
+		cossb_log->log(log::loglevel::INFO, fmt::format("Component installed : {}", component_name).c_str());
 		cossb_component_container->get_driver(component_name)->setup();
 		return true;
 	}
@@ -53,6 +54,7 @@ bool component_manager::uninstall(const char* component_name)
 	{
 		cossb_component_container->get_driver(component_name)->stop();
 		cossb_component_container->remove(component_name);
+		cossb_log->log(log::loglevel::INFO, fmt::format("Component uninstalled : {}", component_name).c_str());
 		return true;
 	}
 	return false;
