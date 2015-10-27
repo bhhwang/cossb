@@ -8,6 +8,7 @@ If you have any questions for this sample code, please contact us(bhhwang@nsynap
 #include <WiFiUdp.h>
 #include <WiFiServer.h>
 #include <WiFiClient.h>
+#include <aJSON.h>
 
 #define DEFAULT_UDP_MEMBERSHIP  "225.0.0.37"
 #define DEFAULT_UDP_PORT  21928
@@ -19,7 +20,6 @@ volatile int green_state = LOW;
 //access point should only work for b and g
 char ssid[] = "nsynapse";
 char password[] = "elec6887";
-char service_desc[] = "{devicename:\"TIcc3200\",componentname:\"cc3200button\",protocol:tcp, port:8000}";
 WiFiClient client;
 WiFiServer server(8000);
 WiFiUDP Udp;
@@ -34,6 +34,8 @@ unsigned char btn_value = 0x00;
 
 enum {IDLE = 0, ANNOUNCE=100, SERVICE=200 };
 unsigned int process_state = IDLE;
+
+aJsonObject* root = aJson.createObject();
 
 void setup()
 {
@@ -62,6 +64,14 @@ void setup()
   printWifiStatus();
   server.begin();
   Udp.begin(DEFAULT_UDP_PORT);
+  
+  //device profile
+  if(root) {
+    aJson.addStringToObject(root, "devicename", "TI_cc3200_1");
+    aJson.addStringToObject(root, "componentname", "cc3200button");
+    aJson.addStringToObject(root, "protocol", "tcp");
+    aJson.addNumberToObject(root, "port", 8000);
+  }
 }
 
 void loop()
@@ -83,12 +93,28 @@ void loop()
     case ANNOUNCE: 
     {
       connect_led();
-      Udp.beginPacket(DEFAULT_UDP_MEMBERSHIP, DEFAULT_UDP_PORT);
-      Udp.write(service_desc);
-      Udp.endPacket();
-      process_state++;
+      if(root)
+      {
+        Udp.beginPacket(DEFAULT_UDP_MEMBERSHIP, DEFAULT_UDP_PORT);
+        Udp.write(aJson.print(root));
+        Udp.endPacket();
+        process_state++;
+      }
     }
     break;
+    
+    /*case ANNOUNCE+1: 
+    {
+      int packetsize = Udp.parsePacket();
+      if(packetsize)
+      {
+        Serial.println(packetsize);
+        process_state++;
+      }
+      process_state = ANNOUNCE;
+      delay(1000);
+    }
+    break;*/
     
     case ANNOUNCE+1:
     {
@@ -99,17 +125,17 @@ void loop()
       }
       else {
         process_state = ANNOUNCE;
-        delay(3000);
+        delay(1000);
       }
     }
     break;
     
     //////////////////////// service run
     case SERVICE:
-    {
-      digitalWrite(RED_LED, HIGH); 
+    { 
       if(client) {
         while(client.connected()) {
+          digitalWrite(RED_LED, HIGH);
         }
         client.stop();
         digitalWrite(RED_LED, LOW);

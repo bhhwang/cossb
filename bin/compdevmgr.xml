@@ -16,7 +16,7 @@
 </info>
 
 <property>
-	<address>239.0.0.1</address>
-	<port>8009</port>
+	<address>225.0.0.37</address>
+	<port>21928</port>
 	<maxconnection>3</maxconnection>
 </property>

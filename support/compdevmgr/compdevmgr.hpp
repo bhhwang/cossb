@@ -1,8 +1,9 @@
-/*
- * compdevmgr.hpp
- *
- *  Created on: 2015. 10. 27.
- *      Author: hwang
+/**
+ * @file		compdevmgr.hpp
+ * @brief		device connection management component
+ * @author		Byunghun Hwang<bhhwang@nsynapse.com>
+ * @date 		2015. 10. 27
+ * @details		Device connection management component
  */
 
 #ifndef SUPPORT_COMPDEVMGR_COMPDEVMGR_HPP_
@@ -27,8 +28,14 @@ private:
 	void response();
 
 private:
+	/**
+	 * @brief	UDP Responser
+	 */
 	cossb::net::udpmulticast* _udp_multicast = nullptr;
 
+	/**
+	 * @brief	UDP response task
+	 */
 	base::task _response_task;
 
 };
