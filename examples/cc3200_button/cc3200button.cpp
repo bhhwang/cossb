@@ -55,11 +55,11 @@ bool cc3200_button::stop()
 
 	return true;
 }
-void cc3200_button::request(cossb::message::messageframe* msg)
+void cc3200_button::request(cossb::message::message* msg) const
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "Received message");
 
-	std::tuple<string, vector<char>> unpacked_data;
+	/*std::tuple<string, vector<char>> unpacked_data;
 	if(cossb::message::unpack(&unpacked_data, *msg))
 	{
 		vector<char> data = std::get<1>(unpacked_data);
@@ -73,7 +73,7 @@ void cc3200_button::request(cossb::message::messageframe* msg)
 
 	}
 	else
-		cossb_log->log(cossb::log::loglevel::ERROR, "Cannot unpacked message");
+		cossb_log->log(cossb::log::loglevel::ERROR, "Cannot unpacked message");*/
 
 }
 
