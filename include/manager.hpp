@@ -43,7 +43,7 @@ public:
 	/**
 	 * @brief	install specific component
 	 */
-	bool install(const char* component_path);
+	bool install(const char* component_name);
 
 	/**
 	 * @brief	uninstall specific component
