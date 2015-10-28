@@ -42,7 +42,8 @@ bool compdevmgr::setup()
 			cossb_log->log(log::loglevel::INFO, fmt::format("Ready to allow remote device via {}:{}",group_address, group_port).c_str());
 		}
 
-	} catch(net::exception& e) {
+	}
+	catch(net::exception& e) {
 		if(_udp_multicast)
 			delete _udp_multicast;
 
