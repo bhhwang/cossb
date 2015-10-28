@@ -18,9 +18,8 @@ volatile int red_state = LOW;
 volatile int green_state = LOW;
 
 //access point should only work for b and g
-char ssid[] = "nsynapse";
+char ssid[] = "hellfire";
 char password[] = "elec6887";
-WiFiClient client;
 WiFiServer server(8000);
 WiFiUDP Udp;
 
@@ -35,7 +34,8 @@ unsigned char btn_value = 0x00;
 enum {IDLE = 0, ANNOUNCE=100, SERVICE=200 };
 unsigned int process_state = IDLE;
 
-aJsonObject* root = aJson.createObject();
+aJsonObject* announce = aJson.createObject();
+aJsonObject* frame = aJson.createObject();
 
 void setup()
 {
@@ -66,14 +66,21 @@ void setup()
   Udp.begin(DEFAULT_UDP_PORT);
   
   //device profile
-  if(root) {
-    aJson.addStringToObject(root, "devicename", "TI_cc3200_1");
-    aJson.addStringToObject(root, "componentname", "cc3200button");
-    aJson.addStringToObject(root, "protocol", "tcp");
-    aJson.addNumberToObject(root, "port", 8000);
+  if(announce) {
+    aJson.addStringToObject(announce, "devicename", "TI_cc3200_1");
+    aJson.addStringToObject(announce, "componentname", "cc3200button");
+    aJson.addStringToObject(announce, "protocol", "tcp");
+    aJson.addNumberToObject(announce, "port", 8000);
+    aJson.addStringToObject(announce, "command","auth");
   }
   
-  client = server.available();
+  if(frame) {
+    aJson.addStringToObject(frame, "devicename", "TI_cc3200_1");
+    aJson.addStringToObject(frame, "componentname", "cc3200button");
+    aJson.addStringToObject(frame, "command","buttonread");
+    aJson.addBooleanToObject(frame, "button1", false);
+    aJson.addBooleanToObject(frame, "button2", false);
+  }
 }
 
 void loop()
@@ -94,104 +101,74 @@ void loop()
     //////////////////////// service announce
     case ANNOUNCE: 
     {
-      connect_led();
-      if(root)
+      digitalWrite(YELLOW_LED, HIGH);
+      if(announce)
       {
         Udp.beginPacket(DEFAULT_UDP_MEMBERSHIP, DEFAULT_UDP_PORT);
-        Udp.write(aJson.print(root));
+        Udp.write(aJson.print(announce));
         Udp.endPacket();
-        process_state++;
+        process_state = SERVICE;
       }
     }
     break;
     
-    case ANNOUNCE+1:
-    {
-      if(client) {
-        process_state=SERVICE;
-        digitalWrite(YELLOW_LED, HIGH);
-      }
-      else {
-        process_state = ANNOUNCE;
-        delay(1000);
-      }
-    }
-    break;
     
     //////////////////////// service run
     case SERVICE:
     { 
+      WiFiClient client = server.available();
       if(client) {
+        Serial.println("new client");
         while(client.connected()) {
           digitalWrite(RED_LED, HIGH);
+          
+          push1_state = digitalRead(PUSH1);
+          push2_state = digitalRead(PUSH2);
+          
+          if(push1_state!=prev_push1_state) {
+            if(push1_state==HIGH) {
+              Serial.println("Push1 High");
+              update(PUSH1, true);
+            }
+            else if(push1_state==LOW) {
+              Serial.println("Push1 Low");
+              update(PUSH1, false);
+            }
+            client.print(aJson.print(frame));
+            delay(50);
+          }
+          
+          if(push2_state!=prev_push2_state) 
+          {
+            if(push2_state==HIGH) {
+              Serial.println("Push2 High");
+              update(PUSH2, true);
+            }
+            else if(push2_state==LOW) {
+              Serial.println("Push2 Low");
+              update(PUSH2, false);
+            }
+            client.print(aJson.print(frame));
+            delay(50);
+          }
+         
+          
+          
+          prev_push1_state = push1_state;
+          prev_push2_state = push2_state;
         }
-        client.stop();
+        Serial.println("connection closed");
         digitalWrite(RED_LED, LOW);
-        process_state = IDLE;
+        client.stop();
+        
+        if(WiFi.status()!=WL_CONNECTED) {
+          digitalWrite(YELLOW_LED, LOW);
+          process_state = IDLE;
+        }
       }
     }
     break;
   }
- 
-  /*
-  int i=0;
-  client = server.available();
-  
-  int push1_state = LOW;
-  int prev_push1_state = LOW;
-  int push2_state = LOW;
-  int prev_push2_state = LOW;
-  
-  unsigned char btn = 0x00;
-  unsigned char btn_value = 0x00;
-  
-  
-  
-  if(client) 
-  {
-    Serial.println("New client is connected.");
-    //send(btn, btn_value);
-    
-    while(client.connected()) 
-    {
-      digitalWrite(YELLOW_LED, HIGH);
-      
-      push1_state = digitalRead(PUSH1);
-      push2_state = digitalRead(PUSH2);
-      
-      if(push1_state!=prev_push1_state) {
-        if(push1_state==HIGH) {
-          Serial.println("Push1 High");
-          send(PUSH1, HIGH);
-        }
-        else if(push1_state==LOW) {
-          Serial.println("Push1 Low");
-          send(PUSH1, LOW);
-        }
-      }
-      
-      if(push2_state!=prev_push2_state) 
-      {
-        if(push2_state==HIGH) {
-          Serial.println("Push2 High");
-          send(PUSH2, HIGH);
-        }
-        else if(push2_state==LOW) {
-          Serial.println("Push2 Low");
-          send(PUSH2, LOW);
-        }
-      }
-      
-      prev_push1_state = push1_state;
-      prev_push2_state = push2_state;
-      
-      delay(10);
-    }
-    Serial.println("Client disconnected");
-    client.stop();
-  }
-  
-  delay(300);*/
 }
 
 
@@ -248,20 +225,16 @@ void serve_led()
   digitalWrite(RED_LED, red_state);
 }
 
-///////////////////////////// IPAddress to string
-String ip2string(IPAddress& ip)
-{
-  String addr="";
-  for(int i=0;i<4;i++)
-  {
-    //addr+=ip[0]/100;
-  }
-  return addr;
-}
 
-void send(unsigned char b, unsigned char v) {
-  if(client.connected()) {
-    unsigned char data[12] = {'/','S','T','A','R','T',b,v, '/','E','N','D'};
-    client.write(data, sizeof(data));
+void update(unsigned char button, boolean value) 
+{
+  if(button==PUSH1) {
+    aJsonObject* button1 = aJson.getObjectItem(frame, "button1");
+    button1->valuebool = value;
+  }
+  
+  if(button==PUSH2) {
+    aJsonObject* button2 = aJson.getObjectItem(frame, "button2");
+    button2->valuebool = value;
   }
 }
