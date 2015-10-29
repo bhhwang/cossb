@@ -32,8 +32,6 @@ component_manager::~component_manager()
 
 bool component_manager::install(const char* component_name)
 {
-	cout << "component name : " << component_name << endl;
-
 	string component_path = cossb_config->get_path()["component"];
 	if(component_path.empty())
 		component_path = "./"+string(component_name);
