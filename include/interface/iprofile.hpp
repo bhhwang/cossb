@@ -38,10 +38,15 @@ typedef struct _service_method {
 public:
 	_service_method():method(methodtype::UNDEFINED) {}
 	_service_method(const char* type) {
-		if(strcmp(type, "publish")==0)
+		string strType = type;
+		std::transform(strType.begin(), strType.end(), strType.begin(), ::tolower);
+
+		if(strType.compare("publish")==0)
 			method = methodtype::PUBLISH;
-		else if(strcmp(type, "subscribe")==0)
+		else if(strType.compare("subscribe")==0)
 			method = methodtype::SUBSCRIBE;
+		else
+			method = methodtype::UNDEFINED;
 	}
 	const char* str() {
 		string mt = "Undefined";
@@ -72,7 +77,7 @@ typedef struct _service_desc {
 /**
  * @brief	profile service section container
  */
-typedef vector<service::service_desc*> service_desc_container;
+typedef vector<service::service_desc> service_desc_container;
 
 } /* namespace service */
 
