@@ -39,7 +39,7 @@ bool compdevmgr::setup()
 	try {
 		if(!_udp_multicast) {
 			_udp_multicast = new cossb::net::udpmulticast(net::netType::HOST, group_address.c_str(), group_port);
-			cossb_log->log(log::loglevel::INFO, fmt::format("Ready to allow remote device via {}:{}",group_address, group_port).c_str());
+			cossb_log->log(log::loglevel::INFO, fmt::format("Multicast group address {}:{}",group_address, group_port).c_str());
 		}
 
 	}
@@ -99,10 +99,13 @@ void compdevmgr::response()
 						if(cossb_component_manager->install(component_name.c_str())) {
 							_dev_container->insert(deviceinfo_container::value_type(devname, client_addr));
 
+							//message publish
 							cossb::message::message msg(this);
-							msg["test"] = "aaa";
+							msg["cmd"] = "auth";
+							msg["address"] = inet_ntoa(client_addr.sin_addr);
+							msg["port"] = client_addr.sin_port;
 							cossb_broker->publish(msg);
-							cout << "published" << endl;
+							cossb_log->log(log::loglevel::INFO, "Publish");
 						}
 				}
 				}

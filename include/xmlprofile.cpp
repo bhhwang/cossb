@@ -8,6 +8,7 @@
 #include "xmlprofile.hpp"
 #include <iostream>
 #include <cstring>
+#include <logger.hpp>
 
 using namespace std;
 
@@ -139,11 +140,17 @@ void xmlprofile::read_profile()
 	for(XMLElement* elem = _doc->FirstChildElement("service");elem!=nullptr; elem = elem->NextSiblingElement("service"))
 	{
 		service::service_desc desc;
-		if(elem->Attribute("name")) desc.name = elem->Attribute("name");
-		if(elem->Attribute("method")) desc.name = elem->Attribute("method");
-		if(elem->Attribute("topic")) desc.name = elem->Attribute("topic");
+		if(elem->Attribute("name"))
+			desc.name = elem->Attribute("name");
 
-		_service_desc_container->push_back(&desc);
+		if(elem->Attribute("method"))
+			desc.method = service::service_method(elem->Attribute("method"));
+
+		if(elem->Attribute("topic"))
+			desc.topic = elem->Attribute("topic");
+
+		_service_desc_container->push_back(desc);
+		cossb_log->log(log::loglevel::INFO, fmt::format("Add Service in {} with topic \"{}\"", desc.name, desc.topic).c_str());
 	}
 }
 

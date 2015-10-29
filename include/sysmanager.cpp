@@ -51,11 +51,8 @@ bool system_manager::setup(base::configreader* config)
 
 	//3. pre-load components after loading libraries
 	for(auto dep:config->get_required()) {
-		string prefix = config->get_path()["component"];
-		if(prefix.empty()) prefix = "./";
-
 		if(dep->type==base::bundleType::COMPONENT) {
-			cossb_component_manager->install((prefix+dep->name).c_str());
+			cossb_component_manager->install(dep->name.c_str());
 		}
 	}
 
