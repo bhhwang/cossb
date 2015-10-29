@@ -18,19 +18,19 @@ template <typename T, size_t N>
 T* _end(T(&arr)[N]) { return &arr[0]+N; }
 
 
-USE_COMPONENT_INTERFACE(cc3200_button)
+USE_COMPONENT_INTERFACE(cc3200button)
 
-cc3200_button::cc3200_button()
-:icomponent(COMPONENT(cc3200_button)),_port(8000){
+cc3200button::cc3200button()
+:icomponent(COMPONENT(cc3200button)),_port(8000){
 	// TODO Auto-generated constructor stub
 
 }
 
-cc3200_button::~cc3200_button() {
+cc3200button::~cc3200button() {
 	// TODO Auto-generated destructor stub
 }
 
-bool cc3200_button::setup()
+bool cc3200button::setup()
 {
 	//cossb_broker->regist(this, "service/cc3200button");
 	_host = get_profile()->get(cossb::profile::section::property, "host").asString("127.0.0.1");
@@ -41,21 +41,21 @@ bool cc3200_button::setup()
 
 	return true;
 }
-bool cc3200_button::run()
+bool cc3200button::run()
 {
 	/*if(!_client_task)
 		_client_task = create_task(cc3200_button::process);*/
 
 	return true;
 }
-bool cc3200_button::stop()
+bool cc3200button::stop()
 {
 	//destroy_task(_client_task);
 	//close(socket_fd);
 
 	return true;
 }
-void cc3200_button::request(cossb::message::message* msg) const
+void cc3200button::request(cossb::message::message* msg) const
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "Received message");
 
@@ -77,7 +77,7 @@ void cc3200_button::request(cossb::message::message* msg) const
 
 }
 
-void cc3200_button::process()
+void cc3200button::process()
 {
 	struct sockaddr_in servaddr;
 	socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -152,7 +152,7 @@ void cc3200_button::process()
 
 }
 
-bool cc3200_button::endsWith(char* inString, int len, char* compString) {
+bool cc3200button::endsWith(char* inString, int len, char* compString) {
   int compLength = strlen(compString);
 
   //compare the last "compLength" values of the inString
@@ -166,7 +166,7 @@ bool cc3200_button::endsWith(char* inString, int len, char* compString) {
   return true;
 }
 
-bool cc3200_button::startsWith(char* inString, char* compString) {
+bool cc3200button::startsWith(char* inString, char* compString) {
   int compLength = strlen(compString);
 
   //compare the last "compLength" values of the inString

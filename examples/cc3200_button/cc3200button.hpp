@@ -6,18 +6,18 @@
  * @details	TI cc3200 launchpad button service example
  */
 
-#ifndef EXAMPLES_CC3200_BUTTON_CC3200BUTTON_HPP_
-#define EXAMPLES_CC3200_BUTTON_CC3200BUTTON_HPP_
+#ifndef EXAMPLES_CC3200BUTTON_CC3200BUTTON_HPP_
+#define EXAMPLES_CC3200BUTTON_CC3200BUTTON_HPP_
 
 #include "../../include/interface.hpp"
 #include <string>
 
 using namespace std;
 
-class cc3200_button : public cossb::interface::icomponent {
+class cc3200button : public cossb::interface::icomponent {
 public:
-	cc3200_button();
-	virtual ~cc3200_button();
+	cc3200button();
+	virtual ~cc3200button();
 
 	bool setup();
 	bool run();
@@ -33,7 +33,7 @@ private:
 	cossb::base::task _client_task;
 
 private:
-	int socket_fd;
+	int socket_fd = -1;
 	fd_set _status;
 	string _host;
 	unsigned short _port;
