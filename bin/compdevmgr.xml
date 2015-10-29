@@ -11,7 +11,7 @@
 	<version>0.0.1</version>
 	<category></category>
 	<tags></tags>
-	<publish>service/srvmgr</publish>
+	<publish>service/compdevmgr</publish>
 	<subscribe>null</subscribe>
 </info>
 
@@ -20,3 +20,5 @@
 	<port>21928</port>
 	<maxconnection>3</maxconnection>
 </property>
+
+<service name="devmgrpub" method="publish" topic="service/compdevmgr"></service>

@@ -12,7 +12,7 @@
 	<category></category>
 	<tags></tags>
 	<publish>service/cc3200button</publish>
-	<subscribe>null</subscribe>
+	<subscribe>service/compdevmgr</subscribe>
 </info>
 
 <property>
@@ -20,8 +20,6 @@
 	<port>8000</port>
 </property>
 
-<service name="cc3200pub" method="publish" topic="service/cc3200pub">
-</service>
-
-<service name="cc3200sub" method="subscribe" topic="service/cc3200sub">
-</service>
+<service name="cc3200pub" method="publish" topic="service/cc3200pub"></service>
+<service name="cc3200sub" method="subscribe" topic="service/cc3200sub"></service>
+<service name="cc3200subdev" method="subscribe" topic="service/compdevmgr"></service>
