@@ -33,6 +33,8 @@ component_driver::component_driver(const char* component_path)
 				_ptr_component->_profile = new profile::xmlprofile();
 				if(!_ptr_component->_profile->load(profile_path.c_str()))
 					unload();
+				else
+					regist_service_desc();
 			}
 		}
 		else
@@ -163,8 +165,10 @@ void component_driver::regist_service_desc()
 	if(_ptr_component) {
 		interface::iprofile* profile = _ptr_component->get_profile();
 		if(profile) {
-			//cout << "profiles : " << profile->get_service_descs()->size() << endl;
-			//cossb_broker->regist(_ptr_component, profile->g)
+			cossb_log->log(log::loglevel::INFO, fmt::format("{} has {} services", _ptr_component->get_name(), profile->get_service_descs()->size()).c_str());
+			for(auto svc:*profile->get_service_descs()){
+				cossb_broker->regist(_ptr_component, svc.topic);
+			}
 		}
 	}
 }
