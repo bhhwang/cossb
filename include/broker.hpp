@@ -45,7 +45,7 @@ public:
 			if(itr->second.compare(msg.get_from())!=0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
 				if(_drv) {
-					cossb_log->log(log::loglevel::INFO, fmt::format("publish to : {}", msg.get_topic()).c_str());
+					cossb_log->log(log::loglevel::INFO, fmt::format("message to : {}", msg.get_topic()).c_str());
 					_drv->request(&msg);
 					times++;
 				}
@@ -80,7 +80,6 @@ public:
 		return times;
 	}
 
-private:
 	/**
 	 *@brief	regist component with topic
 	 */
@@ -100,16 +99,6 @@ private:
 
 
 		return true;
-	}
-
-	/**
-	 * @brief	regist component
-	 */
-	bool regist(interface::icomponent* component, interface::iprofile* profile) {
-		if(profile) {
-			//profile->
-		}
-		return false;
 	}
 
 private:
