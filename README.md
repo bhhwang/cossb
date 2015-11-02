@@ -91,8 +91,6 @@ $ sudo ./cossb --utility find --[device|service] <specific name>
 ```
 
 
-
-
 License
 ===============
 You can freely use, modify, redistribute this source code under the 3-clause BSD License.
