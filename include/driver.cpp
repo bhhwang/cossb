@@ -116,8 +116,9 @@ void component_driver::run()
 {
 	if(_ptr_component)
 	{
-		if(!_request_proc_task)
+		if(!_request_proc_task) {
 			_request_proc_task = create_task(component_driver::request_proc);
+		}
 
 		_ptr_component->run();
 	}
@@ -139,19 +140,23 @@ bool component_driver::set_profile(interface::iprofile* profile, const char* pat
 
 void component_driver::request_proc()
 {
-	if(_ptr_component) {
+	if(_ptr_component)
+	{
 		while(1)
 		{
-			try {
-			boost::mutex::scoped_lock __lock(_mutex);
-			_condition.wait(__lock);
+			try
+			{
+				boost::mutex::scoped_lock lock(_mutex);
 
-			while(!_mailbox.empty()) {
-				_ptr_component->request(_mailbox.front());
-				_mailbox.pop();
-			}
+				while(_mailbox.empty())
+					_condition.wait(lock);
 
-			boost::this_thread::sleep(boost::posix_time::milliseconds(0));
+				while(!_mailbox.empty()) {
+					_ptr_component->request(&_mailbox.front());
+					_mailbox.pop();
+				}
+
+				boost::this_thread::sleep(boost::posix_time::milliseconds(1));
 			}
 			catch(thread_interrupted&) {
 				break;
@@ -172,6 +177,7 @@ void component_driver::regist_service_desc()
 		}
 	}
 }
+
 
 
 } /* namespace dirver */

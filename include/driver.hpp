@@ -41,21 +41,11 @@ public:
 	interface::icomponent* get_component() const { return _ptr_component; }
 
 private:
-	/**
-	 * @brief	request message
-	 */
-	template<typename... Args>
-	void request(const char* head, const Args&... args) {
-		/*auto data = std::make_tuple(head, args...);
-		message::message msg;
-		message::pack(&msg, data);
-
-		_mailbox.push(msg);
-		_condition.notify_one();*/
-	}
 
 	void request(cossb::message::message* msg) {
 		msg->serialize();
+		_mailbox.push(*msg);
+		_condition.notify_one();
 	}
 
 
@@ -127,7 +117,7 @@ private:
 	/**
 	 * @brief	mailbox
 	 */
-	std::queue<cossb::message::message*> _mailbox;
+	std::queue<cossb::message::message> _mailbox;
 
 	boost::condition_variable _condition;
 	boost::mutex _mutex;
