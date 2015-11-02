@@ -36,7 +36,9 @@ public:
 		}
 	}
 
-	virtual ~udp() { }
+	virtual ~udp() {
+		close();
+	}
 
 protected:
 	int open(int port) {
