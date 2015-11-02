@@ -22,7 +22,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::message* msg) const;
+	void request(cossb::message::message* msg);
 
 private:
 	/**

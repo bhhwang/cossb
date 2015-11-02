@@ -63,6 +63,7 @@ public:
 		return data.dump(4);
 	}
 
+	void set_topic(const char* topic) { frame.pub_topic = topic; }
 	cossb::message::msgframe* get_frame() { return &frame; }
 	const char* get_topic() { return frame.pub_topic.c_str(); }
 	const char* get_from() { return frame.from.c_str(); }
@@ -76,9 +77,11 @@ protected:
 		std::copy(encode.begin(), encode.end(), std::back_inserter(frame.encoded_data));
 	}
 
+public:
+	json data;
+
 protected:
 	cossb::message::msgframe frame;
-	json data;
 };
 
 } /* namespace message */

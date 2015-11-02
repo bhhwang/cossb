@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <info>
 	<uuid>00000000000000000000</uuid>
-	<name>helloworld</name>
-	<description>Hellow World component</description>
+	<name>comphelloworld</name>
+	<description>hello world component</description>
 	<company>Nsynapse Inc.</company>
 	<developer>Byunghun Hwang</developer>
 	<email>bhhwang@nsynapse.com</email>
@@ -16,4 +16,7 @@
 </info>
 
 <property>
+
 </property>
+
+<service name="cc3200subdev" method="subscribe" topic="service/cc3200button"></service>

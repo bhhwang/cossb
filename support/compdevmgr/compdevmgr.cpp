@@ -70,7 +70,7 @@ bool compdevmgr::stop()
 	return true;
 }
 
-void compdevmgr::request(cossb::message::message* msg) const
+void compdevmgr::request(cossb::message::message* msg)
 {
 	//nothing to do
 }
@@ -97,15 +97,16 @@ void compdevmgr::response()
 					string component_name = devinfo["componentname"];
 					if(!component_name.empty())
 						if(cossb_component_manager->install(component_name.c_str())) {
+							cossb_component_manager->run(component_name.c_str());
+
 							_dev_container->insert(deviceinfo_container::value_type(devname, client_addr));
 
 							//message publish
 							cossb::message::message msg(this);
-							msg["cmd"] = "auth";
+							msg["command"] = "reconnect";
 							msg["address"] = inet_ntoa(client_addr.sin_addr);
-							msg["port"] = client_addr.sin_port;
+							msg["port"] = devinfo["port"];
 							cossb_broker->publish(msg);
-							cossb_log->log(log::loglevel::INFO, "Publish");
 						}
 				}
 				}
@@ -115,11 +116,6 @@ void compdevmgr::response()
 				cossb_log->log(log::loglevel::ERROR, e.what());
 			}
 
-			/*cossb_log->log(log::loglevel::INFO, fmt::format("received {}bytes from {}:{}", nBytes, inet_ntoa(client_addr.sin_addr), client_addr.sin_port).c_str());
-			if(sendto(_udp_multicast->sockfd, rcv_buffer, nBytes, 0, (struct sockaddr *)&client_addr, sizeof(client_addr))!=nBytes)
-				cossb_log->log(log::loglevel::ERROR, "Cannot send");
-			else
-				cossb_log->log(log::loglevel::INFO, fmt::format("send to {}:{}", inet_ntoa(client_addr.sin_addr), client_addr.sin_port).c_str());*/
 		}
 
 
