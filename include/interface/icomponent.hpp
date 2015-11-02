@@ -71,7 +71,7 @@ public:
 	 * @brief	message request
 	 * @details	if request message comes in, this function will be called
 	 */
-	virtual void request(cossb::message::message* msg) const = 0;
+	virtual void request(cossb::message::message* msg) = 0;
 
 	/**
 	 * @brief
