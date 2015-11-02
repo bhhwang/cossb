@@ -35,7 +35,7 @@ mbed_rgb::~mbed_rgb() {
 
 bool mbed_rgb::setup()
 {
-	cossb_broker->regist(this, "service/mbed_rgb");
+
 	_host = get_profile()->get(cossb::profile::section::property, "host").asString("127.0.0.1");
 	_port = get_profile()->get(cossb::profile::section::property, "port").asUInt(8000);
 
