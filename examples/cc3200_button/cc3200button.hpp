@@ -9,8 +9,9 @@
 #ifndef EXAMPLES_CC3200BUTTON_CC3200BUTTON_HPP_
 #define EXAMPLES_CC3200BUTTON_CC3200BUTTON_HPP_
 
-#include "../../include/interface.hpp"
+#include <interface.hpp>
 #include <string>
+#include <net/tcp.hpp>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ public:
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::message* msg) const;
+	void request(cossb::message::message* msg);
 
 private:
 	bool connect(const char* ipaddr, unsigned short port);
@@ -33,10 +34,9 @@ private:
 	cossb::base::task _client_task;
 
 private:
-	int socket_fd = -1;
 	fd_set _status;
-	string _host;
-	unsigned short _port;
+
+	cossb::net::tcp* _client = nullptr;
 
 };
 
