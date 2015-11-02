@@ -30,6 +30,8 @@ void cblog::log(const log::loglevel& level, const char* logstr)
 	case	log::loglevel::CRITICAL: cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;	break;
 	case	log::loglevel::ALERT: cout << _time.current_formatted() << "[ALERT] " << logstr << endl;	break;
 	case	log::loglevel::EMERG: cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;	break;
+	default:
+		cout << _time.current_formatted() << "[NO LOG LEVEL] " << logstr << endl; break;
 	}
 }
 
