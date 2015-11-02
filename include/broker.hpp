@@ -45,7 +45,7 @@ public:
 			if(itr->second.compare(msg.get_from())!=0) {
 				driver::component_driver* _drv = cossb_component_manager->get_driver(itr->second.c_str());
 				if(_drv) {
-					cossb_log->log(log::loglevel::INFO, fmt::format("message to : {}", msg.get_topic()).c_str());
+					cossb_log->log(log::loglevel::INFO, fmt::format("Message send to the component {}", itr->second).c_str());
 					_drv->request(&msg);
 					times++;
 				}
@@ -61,7 +61,7 @@ public:
 	 * @brief		publish data pack to specific service component
 	 * @return		times published
 	 */
-	template<typename... Args>
+	/*template<typename... Args>
 	unsigned int publish(interface::icomponent* component, const char* to_topic, const char* api, const Args&... args) {
 		auto range = _topic_map.equal_range(to_topic);
 		unsigned int times = 0;
@@ -78,7 +78,7 @@ public:
 		}
 
 		return times;
-	}
+	}*/
 
 	/**
 	 *@brief	regist component with topic
