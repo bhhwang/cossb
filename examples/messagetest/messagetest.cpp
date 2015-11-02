@@ -50,7 +50,7 @@ bool messagetest::stop()
 	return true;
 }
 
-void messagetest::request(cossb::message::message* msg) const
+void messagetest::request(cossb::message::message* msg)
 {
 
 }

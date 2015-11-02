@@ -73,7 +73,7 @@ bool wavealarm::stop()
 	return true;
 }
 
-void wavealarm::request(cossb::message::message* msg) const
+void wavealarm::request(cossb::message::message* msg)
 {
 
 }

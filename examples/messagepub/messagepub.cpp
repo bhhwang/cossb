@@ -38,7 +38,7 @@ bool messagepub::stop()
 	destroy_task(_pub_task);
 	return true;
 }
-void messagepub::request(cossb::message::message* msg) const
+void messagepub::request(cossb::message::message* msg)
 {
 	cossb_log->log(cossb::log::loglevel::INFO, "received message");
 }
