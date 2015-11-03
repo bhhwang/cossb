@@ -54,5 +54,6 @@ stime* systime::local()
 	return &_time;
 }
 
+
 } /* namespace util */
 } /* namespace cossb */

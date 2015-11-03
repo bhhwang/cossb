@@ -36,6 +36,7 @@ public:
 private:
 	stime* local();
 
+
 private:
 	stime _time;
 
