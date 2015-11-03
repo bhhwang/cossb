@@ -16,6 +16,7 @@
 #include <boost/lexical_cast.hpp>
 #include <cstring>
 #include "../util/format.h"
+#include "../util/uuid.hpp"
 
 using namespace std;
 
@@ -61,6 +62,15 @@ public:
 private:
 	methodtype method = methodtype::UNDEFINED;
 } service_method;
+
+/**
+ * @brief	device profile
+ */
+typedef struct _device_desc {
+	util::uuid unique_id;
+	string devicename;
+	string component_required;
+} device_desc;
 
 /**
  * @brief	service description
