@@ -64,15 +64,6 @@ private:
 } service_method;
 
 /**
- * @brief	device profile
- */
-typedef struct _device_desc {
-	util::uuid unique_id;
-	string devicename;
-	string component_required;
-} device_desc;
-
-/**
  * @brief	service description
  */
 typedef struct _service_desc {
@@ -94,6 +85,15 @@ typedef vector<service::service_desc> service_desc_container;
 namespace interface { class iprofile; }
 
 namespace profile {
+
+/**
+ * @brief	device description
+ */
+typedef struct _device_desc {
+	util::uuid unique_id;
+	string devicename;
+	string component_required;
+} device_desc;
 
 /**
  * @brief	profile information section container
