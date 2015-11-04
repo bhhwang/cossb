@@ -47,6 +47,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <dirent.h>
 #include <util/validation.hpp>
 #include <cossb.hpp>
+#include <util/uuid.hpp>
 
 using namespace std;
 using namespace cossb;
