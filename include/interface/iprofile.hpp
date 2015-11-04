@@ -93,6 +93,11 @@ typedef struct _device_desc {
 	util::uuid unique_id;
 	string devicename;
 	string component_required;
+
+	bool operator< (const _device_desc& other) const {
+		return (this->unique_id < other.unique_id);
+	}
+
 } device_desc;
 
 /**
