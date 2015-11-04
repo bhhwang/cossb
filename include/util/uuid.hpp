@@ -17,10 +17,10 @@ namespace cossb {
 namespace util {
 
 typedef struct _uuid {
-public:
-	unsigned char code[16];
 
-	void _uuid() {
+public:
+
+	_uuid() {
 		uuid_generate(code);
 		memset(encoded, 0x00, sizeof(encoded));
 		uuid_unparse(code, encoded);
@@ -28,7 +28,20 @@ public:
 
 	const char* str() { return (const char*)encoded; }
 
+	bool operator<(const _uuid& other) const {
+		return (uuid_compare(this->code, other.code)<0)?true:false;
+	}
+
+	bool operator>(const _uuid& other) const {
+		return (uuid_compare(this->code, other.code)>0)?true:false;
+	}
+
+	bool operator==(const _uuid& other) const {
+		return (uuid_compare(this->code, other.code)==0)?true:false;
+	}
+
 private:
+	unsigned char code[16];
 	char encoded[64];
 } uuid;
 
