@@ -91,7 +91,7 @@ void cc3200button::process()
 			if(_client) {
 				char* buffer = new char[buffer_len];
 				memset(buffer, 0, sizeof(char)*buffer_len);
-				int len = ::recv(_client->sockfd, buffer, buffer_len, 0);
+				int len = ::recv(*_client->get_sock(), buffer, buffer_len, 0);
 				if(len>0) {
 					cossb_log->log(cossb::log::loglevel::INFO, fmt::format("{}",buffer).c_str());
 
