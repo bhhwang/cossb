@@ -8,7 +8,7 @@
 #ifndef INCLUDE_NET_EXCEPTION_HPP_
 #define INCLUDE_NET_EXCEPTION_HPP_
 
-#include <net/exception.hpp>
+#include <exception.hpp>
 
 namespace cossb {
 namespace net {
@@ -22,12 +22,15 @@ enum class excode : int {
 	SOCKET_SET_REUSE_FAIL,
 	SOCKET_SET_ADDMEMBERSHIP_FAIL,
 	SOCKET_SET_TIMEOUT_FAIL,
+	SOCKET_SET_LOOPBACK_FAIL,
 	CONNECTION_FAIL,
 };
+
 /**
  * @brief	network exception
  */
-class exception : public cossb::exception::cossb_exception {
+class exception : public cossb::exception::cossb_exception
+{
 public:
 	exception(net::excode code, const char* err_msg = nullptr) {
 		switch(code) {
@@ -39,8 +42,10 @@ public:
 		case excode::SOCKET_SET_REUSE_FAIL: set("Network reuse setting fail"); break;
 		case excode::SOCKET_SET_ADDMEMBERSHIP_FAIL: set("Network add membership fail"); break;
 		case excode::SOCKET_SET_TIMEOUT_FAIL: set("Network timeout setting fail"); break;
+		case excode::SOCKET_SET_LOOPBACK_FAIL: set("Network loopback setting fail"); break;
 		case excode::CONNECTION_FAIL: set("Connection fail"); break;
-		default: set(fmt::format("Unknown exception({})", (int)code).c_str());
+		default:
+			set(fmt::format("Unknown exception({})", (int)code).c_str()); break;
 		}
 	}
 };
