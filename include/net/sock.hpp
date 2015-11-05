@@ -17,28 +17,35 @@
 namespace cossb {
 namespace net {
 
-enum class netType : unsigned int { HOST=1, CLIENT };
+/**
+ * @brief	socket type (DGRAM=UDP socket, STREAM=tcp socket)
+ */
 enum class sockType : unsigned int { DGRAM=1, STREAM };
+
+/**
+ * @brief	ip version
+ */
+enum class ipversion : int { IPv4, IPv6 };
 
 class sock {
 public:
-	sock(netType type):_type(type) { }
+	sock() { }
 	virtual ~sock() {
-			if(sockfd>0)
-				close(sockfd);
+		if(sockfd>0)
+			close(sockfd);
 	}
 
-protected:
-	netType* get_type() { return &_type; }
+	int* get_sock() { return &sockfd; }
 
-public:
+protected:
+
 	int sockfd = -1;
 
-protected:
-	struct sockaddr_in	_address;
+	/**
+	 * @brief	socket address for IPv4
+	 */
+	struct sockaddr_in	_address_v4;
 
-private:
-	netType _type;
 };
 
 } /* namespace net */
