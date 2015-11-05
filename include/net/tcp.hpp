@@ -11,7 +11,7 @@
 #define INCLUDE_NET_TCP_HPP_
 
 #include "sock.hpp"
-#include <exception.hpp>
+#include "exception.hpp"
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -21,9 +21,11 @@
 namespace cossb {
 namespace net {
 
+enum class netType : int { SERVER=1, CLIENT };
+
 class tcp : public sock {
 public:
-	tcp(netType type, const char* ipv4, int port):sock(type),_port(port) {
+	tcp(netType type, const char* address, int port):_port(port) {
 		switch(type)
 		{
 		case netType::CLIENT:
@@ -31,22 +33,22 @@ public:
 			if((this->sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP))==-1)
 				throw net::exception(net::excode::SOCKET_CREATE_FAIL);
 			else {
-				memset(&_address, 0, sizeof(_address));
-				_address.sin_family = AF_INET;
-				_address.sin_addr.s_addr = inet_addr(ipv4);
-				_address.sin_port = htons(port);
+				memset(&_address_v4, 0, sizeof(_address_v4));
+				_address_v4.sin_family = AF_INET;
+				_address_v4.sin_addr.s_addr = inet_addr(address);
+				_address_v4.sin_port = htons(port);
 			}
 			break;
 		}
-		case netType::HOST:
+		case netType::SERVER:
 		{
 			if((this->sockfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP))==-1)
 				throw net::exception(net::excode::SOCKET_CREATE_FAIL);
 			else {
-				memset(&_address, 0, sizeof(_address));
-				_address.sin_family = AF_INET;
-				_address.sin_addr.s_addr = htonl(INADDR_ANY);
-				_address.sin_port = htons(port);
+				memset(&_address_v4, 0, sizeof(_address_v4));
+				_address_v4.sin_family = AF_INET;
+				_address_v4.sin_addr.s_addr = htonl(INADDR_ANY);
+				_address_v4.sin_port = htons(port);
 			}
 		}
 			break;
@@ -60,7 +62,8 @@ public:
 
 	void async_connect() {
 		if(fcntl(sockfd, F_SETFL, O_NONBLOCK | fcntl(sockfd, F_GETFL))==-1)
-			cossb_log->log(cossb::log::loglevel::ERROR, "Cannot change non-blocking mode..");
+			return;
+			//cossb_log->log(cossb::log::loglevel::ERROR, "Cannot change non-blocking mode..");
 
 		int timeout = 1;
 		int intvl = 1;
@@ -71,11 +74,11 @@ public:
 		::setsockopt(sockfd, SOL_TCP, TCP_KEEPINTVL, (void*) &intvl, sizeof(int));
 		::setsockopt(sockfd, SOL_TCP, TCP_KEEPCNT, (void*) &probes, sizeof(int));
 
-		::connect( this->sockfd, (struct sockaddr*)&_address, sizeof(_address));
+		::connect( this->sockfd, (struct sockaddr*)&_address_v4, sizeof(_address_v4));
 	}
 
 	void sync_connect() {
-		if(::connect( this->sockfd, (struct sockaddr*)&_address, sizeof(_address))==-1)
+		if(::connect( this->sockfd, (struct sockaddr*)&_address_v4, sizeof(_address_v4))==-1)
 			throw net::exception(net::excode::CONNECTION_FAIL);
 	}
 
