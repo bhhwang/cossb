@@ -22,10 +22,9 @@ namespace net {
 struct endpoint_v4 : public sockaddr_in {
 public:
 	endpoint_v4() {
-		memset(ipv4, 0x00, sizeof(ipv4));
+
 	}
 	endpoint_v4(const char* ipaddr){
-		memset(ipv4, 0x00, sizeof(ipv4));
 		inet_pton(AF_INET, ipaddr, &(this->sin_addr));
 	}
 
