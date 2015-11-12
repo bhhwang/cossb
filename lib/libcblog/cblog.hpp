@@ -20,7 +20,7 @@ public:
 	cblog();
 	virtual ~cblog();
 
-	void log(const log::loglevel& level,  const char* logstr, log::color color= log::color::STATIC);
+	void log(const log::loglevel& level,  const char* logstr, log::color color);
 
 private:
 	util::systime _time;
