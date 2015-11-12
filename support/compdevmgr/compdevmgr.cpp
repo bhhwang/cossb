@@ -6,8 +6,8 @@
  */
 
 #include "compdevmgr.hpp"
-#include <exception.hpp>
-#include <ext/json.hpp>
+#include <net/exception.hpp>
+//#include <ext/json.hpp>
 #include <manager.hpp>
 #include <componentpack.hpp>
 
@@ -18,12 +18,12 @@ USE_COMPONENT_INTERFACE(compdevmgr)
 compdevmgr::compdevmgr()
 :interface::icomponent(COMPONENT(compdevmgr)) {
 	_dev_container = new deviceinfo_container;
-
 }
 
 compdevmgr::~compdevmgr() {
-	if(_udp_multicast)
-		delete _udp_multicast;
+
+	if(_udp_recv)
+		delete _udp_recv;
 
 	if(_dev_container) {
 		_dev_container->clear();
@@ -36,18 +36,21 @@ bool compdevmgr::setup()
 	string group_address = get_profile()->get(cossb::profile::section::property, "address").asString("225.0.0.37");
 	int group_port = get_profile()->get(cossb::profile::section::property, "port").asInt(21928);
 
-	try {
-		if(!_udp_multicast) {
-			_udp_multicast = new cossb::net::udpmulticast(net::netType::HOST, group_address.c_str(), group_port);
-			cossb_log->log(log::loglevel::INFO, fmt::format("Multicast group address {}:{}",group_address, group_port).c_str());
+	try
+	{
+		if(!_udp_recv)
+		{
+			_udp_recv = new cossb::net::multicast;
+			_udp_recv->create(group_address.c_str(), group_port);
 		}
-
 	}
 	catch(net::exception& e) {
-		if(_udp_multicast)
-			delete _udp_multicast;
+		if(_udp_recv) {
+			delete _udp_recv;
+			_udp_recv = nullptr;
+		}
 
-		cossb_log->log(log::loglevel::ERROR, e.what());
+		cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
 	}
 
 	return true;
@@ -55,14 +58,17 @@ bool compdevmgr::setup()
 
 bool compdevmgr::run()
 {
-	_rcv_buffer = new char[MAX_BUFFER_SIZE];
-	_response_task = create_task(compdevmgr::response);
+	if(_udp_recv) {
+		_rcv_buffer = new char[MAX_BUFFER_SIZE];
+		_response_task = create_task(compdevmgr::response);
+	}
 	return true;
 }
 
 bool compdevmgr::stop()
 {
-	destroy_task(_response_task);
+	if(_udp_recv)
+		destroy_task(_response_task);
 
 	if(_rcv_buffer)
 		delete []_rcv_buffer;
@@ -77,18 +83,36 @@ void compdevmgr::request(cossb::message::message* msg)
 
 void compdevmgr::response()
 {
-	using json = nlohmann::json;
 	struct sockaddr_in	client_addr;
 	unsigned int _client_sockaddr_size = sizeof(client_addr);
 
 	while(1) {
 		memset(_rcv_buffer, 0, sizeof(char)*MAX_BUFFER_SIZE);
-		int nBytes = recvfrom(_udp_multicast->sockfd, _rcv_buffer, MAX_BUFFER_SIZE, 0 , (struct sockaddr*)&client_addr, (socklen_t*)&_client_sockaddr_size);
+		int nBytes = recvfrom(*_udp_recv->get_sock(), _rcv_buffer, MAX_BUFFER_SIZE, 0 , (struct sockaddr*)&client_addr, (socklen_t*)&_client_sockaddr_size);
 		if(nBytes>0) {
 			try {
-			json devinfo = json::parse(_rcv_buffer);
+				profile::device_desc desc(_rcv_buffer, nBytes);
 
-			if(devinfo.find("devicename")!= devinfo.end()) {
+				if(_dev_container->find(desc)==_dev_container->end()) {
+					cossb_log->log(log::loglevel::INFO, fmt::format("New device {} requests a permission to access service",desc.devicename).c_str(), log::color::COLOR);
+					cossb_log->log(log::loglevel::INFO, fmt::format("Registered UUID {} ",desc.unique_id.str()).c_str());
+					_dev_container->insert(deviceinfo_container::value_type(desc, client_addr));
+
+					if(!desc.component.empty()) {
+						if(cossb_component_manager->install(desc.component.c_str())) {
+							cossb_component_manager->run(desc.component.c_str());
+
+							//publish
+							//cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+							//msg["command"] = "announce";
+							//msg["address"] = inet_ntoa(client_addr.sin_addr);
+							//msg["port"] = devinfo["port"];
+							//cossb_broker->publish(msg);
+						}
+					}
+				}
+
+			/*if(devinfo.find("devicename")!= devinfo.end()) {
 				string devname = devinfo["devicename"];
 				if(_dev_container->find(devname)==_dev_container->end()) {
 				cossb_log->log(log::loglevel::INFO, fmt::format("New device {} requests a permission to access service.", devinfo["devicename"], inet_ntoa(client_addr.sin_addr)).c_str());
@@ -110,10 +134,11 @@ void compdevmgr::response()
 						}
 				}
 				}
-			}
+			}*/
 
-			} catch(std::exception& e) {
-				cossb_log->log(log::loglevel::ERROR, e.what());
+			}
+			catch(cossb::profile::exception& e) {
+				cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
 			}
 
 		}

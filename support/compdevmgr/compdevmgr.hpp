@@ -3,21 +3,22 @@
  * @brief		device connection management component
  * @author		Byunghun Hwang<bhhwang@nsynapse.com>
  * @date 		2015. 10. 27
- * @details		Device connection management component
+ * @details	Device connection management component
+ * 				Device profile will be received from device via UDP multicast
  */
 
 #ifndef SUPPORT_COMPDEVMGR_COMPDEVMGR_HPP_
 #define SUPPORT_COMPDEVMGR_COMPDEVMGR_HPP_
 
 #include <interface.hpp>
-#include <net/udpmulticast.hpp>
+#include <net/multicast.hpp>
 #include <map>
 
 using namespace cossb;
 using namespace std;
 
 typedef string	devicename;
-typedef map<string, sockaddr_in> deviceinfo_container;
+typedef map<profile::device_desc, sockaddr_in> deviceinfo_container;
 
 class compdevmgr : public cossb::interface::icomponent {
 public:
@@ -33,10 +34,12 @@ private:
 	void response();
 
 private:
+
 	/**
-	 * @brief	UDP Responser
+	 * @brief	UDP multicast receiver
+	 * @detail	Receive device information via UDP multicast
 	 */
-	cossb::net::udpmulticast* _udp_multicast = nullptr;
+	cossb::net::multicast* _udp_recv = nullptr;
 
 	/**
 	 * @brief	UDP response task
