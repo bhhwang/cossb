@@ -22,16 +22,12 @@ namespace net {
  */
 enum class sockType : unsigned int { DGRAM=1, STREAM };
 
-/**
- * @brief	ip version
- */
-enum class ipversion : int { IPv4, IPv6 };
 
 class sock {
 public:
 	sock() { }
 	virtual ~sock() {
-		if(sockfd>0)
+		if(sockfd)
 			close(sockfd);
 	}
 
@@ -39,6 +35,9 @@ public:
 
 protected:
 
+	/**
+	 * @brief	socket file descriptor
+	 */
 	int sockfd = -1;
 
 	/**

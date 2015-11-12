@@ -21,7 +21,7 @@ public:
 	/**
 	 * @brief UDP constructor for IPv4
 	 */
-	udp():_port(0), ipv(ipversion::IPv4) {
+	udp():_port(0) {
 	}
 
 	virtual ~udp() {
