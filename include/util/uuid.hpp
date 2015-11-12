@@ -19,11 +19,34 @@ namespace util {
 typedef struct _uuid {
 
 public:
-
 	_uuid() {
 		uuid_generate(code);
 		memset(encoded, 0x00, sizeof(encoded));
-		uuid_unparse(code, encoded);
+		uuid_unparse_lower(code, encoded);
+	}
+
+	_uuid(string suuid) {
+		std::transform(suuid.begin(), suuid.end(), suuid.begin(), ::tolower);
+		if(suuid.size()==32) {
+			for(int i=0;i<(int)sizeof(code);i++) {
+				char t = suuid.at(i);
+				if(t>96 && t<103)
+					code[i] = t-86;
+				else if(t>47 && t<58)
+					code[i] = t-48;
+				else {
+					memset(code, 0x30, sizeof(code));
+					break;
+				}
+			}
+
+		}
+		else
+			memset(code, 0x30, sizeof(code));
+
+		memset(encoded, 0x00, sizeof(encoded));
+		uuid_unparse_lower(code, encoded);
+
 	}
 
 	const char* str() { return (const char*)encoded; }
@@ -39,6 +62,14 @@ public:
 	bool operator==(const _uuid& other) const {
 		return (uuid_compare(this->code, other.code)==0)?true:false;
 	}
+
+	_uuid& operator=(const _uuid& other) {
+		memcpy(this, &other, sizeof(_uuid));
+		return *this;
+	}
+
+private:
+	bool valid() { return true; }
 
 private:
 	unsigned char code[16];
