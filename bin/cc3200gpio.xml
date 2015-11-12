@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<uuid>00000000000000000000</uuid>
+	<name>cc3200gpio</name>
+	<description>TI CC3200 launchpad example</description>
+	<company>Nsynapse Inc.</company>
+	<developer>Byunghun Hwang</developer>
+	<email>bhhwang@nsynapse.com</email>
+	<url>http://www.nsynapse.com</url>
+	<license>MIT</license> 
+	<version>0.0.1</version>
+	<category></category>
+	<tags></tags>
+	<publish>service/cc3200gpio</publish>
+	<subscribe>service/compdevmgr</subscribe>
+</info>
+
+<property>
+	<host>172.30.1.27</host>
+	<port>8000</port>
+</property>
+
+<service name="cc3200pub" method="publish" topic="service/cc3200pub"></service>
+<service name="cc3200sub" method="subscribe" topic="service/cc3200sub"></service>
+<service name="cc3200subdev" method="subscribe" topic="service/compdevmgr"></service>
