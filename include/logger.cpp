@@ -20,10 +20,10 @@ logger::~logger() {
 	_logger = nullptr;
 
 }
-void logger::log(const log::loglevel& level, const char* logstr)
+void logger::log(const log::loglevel& level, const char* logstr, log::color color)
 {
 	if(_logger)
-		_logger->log(level, logstr);
+		_logger->log(level, logstr, color);
 	else
 	{
 		switch(level)
@@ -41,10 +41,10 @@ void logger::log(const log::loglevel& level, const char* logstr)
 	}
 }
 
-void logger::log(const log::loglevel& level, string logstr)
+void logger::log(const log::loglevel& level, string logstr, log::color color)
 {
 	if(_logger)
-		_logger->log(level, logstr.c_str());
+		_logger->log(level, logstr.c_str(), color);
 	else
 	{
 		switch(level)

@@ -31,8 +31,8 @@ public:
 	/**
 	 * @brief	simple log interface function
 	 */
-	void log(const loglevel& level,  const char* logstr);
-	void log(const log::loglevel& level, string logstr);
+	void log(const loglevel& level,  const char* logstr, log::color color = log::color::STATIC);
+	void log(const log::loglevel& level, string logstr, log::color color = log::color::STATIC);
 
 
 	/**
