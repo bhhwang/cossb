@@ -46,10 +46,10 @@ enum class excode : int {
  */
 class exception : public cossb::exception::cossb_exception {
 public:
-	exception(broker::excode code) {
+	exception(broker::excode code, const char* err_msg = nullptr) {
 		switch(code)
 		{
-		case	excode::DRIVER_NOT_FOUND: set("Driver cannot be found");  break;
+		case	excode::DRIVER_NOT_FOUND: err_msg?set(fmt::format("Driver cannot be found : {}",err_msg).c_str()):set("Driver cannot be found");  break;
 		default:
 			set("Unknown Exception");
 		}
@@ -74,9 +74,9 @@ class exception : public cossb::exception::cossb_exception {
 public:
 	exception(driver::excode code, const char* err_msg = nullptr) {
 		switch(code) {
-		case excode::COMPONENT_LOAD_FAIL: set("Component load fail"); break;
-		case excode::COMPONENT_UNLOAD_FAIL: set("Component unload fail"); break;
-		case excode::COMPONENT_OPEN_ERROR: err_msg?set(err_msg):set("No error message"); break;
+		case excode::COMPONENT_LOAD_FAIL: err_msg?set(fmt::format("Component load failed : {}",err_msg).c_str()):set("Component load failed"); break;
+		case excode::COMPONENT_UNLOAD_FAIL: err_msg?set(fmt::format("Component unload failed : {}",err_msg).c_str()):set("Component unload fail"); break;
+		case excode::COMPONENT_OPEN_ERROR: err_msg?set(fmt::format("Component open failed : {}",err_msg).c_str()):set("Component open failed"); break;
 		default: set("Unknown exception");
 		}
 	}
@@ -95,9 +95,9 @@ class exception : public cossb::exception::cossb_exception {
 public:
 	exception(profile::excode code, const char* err_msg = nullptr) {
 			switch(code) {
-			case excode::PROFILE_LOAD_FAIL: set("Profile load fail"); break;
-			case excode::PROFILE_MISSING: set("Profile missing"); break;
-			case excode::PROFILE_INVALID: set("Invalid profile"); break;
+			case excode::PROFILE_LOAD_FAIL: err_msg?set(fmt::format("Profile load failed : {}",err_msg).c_str()):set("Profile load fail"); break;
+			case excode::PROFILE_MISSING: err_msg?set(fmt::format("Invalid missing : {}",err_msg).c_str()):set("Profile missing"); break;
+			case excode::PROFILE_INVALID: err_msg?set(fmt::format("Invalid Profile : {}",err_msg).c_str()):set("Invalid profile"); break;
 			default: set("Unknown exception");
 			}
 		}
