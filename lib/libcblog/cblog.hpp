@@ -9,8 +9,8 @@
 #ifndef _COSSB_SUPPORT_LIBCBLOG_CBLOG_HPP_
 #define _COSSB_SUPPORT_LIBCBLOG_CBLOG_HPP_
 
-#include "../../include/interface/ilog.hpp"
-#include "../../include/util/localtime.hpp"
+#include <interface/ilog.hpp>
+#include <util/localtime.hpp>
 
 namespace cossb {
 namespace base {
@@ -20,7 +20,7 @@ public:
 	cblog();
 	virtual ~cblog();
 
-	void log(const log::loglevel& level, const char* logstr);
+	void log(const log::loglevel& level,  const char* logstr, log::color color= log::color::STATIC);
 
 private:
 	util::systime _time;

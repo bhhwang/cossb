@@ -17,21 +17,39 @@ cblog::~cblog()
 
 }
 
-void cblog::log(const log::loglevel& level, const char* logstr)
+void cblog::log(const log::loglevel& level,  const char* logstr, log::color color)
 {
-	switch(level)
-	{
-	case	log::loglevel::TRACE:	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;	break;
-	case	log::loglevel::DEBUG:	cout << _time.current_formatted() << "[DEBUG] " << logstr << endl;	break;
-	case	log::loglevel::INFO:		cout  << _time.current_formatted() << "[INFO] " << logstr << endl;	break;
-	case	log::loglevel::NOTICE:  cout << "\033[1;32m" << _time.current_formatted() << "[NOTICE] " << logstr << "\033[0m" << endl;	break;
-	case	log::loglevel::WARN: 	cout << _time.current_formatted() << "[WARNING] " << logstr << endl;	break;
-	case	log::loglevel::ERROR: 	cout << "\033[1;31m" << _time.current_formatted() << "[ERROR] " << logstr << "\033[0m" << endl;	break;
-	case	log::loglevel::CRITICAL: cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;	break;
-	case	log::loglevel::ALERT: 	cout << _time.current_formatted() << "[ALERT] " << logstr << endl;	break;
-	case	log::loglevel::EMERG: 	cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;	break;
-	default:
-		cout << _time.current_formatted() << "[NO LOG LEVEL] " << logstr << endl; break;
+	if(color==log::color::COLOR) {
+		switch(level)
+		{
+		case	log::loglevel::TRACE:	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;	break;
+		case	log::loglevel::DEBUG:	cout << _time.current_formatted() << "[DEBUG] " << logstr << endl;	break;
+		case	log::loglevel::INFO:  cout << "\033[1;32m" << _time.current_formatted() << "[NOTICE] " << logstr << "\033[0m" << endl;	break;
+		case	log::loglevel::NOTICE:  cout << "\033[1;32m" << _time.current_formatted() << "[NOTICE] " << logstr << "\033[0m" << endl;	break;
+		case	log::loglevel::WARN: 	cout << _time.current_formatted() << "[WARNING] " << logstr << endl;	break;
+		case	log::loglevel::ERROR: 	cout << "\033[1;31m" << _time.current_formatted() << "[ERROR] " << logstr << "\033[0m" << endl;	break;
+		case	log::loglevel::CRITICAL: cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;	break;
+		case	log::loglevel::ALERT: 	cout << _time.current_formatted() << "[ALERT] " << logstr << endl;	break;
+		case	log::loglevel::EMERG: 	cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;	break;
+		default:
+			cout << _time.current_formatted() << "[NO LOG LEVEL] " << logstr << endl; break;
+		}
+	}
+	else {
+		switch(level)
+		{
+		case	log::loglevel::TRACE:	cout << _time.current_formatted() << "[TRACE] " << logstr << endl;	break;
+		case	log::loglevel::DEBUG:	cout << _time.current_formatted() << "[DEBUG] " << logstr << endl;	break;
+		case	log::loglevel::INFO:		cout << _time.current_formatted() << "[INFO] " << logstr << endl;	break;
+		case	log::loglevel::NOTICE:  cout << _time.current_formatted() << "[NOTICE] " << logstr <<  endl;	break;
+		case	log::loglevel::WARN: 	cout << _time.current_formatted() << "[WARNING] " << logstr << endl;	break;
+		case	log::loglevel::ERROR: 	cout << _time.current_formatted() << "[ERROR] " << logstr << endl;	break;
+		case	log::loglevel::CRITICAL: cout << _time.current_formatted() << "[CRITICAL] " << logstr << endl;	break;
+		case	log::loglevel::ALERT: 	cout << _time.current_formatted() << "[ALERT] " << logstr << endl;	break;
+		case	log::loglevel::EMERG: 	cout << _time.current_formatted() << "[EMERGENCY] " << logstr << endl;	break;
+		default:
+			cout << _time.current_formatted() << "[NO LOG LEVEL] " << logstr << endl; break;
+		}
 	}
 }
 
