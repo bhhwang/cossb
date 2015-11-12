@@ -14,6 +14,7 @@ namespace cossb {
 namespace log {
 enum class logstream : unsigned int { CONSOLE=1, FILE };
 enum class loglevel: unsigned int { TRACE=1, DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL, ALERT, EMERG };
+enum class color: unsigned int { STATIC=1, COLOR };
 }
 
 
@@ -28,7 +29,7 @@ public:
 	/**
 	 * @brief	log interface function
 	 */
-	virtual void log(const log::loglevel& level,  const char* logstr) = 0;
+	virtual void log(const log::loglevel& level,  const char* logstr, log::color color) = 0;
 
 
 protected:
