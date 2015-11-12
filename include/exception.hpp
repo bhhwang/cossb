@@ -84,6 +84,27 @@ public:
 
 } /* namespace driver */
 
+namespace profile {
+enum class excode : int {
+	PROFILE_LOAD_FAIL = 0,
+	PROFILE_MISSING,
+	PROFILE_INVALID,
+};
+
+class exception : public cossb::exception::cossb_exception {
+public:
+	exception(profile::excode code, const char* err_msg = nullptr) {
+			switch(code) {
+			case excode::PROFILE_LOAD_FAIL: set("Profile load fail"); break;
+			case excode::PROFILE_MISSING: set("Profile missing"); break;
+			case excode::PROFILE_INVALID: set("Invalid profile"); break;
+			default: set("Unknown exception");
+			}
+		}
+};
+
+}
+
 
 } /* namespace cossb */
 
