@@ -11,11 +11,12 @@
 namespace cossb {
 namespace message {
 
-message::message(interface::icomponent* component, msg_type type)
+message::message(interface::icomponent* component, msg_type type, msg_target target)
 {
 	frame.type = type;
 	frame.from = component->get_name();
 	frame.pub_topic = component->get_profile()->get(profile::section::info, "publish").asString("undefined");
+	frame.target = target;
 }
 
 } /* namespace message */

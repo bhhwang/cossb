@@ -27,10 +27,16 @@ enum class msg_type : char {
 		ALERT,
 		EVENT };
 
+enum class msg_target : int {
+	ANY = 1,
+	ONE
+};
+
 /**
  * @brief	serialized message frame
  */
 typedef struct _msgframe {
+	msg_target target;
 	msg_type	type;
 	vector<char> encoded_data;
 	string pub_topic;
@@ -48,7 +54,7 @@ class message {
 	friend class cossb::driver::component_driver;
 
 public:
-	message(interface::icomponent* component, msg_type type = msg_type::DATA);
+	message(interface::icomponent* component, msg_type type = msg_type::DATA, msg_target target = msg_target::ANY);
 	virtual ~message() { }
 
 	inline json::reference operator[] (const char* k) {
