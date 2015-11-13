@@ -1,5 +1,7 @@
 # cossb [![Build Status](https://travis-ci.org/bhhwang/cossb.svg)](https://travis-ci.org/bhhwang/cossb)
 Component-based Open Simple Service Broker & Framework
+
+* Notice : This source code will be dynamically updated by releasing version 0.1. (now 0.0.1)
  
 
 Features
