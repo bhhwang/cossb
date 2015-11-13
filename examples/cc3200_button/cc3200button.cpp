@@ -1,14 +1,14 @@
 
 
 #include "cc3200button.hpp"
-#include "../../include/componentpack.hpp"
-#include <tuple>
+#include <componentpack.hpp>
+/*#include <tuple>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <fcntl.h>
-#include <logger.hpp>
+#include <logger.hpp>*/
 #include <ext/json.hpp>
 
 using json = nlohmann::json;
@@ -32,7 +32,8 @@ cc3200button::cc3200button()
 }
 
 cc3200button::~cc3200button() {
-	// TODO Auto-generated destructor stub
+	if(_desc)
+		delete _desc;
 }
 
 bool cc3200button::setup()
@@ -51,35 +52,36 @@ bool cc3200button::run()
 bool cc3200button::stop()
 {
 	destroy_task(_client_task);
-
 	return true;
 }
 void cc3200button::request(cossb::message::message* msg)
 {
-
 	try {
-	if(msg->data.size()>0) {
-		string command = msg->data["command"];
+		if(!::strcmp(msg->get_topic(), "service/compdevmgr:announce")) {
+			if(_desc) {
+				delete _desc;
+				_desc = nullptr;
+			}
 
-		//reconnect
-		if(command.compare("reconnect")==0) {
-			if(_client)
-				delete _client;
+			if(msg->data.find("profile")!=msg->data.end()) {
+				string profile = msg->data["profile"];
+				_desc = new cossb::profile::device_desc(profile.c_str(), profile.size());
+			}
 
-			string host = msg->data["address"];
-			int port = msg->data["port"];
+			string address = "";
+			if(msg->data.find("ipaddress")!=msg->data.end()) {
+				address = msg->data["ipaddress"].get<string>();
+			}
 
-			_client = new cossb::net::tcp(cossb::net::netType::CLIENT, host.c_str(), port);
-			_client->async_connect();
-			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connected to {}:{}",host, port).c_str());
+			if(_desc) {
+				_client = new cossb::net::tcp(cossb::net::netType::CLIENT, address.c_str(), _desc->port);
+				_client->async_connect();
+				cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connected to {}:{}",address, _desc->port).c_str());
+			}
 		}
+		} catch(std::exception& e) {
+			cossb_log->log(cossb::log::loglevel::ERROR, e.what());
 	}
-	else
-		cossb_log->log(cossb::log::loglevel::ERROR, "Empty Message Data");
-	} catch(std::exception& e) {
-		cossb_log->log(cossb::log::loglevel::ERROR, e.what());
-	}
-
 
 }
 
@@ -98,21 +100,31 @@ void cc3200button::process()
 					try {
 						json data = json::parse(buffer);
 
-						if(data.find("button1")!=data.end())
-							if(data["button1"]==true) {
-								cossb::message::message msg(this);
-								msg["command"] = "test";
-								cossb_log->log(cossb::log::loglevel::INFO, msg.get_topic());
-								cossb_broker->publish(msg);
+						if(data.find("command")!=data.end() && data.find("button1")!=data.end() && data.find("button2")!=data.end()) {
+							if(!::strcmp(data["command"].get<string>().c_str(), "buttonread")) {
+								bool btn1 = data["button1"].get<bool>();
+								bool btn2 = data["button2"].get<bool>();
+
+								if(_button1!=btn1) {
+									cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+									msg.set_topic("service/cc3200button/button1");
+									msg["button"] = btn1;
+									cossb_broker->publish(msg);
+									_button1 = btn1;
+									cossb_log->log(cossb::log::loglevel::INFO, "published");
+								}
+
+								if(_button2!=btn2) {
+									cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+									msg.set_topic("service/cc3200button/button2");
+									msg["button"] = btn2;
+									cossb_broker->publish(msg);
+									_button2 = btn2;
+									cossb_log->log(cossb::log::loglevel::INFO, "published");
+								}
+
 							}
-						if(data.find("button2")!=data.end())
-							if(data["button2"]==true) {
-								cossb::message::message msg(this);
-								cossb_broker->publish(msg);
-							}
-
-
-
+						}
 					} catch(std::exception& e) {
 						cossb_log->log(cossb::log::loglevel::ERROR, e.what());
 					}
@@ -127,7 +139,7 @@ void cc3200button::process()
 		boost::this_thread::sleep(boost::posix_time::milliseconds(100));
 	}
 }
-
+/*
 bool cc3200button::endsWith(char* inString, int len, char* compString) {
   int compLength = strlen(compString);
 
@@ -154,4 +166,4 @@ bool cc3200button::startsWith(char* inString, char* compString) {
     }
   }
   return true;
-}
+}*/
