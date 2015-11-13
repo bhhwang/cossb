@@ -73,6 +73,12 @@ $(OUTDIR)mbed_rgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
 cc3200button.comp: $(OUTDIR)cc3200button.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
 $(OUTDIR)cc3200button.o: $(EXAMPLE_FILES)cc3200_button/cc3200button.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
+	
+#cc3200 gpio example components
+cc3200gpio.comp: $(OUTDIR)cc3200gpio.o 
+	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
+$(OUTDIR)cc3200gpio.o: $(EXAMPLE_FILES)cc3200_gpio/cc3200gpio.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 #message test example components
@@ -194,7 +200,7 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp helloworld.comp compdevmgr.comp cc3200button.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
+all: cossb libcblog.so messagetest.comp helloworld.comp compdevmgr.comp cc3200button.comp cc3200gpio.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
 
 base: cossb
 
