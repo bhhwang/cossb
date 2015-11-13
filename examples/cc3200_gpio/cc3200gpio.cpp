@@ -7,6 +7,8 @@
 
 #include "cc3200gpio.hpp"
 #include <componentpack.hpp>
+#include <ext/json.hpp>
+using json = nlohmann::json;
 
 USE_COMPONENT_INTERFACE(cc3200gpio)
 
@@ -17,7 +19,8 @@ cc3200gpio::cc3200gpio()
 }
 
 cc3200gpio::~cc3200gpio() {
-	// TODO Auto-generated destructor stub
+	if(_desc)
+		delete _desc;
 }
 
 bool cc3200gpio::setup()
@@ -43,24 +46,28 @@ bool cc3200gpio::stop()
 void cc3200gpio::request(cossb::message::message* msg)
 {
 	try {
-		if(msg->data.size()>0) {
-			string command = msg->data["command"];
+		if(!::strcmp(msg->get_topic(), "service/compdevmgr:announce")) {
+			if(_desc) {
+				delete _desc;
+				_desc = nullptr;
+			}
 
-			//reconnect
-			if(command.compare("auth")==0) {
-				if(_client)
-					delete _client;
+			if(msg->data.find("profile")!=msg->data.end()) {
+				string profile = msg->data["profile"];
+				_desc = new cossb::profile::device_desc(profile.c_str(), profile.size());
+			}
 
-				string host = msg->data["address"];
-				int port = msg->data["port"];
+			string address = "";
+			if(msg->data.find("ipaddress")!=msg->data.end()) {
+				address = msg->data["ipaddress"].get<string>();
+			}
 
-				_client = new cossb::net::tcp(cossb::net::netType::CLIENT, host.c_str(), port);
+			if(_desc) {
+				_client = new cossb::net::tcp(cossb::net::netType::CLIENT, address.c_str(), _desc->port);
 				_client->async_connect();
-				cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connected to {}:{}",host, port).c_str());
+				cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connected to {}:{}",address, _desc->port).c_str());
 			}
 		}
-		else
-			cossb_log->log(cossb::log::loglevel::ERROR, "Empty Message Data");
 		} catch(std::exception& e) {
 			cossb_log->log(cossb::log::loglevel::ERROR, e.what());
 	}
@@ -68,7 +75,7 @@ void cc3200gpio::request(cossb::message::message* msg)
 
 void cc3200gpio::process()
 {
-	/*const int buffer_len = 2048;
+	const int buffer_len = 2048;
 	while(1) {
 		try {
 			if(_client) {
@@ -81,20 +88,18 @@ void cc3200gpio::process()
 					try {
 						json data = json::parse(buffer);
 
-						if(data.find("button1")!=data.end())
-							if(data["button1"]==true) {
-								cossb::message::message msg(this);
-								msg["command"] = "test";
-								cossb_log->log(cossb::log::loglevel::INFO, msg.get_topic());
-								cossb_broker->publish(msg);
-							}
-						if(data.find("button2")!=data.end())
-							if(data["button2"]==true) {
-								cossb::message::message msg(this);
-								cossb_broker->publish(msg);
-							}
+						if(data.find("command")!=data.end() && data.find("switch")!=data.end()){
+							if(!::strcmp(data["command"].get<string>().c_str(), "io")) {
+								bool sw = data["switch"].get<bool>();
 
-
+								//create message to publish
+								cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+								msg.set_topic("service/cc3200gpio/switch");
+								msg["switch"] = sw;
+								cossb_broker->publish(msg);
+								cossb_log->log(cossb::log::loglevel::INFO, "published");
+							}
+						}
 
 					} catch(std::exception& e) {
 						cossb_log->log(cossb::log::loglevel::ERROR, e.what());
@@ -108,5 +113,5 @@ void cc3200gpio::process()
 		}
 
 		boost::this_thread::sleep(boost::posix_time::milliseconds(100));
-	}*/
+	}
 }
