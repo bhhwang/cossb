@@ -25,7 +25,6 @@ private:
 	void process();
 
 private:
-	fd_set _status;
 	cossb::base::task _client_task;
 	cossb::net::tcp* _client = nullptr;
 	cossb::profile::device_desc* _desc = nullptr;

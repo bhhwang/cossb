@@ -97,7 +97,6 @@ void cc3200gpio::process()
 								msg.set_topic("service/cc3200gpio/switch");
 								msg["switch"] = sw;
 								cossb_broker->publish(msg);
-								cossb_log->log(cossb::log::loglevel::INFO, "published");
 							}
 						}
 

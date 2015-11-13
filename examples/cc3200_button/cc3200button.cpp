@@ -120,7 +120,6 @@ void cc3200button::process()
 									msg["button"] = btn2;
 									cossb_broker->publish(msg);
 									_button2 = btn2;
-									cossb_log->log(cossb::log::loglevel::INFO, "published");
 								}
 
 							}
@@ -139,31 +138,4 @@ void cc3200button::process()
 		boost::this_thread::sleep(boost::posix_time::milliseconds(100));
 	}
 }
-/*
-bool cc3200button::endsWith(char* inString, int len, char* compString) {
-  int compLength = strlen(compString);
 
-  //compare the last "compLength" values of the inString
-  for (int i = 0; i < compLength; i++) {
-    char a = inString[(len - 1) - i];
-    char b = compString[(compLength - 1) - i];
-    if (a != b) {
-      return false;
-    }
-  }
-  return true;
-}
-
-bool cc3200button::startsWith(char* inString, char* compString) {
-  int compLength = strlen(compString);
-
-  //compare the last "compLength" values of the inString
-  for (int i = 0; i < compLength; i++) {
-    char a = inString[i];
-    char b = compString[i];
-    if (a != b) {
-      return false;
-    }
-  }
-  return true;
-}*/

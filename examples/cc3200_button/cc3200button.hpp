@@ -25,15 +25,9 @@ public:
 	void request(cossb::message::message* msg);
 
 private:
-	//bool connect(const char* ipaddr, unsigned short port);
-
 	void process();
-	//bool endsWith(char* inString, int len, char* compString);
-	//bool startsWith(char* inString, char* compString);
-
 
 private:
-	fd_set _status;
 	cossb::base::task _client_task;
 	cossb::net::tcp* _client = nullptr;
 	cossb::profile::device_desc* _desc = nullptr;
