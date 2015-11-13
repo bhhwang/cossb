@@ -10,6 +10,8 @@ If you have any questions for this sample code, please contact us(bhhwang@nsynap
 #include <WiFiClient.h>
 #include <aJSON.h>
 
+#define USE_UART
+
 #define DEFAULT_UDP_MEMBERSHIP  "225.0.0.37"
 #define DEFAULT_UDP_PORT  21928
 
@@ -18,10 +20,14 @@ volatile int red_state = LOW;
 volatile int green_state = LOW;
 
 //access point should only work for b and g
-char ssid[] = "hellfire";
+char ssid[] = "nsynapse";
 char password[] = "elec6887";
+const char* uuid = "61ba1b0e47e34a98abb4b1d1bae10960";
 WiFiServer server(8000);
 WiFiUDP Udp;
+byte mac[6];
+String mac_string;
+
 
 int push1_state = LOW;
 int prev_push1_state = LOW;
@@ -48,7 +54,10 @@ void setup()
   digitalWrite(YELLOW_LED, LOW);
   digitalWrite(RED_LED, LOW);
   
+#ifdef USE_UART
   Serial.begin(115200);
+#endif
+  
   WiFi.begin(ssid, password);
   
   while(WiFi.status()!=WL_CONNECTED) {
@@ -61,22 +70,36 @@ void setup()
     delay(300);
   }
   
+  WiFi.macAddress(mac);
+  for(int i=0;i<sizeof(mac);i++) {
+    mac_string += String(mac[sizeof(mac)-1-i],HEX);
+    if(i<(sizeof(mac)-1))
+      mac_string += ":";
+  }
+  
   printWifiStatus();
+
   server.begin();
   Udp.begin(DEFAULT_UDP_PORT);
   
   //device profile
   if(announce) {
-    aJson.addStringToObject(announce, "devicename", "TI_cc3200_1");
-    aJson.addStringToObject(announce, "componentname", "cc3200button");
+    aJson.addStringToObject(announce, "devicename", "TI-CC3200");
+    aJson.addStringToObject(announce, "uuid", uuid);
+    aJson.addStringToObject(announce, "mac", mac_string.c_str());
+    aJson.addStringToObject(announce, "manufacturer", "Texas Instrument");
+    aJson.addStringToObject(announce, "author", "cossb");
+    aJson.addStringToObject(announce, "component", "cc3200button");
     aJson.addStringToObject(announce, "protocol", "tcp");
     aJson.addNumberToObject(announce, "port", 8000);
     aJson.addStringToObject(announce, "command","auth");
   }
   
   if(frame) {
-    aJson.addStringToObject(frame, "devicename", "TI_cc3200_1");
-    aJson.addStringToObject(frame, "componentname", "cc3200button");
+    aJson.addStringToObject(frame, "devicename", "TI-CC3200");
+    aJson.addStringToObject(frame, "uuid", uuid);
+    aJson.addStringToObject(frame, "mac", mac_string.c_str());
+    aJson.addStringToObject(frame, "component", "cc3200button");
     aJson.addStringToObject(frame, "command","buttonread");
     aJson.addBooleanToObject(frame, "button1", false);
     aJson.addBooleanToObject(frame, "button2", false);
@@ -118,7 +141,6 @@ void loop()
     { 
       WiFiClient client = server.available();
       if(client) {
-        Serial.println("new client");
         while(client.connected()) {
           digitalWrite(RED_LED, HIGH);
           
@@ -127,11 +149,9 @@ void loop()
           
           if(push1_state!=prev_push1_state) {
             if(push1_state==HIGH) {
-              Serial.println("Push1 High");
               update(PUSH1, true);
             }
             else if(push1_state==LOW) {
-              Serial.println("Push1 Low");
               update(PUSH1, false);
             }
             client.print(aJson.print(frame));
@@ -141,23 +161,19 @@ void loop()
           if(push2_state!=prev_push2_state) 
           {
             if(push2_state==HIGH) {
-              Serial.println("Push2 High");
               update(PUSH2, true);
             }
             else if(push2_state==LOW) {
-              Serial.println("Push2 Low");
               update(PUSH2, false);
             }
             client.print(aJson.print(frame));
             delay(50);
           }
-         
-          
           
           prev_push1_state = push1_state;
           prev_push2_state = push2_state;
         }
-        Serial.println("connection closed");
+        
         digitalWrite(RED_LED, LOW);
         client.stop();
         
@@ -173,7 +189,7 @@ void loop()
 
 
 void printWifiStatus() {
-
+#ifdef USE_UART
   // print the SSID of the network you're attached to:
   Serial.print("SSID: ");
   Serial.println(WiFi.SSID());
@@ -188,7 +204,20 @@ void printWifiStatus() {
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
-
+  
+  Serial.print("MAC: ");
+  Serial.print(mac[5],HEX);
+  Serial.print(":");
+  Serial.print(mac[4],HEX);
+  Serial.print(":");
+  Serial.print(mac[3],HEX);
+  Serial.print(":");
+  Serial.print(mac[2],HEX);
+  Serial.print(":");
+  Serial.print(mac[1],HEX);
+  Serial.print(":");
+  Serial.println(mac[0],HEX);
+#endif
 }
 
 boolean endsWith(char* inString, char* compString) {
