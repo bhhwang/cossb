@@ -36,7 +36,20 @@ public:
 	virtual ~component_broker() { };
 
 	/**
-	 * @brief	publish message
+	 * @brief	send message direct to specific component
+	 */
+	void sendto(message::message& msg, const char* component_name) {
+		driver::component_driver* _drv = cossb_component_manager->get_driver(component_name);
+		if(_drv) {
+			cossb_log->log(log::loglevel::INFO, fmt::format("Message send to the component {}", component_name).c_str());
+			_drv->request(&msg);
+		}
+		else
+			throw broker::exception(cossb::broker::excode::DRIVER_NOT_FOUND);
+	}
+
+	/**
+	 * @brief	publish message to all of the subscribing components
 	 */
 	unsigned int publish(message::message& msg) {
 		auto range = _topic_map.equal_range(msg.get_topic());
