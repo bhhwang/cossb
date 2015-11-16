@@ -17,6 +17,8 @@
 #include <cstring>
 #include "../util/format.h"
 #include "../util/uuid.hpp"
+#include <ext/json.hpp>
+#include <exception.hpp>
 
 using namespace std;
 
@@ -89,14 +91,59 @@ namespace profile {
 /**
  * @brief	device description
  */
+
 typedef struct _device_desc {
+	using json = nlohmann::json;
+
 	util::uuid unique_id;
 	string devicename;
-	string component_required;
+	string component;
+	int 	component_version = 0;
+	string mac;
+	string manufacturer;
+	string author;
+	string protocol;
+	int port = 0;
 
 	bool operator< (const _device_desc& other) const {
 		return (this->unique_id < other.unique_id);
 	}
+
+	/**
+	 * @brief	return as string (dump)
+	 */
+	const char* dump() {
+		return this->profile.dump().c_str();
+	}
+
+	/**
+	 * @brief	construct
+	 */
+	_device_desc(const char* data, int size) {
+
+		try {
+
+		profile = json::parse(data);
+
+		if(profile.find("uuid")!=profile.end())			this->unique_id = util::uuid(profile["uuid"].get<string>());
+		if(profile.find("devicename")!=profile.end())	this->devicename = profile["devicename"].get<string>();
+		if(profile.find("mac")!=profile.end())			this->mac = profile["mac"].get<string>();
+		if(profile.find("component")!=profile.end())		this->component = profile["component"].get<string>();
+		if(profile.find("manufacturer")!=profile.end())	this->manufacturer = profile["manufacturer"].get<string>();
+		if(profile.find("author")!=profile.end())			this->author = profile["author"].get<string>();
+		if(profile.find("protocol")!=profile.end())		this->protocol = profile["protocol"].get<string>();
+		if(profile.find("manufacturer")!=profile.end())	this->manufacturer = profile["manufacturer"].get<string>();
+		if(profile.find("port")!=profile.end()) 			this->port = profile["port"].get<int>();
+		if(profile.find("component_version")!=profile.end()) this->component_version = profile["component_version"].get<int>();
+
+		}
+		catch(std::exception& e) {
+			throw profile::exception(cossb::profile::excode::PROFILE_INVALID, e.what());
+		}
+	}
+
+private:
+	json profile;
 
 } device_desc;
 
