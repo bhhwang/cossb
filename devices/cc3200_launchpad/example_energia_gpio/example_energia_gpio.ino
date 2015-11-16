@@ -27,7 +27,7 @@ const char* uuid = "71ba1b0e47e34a91abb4b1d1bae10960";
 WiFiServer server(8000);
 WiFiUDP Udp;
 byte mac[6];
-String mac_string;
+char mac_string[24] = {0, };
 
 
 int io_state = LOW;
@@ -69,11 +69,7 @@ void setup()
   }
   
   WiFi.macAddress(mac);
-  for(int i=0;i<sizeof(mac);i++) {
-    mac_string += String(mac[sizeof(mac)-1-i],HEX);
-    if(i<(sizeof(mac)-1))
-      mac_string += ":";
-  }
+  sprintf(mac_string,"%02x:%02x:%02x:%02x:%02x:%02x",mac[0],mac[1],mac[2],mac[3],mac[4],mac[5]);
   
   printWifiStatus();
 
@@ -84,7 +80,7 @@ void setup()
   if(announce) {
     aJson.addStringToObject(announce, "devicename", "TI-CC3200");
     aJson.addStringToObject(announce, "uuid", uuid);
-    aJson.addStringToObject(announce, "mac", mac_string.c_str());
+    aJson.addStringToObject(announce, "mac", mac_string);
     aJson.addStringToObject(announce, "manufacturer", "Texas Instrument");
     aJson.addStringToObject(announce, "author", "cossb");
     aJson.addStringToObject(announce, "component", "cc3200gpio");
@@ -96,7 +92,7 @@ void setup()
   if(frame) {
     aJson.addStringToObject(frame, "devicename", "TI-CC3200");
     aJson.addStringToObject(frame, "uuid", uuid);
-    aJson.addStringToObject(frame, "mac", mac_string.c_str());
+    aJson.addStringToObject(frame, "mac", mac_string);
     aJson.addStringToObject(frame, "component", "cc3200gpio");
     aJson.addStringToObject(frame, "command","io");
     aJson.addBooleanToObject(frame, "switch", false);
