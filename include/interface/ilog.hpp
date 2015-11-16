@@ -29,7 +29,7 @@ public:
 	/**
 	 * @brief	log interface function
 	 */
-	virtual void log(const log::loglevel& level,  const char* logstr, log::color color) = 0;
+	virtual void log(const log::loglevel& level,  const char* logstr, log::color color = log::color::STATIC) = 0;
 
 
 protected:
