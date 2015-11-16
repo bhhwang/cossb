@@ -25,7 +25,10 @@ enum class msg_type : char {
 		DATA = 0x01,
 		ERROR,
 		ALERT,
-		EVENT };
+		EVENT,
+		REQUEST,	//request only should responsible
+		RESPONSE
+};
 
 enum class msg_target : int {
 	ANY = 1,
@@ -58,21 +61,22 @@ public:
 	virtual ~message() { }
 
 	inline json::reference operator[] (const char* k) {
-		return data[k];
+		return this->data[k];
 	}
 
 	inline json::const_reference operator[] (const char* k) const {
-		return data[k];
+		return this->data[k];
 	}
 
 	string show() {
-		return data.dump(4);
+		return this->data.dump(4);
 	}
 
-	void set_topic(const char* topic) { frame.pub_topic = topic; }
+	void set_topic(const char* topic) { this->frame.pub_topic = topic; }
+	void set_type(msg_type type) { this->frame.type = type; }
 	cossb::message::msgframe* get_frame() { return &frame; }
-	const char* get_topic() { return frame.pub_topic.c_str(); }
-	const char* get_from() { return frame.from.c_str(); }
+	const char* get_topic() { return this->frame.pub_topic.c_str(); }
+	const char* get_from() { return this->frame.from.c_str(); }
 
 protected:
 	/**
@@ -80,7 +84,7 @@ protected:
 	 */
 	void serialize() {
 		string encode = data.dump();
-		std::copy(encode.begin(), encode.end(), std::back_inserter(frame.encoded_data));
+		std::copy(encode.begin(), encode.end(), std::back_inserter(this->frame.encoded_data));
 	}
 
 public:
