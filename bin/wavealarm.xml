@@ -19,8 +19,5 @@
 	<wavefile>wav/dingdong.wav</wavefile>
 </property>
 
-<service name="alarm_publish" method="publish" topic="service/wavealarm1">
-</service>
-
-<service name="alarm_subscribe" method="subscribe" topic="service/wavealarm2">
-</service>
+<service name="alarm_subscribe" method="subscribe" topic="service/cc3200gpio:switch"></service>
+<service name="alarm_subscribe" method="subscribe" topic="service/cc3200button:button1"></service>

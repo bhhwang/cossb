@@ -20,6 +20,6 @@
 	<port>8000</port>
 </property>
 
-<service name="cc3200pub" method="publish" topic="service/cc3200pub"></service>
-<service name="cc3200sub" method="subscribe" topic="service/cc3200sub"></service>
+<service name="cc3200pubbtn1" method="publish" topic="service/cc3200button/button1"></service>
+<service name="cc3200pubbtn2" method="publish" topic="service/cc3200button/button2"></service>
 <service name="cc3200subdev" method="subscribe" topic="service/compdevmgr"></service>

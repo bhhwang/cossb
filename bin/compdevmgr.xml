@@ -11,8 +11,7 @@
 	<version>0.0.1</version>
 	<category></category>
 	<tags></tags>
-	<publish>service/compdevmgr</publish>
-	<subscribe>null</subscribe>
+	
 </info>
 
 <property>
@@ -21,4 +20,9 @@
 	<maxconnection>3</maxconnection>
 </property>
 
-<service name="devmgrpub" method="publish" topic="service/compdevmgr"></service>
+<service name="devmgrpub" method="publish" topic="service/compdevmgr:announce"></service>
+<service name="devmgrsub" method="subscribe" topic="service/compdevmgr:deviceprofile">
+	<required name="mac"></required>
+	<argument name="profile" type="string"></argument>
+</service>
+
