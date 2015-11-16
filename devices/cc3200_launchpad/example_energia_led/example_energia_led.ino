@@ -10,6 +10,8 @@ If you have any questions for this sample code, please contact us(bhhwang@nsynap
 #include <WiFiClient.h>
 #include <aJSON.h>
 
+#define USE_UART
+
 #define DEFAULT_UDP_MEMBERSHIP  "225.0.0.37"
 #define DEFAULT_UDP_PORT  21928
 
@@ -18,10 +20,12 @@ volatile int red_state = LOW;
 volatile int green_state = LOW;
 
 //access point should only work for b and g
-char ssid[] = "hellfire";
+char ssid[] = "nsynapseap";
 char password[] = "elec6887";
 WiFiServer server(8000);
 WiFiUDP Udp;
+byte mac[6];
+String mac_string;
 
 
 enum {IDLE = 0, ANNOUNCE=100, SERVICE=200 };
@@ -37,8 +41,11 @@ void setup()
   digitalWrite(GREEN_LED, LOW);
   digitalWrite(YELLOW_LED, LOW);
   digitalWrite(RED_LED, LOW);
-  
+
+#ifdef USE_UART  
   Serial.begin(115200);
+#endif
+
   WiFi.begin(ssid, password);
   
   while(WiFi.status()!=WL_CONNECTED) {
@@ -51,14 +58,26 @@ void setup()
     delay(300);
   }
   
+  WiFi.macAddress(mac);
+  for(int i=0;i<sizeof(mac);i++) {
+    mac_string += String(mac[sizeof(mac)-1-i],HEX);
+    if(i<(sizeof(mac)-1))
+      mac_string += ":";
+  }
+  
   printWifiStatus();
+
   server.begin();
   Udp.begin(DEFAULT_UDP_PORT);
   
   //device profile
   if(announce) {
-    aJson.addStringToObject(announce, "devicename", "TI_cc3200_2");
-    aJson.addStringToObject(announce, "componentname", "cc3200led");
+    aJson.addStringToObject(announce, "uuid", "f2c958a3-1b8f-44e5-a725-78377066e983");  //dummy code
+    aJson.addStringToObject(announce, "devicename", "TI-CC3200");
+    aJson.addStringToObject(announce, "mac", mac_string.c_str());
+    aJson.addStringToObject(announce, "manufacturer", "Texas Instrument");
+    aJson.addStringToObject(announce, "author", "cossb");
+    aJson.addStringToObject(announce, "component", "cc3200led");
     aJson.addStringToObject(announce, "protocol", "tcp");
     aJson.addNumberToObject(announce, "port", 8000);
     aJson.addStringToObject(announce, "command","auth");
@@ -111,7 +130,6 @@ void loop()
             char data = client.read();
            if(data=='}') 
            {
-             Serial.print(buffer);
              memset(buffer, 0, 1024);
            }
            else 
@@ -127,7 +145,7 @@ void loop()
 
 void printWifiStatus() 
 {
-
+#ifdef USE_UART
   // print the SSID of the network you're attached to:
   Serial.print("SSID: ");
   Serial.println(WiFi.SSID());
@@ -142,7 +160,20 @@ void printWifiStatus()
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
-
+  
+  Serial.print("MAC: ");
+  Serial.print(mac[5],HEX);
+  Serial.print(":");
+  Serial.print(mac[4],HEX);
+  Serial.print(":");
+  Serial.print(mac[3],HEX);
+  Serial.print(":");
+  Serial.print(mac[2],HEX);
+  Serial.print(":");
+  Serial.print(mac[1],HEX);
+  Serial.print(":");
+  Serial.println(mac[0],HEX);
+#endif
 }
 
 boolean endsWith(char* inString, char* compString) {
