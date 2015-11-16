@@ -64,9 +64,9 @@ $(OUTDIR)helloworld.o: $(EXAMPLE_FILES)helloworld/helloworld.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@
 	
 #mbed_rgb example components
-mbed_rgb.comp: $(OUTDIR)mbed_rgb.o 
+mbedrgb.comp: $(OUTDIR)mbedrgb.o 
 	$(CXX) $(LDFLAGS) -shared -o $(OUTDIR)$@ $^ $(LDLIBS)
-$(OUTDIR)mbed_rgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
+$(OUTDIR)mbedrgb.o: $(EXAMPLE_FILES)mbed_rgb/mbedrgb.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@	
 	
 #cc3200 button example components
@@ -200,11 +200,11 @@ $(OUTDIR)createcomp.o: $(UTIL_FILES)createcomp/createcomp.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $^ -o $@		
 
 # make all
-all: cossb libcblog.so messagetest.comp helloworld.comp compdevmgr.comp cc3200button.comp cc3200gpio.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
+all: cossb libcblog.so messagetest.comp helloworld.comp mbedrgb.comp compdevmgr.comp wavealarm.comp cc3200button.comp cc3200gpio.comp wavealarm.comp compzeroconf.comp compserial.comp createcomp.util
 
 base: cossb
 
-example : helloworld.comp messagepub.comp mbed_rgb.comp cc3200button.comp wavealarm.comp
+example : helloworld.comp messagepub.comp mbedrgb.comp cc3200button.comp wavealarm.comp
 
 component: compserial.comp compsqlite.comp comphttpserver.comp 
 
