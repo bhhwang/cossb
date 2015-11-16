@@ -78,7 +78,14 @@ bool compdevmgr::stop()
 
 void compdevmgr::request(cossb::message::message* msg)
 {
-	//nothing to do
+	try {
+		if(!::strcmp(msg->get_topic(), "service/compdevmgr:deviceprofile")) {
+
+		}
+	}
+	catch(cossb::exception::cossb_exception& e) {
+		cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
+	}
 }
 
 void compdevmgr::response()
@@ -101,49 +108,29 @@ void compdevmgr::response()
 					if(!desc.component.empty()) {
 						if(cossb_component_manager->install(desc.component.c_str())) {
 							cossb_component_manager->run(desc.component.c_str());
-
-							//publish
-							//cossb::message::message msg(this, cossb::message::msg_type::EVENT);
-							//msg["command"] = "announce";
-							//msg["address"] = inet_ntoa(client_addr.sin_addr);
-							//msg["port"] = devinfo["port"];
-							//cossb_broker->publish(msg);
 						}
+						else
+						{
+							cossb_component_manager->stop(desc.component.c_str());
+							cossb_component_manager->run(desc.component.c_str());
+						}
+
+						//publish
+						cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+						msg.set_topic("service/compdevmgr:announce");
+						msg["ipaddress"] = inet_ntoa(client_addr.sin_addr);
+						msg["profile"] = desc.dump();
+						cossb_broker->sendto(msg, desc.component.c_str());
 					}
+					else
+						cossb_log->log(log::loglevel::ERROR, "No information about service component", log::color::COLOR);
 				}
-
-			/*if(devinfo.find("devicename")!= devinfo.end()) {
-				string devname = devinfo["devicename"];
-				if(_dev_container->find(devname)==_dev_container->end()) {
-				cossb_log->log(log::loglevel::INFO, fmt::format("New device {} requests a permission to access service.", devinfo["devicename"], inet_ntoa(client_addr.sin_addr)).c_str());
-
-				if(devinfo.find("componentname")!=devinfo.end()) {
-					string component_name = devinfo["componentname"];
-					if(!component_name.empty())
-						if(cossb_component_manager->install(component_name.c_str())) {
-							cossb_component_manager->run(component_name.c_str());
-
-							_dev_container->insert(deviceinfo_container::value_type(devname, client_addr));
-
-							//message publish
-							cossb::message::message msg(this);
-							msg["command"] = "reconnect";
-							msg["address"] = inet_ntoa(client_addr.sin_addr);
-							msg["port"] = devinfo["port"];
-							cossb_broker->publish(msg);
-						}
-				}
-				}
-			}*/
-
 			}
 			catch(cossb::profile::exception& e) {
 				cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
 			}
 
 		}
-
-
 		boost::this_thread::sleep(boost::posix_time::microsec(100));
 	}
 }
