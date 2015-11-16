@@ -107,16 +107,15 @@ void cc3200button::process()
 
 								if(_button1!=btn1) {
 									cossb::message::message msg(this, cossb::message::msg_type::EVENT);
-									msg.set_topic("service/cc3200button/button1");
+									msg.set_topic("service/cc3200button:button1");
 									msg["button"] = btn1;
 									cossb_broker->publish(msg);
 									_button1 = btn1;
-									cossb_log->log(cossb::log::loglevel::INFO, "published");
 								}
 
 								if(_button2!=btn2) {
 									cossb::message::message msg(this, cossb::message::msg_type::EVENT);
-									msg.set_topic("service/cc3200button/button2");
+									msg.set_topic("service/cc3200button:button2");
 									msg["button"] = btn2;
 									cossb_broker->publish(msg);
 									_button2 = btn2;

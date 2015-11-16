@@ -8,7 +8,7 @@
 #ifndef EXAMPLES_WAVEALARM_WAVEALARM_HPP_
 #define EXAMPLES_WAVEALARM_WAVEALARM_HPP_
 
-#include "../../include/interface/icomponent.hpp"
+#include <interface.hpp>
 
 using namespace cossb;
 
@@ -24,7 +24,12 @@ public:
 	void request(cossb::message::message* msg);
 
 private:
+	void process1();
+	void process2();
 
+private:
+	cossb::base::task _sound_task1;
+	cossb::base::task _sound_task2;
 };
 
 COMPONENT_EXPORT

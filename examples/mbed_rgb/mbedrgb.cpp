@@ -6,148 +6,147 @@
  */
 
 #include "mbedrgb.hpp"
-#include "../../include/componentpack.hpp"
-#include <tuple>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <fcntl.h>
-#include <netinet/tcp.h>
+#include <componentpack.hpp>
+#include <ext/json.hpp>
+using json = nlohmann::json;
 
 using namespace std;
 
-USE_COMPONENT_INTERFACE(mbed_rgb)
+USE_COMPONENT_INTERFACE(mbedrgb)
 
 template <typename T, size_t N>
 T* _begin(T(&arr)[N]) { return &arr[0]; }
 template <typename T, size_t N>
 T* _end(T(&arr)[N]) { return &arr[0]+N; }
 
-mbed_rgb::mbed_rgb()
-:icomponent(COMPONENT(mbed_rgb)),_port(8000){
+mbedrgb::mbedrgb()
+:icomponent(COMPONENT(mbedrgb)){
 	// TODO Auto-generated constructor stub
 
 }
 
-mbed_rgb::~mbed_rgb() {
-	// TODO Auto-generated destructor stub
+mbedrgb::~mbedrgb() {
+	if(_desc)
+		delete _desc;
 }
 
-bool mbed_rgb::setup()
+bool mbedrgb::setup()
 {
-
-	_host = get_profile()->get(cossb::profile::section::property, "host").asString("127.0.0.1");
-	_port = get_profile()->get(cossb::profile::section::property, "port").asUInt(8000);
-
-	cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connecting.. {}:{}",_host, _port).c_str());
-
 	return true;
 }
-bool mbed_rgb::run()
+bool mbedrgb::run()
 {
 	if(!_client_task)
-		_client_task = create_task(mbed_rgb::process);
+		_client_task = create_task(mbedrgb::process);
 
 	return true;
 }
-bool mbed_rgb::stop()
+bool mbedrgb::stop()
 {
 	destroy_task(_client_task);
-	close(socket_fd);
 
 	return true;
 }
-void mbed_rgb::request(cossb::message::messageframe* msg)
+void mbedrgb::request(cossb::message::message* msg)
 {
-	cossb_log->log(cossb::log::loglevel::INFO, "Received message");
+	//device
+	try {
+		if(!::strcmp(msg->get_topic(), "service/compdevmgr:announce")) {
+			if(_desc) {
+				delete _desc;
+				_desc = nullptr;
+			}
 
-	std::tuple<string, vector<unsigned char>> unpacked_data;
-	if(cossb::message::unpack(&unpacked_data, *msg))
-	{
-		vector<unsigned char> data = std::get<1>(unpacked_data);
-		if(std::get<0>(unpacked_data)=="rgb")
-		{
-			cossb_log->log(cossb::log::loglevel::INFO, fmt::format("received size : {}", data.size()).c_str());
-			if(socket_fd && data.size()==3)
-			{
-				unsigned char packet[] = {'/','S','T','A','R','T',data[0], data[1], data[2],'/','E','N','D'};
-				::send(socket_fd, packet, sizeof(unsigned char)*13, 0);
+			if(msg->data.find("profile")!=msg->data.end()) {
+				string profile = msg->data["profile"];
+				_desc = new cossb::profile::device_desc(profile.c_str(), profile.size());
+			}
+
+			string address = "";
+			if(msg->data.find("ipaddress")!=msg->data.end()) {
+				address = msg->data["ipaddress"].get<string>();
+			}
+
+			if(_desc) {
+				_client = new cossb::net::tcp(cossb::net::netType::CLIENT, address.c_str(), _desc->port);
+				_client->async_connect();
+				cossb_log->log(cossb::log::loglevel::INFO, fmt::format("Connected to {}:{}",address, _desc->port).c_str());
 			}
 		}
-		else
-			cossb_log->log(cossb::log::loglevel::ERROR, "Error");
-
-
+		} catch(std::exception& e) {
+			cossb_log->log(cossb::log::loglevel::ERROR, e.what());
 	}
-	else
-		cossb_log->log(cossb::log::loglevel::ERROR, "Cannot unpacked message");
+
+	//control
+	try {
+		if(!::strcmp(msg->get_topic(), "service/cc3200gpio:switch"))
+		{
+			if(msg->data.find("switch")!=msg->data.end())
+			{
+				bool sw = msg->data["switch"].get<bool>();
+				if(sw) {
+					string packet = "{\"r\":1, \"g\":0, \"b\":0}";
+					if(_client)
+						::send(*_client->get_sock(), packet.c_str(), packet.size(), 0);
+				}
+				else {
+					string packet = "{\"r\":0, \"g\":1, \"b\":0}";
+					if(_client)
+						::send(*_client->get_sock(), packet.c_str(), packet.size(), 0);
+				}
+			}
+		}
+	}
+	catch(std::exception& e) {
+		cossb_log->log(cossb::log::loglevel::ERROR, e.what());
+	}
 
 }
 
-void mbed_rgb::process()
+void mbedrgb::process()
 {
-	struct sockaddr_in servaddr;
-	socket_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-
-	if(socket_fd<0)
-		return;
-
-	//non-blocking mode
-	if(fcntl(socket_fd, F_SETFL, O_NONBLOCK | fcntl(socket_fd, F_GETFL))==-1)
-		cossb_log->log(cossb::log::loglevel::ERROR, "Cannot change non-blocking mode..");
-
-	bzero(&servaddr,sizeof(servaddr));
-
-	int timeout = 1;
-	int intvl = 1;
-	int probes = 3;
-	int on = 1;
-
-	::setsockopt(socket_fd, SOL_SOCKET, SO_KEEPALIVE, (void*) &on, sizeof(int));
-	::setsockopt(socket_fd, SOL_TCP, TCP_KEEPIDLE, (void*) &timeout, sizeof(int));
-	::setsockopt(socket_fd, SOL_TCP, TCP_KEEPINTVL, (void*) &intvl, sizeof(int));
-	::setsockopt(socket_fd, SOL_TCP, TCP_KEEPCNT, (void*) &probes, sizeof(int));
-
-	servaddr.sin_family = AF_INET;
-	servaddr.sin_addr.s_addr=inet_addr(_host.c_str());
-	servaddr.sin_port=htons(_port);
-
-	const int buffer_len = 1024;
-
-	while(1)
-	{
-		::connect(socket_fd, (struct sockaddr*)&servaddr, sizeof(servaddr));	//non-blocking mode connection, always return -1
-
-		while(1)
-		{
-			if(socket_fd)
-			{
+	const int buffer_len = 2048;
+	while(1) {
+		try {
+			if(_client) {
 				char* buffer = new char[buffer_len];
 				memset(buffer, 0, sizeof(char)*buffer_len);
+				int len = ::recv(*_client->get_sock(), buffer, buffer_len, 0);
+				if(len>0) {
+					cossb_log->log(cossb::log::loglevel::INFO, fmt::format("{}",buffer).c_str());
 
-				int len = ::recv(socket_fd, buffer, buffer_len, 0);
-				if(len>0)
-					cossb_log->log(cossb::log::loglevel::INFO, fmt::format("{} Bytes received",len).c_str());
-				else if(len==0)
-				{
-					delete []buffer;
-					break;
+					try {
+						json data = json::parse(buffer);
+
+						if(data.find("command")!=data.end() && data.find("switch")!=data.end()){
+							if(!::strcmp(data["command"].get<string>().c_str(), "io")) {
+								bool sw = data["switch"].get<bool>();
+
+								//create message to publish
+								cossb::message::message msg(this, cossb::message::msg_type::EVENT);
+								msg.set_topic("service/cc3200gpio:switch");
+								msg["switch"] = sw;
+								cossb_broker->publish(msg);
+							}
+						}
+
+					} catch(std::exception& e) {
+						cossb_log->log(cossb::log::loglevel::ERROR, e.what());
+					}
 				}
 
-				boost::this_thread::sleep(boost::posix_time::milliseconds(10));
 				delete []buffer;
 			}
+		} catch(thread_interrupted&) {
+			break;
 		}
 
-		boost::this_thread::sleep(boost::posix_time::milliseconds(500));
-
+		boost::this_thread::sleep(boost::posix_time::milliseconds(100));
 	}
 
-	close(socket_fd);
-
 }
-
-bool mbed_rgb::endsWith(char* inString, int len, char* compString) {
+/*
+bool mbedrgb::endsWith(char* inString, int len, char* compString) {
   int compLength = strlen(compString);
 
   //compare the last "compLength" values of the inString
@@ -161,7 +160,7 @@ bool mbed_rgb::endsWith(char* inString, int len, char* compString) {
   return true;
 }
 
-bool mbed_rgb::startsWith(char* inString, char* compString) {
+bool mbedrgb::startsWith(char* inString, char* compString) {
   int compLength = strlen(compString);
 
   //compare the last "compLength" values of the inString
@@ -174,3 +173,4 @@ bool mbed_rgb::startsWith(char* inString, char* compString) {
   }
   return true;
 }
+*/

@@ -9,32 +9,31 @@
 #ifndef EXAMPLES_MBED_RGB_MBEDRGB_HPP_
 #define EXAMPLES_MBED_RGB_MBEDRGB_HPP_
 
-#include "../../include/interface.hpp"
-#include <string>
+#include <interface.hpp>
+#include <net/tcp.hpp>
 
 using namespace std;
 
-class mbed_rgb : public cossb::interface::icomponent {
+class mbedrgb : public cossb::interface::icomponent {
 public:
-	mbed_rgb();
-	virtual ~mbed_rgb();
+	mbedrgb();
+	virtual ~mbedrgb();
 
 	bool setup();
 	bool run();
 	bool stop();
-	void request(cossb::message::messageframe* msg);
+	void request(cossb::message::message* msg);
 
 private:
-	bool connect(const char* ipaddr, unsigned short port);
-	bool endsWith(char* inString, int len, char* compString);
-	bool startsWith(char* inString, char* compString);
+	//bool connect(const char* ipaddr, unsigned short port);
+	//bool endsWith(char* inString, int len, char* compString);
+	//bool startsWith(char* inString, char* compString);
 	void process();
 
 private:
-	int socket_fd;
-	string _host;
-	unsigned short _port;
 	cossb::base::task _client_task;
+	cossb::net::tcp* _client = nullptr;
+	cossb::profile::device_desc* _desc = nullptr;
 
 
 };
