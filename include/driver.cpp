@@ -41,7 +41,7 @@ component_driver::component_driver(const char* component_path)
 			throw exception(excode::COMPONENT_LOAD_FAIL);
 	}
 	catch(driver::exception& e) {
-		cossb_log->log(log::loglevel::ERROR, e.what());
+		cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
 	}
 }
 
@@ -51,7 +51,7 @@ component_driver::~component_driver()
 		unload();
 	}
 	catch(driver::exception& e) {
-		cossb_log->log(log::loglevel::ERROR, e.what());
+		cossb_log->log(log::loglevel::ERROR, e.what(), log::color::COLOR);
 	}
 }
 
